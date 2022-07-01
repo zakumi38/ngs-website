@@ -37,7 +37,7 @@ const CustomTextField = styled(TextField)({
   borderColor: "#000",
 });
 
-const AddUserForm = () => {
+const EditUserForm = () => {
   const [user, setUser] = React.useState("Default");
 
   const handleChange = (event) => {
@@ -55,8 +55,8 @@ const AddUserForm = () => {
         m: "20px 0",
       }}
     >
-      <Grid item xs={12} sx={{ m: 2 }}>
-        <Typography variant="h5">Add New User</Typography>
+      <Grid item xs={12} sx={{ m: 3 }}>
+        <Typography variant="h5">Edit User</Typography>
       </Grid>
       <Grid
         container
@@ -110,7 +110,7 @@ const AddUserForm = () => {
               minWidth: "100px",
             }}
           >
-            Add user
+            Update
           </Button>
         </Grid>
       </Grid>
@@ -118,4 +118,4 @@ const AddUserForm = () => {
   );
 };
 
-export default AddUserForm;
+export default EditUserForm;

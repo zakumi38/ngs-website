@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Breadcrumbs, Grid, Typography, Link } from "@mui/material";
-import AddUserForm from "./add-user-form";
+import EditUserForm from "./edit-user-form";
 
-const AddNewUser = () => {
+const EditUser = () => {
   return (
     <>
       <Container
@@ -30,14 +30,14 @@ const AddNewUser = () => {
               <Link underline="hover" color="inherit" href="/">
                 User
               </Link>
-              <Typography color="text.primary">Add New User</Typography>
+              <Typography color="text.primary">Edit User</Typography>
             </Breadcrumbs>
           </Grid>
         </Grid>
-        <AddUserForm />
+        <EditUserForm />
       </Container>
     </>
   );
 };
 
-export default AddNewUser;
+export default EditUser;
