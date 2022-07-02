@@ -1,0 +1,46 @@
+$bg-color:#c0cddb
+    
+.navbar
+    position: relative 
+    min-height: 10vh
+    width: calc(100% - 13%)
+    left: 13%
+    transition: all 0.5s ease
+    background: $bg-color
+    color:#fff
+    padding: 5px
+    display: flex
+    .nav_Toggle
+        width: 50px
+        height: 10vh
+        display: flex
+        justify-content: center
+        align-items: center
+        button
+            background: $bg-color
+            padding:5px
+            border: 1px solid rgb(104, 104, 104)
+            border-radius: 2px
+    .nav_search
+        margin-left: auto
+        display: flex
+        justify-content: center
+        align-items: center
+        padding-right: 1rem
+        
+
+
+.navbar.active
+    left: 5%
+    width: calc(100% - 5%)
+
+// @media (max-width:800px) 
+    
+
+@media (max-width:600px)
+    .navbar
+        width: 100%
+        left: 0%
+    .navbar.active
+        left: 10%
+        width: calc( 100% - 10% )
