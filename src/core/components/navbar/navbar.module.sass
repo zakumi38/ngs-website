@@ -18,7 +18,7 @@ $bg-color:#c0cddb
         align-items: center
         button
             background: $bg-color
-            padding:5px
+            padding: 5px 10px
             border: 1px solid rgb(104, 104, 104)
             border-radius: 2px
     .nav_search
@@ -26,9 +26,26 @@ $bg-color:#c0cddb
         display: flex
         justify-content: center
         align-items: center
-        padding-right: 1rem
+        margin: auto
+        gap: 10px
+        .searchBtn
+                border: none
+                padding: 9px
+                font-size: 16px
+                border-radius: 5px
+                border: 1px solid #9da8b3
+                background-color: $bg-color
+                color: rgb(104, 104, 104)
+                &:hover
+                    border: 1px solid rgb(104, 104, 104)
         
-
+    .navItem
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: 2rem
+        padding-right: 2rem
+        margin-left: auto
 
 .navbar.active
     left: 5%
@@ -41,6 +58,11 @@ $bg-color:#c0cddb
     .navbar
         width: 100%
         left: 0%
+        .nav_search
+            display: none
+        .navItem
+            gap: 20px
+            padding-right: 20px
     .navbar.active
         left: 10%
         width: calc( 100% - 10% )
