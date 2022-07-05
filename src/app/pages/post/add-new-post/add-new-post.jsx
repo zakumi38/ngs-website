@@ -11,7 +11,7 @@ import {
   Button,
 } from "@mui/material";
 
-export default function AddPost() {
+export default function EditPost() {
   const inputRef = React.useRef();
   const [selectionStart, setSelectionStart] = React.useState();
   const updateSelectionStart = () =>
@@ -47,44 +47,47 @@ export default function AddPost() {
           m: "20px 0",
         }}
       >
-        <Grid item xs={12} sx={{ m: 2 }}>
-          <Typography variant="h5">Add New Post</Typography>
+        <Grid item xs={12} sx={{ m: 2 }} >
+          <Typography variant="h5" marginBottom="40px">Add Post</Typography>
         </Grid>
-        <Grid item container spacing={4} marginBottom="40px" xs={12}>
-          <Grid item xs={6}>
+        <Grid width="100%" paddingLeft="40px">
+            <Grid item container spacing={4}  marginBottom="40px" xs={12}>
+            <Grid item xs={6}>
+                <FormControl fullWidth>
+                <TextField
+                    placeholder="Post Title"
+                    aria-describedby="my-helper-text"
+                />
+                </FormControl>
+            </Grid>
+            <Grid item xs={6} align="right">
+                <FormControl fullWidth>
+                <TextField placeholder="Date" aria-describedby="my-helper-text" />
+                </FormControl>
+            </Grid>
+            </Grid>
+            <Grid item xs={12}  marginBottom="40px">
             <FormControl fullWidth>
-              <TextField
-                placeholder="Post Title"
+                <TextField
+                placeholder="Post Image"
                 aria-describedby="my-helper-text"
-              />
+                />
             </FormControl>
-          </Grid>
-          <Grid item xs={6} align="right">
+            </Grid>
+            <Grid item xs={12}  marginBottom="40px">
             <FormControl fullWidth>
-              <TextField placeholder="Date" aria-describedby="my-helper-text" />
+                <TextField
+                onSelect={updateSelectionStart}
+                inputRef={inputRef}
+                placeholder="Post Description"
+                aria-describedby="my-helper-text"
+                multiline
+                inputProps={{ style: { height: "200px", overflowY: "scroll" } }}
+                />
             </FormControl>
-          </Grid>
+            </Grid>
         </Grid>
-        <Grid item xs={12} marginBottom="40px">
-          <FormControl fullWidth>
-            <TextField
-              placeholder="Post Image"
-              aria-describedby="my-helper-text"
-            />
-          </FormControl>
-        </Grid>
-        <Grid item xs={12} marginBottom="40px">
-          <FormControl fullWidth>
-            <TextField
-              onSelect={updateSelectionStart}
-              inputRef={inputRef}
-              placeholder="Post Description"
-              aria-describedby="my-helper-text"
-              multiline
-              inputProps={{ style: { height: "200px", overflowY: "scroll" } }}
-            />
-          </FormControl>
-        </Grid>
+
         <Grid item align="right" width="100%">
           <Button
             color="primary"
