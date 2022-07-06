@@ -43,10 +43,10 @@ import {
                 aria-label="breadcrumb"
                 sx={{ marginLeft: { xs: "3px" } }}
               >
-                <Link underline="hover" color="inherit" href="/">
+                <Link underline="hover" color="inherit" href="/post-list">
                   Post
                 </Link>
-                <Typography color="text.primary">Post List</Typography>
+                <Link underline="hover" href="/post-list" color="text.primary">Post List</Link>
               </Breadcrumbs>
             </Grid>
             <Grid
@@ -60,8 +60,10 @@ import {
                 color="primary"
                 sx={{ height: { sm: "100%" }, marginRight: "5px" }}
               >
-                <FontAwesomeIcon className={postListStyle.plus} icon={faPlus} />
-                Add Post
+                <Link color="#fafafa" underline="none" href="/add-new-post">
+                  <FontAwesomeIcon className={postListStyle.plus} icon={faPlus} />
+                  Add Post
+                </Link>
               </Button>
             </Grid>
           </Grid>

@@ -20,8 +20,6 @@ function View() {
         <Route path='/post-list' element={<PostList />} ></Route>
         <Route path='/add-new-post' element={<AddPost />} ></Route>
         <Route path='/edit-post' element={<EditPost />} ></Route>
-
-        {/* <Route path='*' element={<Error />}></Route> */}
     </Routes>
   )
 }

@@ -59,8 +59,8 @@ const UserList = () => {
               color="primary"
               sx={{ height: { sm: "100%" }, marginRight: "5px" }}
             >
-              <FontAwesomeIcon className={userListStyle.plus} icon={faPlus} />
-              Add User
+              <Link href="/add-new-user" color={"#fafafa"} underline="none"><FontAwesomeIcon className={userListStyle.plus} icon={faPlus} />
+              Add User</Link>
             </Button>
           </Grid>
         </Grid>

@@ -30,14 +30,6 @@ const HeaderComp = () => {
             setWide(false)
         }
     }
-
-    // useEffect(()=>{
-
-    //     if(isMatch){
-
-    //         setWide(false)
-    //     }
-    // }, [])
     
     const slideIn = ()=>{
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Breadcrumbs,
   FormControl,
@@ -10,12 +10,16 @@ import {
   Box,
   Button,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function EditPost() {
+  let navigate = useNavigate
+
   const inputRef = React.useRef();
   const [selectionStart, setSelectionStart] = React.useState();
   const updateSelectionStart = () =>
     setSelectionStart(inputRef.current.selectionStart);
+
   return (
     <Box padding="20px" minHeight="100vh">
       <Typography variant="h4" display="inline-block" margin="0 20px 20px 0">
@@ -25,13 +29,13 @@ export default function EditPost() {
         <Link
           underline="hover"
           color="inherit"
-          href="/material-ui/getting-started/installation/"
+          href="/post-list"
         >
           Post
         </Link>
         <Link
           underline="hover"
-          href="/material-ui/getting-started/installation/"
+          href="/add-new-post"
           color="black"
         >
           Add New Post

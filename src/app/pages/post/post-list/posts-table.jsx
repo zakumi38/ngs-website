@@ -5,7 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import {  Stack, Typography } from "@mui/material";
+import {  Stack,Link , Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import styled from "@emotion/styled";
@@ -116,9 +116,9 @@ const UsersTable = () => {
               </TableCell>
               <TableCell>
                 <Stack direction="row" spacing={2}>
-                  <ActionIcon color="#2e7d32" icon={faPenToSquare} />
+                  <Link href="/edit-post"><ActionIcon color="#2e7d32" icon={faPenToSquare} /></Link>
 
-                  <ActionIcon color="#d32f2f" icon={faTrash} />
+                  <Link href="/delete-post"><ActionIcon color="#d32f2f" icon={faTrash} /></Link>
                 </Stack>
               </TableCell>
             </TableRow>

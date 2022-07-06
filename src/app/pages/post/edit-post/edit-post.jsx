@@ -25,13 +25,13 @@ export default function EditPost() {
         <Link
           underline="hover"
           color="inherit"
-          href="/material-ui/getting-started/installation/"
+          href="/post-list"
         >
           Post
         </Link>
         <Link
           underline="hover"
-          href="/material-ui/getting-started/installation/"
+          href="/edit-post"
           color="black"
         >
           Edit Post
