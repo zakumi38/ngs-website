@@ -1,68 +1,26 @@
-$bg-color:#c0cddb
+
+
+.nav
+    position: fixed
+    left: 240px
+    width: calc(100% - 240px)
+    padding: 5px 20px
+    /* background: darken(#fff, 70) */
+    background: #c0cddb
+    transition: left .3s linear
+
+    button
+        /* color: #eee */
+
+.newNav
+    width: calc(100% - 65px)
+    left: 65px
+
+.fullNav
+    width: 100%
+    left: 0 
+
+.navBtn
+    /* color: #eee */
+    color: #333
     
-.navbar
-    position: relative 
-    min-height: 10vh
-    width: calc(100% - 13%)
-    left: 13%
-    transition: all 0.5s ease
-    background: $bg-color
-    color:#fff
-    padding: 5px
-    display: flex
-    .nav_Toggle
-        width: 50px
-        height: 10vh
-        display: flex
-        justify-content: center
-        align-items: center
-        button
-            background: $bg-color
-            padding: 5px 10px
-            border: 1px solid rgb(104, 104, 104)
-            border-radius: 2px
-    .nav_search
-        margin-left: auto
-        display: flex
-        justify-content: center
-        align-items: center
-        margin: auto
-        gap: 10px
-        .searchBtn
-                border: none
-                padding: 9px
-                font-size: 16px
-                border-radius: 5px
-                border: 1px solid #9da8b3
-                background-color: $bg-color
-                color: rgb(104, 104, 104)
-                &:hover
-                    border: 1px solid rgb(104, 104, 104)
-        
-    .navItem
-        display: flex
-        justify-content: center
-        align-items: center
-        gap: 2rem
-        padding-right: 2rem
-        margin-left: auto
-
-.navbar.active
-    left: 5%
-    width: calc(100% - 5%)
-
-// @media (max-width:800px) 
-    
-
-@media (max-width:600px)
-    .navbar
-        width: 100%
-        left: 0%
-        .nav_search
-            display: none
-        .navItem
-            gap: 20px
-            padding-right: 20px
-    .navbar.active
-        left: 10%
-        width: calc( 100% - 10% )

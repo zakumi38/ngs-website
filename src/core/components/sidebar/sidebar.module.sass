@@ -1,135 +1,117 @@
-$bg-color:#c0cddb
 
-.side
+
+.sidebar
+    width: 240px
     position: fixed
-    width: calc( 100% - 87% )
-    min-height: 100vh
-    background: $bg-color
-    padding:1rem 0.5rem
-    transition: all 0.5s !important
-    overflow: hidden
-    &_logo
-        display: flex
-        align-items: center
-        justify-content: center
-        min-height: 40px
-        width: 100%
-        text-decoration: none
-        p
-           border: 2px solid #fff
-           color: #fff
-           border-radius: 5px
-           font-size: 1rem
-           letter-spacing: 3px
-           padding: 0.5rem 1rem
-           text-transform: uppercase
-           box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px
-    
-    &_menu
-        margin-top: 1rem
-        display: flex
-        justify-content: center
-        flex-direction: column
-        padding: 2px
-        a
-            text-decoration: none
-            color: white
-            font-size: 0.9rem
-            padding: 10px 0px
-            padding-left: 4px
-            transition: all 0.5s
-            border-radius: 20px
-            span
-                margin-left: 0.5rem
-                animation: menuTextani 0.7s ease-out forwards
-            &:hover
-                color: rgb(104, 104, 104)
-                border: 2px solid rgb(104, 104, 104) 
-        a.link_active
-            color: rgb(104, 104, 104)
-            border: 2px solid rgb(104, 104, 104) 
+    top: 0
+    bottom: 0
+    left: 0
+    /* background: darken(#fff, 70) */
+    background: #c0cddb
+    /* color: #c0cddb */
+    color: darken(#fff, 90)
+    transition: all .3s linear
 
-@keyframes menuTextani 
-            from
-                opacity: 0
-            to
-                opacity: 1          
+.newSidebar
+    width: 65px
+    padding: 0 2px
+
+    .closeNav
+        position: absolute
+        left: 68px
+
+
+
+.logoImg
+    max-width: 100%
+    width: 100px
+    height: auto
     
-.side_bottom
+
+.newLogo
+    width: 40px !important
+    height: 40px !important
+
+.social_icons
+    font-size: 23px
+    color: #ddd
+
+
+.closeNav
+    font-size: 23px
     position: absolute
-    bottom:0px
-    left:0px
+    top: 15px
+    right: 20px
+    cursor: pointer
+
+.sideMenuContainer
+    height: 70vh
+    overflow: hidden
+
+    .sideMenuContent
+        overflow-y: auto
+        height: 100%
+        scrollbar-width: none
+
+        &::-webkit-scrollbar 
+            display: none
+        
+
+.listItems
+    padding: 15px 5px 15px 20px
     width: 100%
-    height: 10%
-    display: flex
-    justify-content: center
-    align-items: center
-    font-size: 20px
-    svg
-        path
-            color:white
-        
+    /*color: lighten(#333, 60) */
+    color: darken(#fff, 90)
+    transition: all .2s linear
+    position: relative
+    text-decoration: none
+    
+    .icons
+        width: 20px
 
-.side.active
-    width: calc( 100% - 95% )
-    .side
-        &_logo
-            p
-                padding: 0.2rem 0.4rem
-        &_menu
-            a
-                text-align: center
-                padding-left: 0px
-            span
-                display: none
-
-@media (max-width:950px) 
-    .side_menu
-        a
-            padding-left: 0px
-            span
-                font-size: 0.8rem
-                margin-left: 0.3rem
-
-@media (max-width:860px) 
-    .side_menu
-        a
-            text-align: center
-            span
-                display: none
-
-@media (max-width:800px) 
-    .side
-        &_logo
-            p
-                border: none
-                box-shadow: none
-
-@media (max-width:600px)
-    .side
-        width: 0%
-        min-height: 0vh
+    &:before
+        position: absolute
+        content: ''
+        width: 5px
+        height: 100%
+        background: darken(skyblue, 40)
+        left: 0
+        top: 0
         opacity: 0
-        &_logo
-            p
-                font-size: 16px
-                padding: 2px
-                letter-spacing: 1px
-        
-    .side.active
-        width: calc( 100% - 90% )
-        min-height: 100vh
-        opacity: 1
+        transition: all .2s linear
 
-@media (max-width:500px)
-    .side_menu
-        a.link_active
-            border: none
-    
-        
-        
-        
+    &:hover
+        /* background: lighten(#444, 40) */
+        background: lighten(#000, 70)
+        /* color: darken(#ddd, 60) */
+        color: darken(#ddd, 70)
 
-    
+        &:before    
+            opacity: 1
+
+.newItems
+    padding: 10px !important
+
+    .icons
+        margin-left: 10px
+        font-size: 30px
     
 
+.endIcon
+    position: absolute
+    right: 15px
+    margin-top: 4px
+
+
+    
+.slide_remove
+
+    left: -200%
+    z-index: 1
+
+
+.slide_in
+    left: 0
+    
+.d_none
+    display: none !important

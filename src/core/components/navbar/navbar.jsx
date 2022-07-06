@@ -1,60 +1,93 @@
-import React, { useEffect } from "react";
-import navBarStyles from "./navbar.module.sass";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBars,
-  faBell,
-  faEnvelope,
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
-import { TextField, Badge, Avatar } from "@mui/material";
-import { Link } from "react-router-dom";
+import { faBars, faList, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Box, Button, IconButton, Stack } from '@mui/material'
+import { styled, alpha } from '@mui/material/styles'
+import React from 'react'
+import navbar from './navbar.module.sass'
+import NavMenuComp from './sub_components/nav-menu'
 
-const Navbar = ({ navToggle, setToggle }) => {
-  const handleOnClick = () => {
-    setToggle(!navToggle);
-  };
+const SearchContainer = styled('form')(({ theme }) => ({
 
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setToggle(false);
-    });
-  }, [setToggle]);
+  height: `70%`,
+  background: 'inherit'
 
+}))
+
+const SearchItem = styled('input')(({ theme }) => ({
+
+  background: 'inherit',
+  width: '50%',
+  height: '100%',
+  border: `1px solid ${alpha(theme.palette.grey[600], .5)}`,
+  borderRadius: '20px',
+  outline: 'none',
+  padding: '0 20px',
+  transition: 'all .3s linear',
+  color: '#222',
+  // color: alpha(theme.palette.common.white, .8),
+
+  '&::placeholder': {
+
+    // color: alpha(theme.palette.common.white, .5)
+    color: '#222',
+
+  },
+
+  '&:focus': {
+    width: '100%',
+    // outline: `1px solid ${alpha(theme.palette.common.white, .5)}`,
+    outline: 'none'
+  },
+
+  [theme.breakpoints.down('md')]: {
+
+    width: '55%'
+  },
+
+  [theme.breakpoints.down('sm')]: {
+
+    width: '80%'
+  }
+
+}))
+
+const NavbarComp = ({ wide, handleWide, isMatch, slideIn }) => {
   return (
-    <nav
-      className={`${navBarStyles.navbar} 
-    ${navToggle ? navBarStyles.active : ""}`}
-    >
-      <div className={navBarStyles.nav_Toggle}>
-        <button onClick={handleOnClick}>
-          <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
-        </button>
-      </div>
+    <>
 
-      <div className={navBarStyles.nav_search}>
-        <TextField id="outlined-size-small" label="Search..." size="small" />
-        <button className={navBarStyles.searchBtn}>
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </button>
-      </div>
+      {/* This is Navbar Session */}
 
-      <div className={navBarStyles.navItem}>
-        <Badge badgeContent={4} color="primary">
-          <FontAwesomeIcon size="md" icon={faBell} />
-        </Badge>
-        <Badge badgeContent={4} color="primary">
-          <FontAwesomeIcon size="1x" icon={faEnvelope} />
-        </Badge>
-        <Link to="/">
-          <Avatar
-            sx={{ width: "35px", height: "35px", bgcolor: "primary" }}
-            src="/broken-image.jpg"
-          />
-        </Link>
-      </div>
-    </nav>
-  );
-};
+      <Box component='div' className='nav'>
+        <Stack component='div' direction='row' justifyContent='space-between' className={`${navbar.nav} ${wide && navbar.newNav} ${isMatch && navbar.fullNav}`}>
+          <Stack direction='row' spacing={2} alignItems='center'>
 
-export default Navbar;
+            {/* Buger Bar Session */}
+
+            {
+              !isMatch ?
+                <IconButton onClick={handleWide}>
+                  <FontAwesomeIcon icon={faList} className={navbar.navBtn} />
+                </IconButton> :
+                <IconButton onClick={slideIn}>
+                  <FontAwesomeIcon icon={faBars} className={navbar.navBtn} />
+                </IconButton>
+            }
+
+            {/* Search Box Session */}
+
+            <SearchContainer>
+              <SearchItem placeholder='Search...' type='search' sx={{position: 'relative'}}/>
+            </SearchContainer>
+
+          </Stack>
+
+            {/* Navbar Menu Session */}
+            
+            <NavMenuComp />
+        </Stack>
+      </Box>
+    </>
+  )
+}
+
+export default NavbarComp
