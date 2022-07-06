@@ -107,11 +107,12 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                                 sideMenu.map(item =>
 
                                     <ListItem key={item.id} sx={!wide ? { px: '5px', py: '3px' } : { px: 0, py: '3px' }}>
-                                        <NavLink to={item.path} className={`${sidebar.listItems} ${wide && sidebar.newItems}`}>
+                                        <a href={item.path} className={`${sidebar.listItems} ${wide && sidebar.newItems}`}>
                                             <FontAwesomeIcon icon={item.icon} className={sidebar.icons} />
                                             <Box component='span' sx={{ ml: '5px', fontSize: '15px', fontFamily: 'Poppins' , textTransform:'none' }} className={wide && sidebar.d_none} > {item.title} </Box>
                                             <FontAwesomeIcon icon={item.down} className={`${sidebar.endIcon} ${wide && sidebar.d_none}`}  />
-                                        </NavLink>
+                                        </a>
+                                        
                                     </ListItem>
                                 )
                             }
