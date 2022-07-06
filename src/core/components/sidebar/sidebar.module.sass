@@ -1,0 +1,117 @@
+
+
+.sidebar
+    width: 240px
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    /* background: darken(#fff, 70) */
+    background: #c0cddb
+    /* color: #c0cddb */
+    color: darken(#fff, 90)
+    transition: all .3s linear
+
+.newSidebar
+    width: 65px
+    padding: 0 2px
+
+    .closeNav
+        position: absolute
+        left: 68px
+
+
+
+.logoImg
+    max-width: 100%
+    width: 100px
+    height: auto
+    
+
+.newLogo
+    width: 40px !important
+    height: 40px !important
+
+.social_icons
+    font-size: 23px
+    color: #ddd
+
+
+.closeNav
+    font-size: 23px
+    position: absolute
+    top: 15px
+    right: 20px
+    cursor: pointer
+
+.sideMenuContainer
+    height: 70vh
+    overflow: hidden
+
+    .sideMenuContent
+        overflow-y: auto
+        height: 100%
+        scrollbar-width: none
+
+        &::-webkit-scrollbar 
+            display: none
+        
+
+.listItems
+    padding: 15px 5px 15px 20px
+    width: 100%
+    /*color: lighten(#333, 60) */
+    color: darken(#fff, 90)
+    transition: all .2s linear
+    position: relative
+    text-decoration: none
+    
+    .icons
+        width: 20px
+
+    &:before
+        position: absolute
+        content: ''
+        width: 5px
+        height: 100%
+        background: darken(skyblue, 40)
+        left: 0
+        top: 0
+        opacity: 0
+        transition: all .2s linear
+
+    &:hover
+        /* background: lighten(#444, 40) */
+        background: lighten(#000, 70)
+        /* color: darken(#ddd, 60) */
+        color: darken(#ddd, 70)
+
+        &:before    
+            opacity: 1
+
+.newItems
+    padding: 10px !important
+
+    .icons
+        margin-left: 10px
+        font-size: 30px
+    
+
+.endIcon
+    position: absolute
+    right: 15px
+    margin-top: 4px
+
+
+    
+.slide_remove
+
+    left: -200%
+    z-index: 1
+
+
+.slide_in
+    left: 0
+    
+.d_none
+    display: none !important

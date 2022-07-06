@@ -1,0 +1,20 @@
+.home
+    width: calc(100% - 13%)
+    min-height: 88.2vh
+    position: relative
+    top:0
+    left:13%
+    padding:10px
+    transition: all 0.5s
+
+.home.active
+    left: 5%
+    width: calc(100% - 5%)
+
+@media (max-width:600px)
+    .home
+        width: 100%
+        left: 0%
+    .home.active
+        left: 10%
+        width: calc( 100% - 10% )
