@@ -6,21 +6,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Chip, Stack, Link ,Typography } from "@mui/material";
+import { Chip, Stack, Link, Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import styled from "@emotion/styled";
 function createData(id, userName, emailAddress, roles, status) {
   return { id, userName, emailAddress, roles, status };
 }
-// const tableHeader = [
-//   "Id",
-//   "User Name",
-//   "Email Address",
-//   "Roles",
-//   "Status",
-//   "Actions",
-// ];
 
 const ActionIcon = styled(FontAwesomeIcon)(
   {
@@ -73,7 +65,7 @@ const UsersTable = () => {
         <TableBody>
           {rows.map((row, index) => (
             <TableRow
-              key={row.index}
+              key={index}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell>
@@ -97,9 +89,13 @@ const UsersTable = () => {
               </TableCell>
               <TableCell>
                 <Stack direction="row" spacing={2}>
-                  <Link href='/edit-user' ><ActionIcon color="#2e7d32" icon={faPenToSquare} /></Link>
+                  <Link href="/edit-user">
+                    <ActionIcon color="#2e7d32" icon={faPenToSquare} />
+                  </Link>
 
-                  <Link href="/delete-user"><ActionIcon color="#d32f2f" icon={faTrash} /></Link>
+                  <Link href="/delete-user">
+                    <ActionIcon color="#d32f2f" icon={faTrash} />
+                  </Link>
                 </Stack>
               </TableCell>
             </TableRow>

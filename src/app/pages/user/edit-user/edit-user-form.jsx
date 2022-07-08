@@ -3,6 +3,7 @@ import { styled } from "@mui/system";
 import React from "react";
 
 import MenuItem from "@mui/material/MenuItem";
+import StyledButton from "../../component/StyledButton";
 
 const currencies = [
   {
@@ -68,7 +69,7 @@ const EditUserForm = () => {
       >
         {items.map((item, index) => {
           return (
-            <Grid item xs={12} sm={5}>
+            <Grid key={index} item xs={12} sm={5}>
               <CustomTextField
                 key={index}
                 id="outlined-basic"
@@ -101,7 +102,7 @@ const EditUserForm = () => {
           sm={11}
           sx={{ display: "flex", justifyContent: "end" }}
         >
-          <Button
+          <StyledButton
             variant="contained"
             color="primary"
             sx={{
@@ -111,7 +112,7 @@ const EditUserForm = () => {
             }}
           >
             Update
-          </Button>
+          </StyledButton>
         </Grid>
       </Grid>
     </Grid>
