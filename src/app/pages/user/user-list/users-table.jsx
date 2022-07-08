@@ -73,7 +73,7 @@ const UsersTable = () => {
         <TableBody>
           {rows.map((row, index) => (
             <TableRow
-              key={row.index}
+              key={index}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell>
