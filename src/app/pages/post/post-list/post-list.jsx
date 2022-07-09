@@ -65,7 +65,6 @@ const UserList = () => {
             >
               <Link color="#fafafa" underline="none" href="/add-new-post">
                 <FontAwesomeIcon className={postListStyle.plus} icon={faPlus} />
-                Add Post
               </Link>
             </Button>
           </Grid>

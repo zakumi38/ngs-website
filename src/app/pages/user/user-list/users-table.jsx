@@ -82,7 +82,7 @@ const UsersTable = () => {
               </TableCell>
               <TableCell>
                 <Chip
-                  sx={{ borderRadius: "10px" }}
+                  sx={{ borderRadius: "5px" }}
                   label={row.status}
                   color={row.status === "Active" ? "success" : "error"}
                 />

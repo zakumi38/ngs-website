@@ -54,16 +54,15 @@ const UserList = () => {
             sm={4}
             sx={{ textAlign: "end", padding: "0 !important" }}
           >
-            <StyledButton
+            <Button
               variant="contained"
               color="primary"
               sx={{ height: { sm: "100%" }, marginRight: "5px" }}
             >
               <Link href="/add-new-user" color={"#fafafa"} underline="none">
                 <FontAwesomeIcon className={userListStyle.plus} icon={faPlus} />
-                Add User
               </Link>
-            </StyledButton>
+            </Button>
           </Grid>
         </Grid>
         <UserTable />
