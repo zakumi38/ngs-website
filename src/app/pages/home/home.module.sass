@@ -1,0 +1,126 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+.container
+    margin: 8rem auto
+    width: 70%
+
+
+.row
+    display: flex
+    align-items: flex-start
+    flex-wrap: wrap
+    justify-content: space-evenly
+
+.card 
+    max-width: 370px
+    max-height: 480px
+    width: auto
+    height: auto
+    margin-bottom: 2rem
+    border-radius: 5px
+    overflow: hidden
+    &:hover
+        .imageBox
+            .link
+                opacity: 0.4
+
+.imageBox
+    position: relative
+
+    .img
+        max-width: 100%
+        height: 100%
+        overflow: hidden
+
+    .link
+        background-color: #5b83cd
+        position: absolute
+        top: 0
+        right: 0
+        width: 100%
+        height: 100% - 2%
+        opacity: 0
+
+
+
+
+
+.textBox
+    padding: 2.5rem
+    overflow: hidden
+    background-color: #f7f6fb
+    margin-top: -10px
+
+    
+    .title
+        text-transform: uppercase
+        text-align: center
+        margin-bottom: 1rem
+
+    .description
+        color: #7f7f7f
+        font-weight: 300
+        text-align: center
+        height: 100px
+        margin: auto
+
+
+@media screen and (max-width : 1740px) 
+
+    .container
+        width: 80%
+
+@media screen and (max-width : 1540px)
+
+    .container
+        width: 90%
+
+@media screen and (max-width : 1400px) 
+
+    .container
+        width: 95%
+
+@media screen  and (max-width : 1300px)
+
+    .card
+        max-width: 350px
+        max-height: 450px
+
+@media screen  and (max-width : 1200px)
+
+    .card
+        max-width: 300px
+        max-height: 440px
+
+@media screen  and (max-width : 990px)
+
+    .container
+        width: 80%
+
+    .card
+        max-width: 330px
+        max-height: 460px
+
+    
+
+@media screen  and (max-width : 858px)
+
+    .container
+        width: 95%
+
+    .card
+        max-width: 330px
+        max-height: 430px
+
+
+@media screen  and (max-width : 735px)
+
+    .container
+        width: 80%
+
+    .card
+        max-width: 540px
+        max-height: 530px

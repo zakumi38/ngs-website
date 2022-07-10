@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900")
+
+$grid-columns: 12
+$grid-gutter-width: 30px
+
+$container-max-widths: (sm: 540px,md: 720px,lg: 960px,xl: 1140px,xxl: 1200px)
+$grid-breakpoints: ("xs": 0,"sm": 576px,"md": 768px,"lg": 992px,"xl": 1200px,"xxl": 1300px)
+
+$primaryColor: #5b83cd
+$secondaryColor: #c280bf
+$textColor: #212529
+$textColor2: #4c4c4c
+
+@mixin make-container()
+  width: 100%
+  padding: 0 ($grid-gutter-width / 2)
+  margin: 0 auto
+
+@mixin make-container-max-widths()
+  @each $key, $val in $container-max-widths
+    @include breakpoints($key)
+      max-width: $val
+
+@mixin make-col($size, $columns: $grid-columns)
+  flex: 0 0 percentage($size / $columns)
+  max-width: percentage($size / $columns)
+
+@mixin flexCenter($direction)
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: $direction
+
+@mixin rounded-icon()
+  border-radius: 50%
+  color: #fff
+  width: 40px
+  height: 40px
+  &:hover
+    background-color: $primaryColor
+
+@mixin hoverColor($color1, $color2)
+  color: $color1
+  &:hover
+    color: $color2
+
+@mixin xs
+  @media (min-width: map-get($grid-breakpoints,"xs"))
+    @content
+
+@mixin sm
+  @media (min-width: map-get($grid-breakpoints,"sm"))
+    @content
+
+@mixin md
+  @media (min-width: map-get($grid-breakpoints,"md"))
+    @content
+
+@mixin lg
+  @media (min-width: map-get($grid-breakpoints,"lg"))
+    @content
+
+@mixin xl
+  @media (min-width: map-get($grid-breakpoints,"xl"))
+    @content
+
+@mixin breakpoints($bp: 0)
+  @media (min-width: map-get($grid-breakpoints,$bp))
+    @content
+
+.col
+  position: relative
+  width: 100%
+  min-height: 1px
+
+@include xs
+  @for $i from 1 through $grid-columns
+    .col_xs_#{$i}
+      @include make-col($i)
+      padding: 0 30px
+
+@include sm
+  @for $i from 1 through $grid-columns
+    .col_sm_#{$i}
+      @include make-col($i)
+      padding: 0 30px
+
+@include md
+  @for $i from 1 through $grid-columns
+    .col_md_#{$i}
+      @include make-col($i)
+      padding: 0 30px
+
+@include lg
+  @for $i from 1 through $grid-columns
+    .col_lg_#{$i}
+      @include make-col($i)
+      padding: 0 30px
+
+@include xl
+  @for $i from 1 through $grid-columns
+    .col_xl_#{$i}
+      @include make-col($i)
+      padding: 0 30px
+
+*,
+*::after,
+*::before
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+
+body
+  font-family: Poppins, "san-serif"
+  color: $textColor
+
+h4
+  color: $textColor2
+
+a
+  color: $textColor2
+  text-decoration: none
+  transition: all 0.2s ease-in-out 0s
+
+li
+  list-style-type: none
+
+.container
+  @include make-container()
+  @include make-container-max-widths()
+  background-color: #fff
+  padding: 80px 0 70px 0
+  @include lg
+    padding: 120px 0 130px 0
+
+.row
+  display: flex
+  flex-flow: row wrap
+  text-align: center
+  @include md
+    text-align: left
+
+.color_bg_icon
+  @include rounded-icon()
+  @include flexCenter(row)
+  display: inline-flex
+  margin: 0 5px
+
+.fa_facebook
+  background-color: #3b5998
+
+.fa_twitter
+  background-color: #55acee
+
+.fa_youtube_play
+  background-color: #e52d27
+
+h4.widget_title
+  font-size: 30px
+  letter-spacing: 7px
+  line-height: 1
+  margin-bottom: 26px !important
+  text-transform: uppercase
+  font-weight: 700
+
+.widget_social_buttons
+  margin-top: 20px
+
+.widget
+  margin-top: 0
+  @include xs
+    margin-top: 53px
+
+.cat_item
+  width: 200px
+  border-bottom: 1px solid #e1e1e1
+  display: flex
+  line-height: 26px
+  padding-bottom: 9px
+  padding-top: 9px
+  &:last-child
+    border: none
+
+.links .cat_item a
+  @include hoverColor($secondaryColor, $primaryColor)
+
+.services_links .cat_item a
+  @include hoverColor($primaryColor, $secondaryColor)
+
+.links ul,
+.services_links ul
+  @include flexCenter(column)
+  @include xs
+    align-items: center
+
+  @include md
+    align-items: start
+
+.links ul li a:before,
+.services_links ul li a:before
+  color: $primaryColor
+  content: "\f054"
+  font-family: "FontAwesome"
+  font-size: 14px
+  padding-right: 10px
+  position: relative
+
+.widget_icons_list h4
+  margin-bottom: 13px
+  margin-top: 39px
+  :first-child
+    margin-top: 0
+
+.widget_icons_list a
+  color: $textColor2
+  font-size: 12px
+  font-weight: 500
+  letter-spacing: 0.2em
+  text-transform: uppercase
+  color: $primaryColor
+  &:hover
+    color: $secondaryColor
+
+  &:last-child
+    color: $secondaryColor
+    &:hover
+      color: $primaryColor
+
+.fa_map_marker,
+.fa_envelope_o
+  color: $primaryColor
+  margin-right: 10px
+
+.small_text
+  margin: 10px 0

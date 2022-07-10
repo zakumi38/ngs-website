@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Pacifico&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Secular+One&display=swap')
+
+// font-family: 'Fascinate', cursive;
+// font-family: 'Noto Serif', serif;
+// font-family: 'Pacifico', cursive;
+// font-family: 'Poppins', sans-serif;
+// font-family: 'Secular One', sans-serif;
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+
+//Css for navBar
+
+.page_title
+    width: 100%
+    height : 45vh
+    background-size: cover
+    background-image: url("../../../assets/breadcrumb.png")
+
+.title_wrapper
+    width: 100%
+    height: 80%
+    padding-right: 15px
+    padding-left: 15px
+
+
+.navBar
+    width: 100%
+    height: 40%
+    padding: 0 35px
+    display: flex
+    align-items: center
+
+.brand
+    font-family: 'Poppins', sans-serif
+    width: 15%
+    height: 100%
+    display: flex
+    align-items: center
+    .logo
+        display: flex
+        align-items: center
+        justify-content: center
+        text-decoration: none
+        color: #fff
+        .logo_text
+            border: 2px solid #fff
+            border-radius: 5px
+            font-size: 24px
+            letter-spacing: 10px
+            padding: 3px 6px 3px 14px
+            text-transform: uppercase
+
+.top_nav
+    width: 80%
+    height: 100%
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    .nav
+        list-style-type: none
+        display: flex
+        height: 100%
+        li
+            height: 100%
+            list-style: none
+            font-family: "poppins", sans-serif
+            text-transform: uppercase
+            padding: 0 20px 
+            a
+                height: 100%
+                display: flex
+                align-items: center
+                text-decoration: none
+                font-size: 14px
+                font-weight: 500
+                letter-spacing: 4px
+                line-height: 30px
+                color: #fff
+
+.toggle_menu_wrapper
+    width: 5%
+    height: 100%
+    display: flex 
+    .toggle_menu
+        width: 100%
+        height: 100%
+        justify-content: end
+        display: none
+        .nav_toggler
+            width: 50%
+            height: 50%
+            background-color: white
+            cursor: pointer
+            display: flex
+            justify-content: center
+            align-items: center
+            .line_wrapper
+                div
+                    width: 2rem
+                    height: 0.15rem
+                    margin: 0.3rem
+                    background: white
+                .line1
+                    transform: rotate(0deg) translate(0,0)
+                    transition: 0.3s linear
+                    background-color: #494848
+                .line2
+                    transform: none
+                    transition: 0.3s linear
+                    background-color: #494848
+                .line3
+                    transform: rotate(0deg) translate(0,0)
+                    transition: 0.3s linear
+                    background-color: #494848
+    .side_menu
+        width: 50%
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        .side_toggler
+            width: 100%
+            height: 50%
+            cursor: pointer
+            display: flex
+            justify-content: center
+            align-items: center
+            position: relative
+            z-index: 1
+            transform: translateX(0px)
+            transition: 0.3s ease-in
+            &:hover
+                .line_wrapper
+                    div
+                    .line1
+                        transform: translateY(-50%)
+                    .line3
+                        transform: translateY(50%)
+            .line_wrapper
+                div
+                    width: 1.5rem
+                    margin: 0.3rem
+                    background: white
+                .line1
+                    height: 3px
+                    transform: rotate(0deg) translate(0,0)
+                    transition: 0.3s linear
+                .line2
+                    height: 3px
+                    transform: none
+                    transition: 0.3s linear
+                .line3
+                    height: 3px
+                    transform: rotate(0deg) translate(0,0)
+                    transition: 0.3s linear
+        // .side_toggler:hover
+        //     .line_wrapper
+        //         div
+        //         .line1
+        //             transform: translateY(-50%) 
+        //         .line3
+        //             transform: translateY(50%)
+                         
+//nav toggler animate
+.nav_close_toggler
+    background-color: #5b83cd
+    position: fixed
+    top: 0
+    right: 0
+    z-index: 2
+    width: 69px
+    height: 69px
+    cursor: pointer
+    display: flex
+    justify-content: center
+    align-items: center
+    .line_wrapper
+        div
+            width: 2rem
+            height: 0.18rem
+            margin: 0.3rem
+            background: #ffffff
+        .line1
+            transform: rotate(-45deg) translate(-5px, 6px)
+            transition: 0.3s linear
+        .line2
+            opacity: 0
+            transition: 0.3s linear
+        .line3
+            transform: rotate(45deg) translate(-5px, -6px)
+            transition: 0.3s linear
+//nav toggler animate end
+
+//side toggler animate
+.side_close_toggler
+    position: fixed
+    cursor: pointer
+    z-index: 2
+    transform: translateX(-330px)
+    transition: 0.3s ease-in
+    .line_wrapper
+        div
+            width: 2rem
+            height: 0.18rem
+            margin: 0.3rem
+            background: #ffffff
+        .line1
+            transform: rotate(-45deg) translate(-5px, 6px)
+            transition: 0.3s linear
+        .line2
+            opacity: 0
+            transition: 0.3s linear
+        .line3
+            transform: rotate(45deg) translate(-5px, -6px)
+            transition: 0.3s linear
+//side toggler animate end
+
+.breadcumbBar
+    width: 100%
+    height: 40%
+
+
+@media screen and (max-width: 1400px) 
+    .page_title
+        height: 38vh
+    
+    .title_wrapper
+        height: 80%
+
+@media screen and (max-width: 1190px)
+    .navBar
+        padding: 0
+    .brand
+        width: 85%
+        align-items: start
+        margin-top: 20px
+    .top_nav
+        display: none
+    .title_wrapper
+        padding-right: 0
+        
+    .toggle_menu_wrapper
+        width: 15%
+        .toggle_menu
+            display: flex
+            .nav_toggler
+                width: 70px
+                height: 70px
+            
+        .side_menu
+            display: none
+
+@media screen and (max-width: 850px) 
+    .page_title
+        height: 25vh
+    
+    .title_wrapper
+        height: 60%
+
+    .navBar
+        height: 40%
+    .brand
+        width: 50%
+    .toggle_menu_wrapper
+        width: 50%
+        .toggle_menu
+            
+    .breadcumbBar
+        height: 60%
+    
+
+@media screen and (max-width: 780px)
+    .page_title
+        height: 28vh
+    
+    .title_wrapper
+        height: 60%
+    
+
+@media screen and (max-width: 420px)
+    .page_title
+        height: 38vh
+
+    .title_wrapper
+        height: 60%
+
+    .navBar
+        height: 40%
+
+    .breadcumbBar
+        height: 60%
+
+@media screen and (max-width: 415px)
+    .page_title
+        height: 35vh
+    
+
+@media screen and (max-width: 412px)
+    .page_title
+        height: 40vh
+    
+
+@media screen and (max-width: 300px)
+    .page_title
+        height: 45vh
+    
+//Css navBar end
+
+//Css for left Side bar
+
+.left_sidebar
+    background-color: rgb(255, 255, 255)
+    width: 100%
+    height: 100vh
+    position: fixed
+    top: 0
+    z-index: 1
+    transform: translateX(-100%)
+    transition: 0.2s linear
+
+.left_sidebar_active
+    transform: translateX(0)
+
+
+.leftSide_topWrapper
+    height: 9.3vh
+    width: 100%
+    background-color: #5b83cd
+
+
+.leftSide_nav
+    height: 80%
+    width: 90%
+    margin: 0 auto
+    margin-top: 60px
+
+    ul
+        li
+            list-style-type: none
+            text-align: center
+            height: 30px
+            width: 100%
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: 20px 0
+
+            a
+                text-transform: uppercase
+                text-decoration: none
+                width: 85%
+                font-family: 'Poppins', sans-serif
+                font-size: 12px
+                font-weight: 500
+                letter-spacing: 2.5px
+                color: #4C4C4C
+
+@media screen and (max-width: 1190px)
+    .leftSide_topWrapper
+        height: 70px
+        
+    
+
+//Css left side bar end
+
+
+//Css for right sidebar
+
+.right_sidebar
+    width: 23rem
+    height: 100vh
+    background-color: #f7f7f7
+    position: fixed
+    z-index: 1
+    right: 0
+    top: 0
+    transform: translateX(100%)
+    transition: 0.3s ease-in
+
+.right_sidebar_active
+    transform: translate(0)
+
+.rightSide_nav
+    height: 90%
+    display: flex
+    justify-content: center
+    ul
+        list-style-type: none
+        padding-top: 20%
+        width: 70%
+        li
+            padding: 15px 0
+            border-top: 1px solid #7e7e7e67
+            a
+                text-decoration: none
+                .rightnav_icons
+                    width: 0.8rem
+                    margin-right: 13px
+                    color: #673988c0
+                span
+                    text-transform: uppercase
+                    font-family: 'Poppins', sans-serif
+                    font-size: 0.8rem
+                    font-weight: 600
+                    letter-spacing: 0.23rem
+                    color: #7e7878
+        li:last-child
+            border-bottom: 1px solid #7e7e7e67
+
+.rightSide_nav_bottom
+    display: flex
+    width: 100%
+    justify-content: center
+    align-items: center
+    img
+        margin-right: 15px
+    a
+        font-family: 'Poppins', sans-serif
+        text-decoration: none
+        text-transform: uppercase
+        font-size: 0.8rem
+        font-weight: 600
+        letter-spacing: 0.23rem
+        color: #7e7878
+//Css for right sidebar end
+
+

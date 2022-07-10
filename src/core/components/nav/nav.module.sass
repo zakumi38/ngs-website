@@ -1,0 +1,91 @@
+*
+    margin: 0
+    padding: 0
+
+body
+    box-sizing: border-box
+
+.navContainer
+    width: 100%
+    height: 63px
+    background: white
+    display: flex
+    justify-content: space-between
+    align-items: center
+    
+    .leftside
+        width: 40%
+
+        ul
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-around
+
+            li
+                list-style: none
+                display: flex
+                align-items: center
+
+                a:hover
+                    color: #5b83cd
+                    transition: all 0.15s linear 0s
+
+
+.phoneIcon, .penIcon
+    color: #5b83cd
+    width: 13px
+    height: 13px
+    margin-right: 10px
+
+.text 
+    color: #4c4c4c
+    text-decoration: none
+    font-size: 12px
+    font-family: 'Poppins', sans-serif
+    font-weight: 700
+    letter-spacing: 0.2em
+    text-transform: uppercase
+
+.commentIcon, .userIcon
+    color: #c280bf
+    width: 14px
+    height: 14px
+    margin-right: 10px
+
+.rightside
+    width: 40%
+
+    ul
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-around
+
+        li
+            list-style: none
+            display: flex
+            align-items: center
+
+            a:hover
+                color: #c280bf
+                transition: all 0.2s ease-in-out 0s
+
+@media (max-width:767px)
+    .rightside
+        display: none
+
+    .leftside
+        width: 100% !important
+
+@media (max-width:484px)
+    .leftside
+        width: 50% !important
+
+        li
+            margin-top: 4px 
+
+    .navContainer
+        justify-content: center
+
+@media (max-width:299px)
+    .leftside
+        width: 100% !important
