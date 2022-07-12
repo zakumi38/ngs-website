@@ -1,13 +1,6 @@
 {
   "posts": [
     {
-      "id": 1,
-      "userName": "Haydan",
-      "emailAddress": "work409@gmail.com",
-      "roles": "Admin",
-      "status": "Active"
-    },
-    {
       "id": 2,
       "userName": "Haydan",
       "emailAddress": "work409@gmail.com",
@@ -44,41 +37,6 @@
     },
     {
       "id": 7,
-      "userName": "Haydan",
-      "emailAddress": "work409@gmail.com",
-      "roles": "Admin",
-      "status": "Active"
-    },
-    {
-      "id": 8,
-      "userName": "Haydan",
-      "emailAddress": "work409@gmail.com",
-      "roles": "Admin",
-      "status": "Active"
-    },
-    {
-      "id": 9,
-      "userName": "Haydan",
-      "emailAddress": "work409@gmail.com",
-      "roles": "Admin",
-      "status": "Deactive"
-    },
-    {
-      "id": 10,
-      "userName": "Haydan",
-      "emailAddress": "work409@gmail.com",
-      "roles": "Admin",
-      "status": "Active"
-    },
-    {
-      "id": 11,
-      "userName": "Haydan",
-      "emailAddress": "work409@gmail.com",
-      "roles": "Admin",
-      "status": "Active"
-    },
-    {
-      "id": 12,
       "userName": "Haydan",
       "emailAddress": "work409@gmail.com",
       "roles": "Admin",

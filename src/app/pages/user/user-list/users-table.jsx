@@ -20,7 +20,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import styled from "@emotion/styled";
-import { instance } from "../instance";
+import useAxios, { instance } from "../useAxios";
 
 const ActionIcon = styled(FontAwesomeIcon)(
   {
@@ -44,9 +44,7 @@ const leftArrow = () => {
 };
 
 const UsersTable = () => {
-  const [response, setResponse] = useState(undefined);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const { response, loading, refetch } = useAxios("/posts");
   const [pageNumber, setPageNumber] = useState(0);
   const [user, setUser] = useState(1);
   const usersPerPage = 5;
@@ -59,27 +57,33 @@ const UsersTable = () => {
   );
   const pageCount = Math.ceil(response?.length / usersPerPage);
   console.log(displayUsers, pageCount, pagesVisited);
-  // const filterResponse = response.slice(0, 5);
+
   const handleClick = (page) => {
     setUser(page);
     setPageNumber(page - 1);
   };
 
-  useEffect(() => {
-    (async () => {
-      try {
-        setLoading(true);
-        const res = await instance.get("/posts");
-        setResponse(res.data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, []);
-  console.log(response);
+  const handleDelete = async (id) => {
+    await instance.delete(`/posts/${id}`);
+    refetch();
+  };
 
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       setLoading(true);
+  //       const res = await instance.get("/posts");
+  //       setResponse(res.data);
+  //     } catch (err) {
+  //       setError(err);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   })();
+  // }, []);
+  // console.log(response);
+
+  console.log(response);
   return (
     <>
       <TableContainer
@@ -154,7 +158,7 @@ const UsersTable = () => {
                           <ActionIcon color="#2e7d32" icon={faPenToSquare} />
                         </Link>
 
-                        <Link href="/delete-user">
+                        <Link onClick={() => handleDelete(row.id)}>
                           <ActionIcon color="#d32f2f" icon={faTrash} />
                         </Link>
                       </Stack>
@@ -183,6 +187,8 @@ const UsersTable = () => {
             <Stack spacing={2} sx={{ alignItems: "end" }}>
               <Pagination
                 count={pageCount}
+                color="primary"
+                page={pageNumber + 1}
                 onChange={(e) => handleClick(e.target.textContent)}
                 renderItem={(item) => (
                   <PaginationItem

@@ -1,9 +1,10 @@
 import { TextField, Button, Grid, Typography } from "@mui/material";
 import { styled } from "@mui/system";
-import React from "react";
+import React, { useState } from "react";
 
 import MenuItem from "@mui/material/MenuItem";
 import StyledButton from "../../component/StyledButton";
+import useAxios, { instance } from "../useAxios";
 
 const currencies = [
   {
@@ -39,11 +40,66 @@ const CustomTextField = styled(TextField)({
 });
 
 const AddUserForm = () => {
-  const [user, setUser] = React.useState("Default");
+  const [user, setUser] = useState("Default");
 
-  const handleChange = (event) => {
-    setUser(event.target.value);
+  const [input, setInput] = useState({
+    userName: "",
+    firstName: "",
+    mobile: "",
+    lastName: "",
+    emailAddress: "",
+    password: "",
+    role: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInput({
+      ...input,
+      [name]: value,
+    });
   };
+
+  const { response, loading, error } = useAxios("/posts");
+  console.log(response);
+
+  const handleSubmit = async () => {
+    const {
+      userName,
+      firstName,
+      mobile,
+      lastName,
+      emailAddress,
+      password,
+      role,
+    } = input;
+    if (
+      userName &&
+      firstName &&
+      mobile &&
+      lastName &&
+      emailAddress &&
+      password &&
+      role
+    ) {
+      try {
+        await instance.post("/posts", input);
+      } catch (error) {
+        console.log(error);
+      }
+      setInput({
+        userName: "",
+        firstName: "",
+        mobile: "",
+        lastName: "",
+        emailAddress: "",
+        password: "",
+        role: "",
+      });
+    }
+  };
+
+  console.log(input);
   return (
     <Grid
       container
@@ -67,7 +123,7 @@ const AddUserForm = () => {
           gap: 5,
         }}
       >
-        {items.map((item, index) => {
+        {/* {items.map((item, index) => {
           return (
             <Grid item xs={12} sm={5}>
               <CustomTextField
@@ -75,10 +131,72 @@ const AddUserForm = () => {
                 id="outlined-basic"
                 label={item}
                 variant="outlined"
+                name="role"
+                onChange={handleChange}
               />
             </Grid>
           );
-        })}
+        })} */}
+        <Grid item xs={12} sm={5}>
+          <CustomTextField
+            id="outlined-basic"
+            label="User Name"
+            variant="outlined"
+            name="userName"
+            value={input.userName}
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={5}>
+          <CustomTextField
+            id="outlined-basic"
+            label="First Name"
+            variant="outlined"
+            name="firstName"
+            value={input.firstName}
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={5}>
+          <CustomTextField
+            id="outlined-basic"
+            label="Mobile Number"
+            variant="outlined"
+            name="mobile"
+            value={input.mobile}
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={5}>
+          <CustomTextField
+            id="outlined-basic"
+            label="Last Name"
+            variant="outlined"
+            name="lastName"
+            value={input.lastName}
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={5}>
+          <CustomTextField
+            id="outlined-basic"
+            label="Email Address"
+            variant="outlined"
+            name="emailAddress"
+            value={input.emailAddress}
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={5}>
+          <CustomTextField
+            id="outlined-basic"
+            label="Password"
+            variant="outlined"
+            name="password"
+            value={input.password}
+            onChange={handleChange}
+          />
+        </Grid>
 
         <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
           <TextField
@@ -86,7 +204,8 @@ const AddUserForm = () => {
             id="outlined-select-currency"
             select
             label="Select"
-            value={user}
+            name="role"
+            value={input.role}
             onChange={handleChange}
           >
             {currencies.map((option) => (
@@ -105,6 +224,7 @@ const AddUserForm = () => {
           <StyledButton
             variant="contained"
             color="primary"
+            onClick={handleSubmit}
             sx={{
               width: { xs: "100%", md: "25%" },
               maxWidth: "200px",
