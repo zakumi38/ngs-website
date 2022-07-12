@@ -1,5 +1,5 @@
-import React from 'react'
-import { Routes , Route } from 'react-router-dom'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
 // Post
 import PostList from "../../app/pages/post/post-list/post-list";
@@ -14,14 +14,14 @@ import EditUser from "../../app/pages/user/edit-user/edit-user";
 function View() {
   return (
     <Routes>
-        <Route index element={<UserList />} ></Route>
-        <Route path='/add-new-user' element={<AddNewUser />} ></Route>
-        <Route path='/edit-user' element={<EditUser />} ></Route>
-        <Route path='/post-list' element={<PostList />} ></Route>
-        <Route path='/add-new-post' element={<AddPost />} ></Route>
-        <Route path='/edit-post' element={<EditPost />} ></Route>
+      <Route index element={<UserList />}></Route>
+      <Route path="/add-new-user" element={<AddNewUser />}></Route>
+      <Route path="/edit-user" element={<EditUser />}></Route>
+      <Route path="/post-list" element={<PostList />}></Route>
+      <Route path="/add-new-post" element={<AddPost />}></Route>
+      <Route path="/edit-post" element={<EditPost />}></Route>
     </Routes>
-  )
+  );
 }
 
-export default View
+export default View;

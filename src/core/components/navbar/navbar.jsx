@@ -1,6 +1,6 @@
 import { faBars, faList, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Box, Button, IconButton, Stack } from '@mui/material'
+import { Box, IconButton, Stack } from '@mui/material'
 import { styled, alpha } from '@mui/material/styles'
 import React from 'react'
 import navbar from './navbar.module.sass'
@@ -76,7 +76,7 @@ const NavbarComp = ({ wide, handleWide, isMatch, slideIn }) => {
             {/* Search Box Session */}
 
             <SearchContainer>
-              <SearchItem placeholder='Search...' type='search' sx={{position: 'relative'}}/>
+              <SearchItem placeholder='Search...' type='search' sx={{position: 'relative' , borderRadius: '5px'} }/>
             </SearchContainer>
 
           </Stack>

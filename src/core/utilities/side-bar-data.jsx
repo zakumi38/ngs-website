@@ -1,82 +1,56 @@
 
-import {
-    faHomeUser,
-    faEnvelope,
-    faGem,
-    faChartPie,
-    faTableList,
-    faFileLines,
-    faMobileScreen,
-    faPager,
+import { faBloggerB } from '@fortawesome/free-brands-svg-icons';
+import {faUser,
     faChevronUp,
     faChevronDown
 } from '@fortawesome/free-solid-svg-icons'
+
 
 export const sideMenu = [
 
     {
         id: 1,
-        icon: faHomeUser,
+        icon: faUser,
         down: faChevronDown,
         up: faChevronUp,
-        path: '/',
-        title: 'Economy'
+        title: 'User'
     },
     {
         id: 2,
-        icon: faEnvelope,
-        down: faChevronDown,
-        up: faChevronUp,
-        path: '/mailbox',
-        title: 'Mailbox'
+        path : '/',
+        title: 'User List'
     },
     {
         id: 3,
-        icon: faGem,
-        down: faChevronDown,
-        up: faChevronUp,
-        path: '/interface',
-        title: 'Interface'
+        path : '/add-new-user',
+        title: 'Add New User'
     },
     {
         id: 4,
-        icon: faChartPie,
-        down: faChevronDown,
-        up: faChevronUp,
-        path: '/charts',
-        title: 'Charts'
+        path : '/edit-user',
+        title: 'Edit User'
     },
     {
         id: 5,
-        icon: faTableList,
+        icon: faBloggerB,
         down: faChevronDown,
         up: faChevronUp,
-        path: '/data_tables',
-        title: 'Data Tables'
+        title: 'Blog'
     },
     {
         id: 6,
-        icon: faFileLines,
-        down: faChevronDown,
-        up: faChevronUp,
-        path: '/form_elements',
-        title: 'Form Elements'
+        path : '/post-list',
+        title: 'Post List'
     },
     {
         id: 7,
-        icon: faMobileScreen,
-        down: faChevronDown,
-        up: faChevronUp,
-        path: '/app_views',
-        title: 'App Views'
+        path : '/add-new-post',
+        title: 'Add New Post'
     },
     {
         id: 8,
-        icon: faPager,
-        down: faChevronDown,
-        up: faChevronUp,
-        path: '/pages',
-        title: 'Pages'
-    },
+        path : 'edit-post',
+        title: 'Edit Post'
+    }
 ];
 

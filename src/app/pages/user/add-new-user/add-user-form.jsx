@@ -3,6 +3,7 @@ import { styled } from "@mui/system";
 import React from "react";
 
 import MenuItem from "@mui/material/MenuItem";
+import StyledButton from "../../component/StyledButton";
 
 const currencies = [
   {
@@ -52,7 +53,7 @@ const AddUserForm = () => {
         p: "20px",
         alignItems: "center",
         borderRadius: "10px",
-        m: "20px 0",
+        m: "5rem 0",
       }}
     >
       <Grid item xs={12} sx={{ m: 2 }}>
@@ -101,17 +102,16 @@ const AddUserForm = () => {
           sm={11}
           sx={{ display: "flex", justifyContent: "end" }}
         >
-          <Button
+          <StyledButton
             variant="contained"
             color="primary"
             sx={{
-              width: { xs: "100%", sm: "25%", md: "18%", lg: "15%" },
-              minHeight: "50px",
-              minWidth: "100px",
+              width: { xs: "100%", md: "25%" },
+              maxWidth: "200px",
             }}
           >
             Add user
-          </Button>
+          </StyledButton>
         </Grid>
       </Grid>
     </Grid>
