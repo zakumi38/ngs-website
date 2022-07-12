@@ -1,12 +1,11 @@
-import { TextField, Button, Grid, Typography } from "@mui/material";
+import { TextField, Grid, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import React, { useState } from "react";
-
 import MenuItem from "@mui/material/MenuItem";
 import StyledButton from "../../component/StyledButton";
 import useAxios, { instance } from "../useAxios";
 
-const currencies = [
+const roles = [
   {
     value: "Default",
     label: "Please Select Your Role",
@@ -25,23 +24,12 @@ const currencies = [
   },
 ];
 
-const items = [
-  "Username",
-  "FirstName",
-  "MobileNumber",
-  "LastName",
-  "Email Address",
-  "Password",
-];
-
 const CustomTextField = styled(TextField)({
   width: "100%",
   borderColor: "#000",
 });
 
 const AddUserForm = () => {
-  const [user, setUser] = useState("Default");
-
   const [input, setInput] = useState({
     userName: "",
     firstName: "",
@@ -60,19 +48,16 @@ const AddUserForm = () => {
     });
   };
 
-  const { response, loading, error } = useAxios("/posts");
-  console.log(response);
-
+  const {
+    userName,
+    firstName,
+    mobile,
+    lastName,
+    emailAddress,
+    password,
+    role,
+  } = input;
   const handleSubmit = async () => {
-    const {
-      userName,
-      firstName,
-      mobile,
-      lastName,
-      emailAddress,
-      password,
-      role,
-    } = input;
     if (
       userName &&
       firstName &&
@@ -143,7 +128,7 @@ const AddUserForm = () => {
             label="User Name"
             variant="outlined"
             name="userName"
-            value={input.userName}
+            value={userName}
             onChange={handleChange}
           />
         </Grid>
@@ -153,7 +138,7 @@ const AddUserForm = () => {
             label="First Name"
             variant="outlined"
             name="firstName"
-            value={input.firstName}
+            value={firstName}
             onChange={handleChange}
           />
         </Grid>
@@ -163,7 +148,7 @@ const AddUserForm = () => {
             label="Mobile Number"
             variant="outlined"
             name="mobile"
-            value={input.mobile}
+            value={mobile}
             onChange={handleChange}
           />
         </Grid>
@@ -173,7 +158,7 @@ const AddUserForm = () => {
             label="Last Name"
             variant="outlined"
             name="lastName"
-            value={input.lastName}
+            value={lastName}
             onChange={handleChange}
           />
         </Grid>
@@ -183,7 +168,7 @@ const AddUserForm = () => {
             label="Email Address"
             variant="outlined"
             name="emailAddress"
-            value={input.emailAddress}
+            value={emailAddress}
             onChange={handleChange}
           />
         </Grid>
@@ -193,7 +178,7 @@ const AddUserForm = () => {
             label="Password"
             variant="outlined"
             name="password"
-            value={input.password}
+            value={password}
             onChange={handleChange}
           />
         </Grid>
@@ -205,10 +190,10 @@ const AddUserForm = () => {
             select
             label="Select"
             name="role"
-            value={input.role}
+            value={role}
             onChange={handleChange}
           >
-            {currencies.map((option) => (
+            {roles.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>

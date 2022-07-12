@@ -13,13 +13,15 @@ function App() {
   return (
     <div className={`{App} {Style.app}`}>
       <Header className={Style.header} wide={wide} setWide={setWide} />
-      <DynamicContainer
+      <Box
+        component="section"
         sx={{
           marginLeft: { md: wide ? "64px" : "240px", sm: 0 },
+          transition: "all .3s linear",
         }}
       >
         <View />
-      </DynamicContainer>
+      </Box>
     </div>
   );
 }

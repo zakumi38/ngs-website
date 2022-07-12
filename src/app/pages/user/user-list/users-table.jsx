@@ -171,7 +171,7 @@ const UsersTable = () => {
         )}
       </TableContainer>
 
-      {/* Pagination Bar */}
+    
       {!loading && (
         <Grid container sx={{ gap: { xs: "1rem", sm: "0" } }}>
           <Grid item xs={12} sm={6}>
