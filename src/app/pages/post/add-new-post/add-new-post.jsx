@@ -21,26 +21,8 @@ export default function EditPost() {
     setSelectionStart(inputRef.current.selectionStart);
 
   return (
-    <Box padding="20px" minHeight="100vh">
-      <Typography variant="h4" display="inline-block" margin="0 20px 20px 0">
-        DashBoard
-      </Typography>
-      <Breadcrumbs sx={{ color: "#54677B", display: "inline-block" }}>
-        <Link
-          underline="hover"
-          color="inherit"
-          href="/post-list"
-        >
-          Post
-        </Link>
-        <Link
-          underline="hover"
-          href="/add-new-post"
-          color="black"
-        >
-          Add New Post
-        </Link>
-      </Breadcrumbs>
+    <Box padding="20px" minHeight="100vh" backgroundColor ='rgb(205, 220, 236)'>
+      
       <Grid
         container
         sx={{
@@ -48,7 +30,7 @@ export default function EditPost() {
           p: "40px 100px 40px 20px",
           alignItems: "center",
           borderRadius: "10px",
-          m: "20px 0",
+          m: "3rem 0",
         }}
       >
         <Grid item xs={12} sx={{ m: 2 }} >

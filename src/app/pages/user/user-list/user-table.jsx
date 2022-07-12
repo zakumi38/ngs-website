@@ -34,7 +34,8 @@ const UserTable = () => {
         padding: "20px",
         alignItems: "center",
         borderRadius: "10px",
-        margin: "20px 0",
+        margin: "5rem 0 0 0",
+
       }}
     >
       <Grid item xs={3} sm={6}>

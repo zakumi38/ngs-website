@@ -1,7 +1,6 @@
 import React from "react";
 import { Container } from "@mui/material";
 import EditUserForm from "./edit-user-form";
-import Breadcrumb from "../../component/Breadcrumb";
 
 const EditUser = () => {
   return (
@@ -12,9 +11,9 @@ const EditUser = () => {
           paddingTop: "20px",
           paddingBottom: "20px",
           minHeight: "100vh",
+          backgroundColor : 'rgb(205, 220, 236)'
         }}
       >
-        <Breadcrumb />
         <EditUserForm />
       </Container>
     </>

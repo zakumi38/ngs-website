@@ -3,7 +3,6 @@ import SidebarComp from "./sidebar/sidebar";
 import NavbarComp from "./navbar/navbar";
 import { useState } from "react";
 import { useTheme, useMediaQuery } from "@mui/material";
-import { useEffect } from "react";
 
 const HeaderComp = ({ wide, setWide }) => {
   const theme = useTheme();

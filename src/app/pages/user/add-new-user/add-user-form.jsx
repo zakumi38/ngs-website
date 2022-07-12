@@ -53,7 +53,7 @@ const AddUserForm = () => {
         p: "20px",
         alignItems: "center",
         borderRadius: "10px",
-        m: "20px 0",
+        m: "5rem 0",
       }}
     >
       <Grid item xs={12} sx={{ m: 2 }}>

@@ -1,15 +1,9 @@
 import React from "react";
 import { sideMenu } from "../../utilities/side-bar-data";
-import { Box, Link, Stack, Typography, List, ListItem } from "@mui/material";
+import { Box, Link, Stack, List, ListItem } from "@mui/material";
 import styled from "@emotion/styled";
 import sidebar from "./sidebar.module.sass";
-import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebookF,
-  faTwitter,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../../../assets/images/logo.png";
 
@@ -98,6 +92,9 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
 
         <Box sx={{ mt: "18px" }} className={sidebar.sideMenuContainer}>
           <Box className={sidebar.sideMenuContent}>
+
+            
+
             {/* Sidebar Menu Session */}
 
             <List>

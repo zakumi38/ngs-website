@@ -12,9 +12,9 @@ const AddNewUser = () => {
           paddingTop: "20px",
           paddingBottom: "20px",
           minHeight: "100vh",
+          backgroundColor : 'rgb(205, 220, 236)'
         }}
       >
-        <Breadcrumb />
         <AddUserForm />
       </Container>
     </>
