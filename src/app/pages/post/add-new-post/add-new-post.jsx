@@ -1,19 +1,37 @@
 import React, { useState } from "react";
 import {
-  Breadcrumbs,
   FormControl,
   TextField,
-  InputLabel,
   Grid,
-  Link,
   Typography,
   Box,
   Button,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"
 
 export default function EditPost() {
-  let navigate = useNavigate
+
+  const [title,setTitle]=useState("");
+  const [img,setImg]=useState("");
+  const [description,setDescription]=useState("");
+  const [date,setDate]=useState("");
+  let navigate=useNavigate();
+  
+  const data={
+      title:title,
+      img:img,
+      description:description,
+      date:date
+  }
+
+  let Submit = () => {
+    axios.post(`http://localhost:8000/posts`,data)
+    .then(
+        navigate('/post-list')
+    )
+
+}
 
   const inputRef = React.useRef();
   const [selectionStart, setSelectionStart] = React.useState();
@@ -43,12 +61,17 @@ export default function EditPost() {
                 <TextField
                     placeholder="Post Title"
                     aria-describedby="my-helper-text"
+                    value={title}
+                    onChange={(e)=>setTitle(e.target.value)}
                 />
                 </FormControl>
             </Grid>
             <Grid item xs={6} align="right">
                 <FormControl fullWidth>
-                <TextField placeholder="Date" aria-describedby="my-helper-text" />
+                <TextField placeholder="Date" aria-describedby="my-helper-text" 
+                    value={date}
+                    onChange={(e)=>setDate(e.target.value)}
+                />
                 </FormControl>
             </Grid>
             </Grid>
@@ -57,6 +80,8 @@ export default function EditPost() {
                 <TextField
                 placeholder="Post Image"
                 aria-describedby="my-helper-text"
+                value={img}
+                onChange={(e)=>setImg(e.target.value)}
                 />
             </FormControl>
             </Grid>
@@ -69,6 +94,8 @@ export default function EditPost() {
                 aria-describedby="my-helper-text"
                 multiline
                 inputProps={{ style: { height: "200px", overflowY: "scroll" } }}
+                value={description}
+                    onChange={(e)=>setDescription(e.target.value)}
                 />
             </FormControl>
             </Grid>
@@ -83,6 +110,7 @@ export default function EditPost() {
               minHeight: "50px",
               minWidth: "100px",
             }}
+            onClick={Submit} 
           >
             Add Post
           </Button>

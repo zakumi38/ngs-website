@@ -1,18 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
-  Breadcrumbs,
   FormControl,
   TextField,
-  InputLabel,
   Grid,
-  Link,
   Typography,
   Box,
   Button,
 } from "@mui/material";
 import App from "../../../../app.module.sass";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
 export default function EditPost() {
+
+  const [title,setTitle]=useState("");
+  const [img,setImg]=useState("");
+  const [description,setDescription]=useState("");
+  const [date,setDate]=useState("");
+  const navigate=useNavigate();
+  const {id} =useParams();
+  
+  const data={
+      title:title,
+      img:img,
+      description:description,
+      date:date
+  }
+
+  useEffect(()=>{
+    axios.get(`http://localhost:8000/posts/${id}`)
+    .then((res)=>{
+      setTitle(res.data.title)
+      setImg(res.data.img)
+      setDescription(res.data.description)
+      setDate(res.data.date)
+    })
+  },[])
+
+  let Update = (e) => {
+    e.preventDefault()
+    axios.put(`http://localhost:8000/posts/${id}`,data)
+    .then(
+        navigate('/post-list')
+    )
+
+}
+
   const inputRef = React.useRef();
   const [selectionStart, setSelectionStart] = React.useState();
   const updateSelectionStart = () =>
@@ -41,6 +74,8 @@ export default function EditPost() {
                 <TextField
                   placeholder="Post Title"
                   aria-describedby="my-helper-text"
+                  value={title}
+                  onChange={(e)=>setTitle(e.target.value)}
                 />
               </FormControl>
             </Grid>
@@ -49,6 +84,8 @@ export default function EditPost() {
                 <TextField
                   placeholder="Date"
                   aria-describedby="my-helper-text"
+                  value={date}
+                  onChange={(e)=>setDate(e.target.value)}
                 />
               </FormControl>
             </Grid>
@@ -58,6 +95,8 @@ export default function EditPost() {
               <TextField
                 placeholder="Post Image"
                 aria-describedby="my-helper-text"
+                onChange={(e)=>setImg(e.target.value)}
+                value={img}
               />
             </FormControl>
           </Grid>
@@ -70,6 +109,8 @@ export default function EditPost() {
                 aria-describedby="my-helper-text"
                 multiline
                 inputProps={{ style: { height: "200px", overflowY: "scroll" } }}
+                value={description}
+                onChange={(e)=>setDescription(e.target.value)}
               />
             </FormControl>
           </Grid>
@@ -84,6 +125,7 @@ export default function EditPost() {
               minHeight: "50px",
               minWidth: "100px",
             }}
+            onClick={Update}
           >
             Update
           </Button>

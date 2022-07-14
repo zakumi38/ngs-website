@@ -19,7 +19,7 @@ function View() {
       <Route path="/edit-user" element={<EditUser />}></Route>
       <Route path="/post-list" element={<PostList />}></Route>
       <Route path="/add-new-post" element={<AddPost />}></Route>
-      <Route path="/edit-post" element={<EditPost />}></Route>
+      <Route path="/edit-post/:id" element={<EditPost />}></Route>
     </Routes>
   );
 }
