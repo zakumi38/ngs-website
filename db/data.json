@@ -84,5 +84,11 @@
       "roles": "Admin",
       "status": "Active"
     }
-  ]
+  ],
+  "user": {
+    "username": "mockuser",
+    "email": "mockemail@gmail.com",
+    "role": "admin",
+    "password": "newMockPassword"
+  }
 }
