@@ -11,6 +11,7 @@ import TeamSingle from '../../app/pages/team-single/team-single'
 import TeamList from '../../app/pages/team-list/team-list'
 import GalleryList from '../../app/pages/others/gallary-list/gallery-list'
 import MyFaq from '../../app/pages/faq/faq'
+import EventSingle from '../../app/pages/event-single/EventSingle'
 
 function View() {
 
@@ -18,6 +19,7 @@ function View() {
   const [aboutContent , setAboutContent] = useState({})
   const [contactContent , setContactContent] = useState({})
   const [eventContent , setEventContent] = useState({})
+  const [eventSingleContent , setEventSingleContent] = useState({})
   const [teamListContent , setTeamListContent] = useState({})
   const [faqContent , setFaqContent] = useState({})
   const [galleryList , setGalleryList] = useState({})
@@ -31,10 +33,10 @@ function View() {
         setAboutContent(data.about[0])
         setContactContent(data.contact[0])
         setEventContent(data.eventList[0])
+        setEventSingleContent(data.eventSingle[0])
         setTeamListContent(data.teamList[0])
         setFaqContent(data.faq[0])
         setGalleryList(data.galleryList[0])
-
       } catch(err){
         console.log(`Error : ${err}`)
       }
@@ -48,8 +50,9 @@ function View() {
         <Route index element={<Home homeContent={homeContent} />} ></Route>
         <Route path='/about' element={<About aboutContent={aboutContent} />} ></Route>
         <Route path='/contact' element={<Contact contactContent={contactContent} />} ></Route>
-        <Route path='/team-list' element={<TeamList teamListContent={teamListContent} />} ></Route>
         <Route path='/event-list' element={<Event eventContent={eventContent} />} ></Route>
+        <Route path='/event-single' element={<EventSingle eventSingleContent={eventSingleContent} />} ></Route>
+        <Route path='/team-list' element={<TeamList teamListContent={teamListContent} />} ></Route>
         <Route path='/team-single' element={<TeamSingle />} ></Route>
         <Route path='/gallery' element={<GalleryList galleryList={galleryList} />} ></Route>
         <Route path='/faq' element={<MyFaq faqContent={faqContent} />} ></Route>

@@ -1,0 +1,353 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900")
+@mixin frameSize($width)
+  @media screen and (max-width: $width)
+  @content
+
+.container
+  display: flex
+  justify-content: center
+  flex-wrap: nowrap
+  padding: 150px 0
+
+.title
+  color: #4c4c4c
+  font-size: 24px
+  font-weight: 700
+
+.listCategory
+  margin: 15px auto
+  border-bottom: 1px solid #00000023
+  display: flex
+  justify-content: space-between
+  padding: 010px
+  align-items: center
+
+  .listItem
+    color: #00000080
+    margin-bottom: 5px
+
+.right
+  width: 30%
+  padding: 20px 30px
+
+.left
+  width: 50%
+
+.search
+  border-color: #c280bf
+
+.fancyButton
+  padding: 18px 2px
+  background: linear-gradient(to right, #5b83cd 0%, #c280bf 100%)
+  color: #fff
+  border: 3px solid
+  border-radius: 5px
+
+  span
+    padding: 16px 50px
+    background: linear-gradient(to right, #5b83cd 0%, #c280bf 100%)
+    color: #fff
+    transition: 0.5s
+
+    &:hover
+      background: #fff
+      color: black
+
+.article
+  background-color: #f7f6fb
+  margin-bottom: 70px
+  border-radius: 5px
+
+  .articleTopImg
+    width: 100%
+    border-radius: 10px
+
+  .itemContent
+    padding: 60px
+
+    .metaItems
+      text-align: center
+      margin-bottom: 20px
+
+      .data
+        margin: 0 20px 0 10px
+
+    hr
+      margin: 40px 0 32px
+
+    .content
+      p
+        margin-bottom: 15px
+        font-weight: 300
+
+      &:not(.excerpt)
+        font-size: 16px
+        letter-spacing: 0.5px
+        line-height: 30px
+        color: #7f7f7f
+
+    .excerpt
+      font-size: 20px
+      font-weight: 300
+      color: #000
+
+    .styledList
+      position: relative
+      list-style: none
+      margin: 0 0 10px
+      padding-left: 1.2em
+
+      li::before
+        font-family: FontAwesome, "poppins", sans-serif
+        content: "\f054"
+        position: absolute
+        left: 0
+
+.comments
+  margin-top: 75px
+  padding: 50px 60px
+  background-color: #f7f6fb
+  border-radius: 5px
+
+  .commentsTitle
+    color: #4c4c4c
+    font-size: 30px
+
+  .commentList
+    margin-top: 30px
+
+    .comment
+
+      // For all comments' body
+      .commentBody
+        display: flex
+        position: relative
+        justify-content: start
+        border-bottom: 1px solid #ebeaeb
+        margin: 30px 0
+
+        .commentImgContainer
+          flex: 1 1 10%
+
+          img
+            border-radius: 100%
+            width: 100%
+            height: auto
+
+        .commentContent
+          padding: 20px
+          flex: 1 1 80%
+
+          b
+            .commentNameLink
+              font-weight: 500
+
+            .commentMetadata
+              a::before
+                color: #4c4c4c
+                content: "o"
+                margin: 0 10px
+
+              time
+                color: #c280bf
+                font-weight: 300
+
+          .commentText
+            color: #7f7f7f
+            line-height: 30px
+            font-weight: 300
+
+        .replyIcon
+          svg:hover
+            color: #c280bf
+
+      .commentChildren
+        .commentBody
+          padding-left: 80px
+
+          .commentImgContainer
+            flex: 1 1 5%
+
+            img
+              width: 100%
+
+  .commentReplyTitle
+    color: #4c4c4c
+    margin-top: 50px
+    font-size: 30px
+
+  .commentResponse
+    .commentForm
+      display: flex
+      flex-wrap: wrap
+
+      &:nth-child(1)
+        padding-right: 0
+
+      .formInput
+        flex: 1 1 50%
+        position: relative
+        padding-right: 20px
+        margin-bottom: 20px
+
+        .formInputIcon
+          position: absolute
+          left: 28px
+          top: 22px
+          color: #5b83cd
+
+        input
+          width: 100%
+          padding-left: 60px
+          color: black
+
+      .formTextArea
+        position: relative
+        flex: 1 1 100%
+
+        .formInputIcon
+          position: absolute
+          left: 28px
+          top: 22px
+          color: #5b83cd
+
+        textarea
+          color: black
+          width: 100%
+
+      .formSubmit
+        @extend .fancyButton
+
+
+.form_event
+  display: flex
+  width: 100%
+  margin: 20px 0
+  border-radius: 5px
+  position: relative
+
+  input[type='text']
+    border: 1px solid #00000030 !important
+    width: calc(100%  -  60px) !important
+    height: 60px
+    background: transparent
+    padding: 20px
+    border: none
+
+  .btnSearch
+    width: 60px
+    height: 60px
+    border: none
+    background: #5b83cd
+    border-radius: 0 5px 5px 0px
+
+.about
+  width: 90%
+  margin: 40px 0
+
+
+  .itemText
+    margin: 30px 0
+    font-weight: 300
+    letter-spacing: 0.5px
+
+    &:hover
+      opacity: 1
+
+.readDiv
+  margin-bottom: 50px
+
+  .readBtn
+    @extend .fancyButton
+
+.recentPortfolio
+  width: 100%
+
+  .photo
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    grid-column-gap: 5px
+
+  .photoItems
+    width: 100%
+
+    a
+      display: block
+      max-width: 100%
+      max-height: 100%
+
+      img
+        border-radius: 8px
+        margin: 5px
+        transition: 0.2s
+        object-fit: contain
+        width: 100%
+
+        &:hover
+          opacity: 0.8
+
+.tagCloud
+  width: 100%
+
+  .tagsCloudItems
+    display: flex
+    flex-wrap: wrap
+    margin-top: 25px
+
+    .tagCloudLink
+      color: #c280bf
+      font-size: 12px !important
+      font-weight: 500
+      text-align: center
+      text-decoration: none
+      text-transform: uppercase
+      transition: 0.2s
+      border: 1px solid #c280bf
+      border-radius: 1px
+      box-shadow: 0 0px 10px 0px rgb(0 0 0 / 5%)
+      display: inline-block
+      margin: 0 0 10px 5px
+      padding: 16px 33px
+
+      &:hover
+        color: #fff
+        background-color: #c280bf
+
+@media screen and (max-width: 1800px)
+  .left
+    width: 55%
+  .right
+    width: 25%
+
+@media screen and (min-width: 1000px)
+  .container
+    padding:50px
+  .left
+    width: 60%
+  .right
+    width: 40%
+  .comments
+    margin: 0
+
+@media screen and (max-width: 1000px)
+  .container
+    flex-direction: column
+    justify-content: center
+  .left
+    width: 80%
+    margin: auto
+  .right
+    width: 80%
+    margin: auto
+  .recentPortfolio
+    .photo
+      grid-template-columns: repeat(6, 1fr)
+
+@media screen and (max-width: 790px)
+  .commentResponse
+    .commentForm
+      flex-direction: column
+
+  .recentPortfolio
+    .photo
+      grid-template-columns: repeat(4,1fr)
