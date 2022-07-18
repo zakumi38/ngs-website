@@ -26,6 +26,7 @@ function View() {
       <Route path="/edit-post" element={<EditPost />}></Route>
       <Route path="/user-profile" element={<UserProfile />}></Route>
       <Route path="/change-password" element={<ChangePassword />}></Route>
+      <Route path="/edit-post/:id" element={<EditPost />}></Route>
     </Routes>
   );
 }

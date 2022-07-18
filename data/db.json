@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "id": 5,
+      "userName": "Haydan",
+      "emailAddress": "work409@gmail.com",
+      "roles": "Admin",
+      "status": "Active"
+    },
+    {
+      "id": 6,
+      "userName": "Haydan",
+      "emailAddress": "work409@gmail.com",
+      "roles": "Admin",
+      "status": "Active"
+    },
+    {
+      "id": 7,
+      "userName": "Haydan",
+      "emailAddress": "work409@gmail.com",
+      "roles": "Admin",
+      "status": "Active"
+    },
+    {
+      "userName": "Moon Seng",
+      "firstName": "Moon",
+      "mobile": "09259585359",
+      "lastName": "Seng",
+      "emailAddress": "moonseng.dev@gmail.com",
+      "password": "Moon Sneg 9585",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 8
+    }
+  ],
+  "admin": {
+    "username": "mockuser",
+    "email": "mockemail@gmail.com",
+    "roles": "admin",
+    "password": "newMockPassword"
+  },
+  "posts": [
+    {
+      "title": "Frontend",
+      "img": "https://tinyurl.com/yuabhvna",
+      "description": "desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc ",
+      "date": "5/5/2001",
+      "id": 1
+    },
+    {
+      "title": "Html Update",
+      "img": "https://tinyurl.com/3pxydama",
+      "description": "Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post ",
+      "date": "4/8/2021",
+      "id": 2
+    },
+    {
+      "title": "React ",
+      "img": "https://tinyurl.com/yycz7cfv",
+      "description": "React React React React React React React React React React React React React React React React React React React React React React gg",
+      "date": "3/9/2012",
+      "id": 3
+    }
+  ]
+}

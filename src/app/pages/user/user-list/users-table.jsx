@@ -44,7 +44,7 @@ const leftArrow = () => {
 };
 
 const UsersTable = () => {
-  const { response, loading, refetch } = useAxios("/posts");
+  const { response, loading, refetch } = useAxios("/users");
   const [pageNumber, setPageNumber] = useState(0);
   const [user, setUser] = useState(1);
   const usersPerPage = 5;
@@ -64,24 +64,24 @@ const UsersTable = () => {
   };
 
   const handleDelete = async (id) => {
-    await instance.delete(`/posts/${id}`);
+    await instance.delete(`/users/${id}`);
     refetch();
   };
 
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       setLoading(true);
-  //       const res = await instance.get("/posts");
-  //       setResponse(res.data);
-  //     } catch (err) {
-  //       setError(err);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   })();
-  // }, []);
-  // console.log(response);
+  useEffect(() => {
+    (async () => {
+      try {
+        // setLoading(true);
+        const res = await instance.get("/users");
+        // setResponse(res.data);
+      } catch (err) {
+        // setError(err);
+      } finally {
+        // setLoading(false);
+      }
+    })();
+  }, []);
+  console.log(response);
 
   console.log(response);
   return (

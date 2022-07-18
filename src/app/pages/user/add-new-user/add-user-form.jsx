@@ -5,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import StyledButton from "../../component/StyledButton";
 import useAxios, { instance } from "../useAxios";
 
-const roles = [
+const rolesTitle = [
   {
     value: "Default",
     label: "Please Select Your Role",
@@ -37,7 +37,8 @@ const AddUserForm = () => {
     lastName: "",
     emailAddress: "",
     password: "",
-    role: "",
+    roles: "",
+    status : 'Active'
   });
 
   const handleChange = (e) => {
@@ -55,7 +56,7 @@ const AddUserForm = () => {
     lastName,
     emailAddress,
     password,
-    role,
+    roles,
   } = input;
   const handleSubmit = async () => {
     if (
@@ -65,10 +66,10 @@ const AddUserForm = () => {
       lastName &&
       emailAddress &&
       password &&
-      role
+      roles
     ) {
       try {
-        await instance.post("/posts", input);
+        await instance.post("/users", input);
       } catch (error) {
         console.log(error);
       }
@@ -79,7 +80,7 @@ const AddUserForm = () => {
         lastName: "",
         emailAddress: "",
         password: "",
-        role: "",
+        roles: "",
       });
     }
   };
@@ -189,11 +190,11 @@ const AddUserForm = () => {
             id="outlined-select-currency"
             select
             label="Select"
-            name="role"
-            value={role}
+            name="roles"
+            value={roles}
             onChange={handleChange}
           >
-            {roles.map((option) => (
+            {rolesTitle.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>

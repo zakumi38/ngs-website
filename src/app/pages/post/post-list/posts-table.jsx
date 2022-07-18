@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import {  Stack,Link , Typography } from "@mui/material";
+import { Stack,  Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import styled from "@emotion/styled";
-import postsStyle from './post-list.module.sass'
+import postsStyle from "./post-list.module.sass";
+import axios from "axios";
+import { Link } from 'react-router-dom'
 
 // Images File
-import Image1 from '../../../../assets/posts-image/01.jpg';
+import Image1 from "../../../../assets/posts-image/01.jpg";
 import Image2 from "../../../../assets/posts-image/02.jpg";
 import Image3 from "../../../../assets/posts-image/03.jpg";
 import Image4 from "../../../../assets/posts-image/04.jpg";
-
 
 const ActionIcon = styled(FontAwesomeIcon)(
   {
@@ -33,40 +34,62 @@ const ActionIcon = styled(FontAwesomeIcon)(
   })
 );
 
-const Images = [Image1, Image2, Image3 , Image4];
+const Images = [Image1, Image2, Image3, Image4];
 
 const posts = [
   {
     id: 1,
     image: Images[0],
     title: "Cable TV",
-    describtion : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis odio turpis, fini....',
-    createDate : '27/6/2022'
+    describtion:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis odio turpis, fini....",
+    createDate: "27/6/2022",
   },
   {
     id: 2,
     image: Images[1],
     title: "Server",
-    describtion : 'In a mauris leo. Etiam suscipit ex sodales eros volutpat, at consequatso....',
-    createDate : '27/6/2022'
+    describtion:
+      "In a mauris leo. Etiam suscipit ex sodales eros volutpat, at consequatso....",
+    createDate: "27/6/2022",
   },
   {
     id: 3,
     image: Images[2],
     title: "Internet",
-    describtion : 'Duis ut justo in sem suscipit mollis. Aliquam gravida sem quis neque finibu....',
-    createDate : '27/6/2022'
+    describtion:
+      "Duis ut justo in sem suscipit mollis. Aliquam gravida sem quis neque finibu....",
+    createDate: "27/6/2022",
   },
   {
     id: 4,
-    image : Images[3],
-    title : 'Router Setup',
-    describtion : 'Aenean facilisis justo pulvinar, vulputate ipsum in, ornare est. Cras porta, tellus eget.',
-    createDate : '25/6/2022'
-  }
+    image: Images[3],
+    title: "Router Setup",
+    describtion:
+      "Aenean facilisis justo pulvinar, vulputate ipsum in, ornare est. Cras porta, tellus eget.",
+    createDate: "25/6/2022",
+  },
 ];
 
 const UsersTable = () => {
+  const [posts, setPosts] = useState([]);
+
+  const loadPosts = () => {
+    axios.get("http://localhost:3500/posts").then((res) => {
+      setPosts(res.data);
+    });
+  };
+
+  useEffect(() => {
+    loadPosts();
+  }, []);
+
+  const Delete = (id) => {
+    axios.delete(`http://localhost:3500/posts/${id}`).then(() => {
+      loadPosts();
+    });
+  };
+
   return (
     <TableContainer component="main" sx={{ margin: "20px 0" }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -93,38 +116,39 @@ const UsersTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-
           {posts.map((post, index) => (
             <TableRow
               key={index}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell>
-                <Typography>{post.id}</Typography>
+                <Typography>{index + 1}</Typography>
               </TableCell>
               <TableCell component="th" scope="row">
-                  <img className={postsStyle.image} src={post.image} alt="" />
+                <img className={postsStyle.image} src={post.img} alt="" />
               </TableCell>
               <TableCell>
                 <Typography> {post.title}</Typography>
               </TableCell>
               <TableCell>
-                <Typography>{post.describtion}</Typography>
+                <Typography>{post.description}</Typography>
               </TableCell>
               <TableCell>
-                    <Typography>{post.createDate}</Typography>
+                <Typography>{post.date}</Typography>
               </TableCell>
               <TableCell>
                 <Stack direction="row" spacing={2}>
-                  <Link href="/edit-post"><ActionIcon color="#2e7d32" icon={faPenToSquare} /></Link>
-
-                  <Link href="/delete-post"><ActionIcon color="#d32f2f" icon={faTrash} /></Link>
+                  <Link to={`/edit-post/${post.id}`}>
+                      <ActionIcon color="#2e7d32" icon={faPenToSquare} />
+                  </Link>
+                  <div onClick={() => Delete(post.id)}>
+                    <ActionIcon color="#d32f2f" icon={faTrash} />
+                  </div>
                 </Stack>
               </TableCell>
             </TableRow>
           ))}
-
-
+          {console.log(posts)}
         </TableBody>
       </Table>
     </TableContainer>
