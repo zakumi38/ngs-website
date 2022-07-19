@@ -1,19 +1,19 @@
-import { faChevronDown, faUser } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Box, Button, IconButton, Typography, styled } from '@mui/material'
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { faChevronDown, faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Box, Button, IconButton, Typography, styled } from "@mui/material";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const ProfileImg = styled('img')((theme) => ({
-    width: '40px',
-    borderRadius: '50%'
-}))
+const ProfileImg = styled("img")((theme) => ({
+  width: "40px",
+  borderRadius: "50%",
+}));
 
 const UserproComp = () => {
-    const navigate = useNavigate()
-    return (
-        <>
-            {/* <Button sx={{ py: 0 }}>
+  const navigate = useNavigate();
+  return (
+    <>
+      {/* <Button sx={{ py: 0 }}>
                 <Box component='span' fontSize='17px'>
                     <FontAwesomeIcon icon={faUser} />
                 </Box>
@@ -21,11 +21,11 @@ const UserproComp = () => {
                 <FontAwesomeIcon icon={faChevronDown} />
             </Button> */}
 
-            <IconButton  onClick={() => navigate('/user-profile')}>
-                <ProfileImg src='https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80'  />
-            </IconButton>
-        </>
-    )
-}
+      <IconButton onClick={() => navigate("/user-profile")}>
+        <ProfileImg src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" />
+      </IconButton>
+    </>
+  );
+};
 
-export default UserproComp
+export default UserproComp;

@@ -10,8 +10,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import App from "../../../../app.module.sass";
-import postListStyle from "./post-list.module.sass";
-import PostTable from "./post-table";
+import postListStyle from "./blog-list.module.sass";
+import PostTable from "./blog-table";
 
 const UserList = () => {
   return (

@@ -28,7 +28,7 @@ export default function EditPost() {
   }
 
   useEffect(()=>{
-    axios.get(`http://localhost:3500/posts/${id}`)
+    axios.get(`http://localhost:3500/blogs/${id}`)
     .then((res)=>{
       setTitle(res.data.title)
       setImg(res.data.img)

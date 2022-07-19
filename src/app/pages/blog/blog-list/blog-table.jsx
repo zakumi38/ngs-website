@@ -15,7 +15,7 @@ import {
     Typography,
   } from "@mui/material";
   import React from "react";
-  import PostsTable from "./posts-table";
+  import PostsTable from "./blogs-table";
   
   const rightArrow = () => {
     return <FontAwesomeIcon icon={faArrowRight} />;

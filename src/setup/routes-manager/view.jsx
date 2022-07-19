@@ -1,10 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-// Post
-import PostList from "../../app/pages/post/post-list/post-list";
-import AddPost from "../../app/pages/post/add-new-post/add-new-post";
-import EditPost from "../../app/pages/post/edit-post/edit-post";
+// Blog
+import BlogList from "../../app/pages/blog/blog-list/blog-list";
+import AddBlog from "../../app/pages/blog/add-new-blog/add-new-blog";
+import EditBlog from "../../app/pages/blog/edit-blog/edit-blog";
 
 // User
 import UserList from "../../app/pages/user/user-list/user-list";
@@ -14,19 +14,30 @@ import EditUser from "../../app/pages/user/edit-user/edit-user";
 //Profile
 import UserProfile from "../../app/pages/user-profile/EditProfile";
 import ChangePassword from "../../app/pages/user-profile/ChangePassword";
+import Home from "../../core/components/home/home";
 
 function View() {
   return (
     <Routes>
-      <Route index element={<UserList />}></Route>
-      <Route path="/add-new-user" element={<AddNewUser />}></Route>
-      <Route path="/edit-user" element={<EditUser />}></Route>
-      <Route path="/post-list" element={<PostList />}></Route>
-      <Route path="/add-new-post" element={<AddPost />}></Route>
-      <Route path="/edit-post" element={<EditPost />}></Route>
+      <Route index element={<Home />}></Route>
+
+      {/* User */}
+      <Route path="/user">
+        <Route index element={<UserList />}></Route>
+        <Route path="add" element={<AddNewUser />}></Route>
+        <Route path="edit" element={<EditUser />}></Route>
+      </Route>
+
+      {/* Blog */}
+      <Route path="/blog">
+        <Route index element={<BlogList />}></Route>
+        <Route path="add" element={<AddBlog />}></Route>
+        <Route path="edit/:id" element={<EditBlog />}></Route>
+      </Route>
+
+      {/* Porfile */}
       <Route path="/user-profile" element={<UserProfile />}></Route>
       <Route path="/change-password" element={<ChangePassword />}></Route>
-      <Route path="/edit-post/:id" element={<EditPost />}></Route>
     </Routes>
   );
 }
