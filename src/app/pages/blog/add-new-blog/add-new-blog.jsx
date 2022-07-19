@@ -26,9 +26,9 @@ export default function EditPost() {
   }
 
   let Submit = () => {
-    axios.post(`http://localhost:3500/posts`,data)
+    axios.post(`http://localhost:3500/blogs`,data)
     .then(
-        navigate('/post-list')
+        navigate('/blog')
     )
 
 }
