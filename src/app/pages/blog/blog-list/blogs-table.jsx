@@ -9,7 +9,7 @@ import { Stack,  Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import styled from "@emotion/styled";
-import postsStyle from "./post-list.module.sass";
+import postsStyle from "./blog-list.module.sass";
 import axios from "axios";
 import { Link } from 'react-router-dom'
 
@@ -75,7 +75,7 @@ const UsersTable = () => {
   const [posts, setPosts] = useState([]);
 
   const loadPosts = () => {
-    axios.get("http://localhost:3500/posts").then((res) => {
+    axios.get("http://localhost:3500/blogs").then((res) => {
       setPosts(res.data);
     });
   };
@@ -85,7 +85,7 @@ const UsersTable = () => {
   }, []);
 
   const Delete = (id) => {
-    axios.delete(`http://localhost:3500/posts/${id}`).then(() => {
+    axios.delete(`http://localhost:3500/blogs/${id}`).then(() => {
       loadPosts();
     });
   };
@@ -138,7 +138,7 @@ const UsersTable = () => {
               </TableCell>
               <TableCell>
                 <Stack direction="row" spacing={2}>
-                  <Link to={`/edit-post/${post.id}`}>
+                  <Link to={`/blog/edit/${post.id}`}>
                       <ActionIcon color="#2e7d32" icon={faPenToSquare} />
                   </Link>
                   <div onClick={() => Delete(post.id)}>

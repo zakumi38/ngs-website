@@ -39,11 +39,11 @@
     "roles": "admin",
     "password": "newMockPassword"
   },
-  "posts": [
+  "blogs": [
     {
       "title": "Frontend Development",
       "img": "https://tinyurl.com/yuabhvna",
-      "description": "desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc ",
+      "description": "desc desc desc desc desc desc desc desc desc desc desc desc desc desc",
       "date": "5/5/2001",
       "id": 1
     },
