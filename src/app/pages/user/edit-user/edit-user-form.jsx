@@ -41,6 +41,7 @@ const EditUserForm = () => {
     emailAddress: "",
     password: "",
     roles: "",
+    status: "Active",
   });
   const {
     userName,
@@ -50,6 +51,7 @@ const EditUserForm = () => {
     emailAddress,
     password,
     roles,
+    status,
   } = newValue;
 
   const { id } = useParams();
@@ -69,6 +71,7 @@ const EditUserForm = () => {
         emailAddress: users.emailAddress,
         password: users.password,
         roles: users.roles,
+        status,
       });
     }
   }, [users]);
@@ -77,20 +80,10 @@ const EditUserForm = () => {
     const { name, value } = event.target;
     setNewValue({ ...newValue, [name]: value });
   };
+  console.log(newValue);
   const navigate = useNavigate();
   const handleUpdate = async () => {
-    if (
-      userName &&
-      firstName &&
-      lastName &&
-      mobile &&
-      emailAddress &&
-      password &&
-      roles
-    ) {
-      await api.put(`/users/${id}`, newValue);
-    }
-
+    await api.put(`/users/${id}`, newValue);
     navigate("/user");
   };
   return (

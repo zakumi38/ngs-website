@@ -2,16 +2,6 @@
   "users": [
     {
       "userName": "Hello",
-      "firstName": "AAAA",
-      "mobile": "11",
-      "lastName": "11",
-      "emailAddress": "11",
-      "password": "11",
-      "roles": "Admin",
-      "id": 1
-    },
-    {
-      "userName": "Hello",
       "firstName": "World",
       "mobile": "Hello",
       "lastName": "Hello",
