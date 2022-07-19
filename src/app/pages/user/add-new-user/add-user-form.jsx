@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import StyledButton from "../../component/StyledButton";
 import useAxios, { instance } from "../useAxios";
+import { useNavigate } from "react-router-dom";
 
 const rolesTitle = [
   {
@@ -38,9 +39,9 @@ const AddUserForm = () => {
     emailAddress: "",
     password: "",
     roles: "",
-    status : 'Active'
+    status: "Active",
   });
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInput({
@@ -83,6 +84,7 @@ const AddUserForm = () => {
         roles: "",
       });
     }
+    navigate("/user");
   };
 
   console.log(input);

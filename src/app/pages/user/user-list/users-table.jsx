@@ -20,7 +20,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import styled from "@emotion/styled";
-import useAxios, { instance } from "../useAxios";
+import api from "../../../../mockdatabase/database";
+import useAxiosFetch from "./useAxiosFetch";
 
 const ActionIcon = styled(FontAwesomeIcon)(
   {
@@ -44,18 +45,25 @@ const leftArrow = () => {
 };
 
 const UsersTable = () => {
-  const { response, loading, refetch } = useAxios("/users");
+  const [data, setData] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
+  const [users, loading, error] = useAxiosFetch({
+    axiosInstance: api,
+    method: "get",
+    url: "/users",
+  });
+
+  useEffect(() => {
+    setData(users);
+  }, [users]);
+
   const [user, setUser] = useState(1);
   const usersPerPage = 5;
 
   const pagesVisited = pageNumber * usersPerPage;
 
-  const displayUsers = response?.slice(
-    pagesVisited,
-    pagesVisited + usersPerPage
-  );
-  const pageCount = Math.ceil(response?.length / usersPerPage);
+  const displayUsers = data?.slice(pagesVisited, pagesVisited + usersPerPage);
+  const pageCount = Math.ceil(data?.length / usersPerPage);
   console.log(displayUsers, pageCount, pagesVisited);
 
   const handleClick = (page) => {
@@ -64,26 +72,12 @@ const UsersTable = () => {
   };
 
   const handleDelete = async (id) => {
-    await instance.delete(`/users/${id}`);
-    refetch();
+    await api.delete(`/users/${id}`);
+    const items = data.filter((user) => user.id !== id);
+    setData(items);
   };
 
-  useEffect(() => {
-    (async () => {
-      try {
-        // setLoading(true);
-        const res = await instance.get("/users");
-        // setResponse(res.data);
-      } catch (err) {
-        // setError(err);
-      } finally {
-        // setLoading(false);
-      }
-    })();
-  }, []);
-  console.log(response);
-
-  console.log(response);
+  console.log(users);
   return (
     <>
       <TableContainer
@@ -102,7 +96,7 @@ const UsersTable = () => {
             <CircularProgress size="4rem" />
           </Box>
         )}
-        {!loading && response && (
+        {!loading && data && (
           <>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
@@ -154,7 +148,7 @@ const UsersTable = () => {
                     </TableCell>
                     <TableCell>
                       <Stack direction="row" spacing={2}>
-                        <Link href="/edit-user">
+                        <Link href={`user/edit-user/${row.id}`}>
                           <ActionIcon color="#2e7d32" icon={faPenToSquare} />
                         </Link>
 
@@ -171,7 +165,6 @@ const UsersTable = () => {
         )}
       </TableContainer>
 
-    
       {!loading && (
         <Grid container sx={{ gap: { xs: "1rem", sm: "0" } }}>
           <Grid item xs={12} sm={6}>
@@ -179,7 +172,7 @@ const UsersTable = () => {
               <Typography>
                 Showing {pagesVisited + 1} to {displayUsers?.length * user} of{" "}
                 {}
-                {response?.length} entries
+                {users?.length} entries
               </Typography>
             </Stack>
           </Grid>

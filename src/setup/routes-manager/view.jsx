@@ -25,7 +25,7 @@ function View() {
       <Route path="/user">
         <Route index element={<UserList />}></Route>
         <Route path="add" element={<AddNewUser />}></Route>
-        <Route path="edit" element={<EditUser />}></Route>
+        <Route path="edit-user/:id" element={<EditUser />}></Route>
       </Route>
 
       {/* Blog */}
