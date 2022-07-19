@@ -39,9 +39,9 @@ export default function EditPost() {
 
   let Update = (e) => {
     e.preventDefault()
-    axios.put(`http://localhost:3500/posts/${id}`,data)
+    axios.put(`http://localhost:3500/blogs/${id}`,data)
     .then(
-        navigate('/post-list')
+        navigate('/blog')
     )
 
 }
