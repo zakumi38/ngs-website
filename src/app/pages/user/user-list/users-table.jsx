@@ -56,11 +56,14 @@ const UsersTable = () => {
     pagesVisited + usersPerPage
   );
   const pageCount = Math.ceil(response?.length / usersPerPage);
-  console.log(displayUsers, pageCount, pagesVisited);
+  // console.log(displayUsers, pageCount, pagesVisited);
 
-  const handleClick = (page) => {
-    setUser(page);
-    setPageNumber(page - 1);
+  const handleClick = (event, value) => {
+
+    console.log(value)
+    setUser(value);
+    setPageNumber(value - 1);
+
   };
 
   const handleDelete = async (id) => {
@@ -81,9 +84,9 @@ const UsersTable = () => {
       }
     })();
   }, []);
-  console.log(response);
+  // console.log(response);
 
-  console.log(response);
+  // console.log(response);
   return (
     <>
       <TableContainer
@@ -171,14 +174,14 @@ const UsersTable = () => {
         )}
       </TableContainer>
 
-    
+
       {!loading && (
         <Grid container sx={{ gap: { xs: "1rem", sm: "0" } }}>
           <Grid item xs={12} sm={6}>
             <Stack>
               <Typography>
                 Showing {pagesVisited + 1} to {displayUsers?.length * user} of{" "}
-                {}
+                { }
                 {response?.length} entries
               </Typography>
             </Stack>
@@ -189,7 +192,7 @@ const UsersTable = () => {
                 count={pageCount}
                 color="primary"
                 page={pageNumber + 1}
-                onChange={(e) => handleClick(e.target.textContent)}
+                onChange={handleClick}
                 renderItem={(item) => (
                   <PaginationItem
                     components={{
