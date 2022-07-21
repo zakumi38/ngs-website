@@ -5,7 +5,7 @@ import {
   Grid,
   Typography,
   Box,
-  Button,
+  Button
 } from "@mui/material";
 import App from "../../../../app.module.sass";
 import { useNavigate, useParams } from "react-router-dom";
@@ -19,12 +19,26 @@ export default function EditPost() {
   const [date,setDate]=useState("");
   const navigate=useNavigate();
   const {id} =useParams();
+  const [image, setImage] = useState();
   
   const data={
       title:title,
       img:img,
       description:description,
       date:date
+  }
+
+  const photoUpload = (e) =>{
+    console.log(e.target.files[0].name)
+
+    
+    axios.patch(`http://localhost:3500/blogs/${id}`,{'img':e.target.files[0].name})
+    .then(
+       res => {
+        console.log(res)
+        // navigate('/blog')
+       }
+    )
   }
 
   useEffect(()=>{
@@ -91,13 +105,11 @@ export default function EditPost() {
             </Grid>
           </Grid>
           <Grid item xs={12} marginBottom="40px">
-            <FormControl fullWidth>
-              <TextField
-                placeholder="Post Image"
-                aria-describedby="my-helper-text"
-                onChange={(e)=>setImg(e.target.value)}
-                value={img}
-              />
+            <FormControl>
+            <Button variant="contained" component="label" color="primary">
+                  Upload a photo
+            <input type="file" accept="image/*" onChange={photoUpload}  hidden />
+            </Button>
             </FormControl>
           </Grid>
           <Grid item xs={12} marginBottom="40px">

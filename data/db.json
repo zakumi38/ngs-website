@@ -99,7 +99,7 @@
   "blogs": [
     {
       "title": "Frontend Development",
-      "img": "https://tinyurl.com/yuabhvna",
+      "img": "IMG_20220124_171407.jpg",
       "description": "desc desc desc desc desc desc desc desc desc desc desc desc desc desc",
       "date": "5/5/2001",
       "id": 1
@@ -117,6 +117,69 @@
       "description": "React React React React React React React React React React React React React React React React React React React React React React gg",
       "date": "3/9/2012",
       "id": 3
+    },
+    {
+      "title": "Frontend Development",
+      "img": "https://tinyurl.com/yuabhvna",
+      "description": "desc desc desc desc desc desc desc desc desc desc desc desc desc desc",
+      "date": "5/5/2001",
+      "id": 4
+    },
+    {
+      "title": "Html Update",
+      "img": "https://tinyurl.com/3pxydama",
+      "description": "Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post ",
+      "date": "4/8/2021",
+      "id": 5
+    },
+    {
+      "title": "React ",
+      "img": "https://tinyurl.com/yycz7cfv",
+      "description": "React React React React React React React React React React React React React React React React React React React React React React gg",
+      "date": "3/9/2012",
+      "id": 6
+    },
+    {
+      "title": "Frontend Development",
+      "img": "https://tinyurl.com/yuabhvna",
+      "description": "desc desc desc desc desc desc desc desc desc desc desc desc desc desc",
+      "date": "5/5/2001",
+      "id": 7
+    },
+    {
+      "title": "Html Update",
+      "img": "https://tinyurl.com/3pxydama",
+      "description": "Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post ",
+      "date": "4/8/2021",
+      "id": 8
+    },
+    {
+      "title": "React ",
+      "img": "https://tinyurl.com/yycz7cfv",
+      "description": "React React React React React React React React React React React React React React React React React React React React React React gg",
+      "date": "3/9/2012",
+      "id": 9
+    },
+    {
+      "title": "Frontend Development",
+      "img": "https://tinyurl.com/yuabhvna",
+      "description": "desc desc desc desc desc desc desc desc desc desc desc desc desc desc",
+      "date": "5/5/2001",
+      "id": 10
+    },
+    {
+      "title": "Html Update",
+      "img": "https://tinyurl.com/3pxydama",
+      "description": "Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post ",
+      "date": "4/8/2021",
+      "id": 11
+    },
+    {
+      "title": "React ",
+      "img": "https://tinyurl.com/yycz7cfv",
+      "description": "React React React React React React React React React React React React React React React React React React React React React React gg",
+      "date": "3/9/2012",
+      "id": 12
     }
   ]
 }

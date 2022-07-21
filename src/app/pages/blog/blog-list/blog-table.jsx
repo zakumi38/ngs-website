@@ -14,8 +14,9 @@ import {
     Stack,
     Typography,
   } from "@mui/material";
-  import React from "react";
+  import React, {useState,useEffect} from "react";
   import PostsTable from "./blogs-table";
+  import axios from "axios";
   
   const rightArrow = () => {
     return <FontAwesomeIcon icon={faArrowRight} />;
@@ -25,6 +26,31 @@ import {
   };
   
   const UserTable = () => {
+    const [posts, setPosts] = useState([]);
+
+    const postPerPage = 5
+    const [currentPage, SetCurrentPage] = useState(1)
+    const [data,setData] = useState(0)
+    const count = Math.ceil(data / postPerPage)
+    const [offSet,setOffSet] = useState(0)
+
+    const handleChange = (e,value) => {
+      SetCurrentPage(value)
+    }
+    
+  
+    const loadPosts = async () => { 
+      let res = await axios.get("http://localhost:3500/blogs")
+      setData(res.data.length)
+      setPosts(res.data.splice( offSet , postPerPage));
+      setOffSet(() => (currentPage - 1)*postPerPage)
+      console.log(offSet)
+    };
+    
+    useEffect(() => {
+      loadPosts();
+    }, [currentPage,offSet]);
+
     return (
       <Grid
         container
@@ -77,7 +103,7 @@ import {
             </Button>
           </Stack>
         </Grid>
-        <PostsTable />
+            <PostsTable posts={posts} loadPosts={loadPosts}  />
         <Grid container sx={{ gap: { xs: "1rem", sm: "0" } }}>
           <Grid item xs={12} sm={6}>
             <Stack>
@@ -86,8 +112,10 @@ import {
           </Grid>
           <Grid item xs={12} sm={6}>
             <Stack spacing={2} sx={{ alignItems: "end" }}>
-              <Pagination
-                count={8}
+            <Pagination
+                count={count}
+                page={currentPage}
+                onChange={handleChange}
                 renderItem={(item) => (
                   <PaginationItem
                     components={{
