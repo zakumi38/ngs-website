@@ -62,7 +62,7 @@ function Adminstration() {
             <Link sx={{
             color: "black",
             textDecoration : "none",
-          }} >User </Link>
+          }} >User Management</Link>
           </MenuItem>
         </Menu>
       </div>

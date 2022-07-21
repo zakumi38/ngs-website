@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "id": 5,
-      "userName": "Haydan",
-      "emailAddress": "work409@gmail.com",
-      "roles": "Admin",
-      "status": "Active"
-    },
-    {
       "id": 6,
       "userName": "Haydan",
       "emailAddress": "work409@gmail.com",
@@ -73,6 +66,28 @@
       "password": "WfCx05gXcSQ",
       "roles": "Manager",
       "id": 12
+    },
+    {
+      "userName": "Moon Seng",
+      "firstName": "Moon",
+      "mobile": "09259585359",
+      "lastName": "Seng",
+      "emailAddress": "moonseng.dev@gmail.com",
+      "password": "Moon Seng",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 13
+    },
+    {
+      "userName": "Moon Seng",
+      "firstName": "Moon",
+      "mobile": "09259585359",
+      "lastName": "Seng",
+      "emailAddress": "moonseng.dev@gmail.com",
+      "password": "Moon Seng",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 14
     }
   ],
   "admin": {

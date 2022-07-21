@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import StyledButton from "../../component/StyledButton";
 import useAxios, { instance } from "../useAxios";
+import { useNavigate } from "react-router-dom";
+
 
 const rolesTitle = [
   {
@@ -30,6 +32,8 @@ const CustomTextField = styled(TextField)({
 });
 
 const AddUserForm = () => {
+  const navigate = useNavigate()
+
   const [input, setInput] = useState({
     userName: "",
     firstName: "",
@@ -38,7 +42,7 @@ const AddUserForm = () => {
     emailAddress: "",
     password: "",
     roles: "",
-    status : 'Active'
+    status: "Active",
   });
 
   const handleChange = (e) => {
@@ -59,6 +63,7 @@ const AddUserForm = () => {
     roles,
   } = input;
   const handleSubmit = async () => {
+
     if (
       userName &&
       firstName &&
@@ -82,6 +87,7 @@ const AddUserForm = () => {
         password: "",
         roles: "",
       });
+      navigate('/user')
     }
   };
 
@@ -215,7 +221,7 @@ const AddUserForm = () => {
               width: { xs: "100%", md: "25%" },
               maxWidth: "200px",
             }}
-          >
+          > 
             Add user
           </StyledButton>
         </Grid>
