@@ -60,5 +60,16 @@
       "date": "3/9/2012",
       "id": 3
     }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "Event1",
+      "description": "React React React React React React",
+      "date": "21/7/2022",
+      "time": "5:14 PM",
+      "src": "",
+      "location": "Yangon"
+    }
   ]
 }

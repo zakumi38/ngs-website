@@ -16,6 +16,11 @@ import UserProfile from "../../app/pages/user-profile/EditProfile";
 import ChangePassword from "../../app/pages/user-profile/ChangePassword";
 import Home from "../../core/components/home/home";
 
+// Event
+import EventsList from "../../app/pages/events/event-list/event-list";
+import AddNewEvents from "../../app/pages/events/add-new-events/add-new-events";
+import EditEvents from "../../app/pages/events/edit-events/edit-events";
+
 function View() {
   return (
     <Routes>
@@ -35,6 +40,12 @@ function View() {
         <Route path="edit/:id" element={<EditBlog />}></Route>
       </Route>
 
+      {/* Events */}
+      <Route path="/events">
+        <Route index element={<EventsList />} />
+        <Route path="add" element={<AddNewEvents />} />
+        <Route path="edit/:id" element={<EditEvents />} />
+      </Route>
       {/* Porfile */}
       <Route path="/user-profile" element={<UserProfile />}></Route>
       <Route path="/change-password" element={<ChangePassword />}></Route>
