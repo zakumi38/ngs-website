@@ -150,7 +150,7 @@ const EventsTable = () => {
                     </TableCell>
                     <TableCell>
                       <Stack direction="row" spacing={2}>
-                        <Link href={`user/edit-user/${row.id}`}>
+                        <Link href={`events/edit/${row.id}`}>
                           <ActionIcon color="#2e7d32" icon={faPenToSquare} />
                         </Link>
 
