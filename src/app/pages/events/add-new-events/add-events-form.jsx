@@ -13,10 +13,10 @@ import { upload } from "@testing-library/user-event/dist/upload";
 const CustomTextField = styled(TextField)({
   width: "100%",
   borderColor: "#000",
-  "& label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input":
-    {
-      color: "transparent",
-    },
+  // "& label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input":
+  //   {
+  //     color: "transparent",
+  //   },
 });
 
 const AddEventsForm = () => {
@@ -28,6 +28,12 @@ const AddEventsForm = () => {
     time: "",
     description: "",
   });
+
+  const [cusInput, setCusInput] = useState({
+    dates: "",
+    times: "",
+  });
+
   const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,8 +61,12 @@ const AddEventsForm = () => {
         time: "",
         description: "",
       });
+      setCusInput({
+        dates: "",
+        times: "",
+      });
     }
-    // navigate("/events");
+    navigate("/events");
   };
   const handleImgChange = (e) => {
     const uploadFile = e.target.files[0];
@@ -69,6 +79,7 @@ const AddEventsForm = () => {
   };
   const handleDate = (e) => {
     const value = e.target.value;
+    setCusInput({ ...cusInput, dates: value });
     const x = value.split("-");
     const y = x.shift();
     const z = [...x, y].join("/");
@@ -80,6 +91,7 @@ const AddEventsForm = () => {
 
   const handleTimeChange = (e) => {
     const value = e.target.value;
+    setCusInput({ ...cusInput, times: value });
     const prefix = value.slice(0, 2);
     const rest = value.slice(2);
     const pm = prefix % 12;
@@ -148,6 +160,13 @@ const AddEventsForm = () => {
         </Grid>
         <Grid item xs={12} sm={5}>
           <CustomTextField
+            sx={{
+              "& label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input":
+                {
+                  color: "transparent",
+                },
+            }}
+            value={cusInput.dates}
             type="date"
             label="MM/DD/YYYY"
             name="date"
@@ -159,6 +178,13 @@ const AddEventsForm = () => {
             type="time"
             label="Time"
             name="time"
+            value={cusInput.times}
+            sx={{
+              "& label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input":
+                {
+                  color: "transparent",
+                },
+            }}
             onChange={handleTimeChange}
           />
         </Grid>
