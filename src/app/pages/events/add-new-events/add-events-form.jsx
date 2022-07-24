@@ -9,39 +9,14 @@ import EventStyle from "./add-events-form.module.sass";
 import axios from "axios";
 import api from "../../../../mockdatabase/database";
 import { upload } from "@testing-library/user-event/dist/upload";
-const rolesTitle = [
-  {
-    value: "Default",
-    label: "Please Select Your Role",
-  },
-  {
-    value: "Admin",
-    label: "Admin",
-  },
-  {
-    value: "Manager",
-    label: "Manager",
-  },
-  {
-    value: "Owner",
-    label: "Owner",
-  },
-];
 
 const CustomTextField = styled(TextField)({
   width: "100%",
   borderColor: "#000",
-});
-const UploadTextField = styled("input")({
-  minHeight: "61px",
-  border: "1px solid rgba(0, 0, 0, 0.23)",
-  borderRadius: "5px",
-  display: "flex",
-  justifyContent: "start",
-  alignItems: "center",
-  padding: "15px",
-  margin: "0",
-  width: "100%",
+  "& label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input":
+    {
+      color: "transparent",
+    },
 });
 
 const AddEventsForm = () => {
@@ -61,6 +36,7 @@ const AddEventsForm = () => {
       [name]: value,
     });
   };
+
   const currentdate = new Date();
   console.log(currentdate.toLocaleString().split(","));
   const { title, location, src, date, time, description } = input;
@@ -89,6 +65,32 @@ const AddEventsForm = () => {
     formData.append("files", uploadFile);
     api.post("events", formData, {
       headers: { "Content-Type": "multipart/form-data" },
+    });
+  };
+  const handleDate = (e) => {
+    const value = e.target.value;
+    const x = value.split("-");
+    const y = x.shift();
+    const z = [...x, y].join("/");
+    setInput({
+      ...input,
+      date: z,
+    });
+  };
+
+  const handleTimeChange = (e) => {
+    const value = e.target.value;
+    const prefix = value.slice(0, 2);
+    const rest = value.slice(2);
+    const pm = prefix % 12;
+    const zone =
+      prefix >= 0 && prefix < 12
+        ? `${prefix == 0 ? "12" : prefix}${rest} AM`
+        : `${pm === 0 ? "12" : pm}${rest} PM`;
+
+    setInput({
+      ...input,
+      time: zone,
     });
   };
 
@@ -137,7 +139,7 @@ const AddEventsForm = () => {
           />
         </Grid>
         <Grid item xs={12} sm={11}>
-          <UploadTextField
+          <CustomTextField
             onChange={handleImgChange}
             type="file"
             accept="image/png, image/jpeg"
@@ -146,22 +148,18 @@ const AddEventsForm = () => {
         </Grid>
         <Grid item xs={12} sm={5}>
           <CustomTextField
-            id="outlined-basic"
-            label="Date"
-            variant="outlined"
+            type="date"
+            label="MM/DD/YYYY"
             name="date"
-            value={date}
-            onChange={handleChange}
+            onChange={handleDate}
           />
         </Grid>
         <Grid item xs={12} sm={5}>
           <CustomTextField
-            id="outlined-basic"
+            type="time"
             label="Time"
-            variant="outlined"
             name="time"
-            value={time}
-            onChange={handleChange}
+            onChange={handleTimeChange}
           />
         </Grid>
 

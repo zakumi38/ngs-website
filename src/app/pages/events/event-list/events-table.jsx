@@ -51,10 +51,11 @@ const tabelCell = [
   "Date",
   "Time",
   "Location",
+  "Actions",
 ];
 const EventsTable = () => {
   const [data, setData] = useState([]);
-  const [pageNumber, setPageNumber] = useState(0);
+
   const [events, loading, error] = useAxiosFetch({
     axiosInstance: api,
     method: "get",
@@ -65,18 +66,20 @@ const EventsTable = () => {
     setData(events);
   }, [events]);
 
-  const [user, setUser] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 5;
+  const indexOfLastPage = currentPage * usersPerPage;
+  const indexOfFirstPage = indexOfLastPage - usersPerPage;
+  const currentPost = data?.slice(indexOfFirstPage, indexOfLastPage);
 
-  const pagesVisited = pageNumber * usersPerPage;
+  const pagesVisited = currentPage * usersPerPage;
+  const pageCount = Math.ceil(data?.length / usersPerPage);
 
   const displayUsers = data?.slice(pagesVisited, pagesVisited + usersPerPage);
-  const pageCount = Math.ceil(data?.length / usersPerPage);
-  console.log(displayUsers, pageCount, pagesVisited);
+  console.log(currentPost, indexOfLastPage, indexOfFirstPage);
 
   const handleClick = (page) => {
-    setUser(page);
-    setPageNumber(page - 1);
+    setCurrentPage(Number(page));
   };
 
   const handleDelete = async (id) => {
@@ -119,7 +122,7 @@ const EventsTable = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {displayUsers?.map((row, index) => (
+                {currentPost?.map((row, index) => (
                   <TableRow
                     key={index}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -134,7 +137,7 @@ const EventsTable = () => {
                       <Box component="img" src={row.src}></Box>
                     </TableCell>
                     <TableCell>
-                      <Typography>{`${row.description.slice(
+                      <Typography>{`${row.description?.slice(
                         0,
                         25
                       )}...`}</Typography>
@@ -172,8 +175,8 @@ const EventsTable = () => {
           <Grid item xs={12} sm={6}>
             <Stack>
               <Typography>
-                Showing {pagesVisited + 1} to {displayUsers?.length * events} of{" "}
-                {}
+                Showing {indexOfFirstPage + 1} to {currentPost.length} {""}
+                of {""}
                 {events?.length} entries
               </Typography>
             </Stack>
@@ -183,7 +186,7 @@ const EventsTable = () => {
               <Pagination
                 count={pageCount}
                 color="primary"
-                page={pageNumber + 1}
+                page={currentPage}
                 onChange={(e) => handleClick(e.target.textContent)}
                 renderItem={(item) => (
                   <PaginationItem
