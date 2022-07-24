@@ -99,7 +99,7 @@
   "blogs": [
     {
       "title": "Frontend Development",
-      "img": "IMG_20220124_171407.jpg",
+      "img": "https://tinyurl.com/3pxydama",
       "description": "desc desc desc desc desc desc desc desc desc desc desc desc desc desc",
       "date": "5/5/2001",
       "id": 1
@@ -179,6 +179,92 @@
       "img": "https://tinyurl.com/yycz7cfv",
       "description": "React React React React React React React React React React React React React React React React React React React React React React gg",
       "date": "3/9/2012",
+      "id": 12
+    }
+  ],
+  "gallerys": [
+    {
+      "title": "abc",
+      "img": "Agent charlotte copy.png",
+      "category": "css",
+      "date": "4/8/2021",
+      "id": 1
+    },
+    {
+      "title": "def",
+      "img": "https://res-3.cloudinary.com/fieldfisher/image/upload/f_jpg,q_auto/v1/sectors/technology/tech_neoncircuitboard_857021704_medium_lc5h05",
+      "category": "Voip",
+      "date": "3/4/2015",
+      "id": 2
+    },
+    {
+      "title": "fgh",
+      "img": "https://cdn.talkesport.com/wp-content/uploads/technology-esports.jpg",
+      "category": "Technologies",
+      "date": "3/4/2018",
+      "id": 3
+    },
+    {
+      "title": "hij",
+      "img": "https://apicms.thestar.com.my/uploads/images/2022/04/06/1540822.jpg",
+      "category": "Technologies",
+      "date": "3/4/2019",
+      "id": 4
+    },
+    {
+      "title": "abc",
+      "img": "277753043_4797091637056679_8950979838390857622_n.jpg",
+      "category": "Voip",
+      "date": "4/8/2021",
+      "id": 5
+    },
+    {
+      "title": "def",
+      "img": "https://res-3.cloudinary.com/fieldfisher/image/upload/f_jpg,q_auto/v1/sectors/technology/tech_neoncircuitboard_857021704_medium_lc5h05",
+      "category": "Voip",
+      "date": "3/4/2015",
+      "id": 6
+    },
+    {
+      "title": "fgh",
+      "img": "https://cdn.talkesport.com/wp-content/uploads/technology-esports.jpg",
+      "category": "Technologies",
+      "date": "3/4/2018",
+      "id": 7
+    },
+    {
+      "title": "hij",
+      "img": "https://apicms.thestar.com.my/uploads/images/2022/04/06/1540822.jpg",
+      "category": "Technologies",
+      "date": "3/4/2019",
+      "id": 8
+    },
+    {
+      "title": "abc",
+      "img": "https://www.investopedia.com/thmb/ooWnJKzULBikIcMgNqZdiRvHHBY=/2121x1414/filters:fill(auto,1)/GettyImages-964033964-ca3290057ccc4024b57e755423572264.jpg",
+      "category": "Voip",
+      "date": "4/8/2021",
+      "id": 9
+    },
+    {
+      "title": "def",
+      "img": "https://res-3.cloudinary.com/fieldfisher/image/upload/f_jpg,q_auto/v1/sectors/technology/tech_neoncircuitboard_857021704_medium_lc5h05",
+      "category": "Voip",
+      "date": "3/4/2015",
+      "id": 10
+    },
+    {
+      "title": "fgh",
+      "img": "https://cdn.talkesport.com/wp-content/uploads/technology-esports.jpg",
+      "category": "Technologies",
+      "date": "3/4/2018",
+      "id": 11
+    },
+    {
+      "title": "adsfsf",
+      "img": "Agent charlotte copy.png",
+      "category": "Laptop",
+      "date": "asdfa",
       "id": 12
     }
   ]
