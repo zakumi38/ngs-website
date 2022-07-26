@@ -8,24 +8,6 @@
       "status": "Active"
     },
     {
-      "id": 7,
-      "userName": "Haydan",
-      "emailAddress": "work409@gmail.com",
-      "roles": "Admin",
-      "status": "Active"
-    },
-    {
-      "userName": "Moon Seng",
-      "firstName": "Moon",
-      "mobile": "09259585359",
-      "lastName": "Seng",
-      "emailAddress": "moonseng.dev@gmail.com",
-      "password": "Moon Sneg 9585",
-      "roles": "Admin",
-      "status": "Active",
-      "id": 8
-    },
-    {
       "userName": "zawlinn.designer@gmail.com",
       "firstName": "Zaw Linn",
       "mobile": "+959788820004",
@@ -66,28 +48,6 @@
       "password": "WfCx05gXcSQ",
       "roles": "Manager",
       "id": 12
-    },
-    {
-      "userName": "Moon Seng",
-      "firstName": "Moon",
-      "mobile": "09259585359",
-      "lastName": "Seng",
-      "emailAddress": "moonseng.dev@gmail.com",
-      "password": "Moon Seng",
-      "roles": "Admin",
-      "status": "Active",
-      "id": 13
-    },
-    {
-      "userName": "Moon Seng",
-      "firstName": "Moon",
-      "mobile": "09259585359",
-      "lastName": "Seng",
-      "emailAddress": "moonseng.dev@gmail.com",
-      "password": "Moon Seng",
-      "roles": "Admin",
-      "status": "Active",
-      "id": 14
     }
   ],
   "admin": {
@@ -117,6 +77,206 @@
       "description": "React React React React React React React React React React React React React React React React React React React React React React gg",
       "date": "3/9/2012",
       "id": 3
+    }
+  ],
+  "developer-teams": [
+    {
+      "id": 0,
+      "teamname": "All"
+    },
+    {
+      "id": 1,
+      "teamname": "Mobile"
+    },
+    {
+      "id": 2,
+      "teamname": "Backend"
+    },
+    {
+      "id": 3,
+      "teamname": "Database"
+    },
+    {
+      "id": 4,
+      "teamname": "Website"
+    }
+  ],
+  "developer-team-members": [
+    {
+      "id": 1,
+      "image": "./logo512.png",
+      "name": "Dean Whales",
+      "occupation": "Senior Executive",
+      "team": "mobile",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Doloremque quam. Exercitation totam or cupidatat culpa but autem. In labore so nostrud asper natur officia magna, so quasi. Sit nequeporro dolor Iure. Pellentesque lorem mauris, vehicula vel nulla nec. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ab ad dolor repudiandae consequatur voluptates neque, soluta atque sit sapiente dolores numquam, quos corrupti illum facilis tempora ducimus ratione nostrum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro maxime atque reprehenderit provident velit non voluptatem eum delectus, minus eos voluptas quia? Iste sit accusantium similique quos, omnis harum nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quas vel, dolores animi, asperiores fugiat quis ipsa sequi quos, obcaecati optio similique temporibus modi labore. Eaque illum nisi modi consequatur!"
+    },
+    {
+      "id": 2,
+      "image": "./logo.png",
+      "name": "Dean Whales",
+      "occupation": "Senior Executive",
+      "team": "mobile",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Doloremque quam. Exercitation totam or cupidatat culpa but autem. In labore so nostrud asper natur officia magna, so quasi. Sit nequeporro dolor Iure. Pellentesque lorem mauris, vehicula vel nulla nec. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ab ad dolor repudiandae consequatur voluptates neque, soluta atque sit sapiente dolores numquam, quos corrupti illum facilis tempora ducimus ratione nostrum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro maxime atque reprehenderit provident velit non voluptatem eum delectus, minus eos voluptas quia? Iste sit accusantium similique quos, omnis harum nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quas vel, dolores animi, asperiores fugiat quis ipsa sequi quos, obcaecati optio similique temporibus modi labore. Eaque illum nisi modi consequatur!"
+    },
+    {
+      "id": 3,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "occupation": "Senior Executive",
+      "team": "backend",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 4,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "occupation": "Senior Executive",
+      "team": "backend",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 5,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "database",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 6,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "occupation": "Senior Executive",
+      "team": "database",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 7,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "occupation": "Senior Executive",
+      "team": "website",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 8,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "occupation": "Senior Executive",
+      "team": "website",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 9,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "website",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 10,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "website",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 11,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "website",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 12,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "website",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 13,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "website",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 14,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "website",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 15,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "website",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "image": "./logo512.png",
+      "name": "zxc",
+      "occupation": "zxc",
+      "team": "Mobile",
+      "experience": "zxc",
+      "phone": "zxc",
+      "email": "zc",
+      "personalExp": "zxc",
+      "id": 16
     }
   ]
 }
