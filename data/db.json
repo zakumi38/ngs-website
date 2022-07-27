@@ -88,6 +88,17 @@
       "roles": "Admin",
       "status": "Active",
       "id": 14
+    },
+    {
+      "userName": "Moon Seng",
+      "firstName": "Moon",
+      "mobile": "09259585359",
+      "lastName": "Seng",
+      "emailAddress": "moonseng.dev@gmail.com",
+      "password": "Moon Seng",
+      "roles": "Manager",
+      "status": "Active",
+      "id": 15
     }
   ],
   "admin": {

@@ -32,8 +32,7 @@ const CustomTextField = styled(TextField)({
 });
 
 const AddUserForm = () => {
-  const navigate = useNavigate()
-
+  let navigate=useNavigate();
   const [input, setInput] = useState({
     userName: "",
     firstName: "",
@@ -62,8 +61,8 @@ const AddUserForm = () => {
     password,
     roles,
   } = input;
-  const handleSubmit = async () => {
 
+  const handleSubmit = async () => {
     if (
       userName &&
       firstName &&

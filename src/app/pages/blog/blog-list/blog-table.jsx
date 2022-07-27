@@ -2,6 +2,7 @@ import {
     faArrowLeft,
     faArrowRight,
     faSearch,
+    faPlusCircle
   } from "@fortawesome/free-solid-svg-icons";
   import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
   import {
@@ -13,6 +14,7 @@ import {
     PaginationItem,
     Stack,
     Typography,
+    Link
   } from "@mui/material";
   import React from "react";
   import PostsTable from "./blogs-table";
@@ -36,10 +38,25 @@ import {
           margin: "5rem 0",
         }}
       >
-        <Grid item xs={3} sm={6}>
+        <Grid item xs={3} sm={5}>
           <Typography variant="h5">Post List</Typography>
         </Grid>
-        <Grid item xs={9} sm={6}>
+
+        <Grid item xs={2} sm={2}>
+          <Link href={"/blog/add"}>
+            <Typography variant="h5" sx={{
+              float: "right",
+              color: "#000",
+              border: "2px solid black",
+              padding: "5px 10px",
+              borderRadius : "10px"
+            }}> 
+              <FontAwesomeIcon icon={faPlusCircle} />
+            </Typography>
+          </Link>
+        </Grid>
+
+        <Grid item xs={7} sm={5}>
           <Stack
             direction="row"
             spacing={1}

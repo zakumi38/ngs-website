@@ -2,11 +2,7 @@ import { faBloggerB } from "@fortawesome/free-brands-svg-icons";
 import { faImage } from "@fortawesome/free-regular-svg-icons";
 import { faCalendarCheck, faUsers } from "@fortawesome/free-solid-svg-icons";
 
-export const sideMenu = [
-  {
-    id: 0,
-    title: "Entities",
-  },
+export const Entities = [
   {
     id: 1,
     icon: faBloggerB,

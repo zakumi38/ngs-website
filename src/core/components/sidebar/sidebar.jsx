@@ -1,10 +1,16 @@
-import React from "react";
-import { sideMenu } from "../../utilities/side-bar-data";
+import React, { useState } from "react";
+import { Entities } from "../../utilities/entities";
+import { webContent } from "../../utilities/web-content";
+import { setting } from "../../utilities/setting";
 import { Box, Link, Stack, List, ListItem } from "@mui/material";
 import styled from "@emotion/styled";
 import sidebar from "./sidebar.module.sass";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCaretDown,
+  faCaretUp,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 import Logo from "../../../assets/images/logo.png";
 
 export const BrandLogo = styled("div")(({ theme }) => ({
@@ -24,6 +30,26 @@ export const BrandLogo = styled("div")(({ theme }) => ({
 // }))
 
 const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [openWebContent, setOpenWebContent] = useState(false);
+  const [openSetting, setOpenSetting] = useState(false);
+
+  const open = Boolean(anchorEl);
+  const toggleWebContent = (event) => {
+    if (openWebContent === true) {
+      setOpenWebContent(false);
+    } else {
+      setOpenWebContent(true);
+    }
+  };
+
+  const toggleSetting = () => {
+    if (openSetting === true) {
+      setOpenSetting(false);
+    } else {
+      setOpenSetting(true);
+    }
+  };
   return (
     <>
       <Box
@@ -92,13 +118,11 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
 
         <Box sx={{ mt: "18px" }} className={sidebar.sideMenuContainer}>
           <Box className={sidebar.sideMenuContent}>
-
-            
-
             {/* Sidebar Menu Session */}
 
             <List>
-              {sideMenu.map((item) => (
+              <h3 className={sidebar.listItemsHeader}>Entities</h3>
+              {Entities.map((item) => (
                 <ListItem
                   key={item.id}
                   sx={!wide ? { px: "5px", py: "3px" } : { px: 0, py: "3px" }}
@@ -126,13 +150,137 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                       {" "}
                       {item.title}{" "}
                     </Box>
-                    <FontAwesomeIcon
-                      icon={item.down}
-                      className={`${sidebar.endIcon} ${wide && sidebar.d_none}`}
-                    />
                   </a>
                 </ListItem>
               ))}
+              <hr />
+            </List>
+
+            <List>
+              <h3
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={toggleWebContent}
+                className={sidebar.listItemsHeader}
+              >
+                Web Content
+                {openWebContent ? (
+                  <FontAwesomeIcon className={sidebar.icon} icon={faCaretUp} />
+                ) : (
+                  <FontAwesomeIcon
+                    className={sidebar.icon}
+                    icon={faCaretDown}
+                  />
+                )}
+              </h3>
+              <div id="webContentMenu" className={sidebar.dropDownMenu}>
+                {openWebContent
+                  ? webContent.map((item) => (
+                      <ListItem
+                        key={item.id}
+                        sx={
+                          !wide
+                            ? { px: "5px", py: "3px" }
+                            : { px: 0, py: "3px" }
+                        }
+                      >
+                        <a
+                          href={item.path}
+                          className={`${sidebar.listItems} ${
+                            wide && sidebar.newItems
+                          }`}
+                        >
+                          <FontAwesomeIcon
+                            icon={item.icon}
+                            className={sidebar.icons}
+                          />
+                          <Box
+                            component="span"
+                            sx={{
+                              ml: "5px",
+                              fontSize: "15px",
+                              fontFamily: "Poppins",
+                              textTransform: "none",
+                            }}
+                            className={wide && sidebar.d_none}
+                          >
+                            {" "}
+                            {item.title}{" "}
+                          </Box>
+                        </a>
+                      </ListItem>
+                    ))
+                  : ""}
+              </div>
+              <hr />
+            </List>
+
+            <List>
+              <h3
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={toggleSetting}
+                className={sidebar.listItemsHeader}
+              >
+                Setting
+                {openSetting ? (
+                  <FontAwesomeIcon className={sidebar.icon} icon={faCaretUp} />
+                ) : (
+                  <FontAwesomeIcon
+                    className={sidebar.icon}
+                    icon={faCaretDown}
+                  />
+                )}
+              </h3>
+              <div>
+                {openSetting
+                  ? setting.map((item) => (
+                      <ListItem
+                        key={item.id}
+                        sx={
+                          !wide
+                            ? { px: "5px", py: "3px" }
+                            : { px: 0, py: "3px" }
+                        }
+                      >
+                        <a
+                          href={item.path}
+                          className={`${sidebar.listItems} ${
+                            wide && sidebar.newItems
+                          }`}
+                        >
+                          <FontAwesomeIcon
+                            icon={item.icon}
+                            className={sidebar.icons}
+                          />
+                          <Box
+                            component="span"
+                            sx={{
+                              ml: "5px",
+                              fontSize: "15px",
+                              fontFamily: "Poppins",
+                              textTransform: "none",
+                            }}
+                            className={wide && sidebar.d_none}
+                          >
+                            {" "}
+                            {item.title}{" "}
+                          </Box>
+                          <FontAwesomeIcon
+                            icon={item.down}
+                            className={`${sidebar.endIcon} ${
+                              wide && sidebar.d_none
+                            }`}
+                          />
+                        </a>
+                      </ListItem>
+                    ))
+                  : ""}
+              </div>
             </List>
           </Box>
         </Box>
