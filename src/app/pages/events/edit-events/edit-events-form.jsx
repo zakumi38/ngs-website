@@ -84,7 +84,7 @@ const EditEventsForm = () => {
 
   const handleDate = (e) => {
     const value = e.target.value;
-    setCusInput({ ...cusInput, dates: value, con: false});
+    setCusInput({ ...cusInput, dates: value});
     const x = value.split("-");
     const y = x.shift();
     const z = [...x, y].join("/");
