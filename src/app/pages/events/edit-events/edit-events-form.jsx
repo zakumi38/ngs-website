@@ -123,9 +123,9 @@ const EditEventsForm = () => {
   const navigate = useNavigate();
   const handleUpdate = async (e) => {
 
-    e.preventDefault()
+    // e.preventDefault()
 
-    alert(JSON.stringify(newValue))
+    // alert(JSON.stringify(newValue))
 
     await api.put(`/events/${id}`, newValue);
     navigate("/events");
