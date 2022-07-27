@@ -8,25 +8,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import api from "../../../../mockdatabase/database";
 import useAxiosFetch from "../../user/user-list/useAxiosFetch";
 
-const currencies = [
-  {
-    value: "Default",
-    label: "Please Select Your Role",
-  },
-  {
-    value: "Admin",
-    label: "Admin",
-  },
-  {
-    value: "Manager",
-    label: "Manager",
-  },
-  {
-    value: "Owner",
-    label: "Owner",
-  },
-];
-
 const CustomTextField = styled(TextField)({
   width: "100%",
   borderColor: "#000",
@@ -34,57 +15,120 @@ const CustomTextField = styled(TextField)({
 
 const EditEventsForm = () => {
   const [newValue, setNewValue] = useState({
-    userName: "",
-    firstName: "",
-    mobile: "",
-    lastName: "",
-    emailAddress: "",
-    password: "",
-    roles: "",
-    status: "Active",
+    title: "",
+    location: "",
+    src: "",
+    date: "",
+    time: "",
+    description: ""
   });
+
   const {
-    userName,
-    firstName,
-    mobile,
-    lastName,
-    emailAddress,
-    password,
-    roles,
-    status,
+    title,
+    location,
+    src,
+    date,
+    time,
+    description,
+
   } = newValue;
+
+
+  const [cusInput, setCusInput] = useState({
+    dates: "",
+    times: ""
+  });
 
   const { id } = useParams();
 
-  const [users] = useAxiosFetch({
+  const [events] = useAxiosFetch({
     axiosInstance: api,
     method: "get",
-    url: `/users/${id}`,
+    url: `/events/${id}`,
   });
+  
   useEffect(() => {
-    if (users) {
+    if (events) {
+
+      const [mm, dd, yy] = events.date ? events.date.split('/') : []
+
+      const df = `${yy}-${mm}-${dd}`
+
+      let [hh, min] = events.time ? events.time.split(':') : []
+
+      const prefix = min ? min.split(' ') : ''
+
+      hh = prefix[1] === 'PM' ? Number(hh) + 12 : hh
+
+      const tf = `${hh}:${prefix[0]}`
+
+      console.log(events.date, events.time)
+
+      setCusInput({
+        dates: df,
+        times: tf
+      })
+
       setNewValue({
-        userName: users.userName,
-        firstName: users.firstName,
-        mobile: users.mobile,
-        lastName: users.lastName,
-        emailAddress: users.emailAddress,
-        password: users.password,
-        roles: users.roles,
-        status,
-      });
+        title: events.title,
+        location: events.location,
+        date:  events.date,
+        time: events.time,
+        scr: events.src,
+        description: events.description
+
+      }); 
+
     }
-  }, [users]);
+  }, [events]);
+
+  const handleDate = (e) => {
+    const value = e.target.value;
+    setCusInput({ ...cusInput, dates: value, con: false});
+    const x = value.split("-");
+    const y = x.shift();
+    const z = [...x, y].join("/");
+    setNewValue({
+      ...newValue,
+      date: z,
+    });
+  };
+  const handleTime = (e) => {
+    const value = e.target.value;
+    setCusInput({ ...cusInput, times: value });
+    const prefix = value.slice(0, 2);
+    const rest = value.slice(2);
+    const pm = prefix % 12;
+    const zone =
+      prefix >= 0 && prefix < 12
+        ? `${prefix == 0 ? "12" : prefix}${rest} AM`
+        : `${pm === 0 ? "12" : pm}${rest} PM`;
+
+    setNewValue({
+      ...newValue,
+      time: zone,
+    });
+    
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setNewValue({ ...newValue, [name]: value });
   };
+
+  
+
+ 
   console.log(newValue);
   const navigate = useNavigate();
-  const handleUpdate = async () => {
-    await api.put(`/users/${id}`, newValue);
-    navigate("/user");
+  const handleUpdate = async (e) => {
+
+    e.preventDefault()
+
+    alert(JSON.stringify(newValue))
+
+    await api.put(`/events/${id}`, newValue);
+    navigate("/events");
   };
   return (
     <Grid
@@ -95,97 +139,90 @@ const EditEventsForm = () => {
         p: "20px",
         alignItems: "center",
         borderRadius: "10px",
-        m: "5rem  0 0 0",
+        m: "5rem 0",
       }}
     >
-      <Grid item xs={12} sx={{ m: 3 }}>
-        <Typography variant="h5">Edit User</Typography>
+      <Grid item xs={12} sx={{ m: 2 }}>
+        <Typography variant="h5">Update Event</Typography>
       </Grid>
       <Grid
         container
         sx={{
           p: 3,
           justifyContent: "space-around",
-          gap: 5,
+          rowGap: "2rem",
         }}
       >
         <Grid item xs={12} sm={5}>
           <CustomTextField
-            label="User Name"
-            name="userName"
-            value={userName}
             id="outlined-basic"
+            label="Event Title"
             variant="outlined"
+            name="title"
+            value={title}
             onChange={handleChange}
           />
         </Grid>
         <Grid item xs={12} sm={5}>
           <CustomTextField
-            label="First Name"
-            name="firstName"
-            value={firstName}
             id="outlined-basic"
+            label="Location"
             variant="outlined"
+            name="location"
+            value={location}
             onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={11}>
+          <CustomTextField
+            // onChange={handleImgChange}
+            type="file"
+            accept="image/png, image/jpeg"
+          />
+          <span></span>
+        </Grid>
+        <Grid item xs={12} sm={5}>
+          <CustomTextField
+            sx={{
+              "& label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input":
+              {
+                color: "transparent",
+              },
+            }}
+            value={cusInput.dates}
+            type="date"
+            label="MM/DD/YYYY"
+            // name="date"
+          onChange={handleDate}
           />
         </Grid>
         <Grid item xs={12} sm={5}>
           <CustomTextField
-            label="Mobile Number"
-            value={mobile}
-            name="mobile"
-            id="outlined-basic"
-            variant="outlined"
-            onChange={handleChange}
+            type="time"
+            label="Time"
+            // name="time"
+            value={cusInput.times}
+            sx={{
+              "& label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input":
+              {
+                color: "transparent",
+              },
+            }}
+            onChange={handleTime}
           />
         </Grid>
-        <Grid item xs={12} sm={5}>
+
+        <Grid item xs={12} sm={11}>
           <CustomTextField
-            label="Last Name"
-            name="lastName"
-            value={lastName}
             id="outlined-basic"
+            label="Description"
             variant="outlined"
-            onChange={handleChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={5}>
-          <CustomTextField
-            label="Email Address"
-            value={emailAddress}
-            name="emailAddress"
-            id="outlined-basic"
-            variant="outlined"
-            onChange={handleChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={5}>
-          <CustomTextField
-            label="Password"
-            value={password}
-            name="password"
-            id="outlined-basic"
-            variant="outlined"
+            name="description"
+            value={description}
             onChange={handleChange}
           />
         </Grid>
 
-        <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
-          <TextField
-            sx={{ width: { xs: "100%", sm: "92.5%" } }}
-            id="outlined-select-currency"
-            select
-            label="Select"
-            value={roles}
-            onChange={handleChange}
-          >
-            {currencies.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-        </Grid>
         <Grid
           item
           xs={12}
@@ -197,12 +234,11 @@ const EditEventsForm = () => {
             color="primary"
             onClick={handleUpdate}
             sx={{
-              width: { xs: "100%", sm: "25%", md: "18%", lg: "15%" },
-              minHeight: "50px",
-              minWidth: "100px",
+              width: { xs: "100%", md: "25%" },
+              maxWidth: "200px",
             }}
           >
-            Update
+            Update Event
           </StyledButton>
         </Grid>
       </Grid>

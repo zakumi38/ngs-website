@@ -66,9 +66,9 @@ const UsersTable = () => {
   const pageCount = Math.ceil(data?.length / usersPerPage);
   console.log(displayUsers, pageCount, pagesVisited);
 
-  const handleClick = (page) => {
-    setUser(page);
-    setPageNumber(page - 1);
+  const handleClick = (event, value) => {
+    setUser(value);
+    setPageNumber(value - 1);
   };
 
   const handleDelete = async (id) => {
@@ -182,7 +182,7 @@ const UsersTable = () => {
                 count={pageCount}
                 color="primary"
                 page={pageNumber + 1}
-                onChange={(e) => handleClick(e.target.textContent)}
+                onChange={handleClick}
                 renderItem={(item) => (
                   <PaginationItem
                     components={{

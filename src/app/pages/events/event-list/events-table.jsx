@@ -78,8 +78,8 @@ const EventsTable = () => {
   const displayUsers = data?.slice(pagesVisited, pagesVisited + usersPerPage);
   console.log(currentPost, indexOfLastPage, indexOfFirstPage);
 
-  const handleClick = (page) => {
-    setCurrentPage(Number(page));
+  const handleClick = (event, value) => {
+    setCurrentPage(value);
   };
 
   const handleDelete = async (id) => {
@@ -187,7 +187,7 @@ const EventsTable = () => {
                 count={pageCount}
                 color="primary"
                 page={currentPage}
-                onChange={(e) => handleClick(e.target.textContent)}
+                onChange={handleClick}
                 renderItem={(item) => (
                   <PaginationItem
                     components={{
