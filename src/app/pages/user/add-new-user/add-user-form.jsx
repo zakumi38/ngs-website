@@ -6,7 +6,6 @@ import StyledButton from "../../component/StyledButton";
 import useAxios, { instance } from "../useAxios";
 import { useNavigate } from "react-router-dom";
 
-
 const rolesTitle = [
   {
     value: "Default",
@@ -32,7 +31,7 @@ const CustomTextField = styled(TextField)({
 });
 
 const AddUserForm = () => {
-  let navigate=useNavigate();
+  const navigate=useNavigate();
   const [input, setInput] = useState({
     userName: "",
     firstName: "",
@@ -43,7 +42,6 @@ const AddUserForm = () => {
     roles: "",
     status: "Active",
   });
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInput({
@@ -88,6 +86,7 @@ const AddUserForm = () => {
       });
       navigate('/user')
     }
+    navigate("/user");
   };
 
   console.log(input);

@@ -1,13 +1,33 @@
 {
   "users": [
     {
+<<<<<<< HEAD
       "id": 6,
       "userName": "Haydan",
       "emailAddress": "work409@gmail.com",
+=======
+      "userName": "Hello",
+      "firstName": "World",
+      "mobile": "Hello",
+      "lastName": "Hello",
+      "emailAddress": "213123",
+      "password": "21312",
       "roles": "Admin",
-      "status": "Active"
+      "id": 2
     },
     {
+      "userName": "a",
+      "firstName": "a",
+      "mobile": "a",
+      "lastName": "a",
+      "emailAddress": "a",
+      "password": "a",
+>>>>>>> origin/event-page
+      "roles": "Admin",
+      "id": 3
+    },
+    {
+<<<<<<< HEAD
       "userName": "zawlinn.designer@gmail.com",
       "firstName": "Zaw Linn",
       "mobile": "+959788820004",
@@ -81,6 +101,114 @@
       "roles": "Manager",
       "status": "Active",
       "id": 15
+=======
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 4
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 5
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 6
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 7
+    },
+    {
+      "userName": "Hello",
+      "firstName": "World",
+      "mobile": "Hello",
+      "lastName": "Hello",
+      "emailAddress": "213123",
+      "password": "21312",
+      "roles": "Admin",
+      "id": 2
+    },
+    {
+      "userName": "a",
+      "firstName": "a",
+      "mobile": "a",
+      "lastName": "a",
+      "emailAddress": "a",
+      "password": "a",
+      "roles": "Admin",
+      "id": 3
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 4
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 5
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 6
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 7
+>>>>>>> origin/event-page
     }
   ],
   "admin": {
@@ -456,6 +584,56 @@
       "email": "moonseng.dev@gmail.com",
       "personalExp": "prefer to say it in interview",
       "id": 17
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "Event1",
+      "description": "React React React React React React",
+      "date": "21/7/2022",
+      "time": "5:14 PM",
+      "src": "",
+      "location": "Yangon"
+    },
+    {
+      "id": 2
+    },
+    {
+      "title": "123",
+      "location": "Mandalay",
+      "date": "07/30/2022",
+      "time": "5:11 PM",
+      "scr": "",
+      "description": "aaaaa",
+      "id": 3
+    },
+    {
+      "title": "123123",
+      "location": "Yangon",
+      "date": "07/14/2022",
+      "time": "6:25 PM",
+      "scr": "",
+      "description": "12312312",
+      "id": 4
+    },
+    {
+      "title": "123123",
+      "location": "123123",
+      "src": "",
+      "date": "07/25/2022",
+      "time": "6:34 PM",
+      "description": "12312312",
+      "id": 5
+    },
+    {
+      "title": "123123",
+      "location": "Maesot",
+      "date": "07/22/2022",
+      "time": "06:40 AM",
+      "scr": "",
+      "description": "123123123",
+      "id": 6
     }
   ]
 }

@@ -26,6 +26,11 @@ import GalleryList from "../../app/pages/gallery/gallery-list/gallerylist";
 import AddGallery from "../../app/pages/gallery/add-new-gallery/add-new-gallery";
 import EditGallery from "../../app/pages/gallery/edit-gallery/edit-gallery";
 
+// Event
+import EventsList from "../../app/pages/events/event-list/event-list";
+import AddNewEvents from "../../app/pages/events/add-new-events/add-new-events";
+import EditEvents from "../../app/pages/events/edit-events/edit-events";
+
 function View() {
   return (
     <Routes>
@@ -35,7 +40,7 @@ function View() {
       <Route path="/user">
         <Route index element={<UserList />}></Route>
         <Route path="add" element={<AddNewUser />}></Route>
-        <Route path="edit" element={<EditUser />}></Route>
+        <Route path="edit-user/:id" element={<EditUser />}></Route>
       </Route>
 
       {/* Blog */}
@@ -44,6 +49,8 @@ function View() {
         <Route path="add" element={<AddBlog />}></Route>
         <Route path="edit/:id" element={<EditBlog />}></Route>
       </Route>
+
+      {/* Teams */}
       <Route path='/team' element={<Teams/>}>
         <Route index element={<Teams/>}/>
         <Route path=':teamName'>
@@ -53,6 +60,14 @@ function View() {
       <Route path="/team/:teamName/:id/edit" element={<EditTeamMember/>}></Route>
       <Route path="/team/:teamName/addMember" element={<AddTeam/>}></Route>
       <Route path="/team/:teamName/:id/view" element={<EditTeamMember disabled={true}/>}></Route>
+
+      {/* Events */}
+      <Route path="/events">
+        <Route index element={<EventsList />} />
+        <Route path="add" element={<AddNewEvents />} />
+        <Route path="edit/:id" element={<EditEvents />} />
+      </Route>
+      
       {/* Porfile */}
       <Route path="/user-profile" element={<UserProfile />}></Route>
       <Route path="/change-password" element={<ChangePassword />}></Route>

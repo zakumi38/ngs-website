@@ -21,7 +21,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import styled from "@emotion/styled";
 import api from "../../../../mockdatabase/database";
-import useAxiosFetch from "./useAxiosFetch";
+import useAxiosFetch from "../../user/user-list/useAxiosFetch";
 
 const ActionIcon = styled(FontAwesomeIcon)(
   {
@@ -43,41 +43,52 @@ const rightArrow = () => {
 const leftArrow = () => {
   return <FontAwesomeIcon icon={faArrowLeft} />;
 };
-
-const UsersTable = () => {
+const tabelCell = [
+  "ID",
+  "Title",
+  "Photo",
+  "Description",
+  "Date",
+  "Time",
+  "Location",
+  "Actions",
+];
+const EventsTable = () => {
   const [data, setData] = useState([]);
-  const [pageNumber, setPageNumber] = useState(0);
-  const [users, loading, error] = useAxiosFetch({
+
+  const [events, loading, error] = useAxiosFetch({
     axiosInstance: api,
     method: "get",
-    url: "/users",
+    url: "/events",
   });
 
   useEffect(() => {
-    setData(users);
-  }, [users]);
+    setData(events);
+  }, [events]);
 
-  const [user, setUser] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 5;
+  const indexOfLastPage = currentPage * usersPerPage;
+  const indexOfFirstPage = indexOfLastPage - usersPerPage;
+  const currentPost = data?.slice(indexOfFirstPage, indexOfLastPage);
 
-  const pagesVisited = pageNumber * usersPerPage;
+  const pagesVisited = currentPage * usersPerPage;
+  const pageCount = Math.ceil(data?.length / usersPerPage);
 
   const displayUsers = data?.slice(pagesVisited, pagesVisited + usersPerPage);
-  const pageCount = Math.ceil(data?.length / usersPerPage);
-  console.log(displayUsers, pageCount, pagesVisited);
+  console.log(currentPost, indexOfLastPage, indexOfFirstPage);
 
   const handleClick = (event, value) => {
-    setUser(value);
-    setPageNumber(value - 1);
+    setCurrentPage(value);
   };
 
   const handleDelete = async (id) => {
-    await api.delete(`/users/${id}`);
-    const items = data.filter((user) => user.id !== id);
+    await api.delete(`/events/${id}`);
+    const items = data.filter((events) => events.id !== id);
     setData(items);
   };
 
-  console.log(users);
+  console.log(events);
   return (
     <>
       <TableContainer
@@ -101,28 +112,17 @@ const UsersTable = () => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell>
-                    <Typography>ID</Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Typography>Username</Typography>{" "}
-                  </TableCell>
-                  <TableCell>
-                    <Typography>Email Address</Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Typography>Roles</Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Typography>Status</Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Typography>Actions</Typography>
-                  </TableCell>
+                  {tabelCell.map((cell) => {
+                    return (
+                      <TableCell>
+                        <Typography>{cell}</Typography>
+                      </TableCell>
+                    );
+                  })}
                 </TableRow>
               </TableHead>
               <TableBody>
-                {displayUsers?.map((row, index) => (
+                {currentPost?.map((row, index) => (
                   <TableRow
                     key={index}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -131,24 +131,29 @@ const UsersTable = () => {
                       <Typography>{row.id}</Typography>
                     </TableCell>
                     <TableCell component="th" scope="row">
-                      <Typography> {row.userName}</Typography>
+                      <Typography> {row.title}</Typography>
                     </TableCell>
                     <TableCell>
-                      <Typography> {row.emailAddress}</Typography>
+                      <Box component="img" src={row.src}></Box>
                     </TableCell>
                     <TableCell>
-                      <Typography>{row.roles}</Typography>
+                      <Typography>{`${row.description?.slice(
+                        0,
+                        25
+                      )}...`}</Typography>
                     </TableCell>
                     <TableCell>
-                      <Chip
-                        sx={{ borderRadius: "5px" }}
-                        label={row.status}
-                        color={row.status === "Active" ? "success" : "error"}
-                      />
+                      <Typography>{row.date}</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography>{row.time}</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography>{row.location}</Typography>
                     </TableCell>
                     <TableCell>
                       <Stack direction="row" spacing={2}>
-                        <Link href={`user/edit-user/${row.id}`}>
+                        <Link href={`events/edit/${row.id}`}>
                           <ActionIcon color="#2e7d32" icon={faPenToSquare} />
                         </Link>
 
@@ -160,7 +165,7 @@ const UsersTable = () => {
                   </TableRow>
                 ))}
               </TableBody>
-            </Table>{" "}
+            </Table>
           </>
         )}
       </TableContainer>
@@ -170,9 +175,9 @@ const UsersTable = () => {
           <Grid item xs={12} sm={6}>
             <Stack>
               <Typography>
-                Showing {pagesVisited + 1} to {displayUsers?.length * user} of{" "}
-                {}
-                {users?.length} entries
+                Showing {indexOfFirstPage + 1} to {currentPost.length} {""}
+                of {""}
+                {events?.length} entries
               </Typography>
             </Stack>
           </Grid>
@@ -181,7 +186,7 @@ const UsersTable = () => {
               <Pagination
                 count={pageCount}
                 color="primary"
-                page={pageNumber + 1}
+                page={currentPage}
                 onChange={handleClick}
                 renderItem={(item) => (
                   <PaginationItem
@@ -201,4 +206,4 @@ const UsersTable = () => {
   );
 };
 
-export default UsersTable;
+export default EventsTable;

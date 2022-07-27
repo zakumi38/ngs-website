@@ -1,9 +1,12 @@
 import { TextField, Button, Grid, Typography } from "@mui/material";
 import { styled } from "@mui/system";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import MenuItem from "@mui/material/MenuItem";
 import StyledButton from "../../component/StyledButton";
+import { useNavigate, useParams } from "react-router-dom";
+import useAxiosFetch from "../user-list/useAxiosFetch";
+import api from "../../../../mockdatabase/database";
 
 const currencies = [
   {
@@ -24,25 +27,64 @@ const currencies = [
   },
 ];
 
-const items = [
-  "Username",
-  "FirstName",
-  "MobileNumber",
-  "LastName",
-  "Email Address",
-  "Password",
-];
-
 const CustomTextField = styled(TextField)({
   width: "100%",
   borderColor: "#000",
 });
 
 const EditUserForm = () => {
-  const [user, setUser] = React.useState("Default");
+  const [newValue, setNewValue] = useState({
+    userName: "",
+    firstName: "",
+    mobile: "",
+    lastName: "",
+    emailAddress: "",
+    password: "",
+    roles: "",
+    status: "Active",
+  });
+  const {
+    userName,
+    firstName,
+    mobile,
+    lastName,
+    emailAddress,
+    password,
+    roles,
+    status,
+  } = newValue;
+
+  const { id } = useParams();
+
+  const [users] = useAxiosFetch({
+    axiosInstance: api,
+    method: "get",
+    url: `/users/${id}`,
+  });
+  useEffect(() => {
+    if (users) {
+      setNewValue({
+        userName: users.userName,
+        firstName: users.firstName,
+        mobile: users.mobile,
+        lastName: users.lastName,
+        emailAddress: users.emailAddress,
+        password: users.password,
+        roles: users.roles,
+        status,
+      });
+    }
+  }, [users]);
 
   const handleChange = (event) => {
-    setUser(event.target.value);
+    const { name, value } = event.target;
+    setNewValue({ ...newValue, [name]: value });
+  };
+  console.log(newValue);
+  const navigate = useNavigate();
+  const handleUpdate = async () => {
+    await api.put(`/users/${id}`, newValue);
+    navigate("/user");
   };
   return (
     <Grid
@@ -67,18 +109,66 @@ const EditUserForm = () => {
           gap: 5,
         }}
       >
-        {items.map((item, index) => {
-          return (
-            <Grid key={index} item xs={12} sm={5}>
-              <CustomTextField
-                key={index}
-                id="outlined-basic"
-                label={item}
-                variant="outlined"
-              />
-            </Grid>
-          );
-        })}
+        <Grid item xs={12} sm={5}>
+          <CustomTextField
+            label="User Name"
+            name="userName"
+            value={userName}
+            id="outlined-basic"
+            variant="outlined"
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={5}>
+          <CustomTextField
+            label="First Name"
+            name="firstName"
+            value={firstName}
+            id="outlined-basic"
+            variant="outlined"
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={5}>
+          <CustomTextField
+            label="Mobile Number"
+            value={mobile}
+            name="mobile"
+            id="outlined-basic"
+            variant="outlined"
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={5}>
+          <CustomTextField
+            label="Last Name"
+            name="lastName"
+            value={lastName}
+            id="outlined-basic"
+            variant="outlined"
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={5}>
+          <CustomTextField
+            label="Email Address"
+            value={emailAddress}
+            name="emailAddress"
+            id="outlined-basic"
+            variant="outlined"
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={5}>
+          <CustomTextField
+            label="Password"
+            value={password}
+            name="password"
+            id="outlined-basic"
+            variant="outlined"
+            onChange={handleChange}
+          />
+        </Grid>
 
         <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
           <TextField
@@ -86,7 +176,7 @@ const EditUserForm = () => {
             id="outlined-select-currency"
             select
             label="Select"
-            value={user}
+            value={roles}
             onChange={handleChange}
           >
             {currencies.map((option) => (
@@ -105,6 +195,7 @@ const EditUserForm = () => {
           <StyledButton
             variant="contained"
             color="primary"
+            onClick={handleUpdate}
             sx={{
               width: { xs: "100%", sm: "25%", md: "18%", lg: "15%" },
               minHeight: "50px",
