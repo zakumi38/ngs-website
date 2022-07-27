@@ -36,7 +36,7 @@ const UserTable = () => {
             justifyContent: "flex-end",
           }}
         >
-          <Link to="/events/add">
+          <Link to="/user/add">
             <Button variant="contained" color="primary" sx={{ height: "100%" }}>
               <FontAwesomeIcon icon={faAdd} size="lg" />
             </Button>
