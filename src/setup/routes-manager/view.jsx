@@ -16,6 +16,11 @@ import UserProfile from "../../app/pages/user-profile/EditProfile";
 import ChangePassword from "../../app/pages/user-profile/ChangePassword";
 import Home from "../../core/components/home/home";
 
+//Gallery
+import GalleryList from "../../app/pages/gallery/gallery-list/gallerylist";
+import AddGallery from "../../app/pages/gallery/add-new-gallery/add-new-gallery";
+import EditGallery from "../../app/pages/gallery/edit-gallery/edit-gallery";
+
 function View() {
   return (
     <Routes>
@@ -38,6 +43,13 @@ function View() {
       {/* Porfile */}
       <Route path="/user-profile" element={<UserProfile />}></Route>
       <Route path="/change-password" element={<ChangePassword />}></Route>
+
+      {/* Gallery */}
+      <Route path="/gallery">
+        <Route index element={<GalleryList />}></Route>
+        <Route path="add" element={<AddGallery />}></Route>
+        <Route path="edit/:id" element={<EditGallery />}></Route> 
+      </Route>
     </Routes>
   );
 }

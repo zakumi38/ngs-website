@@ -6,8 +6,9 @@ import {
   Typography,
   Box,
   Button,
+  Avatar
 } from "@mui/material";
-import App from "../../../../app.module.sass";
+
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -19,12 +20,36 @@ export default function EditPost() {
   const [date,setDate]=useState("");
   const navigate=useNavigate();
   const {id} =useParams();
+  const [preview, setPreview] = useState();
   
   const data={
       title:title,
       img:img,
       description:description,
       date:date
+  }
+
+  const photoUpload = (e) =>{
+    let imgReview = e.target.files[0]
+    console.log(imgReview)
+    if (imgReview) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result);
+      };
+      reader.readAsDataURL(imgReview);
+      console.log(reader)
+    } else {
+      setPreview(null);
+    }
+    
+    axios.patch(`http://localhost:3500/blogs/${id}`,{'img':e.target.files[0].name})
+    .then(
+       res => {
+        console.log(res)
+        // navigate('/blog')
+       }
+    )
   }
 
   useEffect(()=>{
@@ -91,15 +116,18 @@ export default function EditPost() {
             </Grid>
           </Grid>
           <Grid item xs={12} marginBottom="40px">
-            <FormControl fullWidth>
-              <TextField
-                placeholder="Post Image"
-                aria-describedby="my-helper-text"
-                onChange={(e)=>setImg(e.target.value)}
-                value={img}
-              />
+            <FormControl>
+            <Button variant="contained" component="label" color="primary">
+                  Upload a photo
+            <input type="file" accept="image/*" onChange={photoUpload}  hidden />
+            </Button>
             </FormControl>
           </Grid>
+          {preview && (
+          <Grid item xs={6} marginBottom="40px">
+            <Avatar src={preview} sx={{ width: 100, height: 100 }} variant="rounded"></Avatar>
+          </Grid>
+          )}
           <Grid item xs={12} marginBottom="40px">
             <FormControl fullWidth>
               <TextField
