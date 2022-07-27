@@ -1,0 +1,148 @@
+// Colors
+$blueFontColor: #0780Ef
+
+.container 
+  background-color: rgb(205, 220, 236)
+  width: 100vw
+  height: 100vh
+.teamContainer
+  max-width: none !important
+  padding: 5rem 20px 0
+  background-color: rgb(205, 220, 236)
+  height: 100vh
+  width: 100%
+
+.breadcrumb
+  margin-top: 1rem !important
+
+  .breadcrumbLink
+    text-decoration: none
+    color: #000000
+    transition: 0.3s
+    font-size: 1.5rem
+
+    &:hover
+      text-decoration: underline
+      color: #0000EE
+
+    &.inActive:hover
+      text-decoration: none
+
+.teamSelect
+  ul
+    max-height: 144px
+    overflow-y: scroll
+    padding: 0
+
+.teamSelectItem
+  text-transform: capitalize
+
+.deleteTeam
+  color: #ff0000
+
+
+.addTeamIcon
+  min-width: 50px !important
+  width: 50px 
+  height: 50px
+  padding: 0 px !important
+  font-size: 2rem
+
+.tableContainer
+  background-color: rgb(205, 220, 236)
+  margin-top: 30px
+  width: 100%
+  .teamTable
+    .tableBody
+      .view
+        a
+          color: $blueFontColor
+          text-decoration: none
+
+        &:hover
+          text-decoration: underline
+
+      .actions
+        .edit
+          color: $blueFontColor
+          font-size: 1.2rem
+
+        .delete
+          @extend .edit
+          color: #D80F0F
+
+.pagination
+  width: max-content
+  margin-top: 20px
+// Add Team
+
+
+
+// For Edit and Add Team Page
+.responsiveText
+  font-size: 13px
+
+.disabled 
+  fieldset
+    border: none
+    background: #ffffff50
+
+.addTeamContainer
+  @extend .teamContainer
+  padding: 5rem
+  overflow-y: scroll
+
+  .back
+    font-size: 2rem
+    color: $blueFontColor
+
+  .teamForm
+    .teamImgContainer
+      display: flex
+      position: relative
+      justify-content: center
+
+      div
+        position: relative
+        box-sizing: unset
+        transition: 0.3s
+
+        .teamImg
+          width: 250px
+          height: 100%
+        .overlay
+          position: absolute
+          inset: 0
+          width: 100%
+          height: 100%
+          background-color: #0780ef54
+          opacity: 0
+
+          .imgViewIcon
+            position: absolute
+            color: white
+            font-size: 35px
+            top: 50%
+            right: 30%
+            transform: translate(-50%, -50%)
+            text-align: center
+
+        &:hover
+          .overlay
+            opacity: 1
+
+.inputsContainer
+  .inputsWrapper
+    margin-top: 1rem
+
+@media only screen and (min-width: 600px)
+  .responsiveText
+    font-size: 16px
+
+@media only screen and (min-width: 992px)
+  .responsiveText
+    font-size: 25px
+    input 
+      font-size: 20px
+    textarea
+      font-size: 20px
