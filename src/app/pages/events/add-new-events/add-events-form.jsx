@@ -68,15 +68,15 @@ const AddEventsForm = () => {
     }
     navigate("/events");
   };
-  const handleImgChange = (e) => {
-    const uploadFile = e.target.files[0];
-    console.log(uploadFile);
-    const formData = new FormData();
-    formData.append("files", uploadFile);
-    api.post("events", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
-  };
+  // const handleImgChange = (e) => {
+  //   const uploadFile = e.target.files[0];
+  //   console.log(uploadFile);
+  //   const formData = new FormData();
+  //   formData.append("files", uploadFile);
+  //   api.post("events", formData, {
+  //     headers: { "Content-Type": "multipart/form-data" },
+  //   });
+  // };
   const handleDate = (e) => {
     const value = e.target.value;
     setCusInput({ ...cusInput, dates: value });
@@ -151,11 +151,7 @@ const AddEventsForm = () => {
           />
         </Grid>
         <Grid item xs={12} sm={11}>
-          <CustomTextField
-            onChange={handleImgChange}
-            type="file"
-            accept="image/png, image/jpeg"
-          />
+          <CustomTextField type="file" accept="image/png, image/jpeg" />
           <span></span>
         </Grid>
         <Grid item xs={12} sm={5}>

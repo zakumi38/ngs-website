@@ -43,7 +43,7 @@ const rightArrow = () => {
 const leftArrow = () => {
   return <FontAwesomeIcon icon={faArrowLeft} />;
 };
-
+const tabelCell = ["ID", "User Name", "Email", "Roles", "Status", "Actions"];
 const UsersTable = () => {
   const [data, setData] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
@@ -57,18 +57,16 @@ const UsersTable = () => {
     setData(users);
   }, [users]);
 
-  const [user, setUser] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 5;
+  const indexOfLastPage = currentPage * usersPerPage;
+  const indexOfFirstPage = indexOfLastPage - usersPerPage;
+  const currentPost = data?.slice(indexOfFirstPage, indexOfLastPage);
 
-  const pagesVisited = pageNumber * usersPerPage;
-
-  const displayUsers = data?.slice(pagesVisited, pagesVisited + usersPerPage);
   const pageCount = Math.ceil(data?.length / usersPerPage);
-  console.log(displayUsers, pageCount, pagesVisited);
 
   const handleClick = (event, value) => {
-    setUser(value);
-    setPageNumber(value - 1);
+    setCurrentPage(value);
   };
 
   const handleDelete = async (id) => {
@@ -101,28 +99,15 @@ const UsersTable = () => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell>
-                    <Typography>ID</Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Typography>Username</Typography>{" "}
-                  </TableCell>
-                  <TableCell>
-                    <Typography>Email Address</Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Typography>Roles</Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Typography>Status</Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Typography>Actions</Typography>
-                  </TableCell>
+                  {tabelCell.map((cell, index) => (
+                    <TableCell key={index}>
+                      <Typography>{cell}</Typography>
+                    </TableCell>
+                  ))}
                 </TableRow>
               </TableHead>
               <TableBody>
-                {displayUsers?.map((row, index) => (
+                {currentPost?.map((row, index) => (
                   <TableRow
                     key={index}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -170,8 +155,12 @@ const UsersTable = () => {
           <Grid item xs={12} sm={6}>
             <Stack>
               <Typography>
-                Showing {pagesVisited + 1} to {displayUsers?.length * user} of{" "}
-                {}
+                Showing {indexOfFirstPage + 1} to{" "}
+                {currentPost.length % usersPerPage === 0
+                  ? indexOfLastPage
+                  : users.length}{" "}
+                {""}
+                of {""}
                 {users?.length} entries
               </Typography>
             </Stack>
@@ -181,7 +170,7 @@ const UsersTable = () => {
               <Pagination
                 count={pageCount}
                 color="primary"
-                page={pageNumber + 1}
+                page={currentPage}
                 onChange={handleClick}
                 renderItem={(item) => (
                   <PaginationItem

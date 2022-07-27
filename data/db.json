@@ -163,13 +163,10 @@
       "id": 1,
       "title": "Event1",
       "description": "React React React React React React",
-      "date": "21/7/2022",
+      "date": "7/21/2022",
       "time": "5:14 PM",
       "src": "",
       "location": "Yangon"
-    },
-    {
-      "id": 2
     },
     {
       "title": "123",
@@ -206,6 +203,24 @@
       "scr": "",
       "description": "123123123",
       "id": 6
+    },
+    {
+      "title": "12312",
+      "location": "123",
+      "src": "",
+      "date": "11/22/2022",
+      "time": "02:12 AM",
+      "description": "aaaaa",
+      "id": 7
+    },
+    {
+      "title": "11",
+      "location": "11",
+      "src": "",
+      "date": "11/11/2022",
+      "time": "02:02 AM",
+      "description": "aaa",
+      "id": 8
     }
   ]
 }
