@@ -17,6 +17,7 @@ import {
   import React, {useState,useEffect} from "react";
   import GalleryTables from "./gallerys-table";
   import axios from "axios";
+import { useCallback } from "react";
   
   const rightArrow = () => {
     return <FontAwesomeIcon icon={faArrowRight} />;
@@ -28,7 +29,7 @@ import {
   const GalleryTable = () => {
     const [posts, setPosts] = useState([]);
   
-    const postPerPage = 5
+    const postPerPage = 4
     const [currentPage, SetCurrentPage] = useState(1)
     const [data,setData] = useState(0)
     const count = Math.ceil(data / postPerPage)
@@ -46,7 +47,7 @@ import {
       setOffSet(() => (currentPage - 1)*postPerPage)
       console.log(offSet)
     };
-    
+
     useEffect(() => {
       loadPosts();
     }, [currentPage,offSet]);
@@ -56,10 +57,10 @@ import {
         container
         sx={{
           backgroundColor: "rgba(205, 220, 236, 0.8)",
-          padding: "20px",
+          padding: "5px",
           alignItems: "center",
           borderRadius: "10px",
-          margin: "5rem 0",
+          margin: "4rem 0",
         }}
       >
         <Grid item xs={3} sm={6}>
@@ -107,7 +108,7 @@ import {
         <Grid container sx={{ gap: { xs: "1rem", sm: "0" } }}>
           <Grid item xs={12} sm={6}>
             <Stack>
-              <Typography>Showing {offSet + 1} to {data<(offSet+5)?data:(offSet+5)} of {data} entries</Typography>
+              <Typography>Showing {offSet + 1} to {data<(offSet+4)?data:(offSet+4)} of {data} entries</Typography>
             </Stack>
           </Grid>
           <Grid item xs={12} sm={6}>
