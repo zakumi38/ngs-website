@@ -10,8 +10,8 @@ import {
         <Container
           maxWidth={false}
           sx={{
-            paddingTop: "20px",
-            paddingBottom: "20px",
+            paddingTop: "15px",
+            paddingBottom: "15px",
             minHeight: "100vh",
             backgroundColor : 'rgb(205, 220, 236)'
           }}

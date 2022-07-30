@@ -17,7 +17,7 @@ import {
   import React, {useState,useEffect} from "react";
   import GalleryTables from "./gallerys-table";
   import axios from "axios";
-import { useCallback } from "react";
+
   
   const rightArrow = () => {
     return <FontAwesomeIcon icon={faArrowRight} />;
@@ -60,7 +60,7 @@ import { useCallback } from "react";
           padding: "5px",
           alignItems: "center",
           borderRadius: "10px",
-          margin: "4rem 0",
+          margin: "4rem 0 0 0",
         }}
       >
         <Grid item xs={3} sm={6}>
@@ -86,7 +86,7 @@ import { useCallback } from "react";
                   <FontAwesomeIcon icon={faSearch} />
                   <Divider
                     sx={{
-                      margin: "5px 10px",
+                      margin: "5px 10px 0 10px",
                     }}
                     orientation="vertical"
                     variant="middle"
