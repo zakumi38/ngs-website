@@ -2,6 +2,7 @@ import {
   faArrowLeft,
   faArrowRight,
   faSearch,
+  faPlus
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,9 +15,10 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React, {useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import PostsTable from "./blogs-table";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const rightArrow = () => {
   return <FontAwesomeIcon icon={faArrowRight} />;
@@ -27,29 +29,49 @@ const leftArrow = () => {
 
 const UserTable = () => {
   const [posts, setPosts] = useState([]);
+  const [query, setQuery] = useState("");
 
-  const postPerPage = 5
-  const [currentPage, SetCurrentPage] = useState(1)
-  const [data,setData] = useState(0)
-  const count = Math.ceil(data / postPerPage)
-  const [offSet,setOffSet] = useState(0)
+  const postPerPage = 5;
+  const [currentPage, SetCurrentPage] = useState(1);
+  const [data, setData] = useState(0);
+  const count = Math.ceil(data / postPerPage);
+  const [offSet, setOffSet] = useState(0);
 
-  const handleChange = (e,value) => {
-    SetCurrentPage(value)
-  }
-  
-
-  const loadPosts = async () => { 
-    let res = await axios.get("http://localhost:3500/blogs")
-    setData(res.data.length)
-    setPosts(res.data.splice( offSet , postPerPage));
-    setOffSet(() => (currentPage - 1)*postPerPage)
-    console.log(offSet)
+  const handleChange = (e, value) => {
+    SetCurrentPage(value);
   };
-  
+
+  const loadPosts = async () => {
+    let res = await axios.get("http://localhost:3500/blogs");
+    setData(
+      res.data.filter(
+        (post) =>
+          post.title.toLowerCase().includes(query) ||
+          post.description.toLowerCase().includes(query)
+      ).length
+    );
+    setPosts(
+      res.data
+        .filter(
+          (post) =>
+            post.title.toLowerCase().includes(query) ||
+            post.description.toLowerCase().includes(query)
+        )
+        .splice(offSet, postPerPage)
+    );
+    setOffSet(() => (currentPage - 1) * postPerPage);
+  };
+
   useEffect(() => {
     loadPosts();
-  }, [currentPage,offSet]);
+  }, [currentPage, offSet]);
+
+  function Submit() {
+    loadPosts();
+  }
+
+  // console.log(count, offSet, currentPage);
+  // console.log(posts.filter(post=>post.title.toLowerCase().includes(query)));
 
   return (
     <Grid
@@ -73,6 +95,11 @@ const UserTable = () => {
             justifyContent: "flex-end",
           }}
         >
+        <Link to="/blog/add">
+         <Button variant="contained" color="primary" sx={{  height:"38px"}}>
+         <FontAwesomeIcon icon={faPlus} size="lg"/>
+          </Button>
+          </Link>
           <OutlinedInput
             sx={{
               width: {
@@ -97,13 +124,17 @@ const UserTable = () => {
             variant="outlined"
             placeholder="Search here..."
             size="small"
+            onChange={(e, value) => {
+              setQuery(e.target.value);
+            }}
           />
-          <Button variant="contained" color="primary">
+
+          <Button onClick={Submit} variant="contained" color="primary">
             Search
           </Button>
         </Stack>
       </Grid>
-          <PostsTable posts={posts} loadPosts={loadPosts}  />
+      <PostsTable posts={posts} loadPosts={loadPosts} />
       <Grid container sx={{ gap: { xs: "1rem", sm: "0" } }}>
         <Grid item xs={12} sm={6}>
           <Stack>
@@ -112,7 +143,7 @@ const UserTable = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <Stack spacing={2} sx={{ alignItems: "end" }}>
-          <Pagination
+            <Pagination
               count={count}
               page={currentPage}
               onChange={handleChange}
