@@ -2,7 +2,7 @@ import {
   faArrowLeft,
   faArrowRight,
   faSearch,
-  faPlus
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -47,7 +47,8 @@ const UserTable = () => {
       res.data.filter(
         (post) =>
           post.title.toLowerCase().includes(query) ||
-          post.description.toLowerCase().includes(query)
+          post.description.toLowerCase().includes(query) ||
+          post.date.toLowerCase().includes(query)
       ).length
     );
     setPosts(
@@ -55,7 +56,8 @@ const UserTable = () => {
         .filter(
           (post) =>
             post.title.toLowerCase().includes(query) ||
-            post.description.toLowerCase().includes(query)
+            post.description.toLowerCase().includes(query) ||
+            post.date.toLowerCase().includes(query)
         )
         .splice(offSet, postPerPage)
     );
@@ -95,10 +97,10 @@ const UserTable = () => {
             justifyContent: "flex-end",
           }}
         >
-        <Link to="/blog/add">
-         <Button variant="contained" color="primary" sx={{  height:"38px"}}>
-         <FontAwesomeIcon icon={faPlus} size="lg"/>
-          </Button>
+          <Link to="/blog/add">
+            <Button variant="contained" color="primary" sx={{ height: "38px" }}>
+              <FontAwesomeIcon icon={faPlus} size="lg" />
+            </Button>
           </Link>
           <OutlinedInput
             sx={{
