@@ -18,7 +18,7 @@ import {
 import teamStyle from "./team.module.sass"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPenToSquare, faPlus, faTrash} from "@fortawesome/free-solid-svg-icons"
-import {useNavigate} from "react-router-dom"
+import {useLocation, useNavigate} from "react-router-dom"
 import MenuItem from "@mui/material/MenuItem";
 import api from "../../../mockdatabase/database";
 
@@ -119,6 +119,7 @@ export default function Teams() {
     const [totalPage, setTotalPage] = useState(0)
     const [deleteTeam, setDeleteTeam] = useState(false)
     const navigate = useNavigate()
+    const {state} = useLocation()
 
     function deleteItem(id) {
         api.delete(`/developer-team-members/${id}`)
@@ -167,10 +168,9 @@ export default function Teams() {
 
     useEffect(_ => {
         api.get("/developer-team-members").then(res => {
-            setDisplayItems(res.data.slice(0, 5));
             setRows(res.data);
+            setDisplayItems(res.data.slice(0, 5));
         })
-        api.get("/developer-team-members?_page=2&_limit=5").then(res => console.log(res.data))
         api.get("/developer-teams").then(res => {
             setTeams(res.data);
             selectTeam(res.data[0].teamname)
@@ -181,7 +181,7 @@ export default function Teams() {
         setCurPage(1);
         const totalPgs = team === 'All' ? Math.ceil(rows.length / 5) : Math.ceil(displayTeam.length / 5)
         setTotalPage(totalPgs)
-    }, [team])
+    }, [team,state])
 
     function AddTeam(post = false, deleteTeam = false) {
         setAddingTeam(true)
@@ -198,7 +198,12 @@ export default function Teams() {
         }
         setActionTeamName('')
     }
-
+    function addNewTeamMember(e,newMember){
+        if(team !== 'All'){
+            setDisplayTeam([...displayTeam,newMember])
+        }
+        setRows([...rows, newMember])
+    }
     return (
         <Container maxWidth={false} className={teamStyle.teamContainer}>
             <Grid container justifyContent="space-between">
@@ -244,7 +249,7 @@ export default function Teams() {
                     </Grid>
                     <Grid item sm={3} align='right'>
                         <Button
-                            onClick={_ => navigate(`/team/${team.toLowerCase()}/addMember`, {state: {teams: teams.slice(1)}})}
+                            onClick={_ => navigate(`/team/${team.toLowerCase()}/addMember`, {state: {teams:teams.slice(1)}})}
                             variant="contained" className={teamStyle.addTeamIcon}><FontAwesomeIcon
                             size='xs' icon={faPlus}/>
 
