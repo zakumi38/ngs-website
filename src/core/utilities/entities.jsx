@@ -7,13 +7,13 @@ export const Entities = [
     id: 1,
     icon: faBloggerB,
     title: "Blog",
-    path: "/blog",
+    path: "/blog/",
   },
   {
     id: 2,
     icon: faCalendarCheck,
     title: "Event",
-    path: "/event",
+    path: "/events",
   },
   {
     id: 3,

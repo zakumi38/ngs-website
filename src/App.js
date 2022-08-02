@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import View from "./setup/routes-manager/view";
 import Header from "./core/components/header";
 import Style from "./app.module.sass";
@@ -10,6 +10,7 @@ const DynamicContainer = styled(Box)({});
 
 function App() {
   const [wide, setWide] = useState(false);
+
   return (
     <div className={`{App} {Style.app}`}>
       <Header className={Style.header} wide={wide} setWide={setWide} />

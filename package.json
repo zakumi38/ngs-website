@@ -27,11 +27,11 @@
   },
   "scripts": {
     "start-react": "react-scripts start",
-    "json-start" : "json-server -p 3500 -w data/db.json",
+    "json-start": "json-server -p 3500 -w data/db.json",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start" : "npm-run-all -p start-react json-start" 
+    "start": "npm-run-all -p start-react json-start"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "react-git-info": "^2.0.1",
     "sass": "^1.53.0"
   }
 }

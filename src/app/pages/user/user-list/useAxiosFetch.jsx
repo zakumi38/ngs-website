@@ -9,14 +9,12 @@ const useAxiosFetch = (configObj) => {
 
   useEffect(() => {
     const controller = new AbortController();
-    console.log(controller);
     const fetchData = async () => {
       try {
         const res = await axiosInstance[method.toLowerCase()](url, {
           ...requestConfig,
           signal: controller.signal,
         });
-        console.log(res);
         setResponse(res.data);
       } catch (err) {
         setError(err);

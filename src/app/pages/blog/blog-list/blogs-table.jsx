@@ -94,7 +94,6 @@ const UsersTable = ({posts,loadPosts}) => {
               </TableCell>
             </TableRow>
           ))}
-          {console.log(posts)}
         </TableBody>
       </Table>
     </TableContainer>

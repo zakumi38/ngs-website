@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Blog
@@ -30,17 +30,33 @@ import EditGallery from "../../app/pages/gallery/edit-gallery/edit-gallery";
 import EventsList from "../../app/pages/events/event-list/event-list";
 import AddNewEvents from "../../app/pages/events/add-new-events/add-new-events";
 import EditEvents from "../../app/pages/events/edit-events/edit-events";
+import ProtectedRoutes from "./protected-routes";
+import api from "../../mockdatabase/database";
 
 function View() {
+
+  const [adminData , setAdminData] = useState({});
+  useEffect(() => {
+    const FeatchUser = async () => {
+      let response =await api.get("/admin");
+      setAdminData(response.data)
+    };
+    FeatchUser();
+  }, []);
+
+  console.log(adminData)
   return (
     <Routes>
       <Route index element={<Home />}></Route>
 
-      {/* User */}
-      <Route path="/user">
-        <Route index element={<UserList />}></Route>
-        <Route path="add" element={<AddNewUser />}></Route>
-        <Route path="edit-user/:id" element={<EditUser />}></Route>
+      {/* Protect User Route */}
+      <Route element={<ProtectedRoutes />} >
+        {/* User */}
+        <Route path="/user">
+          <Route index element={<UserList />}></Route>
+          <Route path="add" element={<AddNewUser />}></Route>
+          <Route path="edit-user/:id" element={<EditUser />}></Route>
+        </Route>
       </Route>
 
       {/* Blog */}

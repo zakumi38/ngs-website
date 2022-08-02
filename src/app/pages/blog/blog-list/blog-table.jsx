@@ -46,7 +46,6 @@ const UserTable = () => {
     setData(res.data.length)
     setPosts(res.data.splice( offSet , postPerPage));
     setOffSet(() => (currentPage - 1)*postPerPage)
-    console.log(offSet)
   };
 
   useEffect(() => {

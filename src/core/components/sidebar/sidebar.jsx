@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Entities } from "../../utilities/entities";
 import { webContent } from "../../utilities/web-content";
 import { setting } from "../../utilities/setting";
-import { Box, Link, Stack, List, ListItem } from "@mui/material";
+import { Box, Link,Typography, Stack, List, ListItem } from "@mui/material";
 import styled from "@emotion/styled";
 import sidebar from "./sidebar.module.sass";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +12,8 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../../../assets/images/logo.png";
+import {useLocation} from 'react-router-dom'
+import GitInfo from 'react-git-info/macro';
 
 export const BrandLogo = styled("div")(({ theme }) => ({
   // fontSize: '23px'
@@ -33,6 +35,7 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [openWebContent, setOpenWebContent] = useState(false);
   const [openSetting, setOpenSetting] = useState(false);
+  const location = useLocation()
 
   const open = Boolean(anchorEl);
   const toggleWebContent = (event) => {
@@ -50,6 +53,8 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
       setOpenSetting(true);
     }
   };
+
+  const gitInfo = GitInfo();
   return (
     <>
       <Box
@@ -116,7 +121,7 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
 
         {/* Slide Menu Session Start */}
 
-        <Box sx={{ mt: "18px" }} className={sidebar.sideMenuContainer}>
+        <Box className={sidebar.sideMenuContainer}>
           <Box className={sidebar.sideMenuContent}>
             {/* Sidebar Menu Session */}
 
@@ -131,7 +136,7 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                     href={item.path}
                     className={`${sidebar.listItems} ${
                       wide && sidebar.newItems
-                    }`}
+                    } ${ location.pathname === item.path ? sidebar.active : '' }`}
                   >
                     <FontAwesomeIcon
                       icon={item.icon}
@@ -190,7 +195,7 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                           href={item.path}
                           className={`${sidebar.listItems} ${
                             wide && sidebar.newItems
-                          }`}
+                          } ${ location.pathname === item.path ? sidebar.active : '' }`}
                         >
                           <FontAwesomeIcon
                             icon={item.icon}
@@ -251,7 +256,7 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                           href={item.path}
                           className={`${sidebar.listItems} ${
                             wide && sidebar.newItems
-                          }`}
+                          } ${ location.pathname === item.path ? sidebar.active : '' }`}
                         >
                           <FontAwesomeIcon
                             icon={item.icon}
@@ -283,6 +288,10 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
               </div>
             </List>
           </Box>
+        </Box>
+
+        <Box>
+          <Typography sx={{textAlign: "center"}}>{gitInfo.commit.shortHash}</Typography>
         </Box>
       </Box>
     </>

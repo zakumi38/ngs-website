@@ -1,11 +1,6 @@
 {
   "users": [
     {
-<<<<<<< HEAD
-      "id": 6,
-      "userName": "Haydan",
-      "emailAddress": "work409@gmail.com",
-=======
       "userName": "Hello",
       "firstName": "World",
       "mobile": "Hello",
@@ -22,12 +17,10 @@
       "lastName": "a",
       "emailAddress": "a",
       "password": "a",
->>>>>>> origin/event-page
       "roles": "Admin",
       "id": 3
     },
     {
-<<<<<<< HEAD
       "userName": "zawlinn.designer@gmail.com",
       "firstName": "Zaw Linn",
       "mobile": "+959788820004",
@@ -92,16 +85,6 @@
       "id": 14
     },
     {
-      "userName": "Moon Seng",
-      "firstName": "Moon",
-      "mobile": "09259585359",
-      "lastName": "Seng",
-      "emailAddress": "moonseng.dev@gmail.com",
-      "password": "Moon Seng",
-      "roles": "Manager",
-      "status": "Active",
-      "id": 15
-=======
       "userName": "111",
       "firstName": "11",
       "mobile": "1",
@@ -208,15 +191,22 @@
       "roles": "Admin",
       "status": "Active",
       "id": 7
->>>>>>> origin/event-page
     }
   ],
-  "admin": {
-    "username": "mockuser",
-    "email": "mockemail@gmail.com",
-    "roles": "admin",
-    "password": "newMockPassword"
-  },
+  "admin": [
+    {
+      "username": "mockuser",
+      "email": "mockemail@gmail.com",
+      "roles": "admin",
+      "password": "newMockPassword"
+    },
+    {
+      "username" : "Moon Seng",
+      "email" : "moonseng.dev@gmail.com",
+      "roles" : "admin",
+      "password" : "Moon Seng"
+    }
+  ],
   "blogs": [
     {
       "title": "Frontend Development",
@@ -366,13 +356,6 @@
       "category": "Technologies",
       "date": "3/4/2018",
       "id": 11
-    },
-    {
-      "title": "adsfsf",
-      "img": "Agent charlotte copy.png",
-      "category": "Laptop",
-      "date": "asdfa",
-      "id": 12
     }
   ],
   "developer-teams": [
@@ -395,30 +378,38 @@
     {
       "id": 4,
       "teamname": "Website"
+    },
+    {
+      "id": 5,
+      "teamname": "DashBoard Team"
+    },
+    {
+      "id": 6,
+      "teamname": "DashBoard Team"
     }
   ],
   "developer-team-members": [
     {
-      "id": 1,
       "image": "./logo512.png",
       "name": "Dean Whales",
       "occupation": "Senior Executive",
-      "team": "mobile",
-      "experience": 9,
+      "team": "DashBoard Team",
+      "experience": "5",
       "phone": "012-985-624",
       "email": "deanwhales@MaxiCom.com",
-      "personalExp": "Doloremque quam. Exercitation totam or cupidatat culpa but autem. In labore so nostrud asper natur officia magna, so quasi. Sit nequeporro dolor Iure. Pellentesque lorem mauris, vehicula vel nulla nec. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ab ad dolor repudiandae consequatur voluptates neque, soluta atque sit sapiente dolores numquam, quos corrupti illum facilis tempora ducimus ratione nostrum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro maxime atque reprehenderit provident velit non voluptatem eum delectus, minus eos voluptas quia? Iste sit accusantium similique quos, omnis harum nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quas vel, dolores animi, asperiores fugiat quis ipsa sequi quos, obcaecati optio similique temporibus modi labore. Eaque illum nisi modi consequatur!"
+      "personalExp": "Doloremque quam. Exercitation totam or cupidatat culpa but autem. In labore so nostrud asper natur officia magna, so quasi. Sit nequeporro dolor Iure. Pellentesque lorem mauris, vehicula vel nulla nec. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ab ad dolor repudiandae consequatur voluptates neque, soluta atque sit sapiente dolores numquam, quos corrupti illum facilis tempora ducimus ratione nostrum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro maxime atque reprehenderit provident velit non voluptatem eum delectus, minus eos voluptas quia? Iste sit accusantium similique quos, omnis harum nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quas vel, dolores animi, asperiores fugiat quis ipsa sequi quos, obcaecati optio similique temporibus modi labore. Eaque illum nisi modi consequatur!",
+      "id": 1
     },
     {
-      "id": 2,
-      "image": "./logo.png",
+      "image": "./logo512.png",
       "name": "Dean Whales",
-      "occupation": "Senior Executive",
-      "team": "mobile",
+      "occupation": "Senior ",
+      "team": "DashBoard Team",
       "experience": 9,
       "phone": "012-985-624",
       "email": "deanwhales@MaxiCom.com",
-      "personalExp": "Doloremque quam. Exercitation totam or cupidatat culpa but autem. In labore so nostrud asper natur officia magna, so quasi. Sit nequeporro dolor Iure. Pellentesque lorem mauris, vehicula vel nulla nec. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ab ad dolor repudiandae consequatur voluptates neque, soluta atque sit sapiente dolores numquam, quos corrupti illum facilis tempora ducimus ratione nostrum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro maxime atque reprehenderit provident velit non voluptatem eum delectus, minus eos voluptas quia? Iste sit accusantium similique quos, omnis harum nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quas vel, dolores animi, asperiores fugiat quis ipsa sequi quos, obcaecati optio similique temporibus modi labore. Eaque illum nisi modi consequatur!"
+      "personalExp": "Doloremque quam. Exercitation totam or cupidatat culpa but autem. In labore so nostrud asper natur officia magna, so quasi. Sit nequeporro dolor Iure. Pellentesque lorem mauris, vehicula vel nulla nec. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ab ad dolor repudiandae consequatur voluptates neque, soluta atque sit sapiente dolores numquam, quos corrupti illum facilis tempora ducimus ratione nostrum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro maxime atque reprehenderit provident velit non voluptatem eum delectus, minus eos voluptas quia? Iste sit accusantium similique quos, omnis harum nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quas vel, dolores animi, asperiores fugiat quis ipsa sequi quos, obcaecati optio similique temporibus modi labore. Eaque illum nisi modi consequatur!",
+      "id": 2
     },
     {
       "id": 3,
@@ -584,20 +575,39 @@
       "email": "moonseng.dev@gmail.com",
       "personalExp": "prefer to say it in interview",
       "id": 17
+    },
+    {
+      "image": "./logo512.png",
+      "name": "Moon Seng",
+      "occupation": "Team Leader",
+      "team": "Website",
+      "experience": "2 year",
+      "phone": "09259585359",
+      "email": "moonseng.dev@gmail.com",
+      "personalExp": "nothing",
+      "id": 18
+    },
+    {
+      "image": "./logo512.png",
+      "name": "Moon Seng",
+      "occupation": "Member",
+      "team": "DashBoard Team",
+      "experience": "2 ",
+      "phone": "0925",
+      "email": "moonseng",
+      "personalExp": "gg",
+      "id": 19
     }
   ],
   "events": [
     {
-      "id": 1,
-      "title": "Event1",
-      "description": "React React React React React React",
+      "title": "test event",
+      "location": "Yangon",
       "date": "21/7/2022",
       "time": "5:14 PM",
-      "src": "",
-      "location": "Yangon"
-    },
-    {
-      "id": 2
+      "scr": "",
+      "description": "React React React React React React",
+      "id": 1
     },
     {
       "title": "123",
@@ -634,6 +644,24 @@
       "scr": "",
       "description": "123123123",
       "id": 6
+    },
+    {
+      "title": "testing",
+      "location": "main hall",
+      "src": "",
+      "date": "02/02/2222",
+      "time": "09:22 AM",
+      "description": "come and take class",
+      "id": 7
+    },
+    {
+      "title": "testing 1",
+      "location": "main hall",
+      "src": "",
+      "date": "02/22/2022",
+      "time": "09:22 AM",
+      "description": "come and take class",
+      "id": 8
     }
   ]
 }

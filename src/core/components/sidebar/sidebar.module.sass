@@ -22,6 +22,9 @@
     /* color: #c0cddb */
     color: darken(#fff, 90)
     transition: all .3s linear
+    display: flex
+    justify-content: space-around
+    flex-direction: column
 
 .newSidebar
     width: 65px
@@ -56,8 +59,9 @@
     cursor: pointer
 
 .sideMenuContainer
-    height: 70vh
+    height: 80vh
     overflow: hidden
+    box-shadow: 0 0 40px #00000024 inset
 
     .sideMenuContent
         overflow-y: auto
@@ -96,7 +100,28 @@
         color: darken(#ddd, 70)
 
         &:before    
-            opacity: 1
+            opacity: .5
+
+.listItems.active
+    /* background: lighten(#444, 40) */
+    background: #eadfdf99
+    /* color: darken(#ddd, 60) */
+    color: darken(#ddd, 70)
+
+.active
+    &:before
+        position: absolute
+        content: ''
+        width: 5px
+        height: 100%
+        background: darken(skyblue, 40)
+        left: 0
+        top: 0
+        opacity: 1
+        transition: all .2s linear
+
+    
+
 
 .newItems
     padding: 10px !important

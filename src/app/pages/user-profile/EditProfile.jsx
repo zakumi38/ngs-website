@@ -10,9 +10,6 @@ export const CustomTextField = styled(TextField)({
     width: "70%",
     borderColor: "#000",
 })
-console.log(editProfileStyle)
-console.log(editProfileStyle.label)
-console.log(editProfileStyle['label'])
 export default function UserProfile() {
     const [isChangingPassword, setIsChangingPassword] = useState(false)
     const [inputs, setInputs] = useState({

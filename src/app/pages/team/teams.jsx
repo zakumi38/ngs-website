@@ -177,7 +177,7 @@ export default function Teams() {
             setDisplayItems(res.data.slice(0,5));
             setRows(res.data);
             })
-        api.get("/developer-team-members?_page=2&_limit=5").then(res => console.log(res.data))
+        api.get("/developer-team-members?_page=2&_limit=5").then()
         api.get("/developer-teams").then(res => {setTeams(res.data);selectTeam(res.data[0].teamname)})
     },[])
     useEffect(_ => {
