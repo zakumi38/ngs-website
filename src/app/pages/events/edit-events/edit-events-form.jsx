@@ -20,23 +20,14 @@ const EditEventsForm = () => {
     src: "",
     date: "",
     time: "",
-    description: ""
+    description: "",
   });
 
-  const {
-    title,
-    location,
-    src,
-    date,
-    time,
-    description,
-
-  } = newValue;
-
+  const { title, location, src, date, time, description } = newValue;
 
   const [cusInput, setCusInput] = useState({
     dates: "",
-    times: ""
+    times: "",
   });
 
   const { id } = useParams();
@@ -46,45 +37,43 @@ const EditEventsForm = () => {
     method: "get",
     url: `/events/${id}`,
   });
-  
+
   useEffect(() => {
     if (events) {
+      console.log(events.date);
+      const [mm, dd, yy] = events.date ? events.date.split("/") : [];
 
-      const [mm, dd, yy] = events.date ? events.date.split('/') : []
+      const df = `${yy}-${mm}-${dd}`;
+      console.log(df);
+      let [hh, min] = events.time ? events.time.split(":") : [];
 
-      const df = `${yy}-${mm}-${dd}`
+      const prefix = min ? min.split(" ") : "";
 
-      let [hh, min] = events.time ? events.time.split(':') : []
+      hh = prefix[1] === "PM" ? Number(hh) + 12 : hh;
 
-      const prefix = min ? min.split(' ') : ''
+      const tf = `${hh}:${prefix[0]}`;
 
-      hh = prefix[1] === 'PM' ? Number(hh) + 12 : hh
-
-      const tf = `${hh}:${prefix[0]}`
-
-      console.log(events.date, events.time)
+      console.log(events.date, events.time);
 
       setCusInput({
         dates: df,
-        times: tf
-      })
+        times: tf,
+      });
 
       setNewValue({
         title: events.title,
         location: events.location,
-        date:  events.date,
+        date: events.date,
         time: events.time,
         scr: events.src,
-        description: events.description
-
-      }); 
-
+        description: events.description,
+      });
     }
   }, [events]);
 
   const handleDate = (e) => {
     const value = e.target.value;
-    setCusInput({ ...cusInput, dates: value});
+    setCusInput({ ...cusInput, dates: value });
     const x = value.split("-");
     const y = x.shift();
     const z = [...x, y].join("/");
@@ -108,7 +97,6 @@ const EditEventsForm = () => {
       ...newValue,
       time: zone,
     });
-    
   };
 
   const handleChange = (event) => {
@@ -116,13 +104,9 @@ const EditEventsForm = () => {
     setNewValue({ ...newValue, [name]: value });
   };
 
-  
-
- 
   console.log(newValue);
   const navigate = useNavigate();
   const handleUpdate = async (e) => {
-
     // e.preventDefault()
 
     // alert(JSON.stringify(newValue))
@@ -185,15 +169,15 @@ const EditEventsForm = () => {
           <CustomTextField
             sx={{
               "& label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input":
-              {
-                color: "transparent",
-              },
+                {
+                  color: "transparent",
+                },
             }}
             value={cusInput.dates}
             type="date"
             label="MM/DD/YYYY"
             // name="date"
-          onChange={handleDate}
+            onChange={handleDate}
           />
         </Grid>
         <Grid item xs={12} sm={5}>
@@ -204,9 +188,9 @@ const EditEventsForm = () => {
             value={cusInput.times}
             sx={{
               "& label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input":
-              {
-                color: "transparent",
-              },
+                {
+                  color: "transparent",
+                },
             }}
             onChange={handleTime}
           />

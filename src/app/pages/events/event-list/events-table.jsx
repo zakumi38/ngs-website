@@ -71,11 +71,9 @@ const EventsTable = () => {
   const indexOfLastPage = currentPage * usersPerPage;
   const indexOfFirstPage = indexOfLastPage - usersPerPage;
   const currentPost = data?.slice(indexOfFirstPage, indexOfLastPage);
-
-  const pagesVisited = currentPage * usersPerPage;
   const pageCount = Math.ceil(data?.length / usersPerPage);
 
-  const displayUsers = data?.slice(pagesVisited, pagesVisited + usersPerPage);
+  console.log(currentPost, indexOfLastPage, indexOfFirstPage);
 
   const handleClick = (event, value) => {
     setCurrentPage(value);
@@ -87,6 +85,7 @@ const EventsTable = () => {
     setData(items);
   };
 
+  console.log(currentPost.length % usersPerPage === 0);
   return (
     <>
       <TableContainer
@@ -173,7 +172,11 @@ const EventsTable = () => {
           <Grid item xs={12} sm={6}>
             <Stack>
               <Typography>
-                Showing {indexOfFirstPage + 1} to {currentPost.length} {""}
+                Showing {indexOfFirstPage + 1} to{" "}
+                {currentPost.length % usersPerPage === 0
+                  ? indexOfLastPage
+                  : events.length}{" "}
+                {""}
                 of {""}
                 {events?.length} entries
               </Typography>

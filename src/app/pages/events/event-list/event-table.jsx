@@ -1,5 +1,6 @@
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faAdd, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Add } from "@mui/icons-material";
 import {
   Button,
   Divider,
@@ -9,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 import StyledButton from "../../component/StyledButton";
 import EventsTable from "./events-table";
 
@@ -35,6 +37,11 @@ const EventTable = () => {
             justifyContent: "flex-end",
           }}
         >
+          <Link to="/events/add">
+            <Button variant="contained" color="primary" sx={{ height: "100%" }}>
+              <FontAwesomeIcon icon={faAdd} size="lg" />
+            </Button>
+          </Link>
           <OutlinedInput
             sx={{
               width: {

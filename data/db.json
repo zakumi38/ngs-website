@@ -601,13 +601,13 @@
   ],
   "events": [
     {
-      "title": "test event",
-      "location": "Yangon",
-      "date": "21/7/2022",
-      "time": "5:14 PM",
-      "scr": "",
+      "id": 1,
+      "title": "Event1",
       "description": "React React React React React React",
-      "id": 1
+      "date": "7/21/2022",
+      "time": "5:14 PM",
+      "src": "",
+      "location": "Yangon"
     },
     {
       "title": "123",
@@ -646,21 +646,21 @@
       "id": 6
     },
     {
-      "title": "testing",
-      "location": "main hall",
+      "title": "12312",
+      "location": "123",
       "src": "",
-      "date": "02/02/2222",
-      "time": "09:22 AM",
-      "description": "come and take class",
+      "date": "11/22/2022",
+      "time": "02:12 AM",
+      "description": "aaaaa",
       "id": 7
     },
     {
-      "title": "testing 1",
-      "location": "main hall",
+      "title": "11",
+      "location": "11",
       "src": "",
-      "date": "02/22/2022",
-      "time": "09:22 AM",
-      "description": "come and take class",
+      "date": "11/11/2022",
+      "time": "02:02 AM",
+      "description": "aaa",
       "id": 8
     }
   ]
