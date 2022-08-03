@@ -1,5 +1,5 @@
-import { faAddressBook, faAddressCard, faCircleQuestion, faImage } from "@fortawesome/free-regular-svg-icons";
-import { faBook, faCalendarCheck, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faAddressBook, faAddressCard, faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
+import { faBook } from "@fortawesome/free-solid-svg-icons";
 
 export const webContent = [
   {

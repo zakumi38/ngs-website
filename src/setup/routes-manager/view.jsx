@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import {BrowserRouter as Router , Routes, Route } from "react-router-dom";
 
 // Blog
 import BlogList from "../../app/pages/blog/blog-list/blog-list";

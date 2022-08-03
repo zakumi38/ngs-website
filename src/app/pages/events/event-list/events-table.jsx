@@ -109,10 +109,10 @@ const EventsTable = () => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  {tabelCell.map((cell) => {
+                  {tabelCell.map((cell , index) => {
                     return (
-                      <TableCell>
-                        <Typography>{cell}</Typography>
+                      <TableCell key={index}>
+                        <Typography >{cell}</Typography>
                       </TableCell>
                     );
                   })}

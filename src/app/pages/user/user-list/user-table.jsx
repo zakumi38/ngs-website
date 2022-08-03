@@ -25,25 +25,11 @@ const UserTable = () => {
         margin: "5rem 0 0 0",
       }}
     >
-      <Grid item xs={3} sm={5}>
+      <Grid item xs={4} sm={6}>
         <Typography variant="h5">User List</Typography>
       </Grid>
 
-      <Grid item xs={2} sm={2}>
-        <Link href={"/user/add"}>
-          <Typography variant="h5" sx={{
-            float: "right",
-            color: "#000",
-            border: "2px solid black",
-            padding: "5px 10px",
-            borderRadius : "10px"
-          }}> 
-            <FontAwesomeIcon icon={faAdd} />
-          </Typography>
-        </Link>
-      </Grid>
-
-      <Grid item xs={7} sm={5}>
+      <Grid item xs={8} sm={6}>
         <Stack
           direction="row"
           spacing={3}

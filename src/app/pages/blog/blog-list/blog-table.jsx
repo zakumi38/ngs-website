@@ -1,11 +1,12 @@
 import React, {useState,useEffect} from "react";
 import axios from "axios";
 import {
-    faArrowLeft,
-    faArrowRight,
-    faSearch,
-    faPlusCircle
-  } from "@fortawesome/free-solid-svg-icons";
+  faArrowLeft,
+  faArrowRight,
+  faSearch,
+  faPlus,
+  faAdd,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Button,
@@ -16,9 +17,10 @@ import {
   PaginationItem,
   Stack,
   Typography,
-  Link
+  // Link
 } from "@mui/material";
 import PostsTable from "./blogs-table";
+import { Link } from "react-router-dom";
 
 const rightArrow = () => {
   return <FontAwesomeIcon icon={faArrowRight} />;
@@ -29,6 +31,7 @@ const leftArrow = () => {
 
 const UserTable = () => {
   const [posts, setPosts] = useState([]);
+  const [query, setQuery] = useState("");
 
   const postPerPage = 4
   const [currentPage, SetCurrentPage] = useState(1)
@@ -38,6 +41,10 @@ const UserTable = () => {
 
   const handleChange = (e,value) => {
     SetCurrentPage(value)
+  }
+
+  const Submit = () =>{
+    console.log("gg")
   }
   
 
@@ -60,34 +67,27 @@ const UserTable = () => {
         padding: "20px",
         alignItems: "center",
         borderRadius: "10px",
-        margin: "5rem 0",
+        margin: "5rem 0"
       }}
     >
-      <Grid item xs={3} sm={5}>
+      <Grid item xs={4} sm={6}>
         <Typography variant="h5">Post List</Typography>
       </Grid>
 
-      <Grid item xs={2} sm={2}>
-        <Link href={"/blog/add"}>
-          <Typography variant="h5" sx={{
-            float: "right",
-            color: "#000",
-            border: "2px solid black",
-            padding: "5px 10px",
-            borderRadius : "10px"
-          }}> 
-            <FontAwesomeIcon icon={faPlusCircle} />
-          </Typography>
-        </Link>
-      </Grid>
-      <Grid item xs={7} sm={5}>
+      <Grid item xs={8} sm={6}>
         <Stack
           direction="row"
           spacing={1}
           sx={{
             justifyContent: "flex-end",
+            height: "60px"
           }}
         >
+          <Link to="/blog/add">
+            <Button variant="contained" color="primary" sx={{ height: "100%" }}>
+              <FontAwesomeIcon icon={faAdd} size="lg" />
+            </Button>
+          </Link>
           <OutlinedInput
             sx={{
               width: {
@@ -112,13 +112,17 @@ const UserTable = () => {
             variant="outlined"
             placeholder="Search here..."
             size="small"
+            onChange={(e, value) => {
+              setQuery(e.target.value);
+            }}
           />
-          <Button variant="contained" color="primary">
+
+          <Button onClick={Submit} variant="contained" color="primary">
             Search
           </Button>
         </Stack>
       </Grid>
-          <PostsTable posts={posts} loadPosts={loadPosts}  />
+      <PostsTable posts={posts} loadPosts={loadPosts} />
       <Grid container sx={{ gap: { xs: "1rem", sm: "0" } }}>
         <Grid item xs={12} sm={6}>
           <Stack>
@@ -127,7 +131,7 @@ const UserTable = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <Stack spacing={2} sx={{ alignItems: "end" }}>
-          <Pagination
+            <Pagination
               count={count}
               page={currentPage}
               onChange={handleChange}

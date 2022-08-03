@@ -68,7 +68,7 @@ const GalleryTables = ({posts,loadPosts}) => {
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell>
-                <Typography>{index + 1}</Typography>
+                <Typography>{post.id}</Typography>
               </TableCell>
               <TableCell component="th" scope="row">
                 <img className={gallerylist.image} src={post.img} alt="" />

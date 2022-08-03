@@ -133,7 +133,7 @@ const UsersTable = () => {
                     </TableCell>
                     <TableCell>
                       <Stack direction="row" spacing={2}>
-                        <Link href={`user/edit-user/${row.id}`}>
+                        <Link to={`user/edit-user/${row.id}`}>
                           <ActionIcon color="#2e7d32" icon={faPenToSquare} />
                         </Link>
 
