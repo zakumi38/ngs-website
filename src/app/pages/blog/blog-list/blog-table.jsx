@@ -4,7 +4,6 @@ import {
   faArrowLeft,
   faArrowRight,
   faSearch,
-  faPlus,
   faAdd,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,7 +16,6 @@ import {
   PaginationItem,
   Stack,
   Typography,
-  // Link
 } from "@mui/material";
 import PostsTable from "./blogs-table";
 import { Link } from "react-router-dom";
@@ -42,22 +40,36 @@ const UserTable = () => {
   const handleChange = (e,value) => {
     SetCurrentPage(value)
   }
-
-  const Submit = () =>{
-    console.log("gg")
-  }
   
-
-  const loadPosts = async () => { 
-    let res = await axios.get("http://localhost:3500/blogs")
-    setData(res.data.length)
-    setPosts(res.data.splice( offSet , postPerPage));
-    setOffSet(() => (currentPage - 1)*postPerPage)
+  const loadPosts = async () => {
+    let res = await axios.get("http://localhost:3500/blogs");
+    setData(
+      res.data.filter(
+        (post) =>
+          post.title.toLowerCase().includes(query) ||
+          post.description.toLowerCase().includes(query)
+      ).length
+    );
+    setPosts(
+      res.data
+        .filter(
+          (post) =>
+            post.title.toLowerCase().includes(query) ||
+            post.description.toLowerCase().includes(query)
+        )
+        .splice(offSet, postPerPage)
+    );
+    setOffSet(() => (currentPage - 1) * postPerPage);
   };
 
   useEffect(() => {
     loadPosts();
   }, [currentPage,offSet]);
+
+  function Submit(e) {
+    setQuery(e.target.value)
+    loadPosts();
+  }
  
   return (
     <Grid

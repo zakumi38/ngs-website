@@ -71,7 +71,7 @@ const GalleryTable = () => {
   }, [currentPage,offSet]);
 
   const Submit = () =>{
-    console.log("gg")
+    loadPosts();
   }
   
   return (
