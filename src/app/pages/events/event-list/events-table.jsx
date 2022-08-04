@@ -63,7 +63,7 @@ const EventsTable = ({ data, setData, events, loading }) => {
   const indexOfLastPage = currentPage * usersPerPage;
   const indexOfFirstPage = indexOfLastPage - usersPerPage;
   const currentPost = data?.slice(indexOfFirstPage, indexOfLastPage);
-  const pageCount = Math.ceil(currentPost?.length / usersPerPage);
+  const pageCount = Math.ceil(data?.length / usersPerPage);
 
   const handleClick = (event, value) => {
     setCurrentPage(value);
