@@ -9,6 +9,7 @@ import api from '../../../mockdatabase/database';
 const responsiveText = {sm:'end',md:'end',lg:'end','xl':'end'}
 export default function EditTeamMember({disabled = false}) {
     const {state:{row,teams}} = useLocation()
+    console.log(row,teams)
     const navigate = useNavigate()
     const [name, setName] = useState(row.name)
     const [email, setEmail] = useState(row.email)
@@ -26,7 +27,7 @@ export default function EditTeamMember({disabled = false}) {
         "phone": phoneNumber,
         "email": email,
         "personalExp":personalExperience})
-        navigate('')
+        navigate('/team')
     }
     return (
         <Container maxWidth={false} className={teamStyle.addTeamContainer}>
@@ -125,8 +126,9 @@ export default function EditTeamMember({disabled = false}) {
                                 value={team}
                                 onChange={e => setTeam(e.target.value)}
                                 MenuProps={{ classes: { paper: teamStyle.teamSelect } }}
-                            >
-                                {teams.map(team => <MenuItem value={team.teamname} key={team.id} className={teamStyle.teamSelectItem}>{team.teamname}</MenuItem>)}
+                            > 
+                                {disabled ? <MenuItem value={row.team} className={teamStyle.teamSelectItem}>{row.team}</MenuItem>
+                                : teams.map(team => <MenuItem value={team.teamname} key={team.id} className={teamStyle.teamSelectItem}>{team.teamname}</MenuItem>)}
                             </Select>
                         </FormControl>
                         </Grid>
@@ -158,7 +160,7 @@ export default function EditTeamMember({disabled = false}) {
                         </Grid>
                         :
                         <Grid item container justifyContent="space-between" marginTop='20px'>
-                            <Grid item>
+                            <Grid item xs={12} align='right'>
                                 <Button onClick={_ => navigate(`/team/${row.team}/${row.id}/edit`, {state:{row}})} variant="contained"  startIcon={<FontAwesomeIcon icon={faPencil}/>}>
                                     Edit
                                 </Button>

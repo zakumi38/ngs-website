@@ -17,15 +17,18 @@ export default function AddTeam() {
     const [occupation, setOccupation] = useState("")
     const [personalExperience, setPersonalExperience] = useState("")
     function addMember(){
-        api.post('/developer-team-members',{"image": "./logo512.png",
-        "name": name,
-        "occupation": occupation,
-        "team": team,
-        "experience": experience,
-        "phone": phoneNumber,
-        "email": email,
-        "personalExp":personalExperience})
-        navigate('/team')
+        const memberInfo = {
+            "image": "./logo512.png",
+            "name": name,
+            "occupation": occupation,
+            "team": team,
+            "experience": experience,
+            "phone": phoneNumber,
+            "email": email,
+            "personalExp":personalExperience
+        }
+        api.post('/developer-team-members',memberInfo)
+        navigate('/team',{state:true})
     }
     return (
         <Container className={teamStyle.addTeamContainer}>
