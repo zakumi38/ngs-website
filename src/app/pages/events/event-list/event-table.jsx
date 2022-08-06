@@ -1,20 +1,51 @@
-import { faAdd, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faAdd, faSearch, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Add } from "@mui/icons-material";
 import {
   Button,
   Divider,
   Grid,
   OutlinedInput,
   Stack,
+  styled,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import api from "../../../../mockdatabase/database";
 import StyledButton from "../../component/StyledButton";
+import useAxiosFetch from "../../user/user-list/useAxiosFetch";
 import EventsTable from "./events-table";
 
 const EventTable = () => {
+  const [data, setData] = useState([]);
+
+  const [events, loading, error] = useAxiosFetch({
+    axiosInstance: api,
+    method: "get",
+    url: "/events",
+  });
+
+  const [searchValue, setSearchValue] = useState("");
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+  const handleClear = () => {
+    setData(events);
+    setSearchValue("");
+  };
+
+  const handleSearch = () => {
+    const search = searchValue.toLowerCase();
+    const searchFilter = data?.filter(
+      (post) =>
+        post.title.toLowerCase().includes(search) ||
+        post.id === Number(searchValue) ||
+        post.description.toLowerCase().includes(search) ||
+        post.location.toLowerCase().includes(search)
+    );
+    setData(searchValue.length === 0 ? events : searchFilter);
+  };
+
   return (
     <Grid
       container
@@ -51,7 +82,10 @@ const EventTable = () => {
             }}
             startAdornment={
               <>
-                <FontAwesomeIcon icon={faSearch} />
+                <FontAwesomeIcon
+                  style={{ cursor: "pointer" }}
+                  icon={faSearch}
+                />
                 <Divider
                   sx={{
                     margin: "5px 10px",
@@ -62,17 +96,50 @@ const EventTable = () => {
                 />
               </>
             }
+            endAdornment={
+              searchValue.length > 0 ? (
+                <>
+                  {" "}
+                  <Divider
+                    sx={{
+                      margin: "5px 10px",
+                    }}
+                    orientation="vertical"
+                    variant="middle"
+                    flexItem
+                  />
+                  <FontAwesomeIcon
+                    style={{ cursor: "pointer" }}
+                    icon={faXmark}
+                    onClick={handleClear}
+                  />
+                </>
+              ) : (
+                ""
+              )
+            }
             id="search-bar"
             variant="outlined"
             placeholder="Search here..."
             size="small"
+            onChange={handleChange}
+            value={searchValue}
           />
-          <StyledButton variant="contained" color="primary">
+          <StyledButton
+            onClick={handleSearch}
+            variant="contained"
+            color="primary"
+          >
             Search
           </StyledButton>
         </Stack>
       </Grid>
-      <EventsTable />
+      <EventsTable
+        data={data}
+        loading={loading}
+        setData={setData}
+        events={events}
+      />
     </Grid>
   );
 };

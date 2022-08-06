@@ -1,11 +1,4 @@
-import {
-  Container,
-  Grid,
-  Typography,
-  Button,
-  Link,
-  Breadcrumbs,
-} from "@mui/material";
+import { Container } from "@mui/material";
 import React from "react";
 import EventTable from "./event-table";
 const EventsList = () => {

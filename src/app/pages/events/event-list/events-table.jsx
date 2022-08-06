@@ -53,15 +53,7 @@ const tabelCell = [
   "Location",
   "Actions",
 ];
-const EventsTable = () => {
-  const [data, setData] = useState([]);
-
-  const [events, loading, error] = useAxiosFetch({
-    axiosInstance: api,
-    method: "get",
-    url: "/events",
-  });
-
+const EventsTable = ({ data, setData, events, loading }) => {
   useEffect(() => {
     setData(events);
   }, [events]);
@@ -73,8 +65,6 @@ const EventsTable = () => {
   const currentPost = data?.slice(indexOfFirstPage, indexOfLastPage);
   const pageCount = Math.ceil(data?.length / usersPerPage);
 
-  console.log(currentPost, indexOfLastPage, indexOfFirstPage);
-
   const handleClick = (event, value) => {
     setCurrentPage(value);
   };
@@ -85,7 +75,6 @@ const EventsTable = () => {
     setData(items);
   };
 
-  console.log(currentPost.length % usersPerPage === 0);
   return (
     <>
       <TableContainer
@@ -109,10 +98,10 @@ const EventsTable = () => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  {tabelCell.map((cell , index) => {
+                  {tabelCell.map((cell, index) => {
                     return (
                       <TableCell key={index}>
-                        <Typography >{cell}</Typography>
+                        <Typography>{cell}</Typography>
                       </TableCell>
                     );
                   })}
@@ -175,10 +164,10 @@ const EventsTable = () => {
                 Showing {indexOfFirstPage + 1} to{" "}
                 {currentPost.length % usersPerPage === 0
                   ? indexOfLastPage
-                  : events.length}{" "}
+                  : data.length}{" "}
                 {""}
                 of {""}
-                {events?.length} entries
+                {data?.length} entries
               </Typography>
             </Stack>
           </Grid>
