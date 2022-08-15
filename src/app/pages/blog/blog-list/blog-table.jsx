@@ -68,7 +68,8 @@ const UserTable = () => {
     loadPosts();
   }, [currentPage, offSet]);
 
-  function Submit() {
+  function Submit(value) {
+    SetCurrentPage(1);
     loadPosts();
   }
 
@@ -140,7 +141,10 @@ const UserTable = () => {
       <Grid container sx={{ gap: { xs: "1rem", sm: "0" } }}>
         <Grid item xs={12} sm={6}>
           <Stack>
-            <Typography>Showing 1 to 4 of 8 entries</Typography>
+            <Typography>
+              Showing {offSet + 1} to {data < offSet + 5 ? data : offSet + 5} of{" "}
+              {data} entries
+            </Typography>
           </Stack>
         </Grid>
         <Grid item xs={12} sm={6}>
