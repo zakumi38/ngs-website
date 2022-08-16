@@ -70,7 +70,8 @@ const GalleryTable = () => {
     loadPosts();
   }, [currentPage,offSet]);
 
-  const Submit = () =>{
+  function Submit(value) {
+    SetCurrentPage(1);
     loadPosts();
   }
   
