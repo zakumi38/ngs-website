@@ -192,18 +192,19 @@ const EditUserForm = () => {
           sm={11}
           sx={{ display: "flex", justifyContent: "end" }}
         >
-          <StyledButton
+          <Button
             variant="contained"
             color="primary"
             onClick={handleUpdate}
             sx={{
+              maxHeight: "65px",
               width: { xs: "100%", sm: "25%", md: "18%", lg: "15%" },
               minHeight: "50px",
               minWidth: "100px",
             }}
           >
             Update
-          </StyledButton>
+          </Button>
         </Grid>
       </Grid>
     </Grid>

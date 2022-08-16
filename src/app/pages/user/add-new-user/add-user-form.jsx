@@ -1,4 +1,4 @@
-import { TextField, Grid, Typography } from "@mui/material";
+import { TextField, Grid, Typography, Button } from "@mui/material";
 import { styled } from "@mui/system";
 import React, { useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
@@ -31,7 +31,7 @@ const CustomTextField = styled(TextField)({
 });
 
 const AddUserForm = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [input, setInput] = useState({
     userName: "",
     firstName: "",
@@ -84,7 +84,7 @@ const AddUserForm = () => {
         password: "",
         roles: "",
       });
-      navigate('/user')
+      navigate("/user");
     }
     navigate("/user");
   };
@@ -113,20 +113,6 @@ const AddUserForm = () => {
           gap: 5,
         }}
       >
-        {/* {items.map((item, index) => {
-          return (
-            <Grid item xs={12} sm={5}>
-              <CustomTextField
-                key={index}
-                id="outlined-basic"
-                label={item}
-                variant="outlined"
-                name="role"
-                onChange={handleChange}
-              />
-            </Grid>
-          );
-        })} */}
         <Grid item xs={12} sm={5}>
           <CustomTextField
             id="outlined-basic"
@@ -211,17 +197,19 @@ const AddUserForm = () => {
           sm={11}
           sx={{ display: "flex", justifyContent: "end" }}
         >
-          <StyledButton
+          <Button
             variant="contained"
             color="primary"
             onClick={handleSubmit}
             sx={{
+              minHeight: "60px",
+              minWidth: "150px",
               width: { xs: "100%", md: "25%" },
-              maxWidth: "200px",
+              maxWidth: { xs: "auto", md: "200px" },
             }}
-          > 
+          >
             Add user
-          </StyledButton>
+          </Button>
         </Grid>
       </Grid>
     </Grid>
