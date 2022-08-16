@@ -136,9 +136,37 @@ $greenFontColor: #2e7d32
   .inputsWrapper
     margin-top: 1rem
 
+.editInputsContainer
+  .inputsWrapper
+    margin-top: 1rem
+
+@media only screen and (max-width: 580px)
+  .teamContainer
+    height: fit-content
+    padding: 4rem 1rem
+
+  .teamRow
+    padding: 1rem
+
+  .pagination
+    margin: 30px auto
+
+  .inputsContainer
+    .inputsWrapper
+      flex-direction: column
+      align-items: start
+
+  .editInputsContainer
+    .inputsWrapper
+      align-items: start
+
 @media only screen and (min-width: 600px)
+  .pagination
+    margin: 30px auto
+
   .responsiveText
     font-size: 16px
+
 
 @media only screen and (min-width: 992px)
   .responsiveText

@@ -51,7 +51,7 @@ export default function AddTeam() {
                     </Grid>
                 </Grid>
                 <Grid item container justifyContent="center" className={teamStyle.inputsContainer}>
-                    <Grid item container sm={8} justifyContent="start" alignItems="center" columnSpacing={3}
+                    <Grid item container sm={8}  justifyContent="start" alignItems="center" columnSpacing={3}
                           className={teamStyle.inputsWrapper}>
                         <Grid item sm={3} justifySelf="center">
                             <Typography variant="h6" textAlign="end">
@@ -62,7 +62,7 @@ export default function AddTeam() {
                             <TextField required fullWidth id="fullWidth" value={name} onChange={e => setName(e.target.value)}/>
                         </Grid>
                     </Grid>
-                    <Grid item container sm={8} justifyContent="start" alignItems="center" columnSpacing={3}
+                    <Grid item container sm={8}  justifyContent="start" alignItems="center" columnSpacing={3}
                           className={teamStyle.inputsWrapper}>
                         <Grid item sm={3} justifySelf="center">
                             <Typography variant="h6" textAlign="end">
@@ -73,7 +73,7 @@ export default function AddTeam() {
                             <TextField required fullWidth id="fullWidth" value={email} onChange={e => setEmail(e.target.value)}/>
                         </Grid>
                     </Grid>
-                    <Grid item container sm={8} justifyContent="start" alignItems="center" columnSpacing={3}
+                    <Grid item container sm={8}  justifyContent="start" alignItems="center" columnSpacing={3}
                           className={teamStyle.inputsWrapper}>
                         <Grid item sm={3} justifySelf="center">
                             <Typography variant="h6" textAlign="end">
@@ -85,7 +85,7 @@ export default function AddTeam() {
                                        onChange={e => setExperience(e.target.value)}/>
                         </Grid>
                     </Grid>
-                    <Grid item container sm={8} justifyContent="start" alignItems="center" columnSpacing={3}
+                    <Grid item container sm={8}  justifyContent="start" alignItems="center" columnSpacing={3}
                           className={teamStyle.inputsWrapper}>
                         <Grid item sm={3} justifySelf="center">
                             <Typography variant="h6" textAlign="end">
@@ -97,7 +97,7 @@ export default function AddTeam() {
                                        onChange={e => setPhoneNumber(e.target.value)}/>
                         </Grid>
                     </Grid>
-                    <Grid item container sm={8} justifyContent="start" alignItems="center" columnSpacing={3}
+                    <Grid item container sm={8}  justifyContent="start" alignItems="center" columnSpacing={3}
                           className={teamStyle.inputsWrapper}>
                         <Grid item sm={3} justifySelf="center">
                             <Typography variant="h6" textAlign="end">
@@ -109,7 +109,7 @@ export default function AddTeam() {
                                        onChange={e => setOccupation(e.target.value)}/>
                         </Grid>
                     </Grid>
-                    <Grid item container sm={8} justifyContent="start" alignItems="center" columnSpacing={3}
+                    <Grid item container sm={8}  justifyContent="start" alignItems="center" columnSpacing={3}
                           className={teamStyle.inputsWrapper}>
                         <Grid item sm={3} justifySelf="center">
                             <Typography variant="h6" textAlign="end">
@@ -131,7 +131,7 @@ export default function AddTeam() {
                         </FormControl>
                         </Grid>
                     </Grid>
-                    <Grid item container sm={8} justifyContent="start" alignItems="center" columnSpacing={3}
+                    <Grid item container sm={8}  justifyContent="start" alignItems="center" columnSpacing={3}
                           className={teamStyle.inputsWrapper}>
                         <Grid item sm={3} justifySelf="center">
                             <Typography variant="h6" textAlign="end">

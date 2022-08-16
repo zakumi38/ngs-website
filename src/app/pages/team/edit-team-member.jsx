@@ -49,7 +49,7 @@ export default function EditTeamMember({disabled = false}) {
                         </div>
                     </Grid>
                 </Grid>
-                <Grid item container justifyContent="center" className={teamStyle.inputsContainer}>
+                <Grid item container justifyContent="center" className={teamStyle.editInputsContainer}>
                     <Grid item container sm={8} justifyContent="start" alignItems="center" columnSpacing={3}
                           className={teamStyle.inputsWrapper}>
                         <Grid item xs={12} sm={3} justifySelf="center">

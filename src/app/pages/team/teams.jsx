@@ -14,7 +14,7 @@ import {
   TableHead,
   TableRow,
   TextField,
-  Typography
+  Typography,
 } from "@mui/material";
 import teamStyle from "./team.module.sass";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -276,17 +276,25 @@ export default function Teams() {
   return (
     <Container maxWidth={false} className={teamStyle.teamContainer}>
       <Grid container justifyContent="space-between">
-        <Grid item container xs={12} justifyContent="space-between" alignItems="center" padding="20px" >
-          <Grid item xs={3} sm={6}>
+        <Grid
+          item
+          container
+          xs={12}
+          justifyContent="space-between"
+          alignItems="center"
+          padding="20px"
+          className={teamStyle.teamRow}
+        >
+          <Grid item my={2} xs={12} sm={6}>
             <Typography variant="h5">Team List</Typography>
           </Grid>
           <Grid
             item
             xs={6}
-            sm={3}
-            md={3}
-            lg={3}
-            xl={3}
+            sm={4}
+            md={4}
+            lg={4}
+            xl={4}
             container
             direction={{ xs: "" }}
           >
@@ -361,7 +369,7 @@ export default function Teams() {
               </FormControl>
             )}
           </Grid>
-          <Grid item sm={3} align="right">
+          <Grid item sm={1} align="right">
             <Button
               onClick={(_) =>
                 navigate(`/team/${team.toLowerCase()}/addMember`, {
