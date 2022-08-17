@@ -70,7 +70,8 @@ const GalleryTable = () => {
     loadPosts();
   }, [currentPage,offSet]);
 
-  const Submit = () =>{
+  function Submit(value) {
+    SetCurrentPage(1);
     loadPosts();
   }
   
@@ -85,10 +86,10 @@ const GalleryTable = () => {
         margin: "5rem 0",
       }}
     >
-      <Grid item xs={3} sm={6}>
+      <Grid item  xs={12} sm={6}>
         <Typography variant="h5">Gallery List</Typography>
       </Grid>
-      <Grid item xs={9} sm={6}>
+      <Grid item mt={3} xs={12} sm={6}>
         <Stack
           direction="row"
           spacing={1}
@@ -106,7 +107,6 @@ const GalleryTable = () => {
           <OutlinedInput
             sx={{
               width: {
-                xs: "50%",
                 sm: "auto",
               },
             }}
