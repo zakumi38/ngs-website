@@ -1,15 +1,7 @@
-import React, { useEffect, useState } from "react";
-import {
-  FormControl,
-  TextField,
-  Grid,
-  Typography,
-  Box,
-  Button,
-  Avatar
-} from "@mui/material";
+import React, {useEffect, useState} from "react";
+import {Avatar, Box, Button, FormControl, Grid, TextField, Typography} from "@mui/material";
 
-import { useNavigate, useParams } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 
 export default function EditPost() {
@@ -76,7 +68,7 @@ export default function EditPost() {
   const updateSelectionStart = () =>
     setSelectionStart(inputRef.current.selectionStart);
   return (
-      <Box backgroundColor ='rgb(205, 220, 236)' padding="20px" minHeight="100vh" >
+      <Box backgroundColor ='#F1F1F1' padding="20px" minHeight="100vh" >
       <Grid
         container
         sx={{

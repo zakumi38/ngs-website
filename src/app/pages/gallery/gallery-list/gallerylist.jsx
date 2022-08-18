@@ -1,10 +1,8 @@
-import {
-    Container,
-  } from "@mui/material";
-  import React from "react";
-  import GalleryTable from "./gallery-table";
-  
-  const GalleryList = () => {
+import {Container,} from "@mui/material";
+import React from "react";
+import GalleryTable from "./gallery-table";
+
+const GalleryList = () => {
     return (
       <>
         <Container
@@ -13,7 +11,7 @@ import {
             paddingTop: "15px",
             paddingBottom: "15px",
             minHeight: "100vh",
-            backgroundColor : 'rgb(205, 220, 236)'
+            backgroundColor : '#F1F1F1'
           }}
         >
           

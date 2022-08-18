@@ -1,16 +1,7 @@
-import React, { useState } from "react";
-import {
-  FormControl,
-  TextField,
-  Grid,
-  Typography,
-  Box,
-  Button,
-  Avatar
-} from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import React, {useState} from "react";
+import {Avatar, Box, Button, FormControl, Grid, TextField, Typography} from "@mui/material";
+import {useNavigate} from "react-router-dom";
 import axios from "axios"
-
 
 
 export default function EditGallery() {
@@ -57,7 +48,7 @@ export default function EditGallery() {
 }
 
   return (
-    <Box padding="20px" minHeight="100vh" backgroundColor ='rgb(205, 220, 236)'>
+    <Box padding="20px" minHeight="100vh" backgroundColor ='#F1F1F1'>
       
       <Grid
         container

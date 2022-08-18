@@ -1,5 +1,5 @@
 import React from "react";
-import { Container} from "@mui/material";
+import {Container} from "@mui/material";
 import homeStyle from "./home.module.sass";
 
 const Home = ({ navToggle, children }) => {
@@ -15,7 +15,7 @@ const Home = ({ navToggle, children }) => {
           paddingTop: "20px",
           paddingBottom: "20px",
           minHeight: "100vh",
-          backgroundColor: "rgb(205, 220, 236)",
+          backgroundColor: "#F1F1F1",
         }}
       >
         <div className={homeStyle.box}>

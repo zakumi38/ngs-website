@@ -1,25 +1,10 @@
-import {
-  faArrowLeft,
-  faArrowRight,
-  faSearch,
-  faPlus,
-  faAdd,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  Button,
-  Divider,
-  Grid,
-  OutlinedInput,
-  Pagination,
-  PaginationItem,
-  Stack,
-  Typography,
-} from "@mui/material";
-import React, { useState, useEffect } from "react";
+import {faAdd, faArrowLeft, faArrowRight, faSearch,} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Button, Divider, Grid, OutlinedInput, Pagination, PaginationItem, Stack, Typography,} from "@mui/material";
+import React, {useEffect, useState} from "react";
 import GalleryTables from "./gallerys-table";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const rightArrow = () => {
   return <FontAwesomeIcon icon={faArrowRight} />;
@@ -79,7 +64,7 @@ const GalleryTable = () => {
     <Grid
       container
       sx={{
-        backgroundColor: "rgba(205, 220, 236, 0.8)",
+        backgroundColor: "white",
         padding: "20px",
         alignItems: "center",
         borderRadius: "10px",

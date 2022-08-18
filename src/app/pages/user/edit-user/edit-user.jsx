@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "@mui/material";
+import {Container} from "@mui/material";
 import EditUserForm from "./edit-user-form";
 
 const EditUser = () => {
@@ -11,7 +11,7 @@ const EditUser = () => {
           paddingTop: "20px",
           paddingBottom: "20px",
           minHeight: "100vh",
-          backgroundColor : 'rgb(205, 220, 236)'
+          backgroundColor : '#F1F1F1'
         }}
       >
         <EditUserForm />

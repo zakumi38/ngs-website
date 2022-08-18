@@ -1,16 +1,8 @@
-import { faAdd, faSearch, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  Button,
-  Divider,
-  Grid,
-  OutlinedInput,
-  Stack,
-  styled,
-  Typography,
-} from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import {faAdd, faSearch, faXmark} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Button, Divider, Grid, OutlinedInput, Stack, Typography,} from "@mui/material";
+import React, {useState} from "react";
+import {Link} from "react-router-dom";
 import api from "../../../../mockdatabase/database";
 import StyledButton from "../../component/StyledButton";
 import useAxiosFetch from "../../user/user-list/useAxiosFetch";
@@ -50,7 +42,7 @@ const EventTable = () => {
     <Grid
       container
       sx={{
-        backgroundColor: "rgba(205, 220, 236, 0.8)",
+        backgroundColor: "white",
         padding: "20px",
         alignItems: "center",
         borderRadius: "10px",

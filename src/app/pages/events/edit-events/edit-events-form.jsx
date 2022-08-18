@@ -1,10 +1,8 @@
-import { TextField, Button, Grid, Typography } from "@mui/material";
-import { styled } from "@mui/system";
-import React, { useEffect, useState } from "react";
-
-import MenuItem from "@mui/material/MenuItem";
+import {Grid, TextField, Typography} from "@mui/material";
+import {styled} from "@mui/system";
+import React, {useEffect, useState} from "react";
 import StyledButton from "../../component/StyledButton";
-import { useNavigate, useParams } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import api from "../../../../mockdatabase/database";
 import useAxiosFetch from "../../user/user-list/useAxiosFetch";
 
@@ -119,7 +117,7 @@ const EditEventsForm = () => {
       container
       component="form"
       sx={{
-        bgcolor: "rgba(205, 220, 236, 0.8)",
+        bgcolor: "white",
         p: "20px",
         alignItems: "center",
         borderRadius: "10px",
