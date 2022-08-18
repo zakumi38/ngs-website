@@ -1,14 +1,11 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSortDown, faUsers } from "@fortawesome/free-solid-svg-icons";
+import {useNavigate} from "react-router-dom";
 
+// Files
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faSortDown, faUsers} from "@fortawesome/free-solid-svg-icons";
 import subComponentStyle from "./sub-component.module.sass";
-
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import { Link } from "@mui/material";
-import { Navigate, useNavigate } from "react-router-dom";
+import {Button, Link, Menu, MenuItem} from "@mui/material";
 
 
 function Adminstration() {

@@ -1,16 +1,16 @@
-import { faBars, faList, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Box, IconButton, Stack } from '@mui/material'
-import { styled, alpha } from '@mui/material/styles'
 import React from 'react'
-import navbar from './navbar.module.sass'
+
+// Files
 import NavMenuComp from './sub_components/nav-menu'
+import navbar from './navbar.module.sass'
+import {faBars, faList} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {Box, IconButton, Stack} from '@mui/material'
+import {alpha, styled} from '@mui/material/styles'
 
 const SearchContainer = styled('form')(({ theme }) => ({
-
   height: `70%`,
   background: 'inherit'
-
 }))
 
 const SearchItem = styled('input')(({ theme }) => ({
@@ -24,31 +24,23 @@ const SearchItem = styled('input')(({ theme }) => ({
   padding: '0 20px',
   transition: 'all .3s linear',
   color: '#222',
-  // color: alpha(theme.palette.common.white, .8),
 
   '&::placeholder': {
-
-    // color: alpha(theme.palette.common.white, .5)
     color: '#222',
-
   },
 
   '&:focus': {
     width: '100%',
-    // outline: `1px solid ${alpha(theme.palette.common.white, .5)}`,
     outline: 'none'
   },
 
   [theme.breakpoints.down('md')]: {
-
     width: '55%'
   },
 
   [theme.breakpoints.down('sm')]: {
-
     width: '80%'
   }
-
 }))
 
 const NavbarComp = ({ wide, handleWide, isMatch, slideIn }) => {
