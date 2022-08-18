@@ -36,7 +36,7 @@ function Adminstration() {
           onClick={handleClick}
           className={subComponentStyle.container}
           sx={{
-            color: "black",
+            color: "#ECECEC",
           }}
         >
           <FontAwesomeIcon icon={faUsers} />

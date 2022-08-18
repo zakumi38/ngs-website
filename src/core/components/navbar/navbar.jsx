@@ -6,7 +6,7 @@ import navbar from './navbar.module.sass'
 import {faBars, faList} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {Box, IconButton, Stack} from '@mui/material'
-import {alpha, styled} from '@mui/material/styles'
+import {styled} from '@mui/material/styles'
 
 const SearchContainer = styled('form')(({ theme }) => ({
   height: `70%`,
@@ -15,18 +15,19 @@ const SearchContainer = styled('form')(({ theme }) => ({
 
 const SearchItem = styled('input')(({ theme }) => ({
 
-  background: 'inherit',
+  background: '#ECECEC',
   width: '50%',
   height: '100%',
-  border: `1px solid ${alpha(theme.palette.grey[600], .5)}`,
+  // border: `1px solid ${alpha(theme.palette.grey[600], .5)}`,
+  border: "1px solid #ECECEC",
   borderRadius: '20px',
   outline: 'none',
   padding: '0 20px',
   transition: 'all .3s linear',
-  color: '#222',
+  color: '#1E2019',
 
   '&::placeholder': {
-    color: '#222',
+    color: '#1E2019',
   },
 
   '&:focus': {
