@@ -148,7 +148,6 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                   </a>
                 </ListItem>
               ))}
-              <hr />
             </List>
 
             <List>
@@ -209,7 +208,6 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                     ))
                   : ""}
               </div>
-              <hr />
             </List>
 
             <List>
