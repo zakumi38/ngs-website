@@ -1,16 +1,6 @@
 {
   "users": [
     {
-      "firstName": "World",
-      "mobile": "Hello",
-      "lastName": "Hello",
-      "password": "21312",
-      "userName": "David",
-      "emailAddress": "work409@gmail.com",
-      "roles": "Admin",
-      "id": 2
-    },
-    {
       "userName": "a",
       "firstName": "a",
       "mobile": "a",

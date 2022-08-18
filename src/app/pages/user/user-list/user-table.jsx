@@ -6,7 +6,7 @@ import {
   Grid,
   OutlinedInput,
   Stack,
-  Typography
+  Typography,
 } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -25,16 +25,16 @@ const UserTable = () => {
         margin: "5rem 0 0 0",
       }}
     >
-      <Grid item xs={4} sm={6}>
+      <Grid item xs={12} sm={3}>
         <Typography variant="h5">User List</Typography>
       </Grid>
 
-      <Grid item xs={8} sm={6}>
+      <Grid item xs={12} sm={9} sx={{ margin: { xs: "20px 0", md: "0" } }}>
         <Stack
           direction="row"
           spacing={3}
           sx={{
-            justifyContent: "flex-end",
+            justifyContent: { xs: "space-between", md: "flex-end" },
           }}
         >
           <Link to="/user/add">
@@ -67,9 +67,13 @@ const UserTable = () => {
             placeholder="Search here..."
             size="small"
           />
-          <StyledButton variant="contained" color="primary">
+          <Button
+            sx={{ minHeight: "60px", maxHeight: "65px", minWidth: "150px" }}
+            variant="contained"
+            color="primary"
+          >
             Search
-          </StyledButton>
+          </Button>
         </Stack>
       </Grid>
       <UsersTable />

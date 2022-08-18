@@ -9,7 +9,6 @@ import {
   TableBody,
   TableCell,
   Table,
-  Link,
   Typography,
   TableContainer,
   CircularProgress,
@@ -22,6 +21,19 @@ import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import styled from "@emotion/styled";
 import api from "../../../../mockdatabase/database";
 import useAxiosFetch from "./useAxiosFetch";
+import { Link } from "react-router-dom";
+
+const TableCells = styled(TableCell)(({ theme }) => ({
+  borderBottom: "1px solid #2d2d2d24",
+
+  "& .MuiTypography-root": {
+    overflowX: "hidden",
+    textOverflow: "ellipsis",
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "100px",
+    },
+  },
+}));
 
 const ActionIcon = styled(FontAwesomeIcon)(
   {
@@ -46,7 +58,6 @@ const leftArrow = () => {
 const tabelCell = ["ID", "User Name", "Email", "Roles", "Status", "Actions"];
 const UsersTable = () => {
   const [data, setData] = useState([]);
-  const [pageNumber, setPageNumber] = useState(0);
   const [users, loading, error] = useAxiosFetch({
     axiosInstance: api,
     method: "get",
@@ -100,9 +111,9 @@ const UsersTable = () => {
               <TableHead>
                 <TableRow>
                   {tabelCell.map((cell, index) => (
-                    <TableCell key={index}>
+                    <TableCells key={index}>
                       <Typography>{cell}</Typography>
-                    </TableCell>
+                    </TableCells>
                   ))}
                 </TableRow>
               </TableHead>
@@ -112,36 +123,36 @@ const UsersTable = () => {
                     key={index}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    <TableCell>
+                    <TableCells>
                       <Typography>{row.id}</Typography>
-                    </TableCell>
-                    <TableCell component="th" scope="row">
+                    </TableCells>
+                    <TableCells component="th" scope="row">
                       <Typography> {row.userName}</Typography>
-                    </TableCell>
-                    <TableCell>
+                    </TableCells>
+                    <TableCells>
                       <Typography> {row.emailAddress}</Typography>
-                    </TableCell>
-                    <TableCell>
+                    </TableCells>
+                    <TableCells>
                       <Typography>{row.roles}</Typography>
-                    </TableCell>
-                    <TableCell>
+                    </TableCells>
+                    <TableCells>
                       <Chip
                         sx={{ borderRadius: "5px" }}
                         label={row.status}
                         color={row.status === "Active" ? "success" : "error"}
                       />
-                    </TableCell>
-                    <TableCell>
+                    </TableCells>
+                    <TableCells>
                       <Stack direction="row" spacing={2}>
-                        <Link to={`user/edit-user/${row.id}`}>
+                        <Link to={`/edit-user/${row.id}`}>
                           <ActionIcon color="#2e7d32" icon={faPenToSquare} />
                         </Link>
 
-                        <Link onClick={() => handleDelete(row.id)}>
+                        <Link to="/" onClick={() => handleDelete(row.id)}>
                           <ActionIcon color="#d32f2f" icon={faTrash} />
                         </Link>
                       </Stack>
-                    </TableCell>
+                    </TableCells>
                   </TableRow>
                 ))}
               </TableBody>
@@ -168,6 +179,7 @@ const UsersTable = () => {
           <Grid item xs={12} sm={6}>
             <Stack spacing={2} sx={{ alignItems: "end" }}>
               <Pagination
+                shape="rounded"
                 count={pageCount}
                 color="primary"
                 page={currentPage}
