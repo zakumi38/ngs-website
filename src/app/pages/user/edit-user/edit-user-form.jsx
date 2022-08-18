@@ -1,10 +1,10 @@
-import { TextField, Button, Grid, Typography } from "@mui/material";
-import { styled } from "@mui/system";
-import React, { useEffect, useState } from "react";
+import {Grid, TextField, Typography , Button} from "@mui/material";
+import {styled} from "@mui/system";
+import React, {useEffect, useState} from "react";
 
 import MenuItem from "@mui/material/MenuItem";
 import StyledButton from "../../component/StyledButton";
-import { useNavigate, useParams } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import useAxiosFetch from "../user-list/useAxiosFetch";
 import api from "../../../../mockdatabase/database";
 
@@ -91,7 +91,7 @@ const EditUserForm = () => {
       container
       component="form"
       sx={{
-        bgcolor: "rgba(205, 220, 236, 0.8)",
+        bgcolor: "white",
         p: "20px",
         alignItems: "center",
         borderRadius: "10px",

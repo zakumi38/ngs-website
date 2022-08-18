@@ -1,15 +1,8 @@
-import { faAdd, faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  Button,
-  Divider,
-  Grid,
-  OutlinedInput,
-  Stack,
-  Typography,
-} from "@mui/material";
+import {faAdd, faSearch} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Button, Divider, Grid, OutlinedInput, Stack, Typography} from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import StyledButton from "../../component/StyledButton";
 import UsersTable from "./users-table";
 
@@ -18,7 +11,7 @@ const UserTable = () => {
     <Grid
       container
       sx={{
-        backgroundColor: "rgba(205, 220, 236, 0.8)",
+        backgroundColor: "white",
         padding: "20px",
         alignItems: "center",
         borderRadius: "10px",

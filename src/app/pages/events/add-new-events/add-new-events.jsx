@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, Breadcrumbs, Grid, Typography, Link } from "@mui/material";
+import {Container} from "@mui/material";
 import AddEventsForm from "./add-events-form";
+
 const AddNewEvents = () => {
   return (
     <>
@@ -10,7 +11,7 @@ const AddNewEvents = () => {
           paddingTop: "20px",
           paddingBottom: "20px",
           minHeight: "100vh",
-          backgroundColor: "rgb(205, 220, 236)",
+          backgroundColor: "#F1F1F1",
         }}
       >
         <AddEventsForm />

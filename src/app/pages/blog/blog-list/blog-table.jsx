@@ -1,24 +1,10 @@
-import React, {useState,useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {
-  faArrowLeft,
-  faArrowRight,
-  faSearch,
-  faAdd,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  Button,
-  Divider,
-  Grid,
-  OutlinedInput,
-  Pagination,
-  PaginationItem,
-  Stack,
-  Typography,
-} from "@mui/material";
+import {faAdd, faArrowLeft, faArrowRight, faSearch,} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Button, Divider, Grid, OutlinedInput, Pagination, PaginationItem, Stack, Typography,} from "@mui/material";
 import PostsTable from "./blogs-table";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const rightArrow = () => {
   return <FontAwesomeIcon icon={faArrowRight} />;
@@ -75,7 +61,7 @@ const UserTable = () => {
     <Grid
       container
       sx={{
-        backgroundColor: "rgba(205, 220, 236, 0.8)",
+        backgroundColor: "white",
         padding: "20px",
         alignItems: "center",
         borderRadius: "10px",

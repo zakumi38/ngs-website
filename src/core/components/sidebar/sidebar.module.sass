@@ -1,8 +1,9 @@
 @mixin defaultListItem()
-    padding: 15px 20px 15px 20px
+    padding: 15px 20px
+    margin: 0 5px
     width: 100%
     text-align: left
-    color: darken(#fff, 90)
+    color: #ECECEC
     transition: all .2s linear
     position: relative
     text-decoration: none
@@ -10,6 +11,8 @@
     cursor: pointer
     display: flex
     align-items: center
+    font-family: "Roboto","Helvetica","Arial",sans-serif
+    border-radius: 5px
 
 .sidebar
     width: 240px
@@ -18,9 +21,9 @@
     bottom: 0
     left: 0
     /* background: darken(#fff, 70) */
-    background: #c0cddb
+    background: #6C82EF
     /* color: #c0cddb */
-    color: darken(#fff, 90)
+    color: #ECECEC
     transition: all .3s linear
     display: flex
     justify-content: space-around
@@ -61,12 +64,10 @@
 .sideMenuContainer
     height: 80vh
     overflow: hidden
-    box-shadow: 0 0 40px #00000024 inset
 
     .sideMenuContent
         overflow-y: auto
         height: 100%
-        scrollbar-width: none
 
         &::-webkit-scrollbar 
             display: none
@@ -74,52 +75,31 @@
 
 .listItemsHeader
     @include defaultListItem
+    padding: 0 20px 10px
     justify-content: space-between
+    font-size: 1.4rem
     
 .listItems
     @include  defaultListItem
+    font-size: 1.2rem
+    vertical-align: center
     .icons
         width: 20px
-        margin-right: 10px
-
-    &:before
-        position: absolute
-        content: ''
-        width: 5px
-        height: 100%
-        background: darken(skyblue, 40)
-        left: 0
-        top: 0
-        opacity: 0
-        transition: all .2s linear
-
+        margin: 0 10px 0 30px
+    span
+        font-family: "Roboto","Helvetica","Arial",sans-serif
+        font-weight: 600
     &:hover
-        /* background: lighten(#444, 40) */
-        background: #eadfdf99
-        /* color: darken(#ddd, 60) */
-        color: darken(#ddd, 70)
-
-        &:before    
-            opacity: .5
+        background: rgba(241, 241, 241, 0.84)
+        color: #1E2019
+        //background: #2e4bd5
+        //color: #ECECEC
 
 .listItems.active
-    /* background: lighten(#444, 40) */
-    background: #eadfdf99
-    /* color: darken(#ddd, 60) */
-    color: darken(#ddd, 70)
-
-.active
-    &:before
-        position: absolute
-        content: ''
-        width: 5px
-        height: 100%
-        background: darken(skyblue, 40)
-        left: 0
-        top: 0
-        opacity: 1
-        transition: all .2s linear
-
+    background: #3b59ec
+    color: #ECECEC
+    //background: #ECECEC
+    //color: black
     
 
 

@@ -3,8 +3,8 @@ import { styled } from "@mui/system";
 import React, { useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import StyledButton from "../../component/StyledButton";
-import useAxios, { instance } from "../useAxios";
-import { useNavigate } from "react-router-dom";
+import {instance} from "../useAxios";
+import {useNavigate} from "react-router-dom";
 
 const rolesTitle = [
   {
@@ -95,7 +95,7 @@ const AddUserForm = () => {
       container
       component="form"
       sx={{
-        bgcolor: "rgba(205, 220, 236, 0.8)",
+        bgcolor: "white",
         p: "20px",
         alignItems: "center",
         borderRadius: "10px",

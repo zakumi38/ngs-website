@@ -1,14 +1,9 @@
-import { TextField, Grid, Typography, OutlinedInput, Box } from "@mui/material";
-import { styled } from "@mui/system";
-import React, { useState } from "react";
-import MenuItem from "@mui/material/MenuItem";
+import {Grid, TextField, Typography} from "@mui/material";
+import {styled} from "@mui/system";
+import React, {useState} from "react";
 import StyledButton from "../../component/StyledButton";
-import { useNavigate } from "react-router-dom";
-import { instance } from "../../user/useAxios";
-import EventStyle from "./add-events-form.module.sass";
-import axios from "axios";
+import {useNavigate} from "react-router-dom";
 import api from "../../../../mockdatabase/database";
-import { upload } from "@testing-library/user-event/dist/upload";
 
 const CustomTextField = styled(TextField)({
   width: "100%",
@@ -112,7 +107,7 @@ const AddEventsForm = () => {
       container
       component="form"
       sx={{
-        bgcolor: "rgba(205, 220, 236, 0.8)",
+        bgcolor: "white",
         p: "20px",
         alignItems: "center",
         borderRadius: "10px",

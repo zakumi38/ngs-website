@@ -1,10 +1,8 @@
-import { styled } from "@mui/material";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+// Files
+import {Button, Menu, MenuItem, styled} from "@mui/material";
 
 const ProfileImg = styled("img")((theme) => ({
   width: "40px",
@@ -49,10 +47,6 @@ const UserproComp = () => {
         <MenuItem onClick={() => profile()}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
-
-      {/* <IconButton onClick={() => navigate("/user-profile")}>
-        <ProfileImg src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" />
-      </IconButton> */}
     </>
   );
 };

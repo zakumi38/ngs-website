@@ -1,35 +1,25 @@
-import React, { useState } from "react";
-import { Entities } from "../../utilities/entities";
-import { webContent } from "../../utilities/web-content";
-import { setting } from "../../utilities/setting";
-import { Box, Link,Typography, Stack, List, ListItem } from "@mui/material";
-import styled from "@emotion/styled";
-import sidebar from "./sidebar.module.sass";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCaretDown,
-  faCaretUp,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
-import Logo from "../../../assets/images/logo.png";
+import React, {useState} from "react";
 import {useLocation} from 'react-router-dom'
 import GitInfo from 'react-git-info/macro';
+
+// Files
+import sidebar from "./sidebar.module.sass";
+import {webContent} from "../../utilities/web-content";
+import {Entities} from "../../utilities/entities";
+import {setting} from "../../utilities/setting";
+import {Box, Link, List, ListItem, Stack, Typography} from "@mui/material";
+import styled from "@emotion/styled";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCaretDown, faCaretUp, faXmark,} from "@fortawesome/free-solid-svg-icons";
+
+// Images
+import Logo from "../../../assets/images/logo.png";
 
 export const BrandLogo = styled("div")(({ theme }) => ({
   // fontSize: '23px'
 }));
 
-// export const UserImg = styled('div')(({ theme }) => ({
 
-//     width: '80px',
-//     height: '80px',
-//     fontSize: '30px',
-//     margin: '20px auto 5px',
-//     color: '#333',
-//     borderRadius: '50%',
-//     overflow: 'hidden'
-
-// }))
 
 const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -158,7 +148,6 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                   </a>
                 </ListItem>
               ))}
-              <hr />
             </List>
 
             <List>
@@ -219,7 +208,6 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                     ))
                   : ""}
               </div>
-              <hr />
             </List>
 
             <List>
@@ -289,7 +277,6 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
             </List>
           </Box>
         </Box>
-
         <Box>
           <Typography sx={{textAlign: "center"}}>{gitInfo.commit.shortHash}</Typography>
         </Box>

@@ -1,8 +1,10 @@
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+
+// Files
 import subComponentStyle from './sub-component.module.sass'
+import {faHome} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 function Home() {
@@ -11,7 +13,7 @@ function Home() {
     <div>
       <div  onClick={() => navigate('/')} className={subComponentStyle.container}>
         <FontAwesomeIcon className={subComponentStyle.homeIcon} icon={faHome} />
-        <p  >Home</p>
+        <p>Home</p>
       </div>
     </div>
   );
