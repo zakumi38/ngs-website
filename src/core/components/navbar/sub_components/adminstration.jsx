@@ -36,7 +36,7 @@ function Adminstration() {
           onClick={handleClick}
           className={subComponentStyle.container}
           sx={{
-            color: "#ECECEC",
+            color: "#64748b",
           }}
         >
           <FontAwesomeIcon icon={faUsers} />
@@ -57,8 +57,11 @@ function Adminstration() {
         >
           <MenuItem onClick={()=>adminstrationRoute("user")}>
             <Link sx={{
-            color: "black",
+            color: "rgba(100,116,139)",
             textDecoration : "none",
+              ":hover":{
+              color: "#1e293b"
+              }
           }} >User Management</Link>
           </MenuItem>
         </Menu>

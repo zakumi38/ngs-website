@@ -44,8 +44,20 @@ const UserproComp = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={() => profile()}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={() => profile()} sx={{
+            color: "rgba(100,116,139)",
+            textDecoration : "none",
+            ":hover":{
+                color: "#1e293b"
+            }
+        }} >Profile</MenuItem>
+        <MenuItem onClick={handleClose} sx={{
+            color: "rgba(100,116,139)",
+            textDecoration : "none",
+            ":hover":{
+                color: "#1e293b"
+            }
+        }} >Logout</MenuItem>
       </Menu>
     </>
   );
