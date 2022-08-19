@@ -61,7 +61,7 @@ const UserTable = () => {
         <Grid
             container
             sx={{
-                backgroundColor: "rgba(205, 220, 236, 0.8)",
+                backgroundColor: "#ffffff",
                 padding: "20px",
                 alignItems: "center",
                 borderRadius: "10px",
