@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {BrowserRouter as Router , Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Blog
 import BlogList from "../../app/pages/blog/blog-list/blog-list";
@@ -32,30 +32,31 @@ import AddNewEvents from "../../app/pages/events/add-new-events/add-new-events";
 import EditEvents from "../../app/pages/events/edit-events/edit-events";
 import ProtectedRoutes from "./protected-routes";
 import api from "../../mockdatabase/database";
+import UserView from "../../app/pages/user/view-user/user-view";
 
 function View() {
-
-  const [adminData , setAdminData] = useState({});
+  const [adminData, setAdminData] = useState({});
   useEffect(() => {
     const FeatchUser = async () => {
-      let response =await api.get("/admin");
-      setAdminData(response.data)
+      let response = await api.get("/admin");
+      setAdminData(response.data);
     };
     FeatchUser();
   }, []);
 
-  console.log(adminData)
+  console.log(adminData);
   return (
     <Routes>
       <Route index element={<Home />}></Route>
 
       {/* Protect User Route */}
-      <Route element={<ProtectedRoutes />} >
+      <Route element={<ProtectedRoutes />}>
         {/* User */}
         <Route path="/user">
-          <Route index element={<UserList />}></Route>
-          <Route path="add" element={<AddNewUser />}></Route>
-          <Route path="edit-user/:id" element={<EditUser />}></Route>
+          <Route index element={<UserList />} />
+          <Route path="add" element={<AddNewUser />} />
+          <Route path="edit-user/:id" element={<EditUser />} />
+          <Route path="view/:id" element={<UserView />} />
         </Route>
       </Route>
 
@@ -67,15 +68,21 @@ function View() {
       </Route>
 
       {/* Teams */}
-      <Route path='/team' element={<Teams/>}>
-        <Route index element={<Teams/>}/>
-        <Route path=':teamName'>
-          <Route exact index element={<Teams/>}/>
+      <Route path="/team" element={<Teams />}>
+        <Route index element={<Teams />} />
+        <Route path=":teamName">
+          <Route exact index element={<Teams />} />
         </Route>
       </Route>
-      <Route path="/team/:teamName/:id/edit" element={<EditTeamMember/>}></Route>
-      <Route path="/team/:teamName/addMember" element={<AddTeam/>}></Route>
-      <Route path="/team/:teamName/:id/view" element={<EditTeamMember disabled={true}/>}></Route>
+      <Route
+        path="/team/:teamName/:id/edit"
+        element={<EditTeamMember />}
+      ></Route>
+      <Route path="/team/:teamName/addMember" element={<AddTeam />}></Route>
+      <Route
+        path="/team/:teamName/:id/view"
+        element={<EditTeamMember disabled={true} />}
+      ></Route>
 
       {/* Events */}
       <Route path="/events">
@@ -83,7 +90,7 @@ function View() {
         <Route path="add" element={<AddNewEvents />} />
         <Route path="edit/:id" element={<EditEvents />} />
       </Route>
-      
+
       {/* Porfile */}
       <Route path="/user-profile" element={<UserProfile />}></Route>
       <Route path="/change-password" element={<ChangePassword />}></Route>
@@ -92,7 +99,7 @@ function View() {
       <Route path="/gallery">
         <Route index element={<GalleryList />}></Route>
         <Route path="add" element={<AddGallery />}></Route>
-        <Route path="edit/:id" element={<EditGallery />}></Route> 
+        <Route path="edit/:id" element={<EditGallery />}></Route>
       </Route>
     </Routes>
   );

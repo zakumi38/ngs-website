@@ -1,27 +1,6 @@
 {
   "users": [
     {
-      "userName": "a",
-      "firstName": "a",
-      "mobile": "a",
-      "lastName": "a",
-      "emailAddress": "a",
-      "password": "a",
-      "roles": "Admin",
-      "id": 3
-    },
-    {
-      "userName": "zawlinn.designer@gmail.com",
-      "firstName": "Zaw Linn",
-      "mobile": "+959788820004",
-      "lastName": "Koehler",
-      "emailAddress": "zawlinn.designer@gmail.com",
-      "password": "Oxford@@317",
-      "roles": "Admin",
-      "status": "Active",
-      "id": 9
-    },
-    {
       "userName": "zawlinn.designer@gmail.com",
       "firstName": "Zaw",
       "mobile": "+959788820004",
@@ -31,26 +10,6 @@
       "roles": "Admin",
       "status": "Active",
       "id": 10
-    },
-    {
-      "userName": "frontendteam.ngs@gmail.com",
-      "firstName": "administrator",
-      "mobile": "+959788820004",
-      "lastName": "Koehler",
-      "emailAddress": "kolinn.info@gmail.com",
-      "password": "Oxford@@317",
-      "roles": "Admin",
-      "id": 11
-    },
-    {
-      "userName": "zawlinn.designer@gmail.com",
-      "firstName": "Computer",
-      "mobile": "+959788820004",
-      "lastName": "userName",
-      "emailAddress": "kolinn.info@gmail.com",
-      "password": "WfCx05gXcSQ",
-      "roles": "Manager",
-      "id": 12
     },
     {
       "userName": "Moon Seng",
@@ -119,26 +78,6 @@
       "id": 7
     },
     {
-      "userName": "Hello",
-      "firstName": "World",
-      "mobile": "Hello",
-      "lastName": "Hello",
-      "emailAddress": "213123",
-      "password": "21312",
-      "roles": "Admin",
-      "id": 2
-    },
-    {
-      "userName": "a",
-      "firstName": "a",
-      "mobile": "a",
-      "lastName": "a",
-      "emailAddress": "a",
-      "password": "a",
-      "roles": "Admin",
-      "id": 3
-    },
-    {
       "userName": "111",
       "firstName": "11",
       "mobile": "1",
@@ -147,40 +86,7 @@
       "password": "1",
       "roles": "Admin",
       "status": "Active",
-      "id": 4
-    },
-    {
-      "userName": "111",
-      "firstName": "11",
-      "mobile": "1",
-      "lastName": "1",
-      "emailAddress": "1",
-      "password": "1",
-      "roles": "Admin",
-      "status": "Active",
-      "id": 5
-    },
-    {
-      "userName": "111",
-      "firstName": "11",
-      "mobile": "1",
-      "lastName": "1",
-      "emailAddress": "1",
-      "password": "1",
-      "roles": "Admin",
-      "status": "Active",
-      "id": 6
-    },
-    {
-      "userName": "111",
-      "firstName": "11",
-      "mobile": "1",
-      "lastName": "1",
-      "emailAddress": "1",
-      "password": "1",
-      "roles": "Admin",
-      "status": "Active",
-      "id": 7
+      "id": 8
     }
   ],
   "admin": [

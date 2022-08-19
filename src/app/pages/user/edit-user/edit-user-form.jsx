@@ -3,7 +3,6 @@ import { styled } from "@mui/system";
 import React, { useEffect, useState } from "react";
 
 import MenuItem from "@mui/material/MenuItem";
-import StyledButton from "../../component/StyledButton";
 import { useNavigate, useParams } from "react-router-dom";
 import useAxiosFetch from "../user-list/useAxiosFetch";
 import api from "../../../../mockdatabase/database";
@@ -27,7 +26,7 @@ const currencies = [
   },
 ];
 
-const CustomTextField = styled(TextField)({
+export const CustomTextField = styled(TextField)({
   width: "100%",
   borderColor: "#000",
 });
@@ -91,7 +90,7 @@ const EditUserForm = () => {
       container
       component="form"
       sx={{
-        bgcolor: "rgba(205, 220, 236, 0.8)",
+        bgcolor: "#fff",
         p: "20px",
         alignItems: "center",
         borderRadius: "10px",
@@ -190,11 +189,24 @@ const EditUserForm = () => {
           item
           xs={12}
           sm={11}
-          sx={{ display: "flex", justifyContent: "end" }}
+          sx={{ display: "flex", justifyContent: "end", gap: "20px" }}
         >
           <Button
             variant="contained"
-            color="primary"
+            color="error"
+            onClick={() => navigate("/user")}
+            sx={{
+              maxHeight: "65px",
+              width: { xs: "100%", sm: "25%", md: "18%", lg: "15%" },
+              minHeight: "50px",
+              minWidth: "100px",
+            }}
+          >
+            Cancle
+          </Button>
+          <Button
+            variant="contained"
+            color="success"
             onClick={handleUpdate}
             sx={{
               maxHeight: "65px",
@@ -203,7 +215,7 @@ const EditUserForm = () => {
               minWidth: "100px",
             }}
           >
-            Update
+            Save
           </Button>
         </Grid>
       </Grid>
