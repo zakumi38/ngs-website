@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react"
-import {Button, Container, Grid, Typography, TextField, styled,Select, FormControl, MenuItem, FormControlLabel, FormHelperText, FormLabel} from "@mui/material";
+import {Button, Container, Grid, Typography, TextField, styled,Select, FormControl, MenuItem} from "@mui/material";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft, faPencil} from "@fortawesome/free-solid-svg-icons"
 import editProfileStyle from "./edit-profile.module.sass"
@@ -42,8 +42,8 @@ export default function UserProfile() {
     }
     return (
             <Container className={editProfileStyle.form}>
-                <Grid container  spacing={2} sx={{minHeight: "60px",width:"100%", alignItems: {xs: "center"}}} component="form">
-                    <Grid item xs={12} sx={{display: "flex", marginTop: "10px"}}>
+                <Grid container  spacing={2} sx={{alignItems: {xs: "center"}}} className={editProfileStyle.formGrid} component="form">
+                    <Grid item xs={12} sx={{display: "flex", padding: 0}}>
                         <FontAwesomeIcon icon={faArrowLeft} className={editProfileStyle.iconLeftArrow} onClick={() => navigate('/', {replace:true})}/>
                         <Typography variant="h4" className={editProfileStyle.title}>Edit Profile</Typography>
                     </Grid>

@@ -55,11 +55,11 @@ export default function EditGallery() {
       <Grid
         container
         sx={{
-          background: "#CDDCEC 80%",
+          background: "white",
           p: "40px 100px 40px 20px",
           alignItems: "center",
           borderRadius: "10px",
-          m: "3rem 0",
+         m: "3.5rem 0",
         }}
       >
         <Grid item xs={12} sx={{ m: 2 }} >

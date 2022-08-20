@@ -33,7 +33,7 @@ export default function EditTeamMember({disabled = false}) {
     }
     return (
         <Container maxWidth={false} className={teamStyle.addTeamContainer}>
-            <Grid container>
+            <Grid container sx={{backgroundColor:"white",borderRadius:"10px", padding: "20px"}}>
                 <Grid item>
                     <IconButton aria-label="back" onClick={_ => navigate('/team', {replace:true})}>
                         <FontAwesomeIcon icon={faArrowLeft} className={teamStyle.back}/>
