@@ -230,7 +230,7 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                               ml: "5px",
                               fontSize: "15px",
                               fontFamily: "Poppins",
-                              textTransform: "none",
+                              textTransform: "capitalize",
                             }}
                             className={wide && sidebar.d_none}
                           >
