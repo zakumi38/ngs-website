@@ -69,7 +69,7 @@ const NavbarComp = ({ wide, handleWide, isMatch, slideIn }) => {
             {/* Search Box Session */}
 
             <SearchContainer>
-              <SearchItem placeholder='Search...' type='search' sx={{position: 'relative' , borderRadius: '5px'} }/>
+              <SearchItem placeholder='Search...' type='search' sx={{position: 'relative' , borderRadius: '5px',"::placeholder":{color:"#7282a2"}} }/>
             </SearchContainer>
 
           </Stack>
