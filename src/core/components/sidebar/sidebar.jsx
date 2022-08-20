@@ -252,7 +252,7 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
           </Box>
         </Box>
         <Box>
-          <Typography sx={{textAlign: "center"}}>{gitInfo.commit.shortHash}</Typography>
+          <Typography className={sidebar.versionNo}>{gitInfo.commit.shortHash}</Typography>
         </Box>
       </Box>
     </>
