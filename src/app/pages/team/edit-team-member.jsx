@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+
+// Files
+import api from '../../../mockdatabase/database';
 import {Button, Container, Grid, IconButton, TextField, Typography, Select, FormControl, MenuItem} from "@mui/material";
 import teamStyle from "./team.module.sass"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowLeft, faEye, faPencil, faTrash} from "@fortawesome/free-solid-svg-icons";
-import { useNavigate, useLocation } from 'react-router-dom';
-import api from '../../../mockdatabase/database';
+import {faArrowLeft, faEye, faPencil } from "@fortawesome/free-solid-svg-icons";
 
 const responsiveText = {sm:'end',md:'end',lg:'end','xl':'end'}
 export default function EditTeamMember({disabled = false}) {

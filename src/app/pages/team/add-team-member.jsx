@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+// Files
+import api from '../../../mockdatabase/database';
 import {Button, Container, Grid, IconButton, TextField, Typography, Select, FormControl, MenuItem} from "@mui/material";
 import teamStyle from "./team.module.sass"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAdd, faArrowLeft} from "@fortawesome/free-solid-svg-icons";
-import { useLocation, useNavigate } from 'react-router-dom';
-import api from '../../../mockdatabase/database';
 
 export default function AddTeam() {
     const navigate = useNavigate()

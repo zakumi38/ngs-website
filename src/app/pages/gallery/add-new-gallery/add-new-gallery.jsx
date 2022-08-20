@@ -1,7 +1,9 @@
 import React, {useState} from "react";
-import {Avatar, Box, Button, FormControl, Grid, TextField, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import axios from "axios"
+
+// Files
+import {Avatar, Box, Button, FormControl, Grid, TextField, Typography} from "@mui/material";
 
 
 export default function EditGallery() {

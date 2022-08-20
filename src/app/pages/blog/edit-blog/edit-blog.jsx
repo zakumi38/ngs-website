@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
-import {Avatar, Box, Button, FormControl, Grid, TextField, Typography} from "@mui/material";
-
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
+
+// Files
+import {Avatar, Box, Button, FormControl, Grid, TextField, Typography} from "@mui/material";
 
 export default function EditPost() {
 
