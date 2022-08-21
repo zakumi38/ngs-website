@@ -96,9 +96,17 @@ const UsersTable = ({
     setData(user.data);
     setCurrentPage(value);
   };
-  const pageCount = 3;
-  const page = data?.length % usersPerPage;
-  console.log(data?.length / usersPerPage);
+  let pageCount = 1;
+
+  const sw = () => {
+    if (data.length > 4) {
+      console.log(pageCount, currentPage);
+      return pageCount + currentPage;
+    } else {
+      return currentPage;
+    }
+  };
+  console.log(sw());
   // const pageCount = data?.length % usersPerPage === 0 ? 0 ;
 
   const handleDelete = async (id) => {
@@ -262,7 +270,7 @@ const UsersTable = ({
             <Stack spacing={2} sx={{ alignItems: "end" }}>
               <Pagination
                 shape="rounded"
-                count={page === 0 ? pageCount + 1 : pageCount}
+                count={sw()}
                 color="primary"
                 page={currentPage}
                 onChange={handleClick}
