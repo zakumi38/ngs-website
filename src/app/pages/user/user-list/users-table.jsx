@@ -65,12 +65,18 @@ const leftArrow = () => {
   return <FontAwesomeIcon icon={faArrowLeft} />;
 };
 const tabelCell = ["ID", "User Name", "Email", "Roles", "Status", "Actions"];
-const UsersTable = () => {
-  const [data, setData] = useState([]);
-
+const UsersTable = ({
+  // loading,
+  setData,
+  data,
+  // setCurrentPage,
+  // currentPage,
+  // indexOfFirstPage,
+  // indexOfLastPage,
+  // usersPerPage,
+}) => {
   const [openModal, setOpenModal] = useState(false);
   const [modalId, setModalId] = useState("");
-
   const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 5;
   const indexOfLastPage = currentPage * usersPerPage;
@@ -80,27 +86,45 @@ const UsersTable = () => {
     method: "get",
     url: `/users?_start=${indexOfFirstPage}&_end=${indexOfLastPage}`,
   });
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const usersPerPage = 5;
+  // const indexOfLastPage = currentPage * usersPerPage;
+  // const indexOfFirstPage = indexOfLastPage - usersPerPage;
+  // const [users, loading, error] = useAxiosFetch({
+  //   axiosInstance: api,
+  //   method: "get",
+  //   url: `/users?_start=${indexOfFirstPage}&_end=${indexOfLastPage}`,
+  // });
+
   const handleClick = async (event, value) => {
-    setCurrentPage(value);
     const user = await api.get(
       `/users?_start=${indexOfFirstPage}&_end=${indexOfLastPage}`
     );
     setData(user.data);
+    setCurrentPage(value);
   };
   useEffect(() => {
     setData(users);
   }, [users]);
   // const currentPost = data?.slice(indexOfFirstPage, indexOfLastPage);
+  let pageCount = 1;
 
-  const pageCount = Math.ceil(data?.length / usersPerPage);
+  const sw = () => {
+    if (data.length > 4) {
+      console.log(pageCount, currentPage);
+      return pageCount + currentPage;
+    } else {
+      return currentPage;
+    }
+  };
+  console.log(sw());
+  // const pageCount = data?.length % usersPerPage === 0 ? 0 ;
 
   const handleDelete = async (id) => {
     await api.delete(`/users/${modalId}`);
     const items = data.filter((user) => user.id !== modalId);
     setData(items);
     setOpenModal(false);
-    // const user = (await api.get("/users")).data;
-    // setData(user);
   };
 
   const open = (id) => {
@@ -246,9 +270,10 @@ const UsersTable = () => {
                   : data.length + indexOfFirstPage}{" "}
                 {""}
                 of {""}
-                {data?.length < 5
+                {data.length + indexOfFirstPage}
+                {/* {data?.length < 5
                   ? data.length + indexOfFirstPage
-                  : data.length}{" "}
+                  : data.length}{" "} */}
                 entries
               </Typography>
             </Stack>
@@ -257,7 +282,7 @@ const UsersTable = () => {
             <Stack spacing={2} sx={{ alignItems: "end" }}>
               <Pagination
                 shape="rounded"
-                count={data.legth > 5 ? pageCount : pageCount + 4}
+                count={sw()}
                 color="primary"
                 page={currentPage}
                 onChange={handleClick}
