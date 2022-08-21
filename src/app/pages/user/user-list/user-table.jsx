@@ -1,20 +1,54 @@
 import { faAdd, faRefresh, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  Button,
-  Divider,
-  Grid,
-  OutlinedInput,
-  Stack,
-  Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
-import React from "react";
+import { Button, Grid, OutlinedInput, Stack, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import StyledButton from "../../component/StyledButton";
+import api from "../../../../mockdatabase/database";
+import useAxiosFetch from "./useAxiosFetch";
 import UsersTable from "./users-table";
 
 const UserTable = () => {
+  const [data, setData] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const usersPerPage = 5;
+  const indexOfLastPage = currentPage * usersPerPage;
+  const indexOfFirstPage = indexOfLastPage - usersPerPage;
+
+  const [users, loading, error] = useAxiosFetch({
+    axiosInstance: api,
+    method: "get",
+    url: `/users?_start=${indexOfFirstPage}&_end=${indexOfLastPage}`,
+  });
+
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  const handleClear = () => {
+    setData(users);
+    setSearchValue("");
+  };
+
+  useEffect(() => {
+    setData(users);
+  }, [users]);
+
+  console.log(data);
+
+  const handleSearch = () => {
+    const search = searchValue.toLowerCase();
+    console.log(search, users);
+    const searchFilter = users?.filter(
+      (user) =>
+        user.userName.toLowerCase().includes(search) ||
+        user.id === Number(searchValue) ||
+        user.emailAddress.toLowerCase().includes(search) ||
+        user.status.toLowerCase().includes(search)
+    );
+    setData(searchValue.length === 0 ? users : searchFilter);
+  };
+
   return (
     <Grid
       container
@@ -40,6 +74,7 @@ const UserTable = () => {
           }}
         >
           <OutlinedInput
+            onChange={handleChange}
             sx={{
               width: {
                 xs: "50%",
@@ -49,6 +84,7 @@ const UserTable = () => {
             }}
             endAdornment={
               <Button
+                onClick={handleSearch}
                 variant="contained"
                 sx={{
                   height: "100%",
@@ -91,7 +127,16 @@ const UserTable = () => {
           </Stack>
         </Stack>
       </Grid>
-      <UsersTable />
+      <UsersTable
+        data={data}
+        loading={loading}
+        setData={setData}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        indexOfFirstPage={indexOfFirstPage}
+        indexOfLastPage={indexOfLastPage}
+        usersPerPage={usersPerPage}
+      />
     </Grid>
   );
 };
