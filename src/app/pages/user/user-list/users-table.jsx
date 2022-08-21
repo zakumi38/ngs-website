@@ -96,7 +96,7 @@ const UsersTable = ({
     setData(user.data);
     setCurrentPage(value);
   };
-  const pageCount = 3g;
+  const pageCount = 3;
   const page = data?.length % usersPerPage;
   console.log(data?.length / usersPerPage);
   // const pageCount = data?.length % usersPerPage === 0 ? 0 ;
