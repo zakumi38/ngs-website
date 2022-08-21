@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import StyledButton from "../../component/StyledButton";
 import {instance} from "../useAxios";
-import {useNavigate} from "react-router-dom";
+import {Navigate, useNavigate} from "react-router-dom";
 
 const rolesTitle = [
   {
@@ -30,6 +30,7 @@ const CustomTextField = styled(TextField)({
   borderColor: "#000",
 });
 
+
 const AddUserForm = () => {
   const navigate = useNavigate();
   const [input, setInput] = useState({
@@ -49,6 +50,10 @@ const AddUserForm = () => {
       [name]: value,
     });
   };
+
+  const goBack = () =>{
+    return navigate("/user")
+  }
 
   const {
     userName,
@@ -89,7 +94,6 @@ const AddUserForm = () => {
     navigate("/user");
   };
 
-  console.log(input);
   return (
     <Grid
       container
@@ -197,6 +201,22 @@ const AddUserForm = () => {
           sm={11}
           sx={{ display: "flex", justifyContent: "end" }}
         >
+          <Button
+            variant="contained"
+            color="error"
+            onClick={()=>goBack()}
+            size="small"
+            sx={{
+              minHeight: "60px",
+              minWidth: "150px",
+              width: { xs: "100%", md: "25%" },
+              maxWidth: { xs: "auto", md: "200px" },
+              marginRight: "1rem"
+            }}
+          >
+            Cancle
+          </Button>
+
           <Button
             variant="contained"
             color="primary"
