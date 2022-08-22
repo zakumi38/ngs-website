@@ -235,13 +235,6 @@
       "description": "React React React React React React React React React React React React React React React React React React React React React React gg",
       "date": "3/9/2012",
       "id": 12
-    },
-    {
-      "title": "html",
-      "img": "",
-      "description": "Nothing Just Testing",
-      "date": "tody",
-      "id": 14
     }
   ],
   "gallerys": [
@@ -341,7 +334,7 @@
       "name": "Dean Whales",
       "occupation": "Senior Executive",
       "team": "Mobile",
-      "experience": 9,
+      "experience": "8",
       "phone": "012-985-624",
       "email": "deanwhales@MaxiCom.com",
       "personalExp": "Doloremque quam. Exercitation totam or cupidatat culpa but autem. In labore so nostrud asper natur officia magna, so quasi. Sit nequeporro dolor Iure. Pellentesque lorem mauris, vehicula vel nulla nec. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ab ad dolor repudiandae consequatur voluptates neque, soluta atque sit sapiente dolores numquam, quos corrupti illum facilis tempora ducimus ratione nostrum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro maxime atque reprehenderit provident velit non voluptatem eum delectus, minus eos voluptas quia? Iste sit accusantium similique quos, omnis harum nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quas vel, dolores animi, asperiores fugiat quis ipsa sequi quos, obcaecati optio similique temporibus modi labore. Eaque illum nisi modi consequatur!",
@@ -503,17 +496,6 @@
     },
     {
       "image": "./logo512.png",
-      "name": "asdf",
-      "occupation": "asdf",
-      "team": "Dashboard Team",
-      "experience": "asdf",
-      "phone": "asdf",
-      "email": "sadf",
-      "personalExp": "asdfasdf",
-      "id": 16
-    },
-    {
-      "image": "./logo512.png",
       "name": "Moon Seng",
       "occupation": "Front-end Team Leader",
       "team": "Website",
@@ -522,28 +504,6 @@
       "email": "moonseng.dev@gmail.com",
       "personalExp": "prefer to say it in interview",
       "id": 17
-    },
-    {
-      "image": "./logo512.png",
-      "name": "Moon Seng",
-      "occupation": "Team Leader",
-      "team": "Website",
-      "experience": "2 year",
-      "phone": "09259585359",
-      "email": "moonseng.dev@gmail.com",
-      "personalExp": "nothing",
-      "id": 18
-    },
-    {
-      "image": "./logo512.png",
-      "name": "Moon Seng",
-      "occupation": "Member",
-      "team": "DashBoard Team",
-      "experience": "2 ",
-      "phone": "0925",
-      "email": "moonseng",
-      "personalExp": "gg",
-      "id": 19
     }
   ],
   "events": [

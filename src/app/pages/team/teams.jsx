@@ -24,6 +24,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPenToSquare,
   faPlus,
+  faRefresh,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import MenuItem from "@mui/material/MenuItem";
@@ -128,7 +129,7 @@ function CustomTable({ items, teams, deleteItem, all = false }) {
                     className={teamStyle.edit}
                   />
                 </IconButton>
-                <IconButton onClick={(_) => deleteItem(row.id)}>
+                <IconButton onClick={() => deleteItem(row.id)}>
                   <FontAwesomeIcon
                     icon={faTrash}
                     className={teamStyle.delete}
@@ -276,172 +277,240 @@ export default function Teams() {
     setRows([...rows, newMember]);
   }
   return (
-    <Container maxWidth={false} className={teamStyle.teamContainer} sx={{
-      paddingTop: "20px",
-      paddingBottom: "20px",
-      minHeight: "100vh",
-      backgroundColor: "#F1F1F1",
-    }}>
-      <Grid container sx={{
-        backgroundColor: "white",
-        padding: "20px",
-        alignItems: "center",
-        borderRadius: "10px",
-        margin: "5rem 0 0 0",
-      }}>
+    <Container
+      maxWidth={false}
+      className={teamStyle.teamContainer}
+      sx={{
+        paddingTop: "20px",
+        paddingBottom: "20px",
+        minHeight: "100vh",
+        backgroundColor: "#F1F1F1",
+      }}
+    >
+      <Grid
+        container
+        sx={{
+          backgroundColor: "white",
+          padding: "20px",
+          alignItems: "center",
+          borderRadius: "10px",
+          margin: "5rem 0 0 0",
+        }}
+      >
         <Grid container justifyContent="space-between">
           <Grid
-              item
-              container
-              xs={12}
-              justifyContent="space-between"
-              alignItems="center"
-              padding="20px"
-              className={teamStyle.teamRow}
+            item
+            container
+            xs={12}
+            justifyContent="space-between"
+            alignItems="center"
+            padding="20px"
+            className={teamStyle.teamRow}
           >
-            <Grid item my={2} xs={12} sm={6}>
+            <Grid item my={2} xs={12} sm={12}>
               <Typography variant="h5">Team List</Typography>
             </Grid>
             <Grid
+              item
+              xs={12}
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
+                justifyContent: "space-between",
+                alignIteam: "center",
+              }}
+            >
+              <Grid
                 item
-                xs={6}
-                sm={4}
-                md={4}
-                lg={4}
-                xl={4}
+                xs={12}
+                sm={5}
+                sx={{
+                  marginBottom: { xs: "1rem" },
+                }}
                 container
                 direction={{ xs: "" }}
-            >
-              {addingTeam ? (
+              >
+                {addingTeam ? (
                   <>
                     <Grid item xs={10}>
                       <TextField
-                          fullWidth
-                          value={actionTeamName}
-                          onChange={(e) => setActionTeamName(e.target.value)}
+                        fullWidth
+                        value={actionTeamName}
+                        onChange={(e) => setActionTeamName(e.target.value)}
                       ></TextField>
                     </Grid>
                     <Grid item xs={5}>
                       <Button
-                          color={deleteTeam ? "primary" : "error"}
-                          onClick={(_) => {
-                            setAddingTeam(false);
-                            setDeleteTeam(false);
-                          }}
-                          variant="contained"
+                        color={deleteTeam ? "primary" : "error"}
+                        onClick={(_) => {
+                          setAddingTeam(false);
+                          setDeleteTeam(false);
+                        }}
+                        variant="contained"
                       >
                         Cancel
                       </Button>
                     </Grid>
                     <Grid item xs={5} align="right">
                       <Button
-                          onClick={(_) => AddTeam(true)}
-                          color={deleteTeam ? "error" : "primary"}
-                          variant="contained"
+                        onClick={(_) => AddTeam(true)}
+                        color={deleteTeam ? "error" : "primary"}
+                        variant="contained"
                       >
                         {deleteTeam ? "Delete" : "Add"}
                       </Button>
                     </Grid>
                   </>
-              ) : (
+                ) : (
                   <FormControl fullWidth>
                     <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={team}
-                        onChange={handleTeamChange}
-                        MenuProps={{ classes: { paper: teamStyle.teamSelect } }}
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={team}
+                      onChange={handleTeamChange}
+                      MenuProps={{ classes: { paper: teamStyle.teamSelect } }}
                     >
                       {teams.map((team) => (
-                          <MenuItem
-                              value={team.teamname}
-                              key={team.id}
-                              className={teamStyle.teamSelectItem}
-                          >
-                            {team.teamname}
-                          </MenuItem>
+                        <MenuItem
+                          value={team.teamname}
+                          key={team.id}
+                          className={teamStyle.teamSelectItem}
+                        >
+                          {team.teamname}
+                        </MenuItem>
                       ))}
                       <Button
-                          onClick={(_) => AddTeam(false)}
-                          fullWidth
-                          color="primary"
-                          className={teamStyle.teamSelectItem}
+                        onClick={(_) => AddTeam(false)}
+                        fullWidth
+                        color="primary"
+                        className={teamStyle.teamSelectItem}
                       >
                         Add Team&nbsp;
                         <FontAwesomeIcon size="sm" icon={faPlus} />
                       </Button>
                       <Button
-                          onClick={(_) => AddTeam(false, true)}
-                          fullWidth
-                          color="primary"
-                          className={teamStyle.deleteTeam}
+                        onClick={(_) => AddTeam(false, true)}
+                        fullWidth
+                        color="primary"
+                        className={teamStyle.deleteTeam}
                       >
                         Delete Team&nbsp;
                         <FontAwesomeIcon size="sm" color="red" icon={faTrash} />
                       </Button>
                     </Select>
                   </FormControl>
-              )}
-            </Grid>
-            <Grid item sm={1} align="right">
-              <Button
+                )}
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={7}
+                md={5}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: {xs:"start", sm:"end"},
+                }}
+                align="right"
+              >
+                <Button
+                  onClick={() => navigate("/team")}
+                  variant="contained"
+                  sx={{
+                    p: "10px",
+                    marginRight: "1rem",
+                  }}
+                  className={teamStyle.Icon}
+                >
+                  <FontAwesomeIcon
+                    size="lg"
+                    className={teamStyle.refresh}
+                    icon={faRefresh}
+                  />
+                  <Typography
+                    sx={{
+                      display: { xs: "none", sm: "block" },
+                      fontSize: { sm: "14px", md: "16px" },
+                    }}
+                  >
+                    Refresh List
+                  </Typography>
+                </Button>
+                <Button
+                  sx={{
+                    p: "10px",
+                    marginRight: "1rem",
+                  }}
                   onClick={(_) =>
-                      navigate(`/team/${team.toLowerCase()}/addMember`, {
-                        state: { teams: teams.slice(1) },
-                      })
+                    navigate(`/team/${team.toLowerCase()}/addMember`, {
+                      state: { teams: teams.slice(1) },
+                    })
                   }
                   variant="contained"
-                  className={teamStyle.addTeamIcon}
-              >
-                <FontAwesomeIcon size="xs" icon={faPlus} />
-              </Button>
+                  className={teamStyle.Icon}
+                >
+                  <FontAwesomeIcon
+                    size="lg"
+                    className={teamStyle.plus}
+                    icon={faPlus}
+                  />
+                  <Typography
+                    sx={{
+                      display: { xs: "none", sm: "block" },
+                      fontSize: { sm: "14px", md: "16px" },
+                    }}
+                  >
+                    Add new Member
+                  </Typography>
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
         <TableContainer className={teamStyle.tableContainer}>
           {team === "All" ? (
-              <>
-                <CustomTable
-                    items={displayItems}
-                    all={true}
-                    teams={teams}
-                    deleteItem={deleteItem}
-                />
-                <Pagination
-                    className={teamStyle.pagination}
-                    count={totalPage}
-                    page={curPage}
-                    siblingCount={1}
-                    boundaryCount={1}
-                    onChange={(e, pageNumber) => {
-                      setCurPage(pageNumber);
-                      const startindex = pageNumber * 5 - 5;
-                      const endIndex = pageNumber * 5;
-                      setDisplayItems(rows.slice(startindex, endIndex));
-                    }}
-                />
-              </>
+            <>
+              <CustomTable
+                items={displayItems}
+                all={true}
+                teams={teams}
+                deleteItem={deleteItem}
+              />
+              <Pagination
+                className={teamStyle.pagination}
+                count={totalPage}
+                page={curPage}
+                siblingCount={1}
+                boundaryCount={1}
+                onChange={(e, pageNumber) => {
+                  setCurPage(pageNumber);
+                  const startindex = pageNumber * 5 - 5;
+                  const endIndex = pageNumber * 5;
+                  setDisplayItems(rows.slice(startindex, endIndex));
+                }}
+              />
+            </>
           ) : (
-              <>
-                <CustomTable
-                    items={displayItems}
-                    teams={teams}
-                    deleteItem={deleteItem}
-                />
-                <Pagination
-                    className={teamStyle.pagination}
-                    count={totalPage}
-                    page={curPage}
-                    siblingCount={1}
-                    boundaryCount={1}
-                    onChange={(e, pageNumber) => {
-                      setCurPage(pageNumber);
-                      const startindex = pageNumber * 5 - 5;
-                      const endIndex = pageNumber * 5;
-                      setDisplayItems(displayTeam.slice(startindex, endIndex));
-                    }}
-                />
-              </>
+            <>
+              <CustomTable
+                items={displayItems}
+                teams={teams}
+                deleteItem={deleteItem}
+              />
+              <Pagination
+                className={teamStyle.pagination}
+                count={totalPage}
+                page={curPage}
+                siblingCount={1}
+                boundaryCount={1}
+                onChange={(e, pageNumber) => {
+                  setCurPage(pageNumber);
+                  const startindex = pageNumber * 5 - 5;
+                  const endIndex = pageNumber * 5;
+                  setDisplayItems(displayTeam.slice(startindex, endIndex));
+                }}
+              />
+            </>
           )}
         </TableContainer>
       </Grid>
