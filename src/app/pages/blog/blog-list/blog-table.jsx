@@ -11,7 +11,6 @@ import Style from "./blog-list.module.sass";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Button,
-  Divider,
   Grid,
   OutlinedInput,
   Pagination,

@@ -1,15 +1,30 @@
-import {faAdd, faSearch, faXmark} from "@fortawesome/free-solid-svg-icons";
+import {
+  faAdd,
+  faArrowLeft,
+  faArrowRight,
+  faRefresh,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Button, Divider, Grid, OutlinedInput, Stack, Typography,} from "@mui/material";
+import {
+  Button,
+  Grid,
+  OutlinedInput,
+  Pagination,
+  PaginationItem,
+  Stack,
+  Typography,
+} from "@mui/material";
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import api from "../../../../mockdatabase/database";
-import StyledButton from "../../component/StyledButton";
+import Style from "./event-list.module.sass";
 import useAxiosFetch from "../../user/user-list/useAxiosFetch";
 import EventsTable from "./events-table";
 
 const EventTable = () => {
   const [data, setData] = useState([]);
+  const [query, setQuery] = useState("");
 
   const [events, loading, error] = useAxiosFetch({
     axiosInstance: api,
@@ -49,81 +64,107 @@ const EventTable = () => {
         margin: "5rem 0 0 0",
       }}
     >
-      <Grid item xs={3} sm={6}>
+      <Grid item xs={12} sx={{ marginBottom: { xs: "20px" } }}>
         <Typography variant="h5">Events List</Typography>
       </Grid>
-      <Grid item xs={9} sm={6}>
+      <Grid item xs={12} sx={{ margin: { xs: "20px 0", md: "0" } }}>
         <Stack
-          direction="row"
+          gap="15px"
           spacing={3}
           sx={{
-            justifyContent: "flex-end",
+            justifyContent: "space-between",
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: "center",
           }}
         >
-          <Link to="/events/add">
-            <Button variant="contained" color="primary" sx={{ height: "100%" }}>
-              <FontAwesomeIcon icon={faAdd} size="lg" />
-            </Button>
-          </Link>
           <OutlinedInput
             sx={{
               width: {
-                xs: "50%",
-                sm: "auto",
+                xs: "100%",
+                sm: "70%",
               },
+              height: "fit-content",
+              p: "0",
             }}
-            startAdornment={
-              <>
-                <FontAwesomeIcon
-                  style={{ cursor: "pointer" }}
-                  icon={faSearch}
-                />
-                <Divider
-                  sx={{
-                    margin: "5px 10px",
-                  }}
-                  orientation="vertical"
-                  variant="middle"
-                  flexItem
-                />
-              </>
-            }
             endAdornment={
-              searchValue.length > 0 ? (
-                <>
-                  {" "}
-                  <Divider
-                    sx={{
-                      margin: "5px 10px",
-                    }}
-                    orientation="vertical"
-                    variant="middle"
-                    flexItem
-                  />
-                  <FontAwesomeIcon
-                    style={{ cursor: "pointer" }}
-                    icon={faXmark}
-                    onClick={handleClear}
-                  />
-                </>
-              ) : (
-                ""
-              )
+              <Button
+                onClick={handleSearch}
+                variant="contained"
+                sx={{
+                  height: "100%",
+                  boxShadow: "none",
+                  borderTopLeftRadius: 0,
+                  borderBottomLeftRadius: 0,
+                  p: { xs: "13px", lg: "15px" },
+                  "&:hover": {
+                    boxShadow: "none",
+                  },
+                }}
+              >
+                <FontAwesomeIcon icon={faSearch} />
+              </Button>
             }
             id="search-bar"
             variant="outlined"
             placeholder="Search here..."
             size="small"
-            onChange={handleChange}
-            value={searchValue}
+            onChange={(e) => {
+              setQuery(e.target.value);
+            }}
           />
-          <StyledButton
-            onClick={handleSearch}
-            variant="contained"
-            color="primary"
+
+          <Stack
+            direction="row"
+            sx={{
+              marginTop: "0 !important",
+              width: "100%",
+              justifyContent: { xs: "start", sm: "end" },
+            }}
+            gap="10px"
           >
-            Search
-          </StyledButton>
+            <Link to="/events" className={Style.Link}>
+              <Button
+                variant="contained"
+                color="primary"
+                sx={{ height: "100%" }}
+              >
+                <FontAwesomeIcon
+                  icon={faRefresh}
+                  size="lg"
+                  className={Style.refresh}
+                />
+                <Typography
+                  sx={{
+                    display: { xs: "none", sm: "block" },
+                    fontSize: { sm: "14px", md: "16px" },
+                  }}
+                >
+                  Refresh List
+                </Typography>
+              </Button>
+            </Link>
+            <Link to="/events/add" className={Style.Link}>
+              <Button
+                variant="contained"
+                color="primary"
+                sx={{ height: "100%" }}
+              >
+                <FontAwesomeIcon
+                  icon={faAdd}
+                  size="lg"
+                  className={Style.plus}
+                />
+                <Typography
+                  sx={{
+                    display: { xs: "none", sm: "block" },
+                    fontSize: { sm: "14px", md: "16px" },
+                  }}
+                >
+                  Add new Blog
+                </Typography>
+              </Button>
+            </Link>
+          </Stack>
         </Stack>
       </Grid>
       <EventsTable
