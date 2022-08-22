@@ -1,10 +1,26 @@
-import {faAdd, faArrowLeft, faArrowRight, faSearch,} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Button, Divider, Grid, OutlinedInput, Pagination, PaginationItem, Stack, Typography,} from "@mui/material";
-import React, {useEffect, useState} from "react";
-import GalleryTables from "./gallerys-table";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import {
+  faAdd,
+  faArrowLeft,
+  faArrowRight,
+  faRefresh,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
+import Style from "./gallerylist.module.sass";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  Button,
+  Divider,
+  Grid,
+  OutlinedInput,
+  Pagination,
+  PaginationItem,
+  Stack,
+  Typography,
+} from "@mui/material";
+import GalleryTables from "./gallerys-table";
+import { Link } from "react-router-dom";
 
 const rightArrow = () => {
   return <FontAwesomeIcon icon={faArrowRight} />;
@@ -33,8 +49,7 @@ const GalleryTable = () => {
       res.data.filter(
         (post) =>
           post.title.toLowerCase().includes(query) ||
-          post.category.toLowerCase().includes(query) ||
-          post.date.toLowerCase().includes(query)
+          post.description.toLowerCase().includes(query)
       ).length
     );
     setPosts(
@@ -42,71 +57,74 @@ const GalleryTable = () => {
         .filter(
           (post) =>
             post.title.toLowerCase().includes(query) ||
-            post.category.toLowerCase().includes(query) ||
-            post.date.toLowerCase().includes(query)
+            post.description.toLowerCase().includes(query)
         )
         .splice(offSet, postPerPage)
     );
     setOffSet(() => (currentPage - 1) * postPerPage);
-    console.log(offSet);
   };
-  
+
   useEffect(() => {
     loadPosts();
-  }, [currentPage,offSet]);
+  }, [currentPage, offSet]);
 
   function Submit(value) {
     SetCurrentPage(1);
     loadPosts();
   }
-  
+
   return (
     <Grid
       container
       sx={{
-        backgroundColor: "white",
+        backgroundColor: "#ffffff",
         padding: "20px",
         alignItems: "center",
         borderRadius: "10px",
         margin: "5rem 0",
       }}
     >
-      <Grid item  xs={12} sm={6}>
+      <Grid item xs={12} sx={{ marginBottom: { xs: "20px" } }}>
         <Typography variant="h5">Gallery List</Typography>
       </Grid>
-      <Grid item mt={3} xs={12} sm={6}>
+
+      <Grid item xs={12} sx={{ margin: { xs: "20px 0", md: "0" } }}>
         <Stack
-          direction="row"
-          spacing={1}
+          gap="15px"
+          spacing={3}
           sx={{
-            justifyContent: "flex-end",
-            height: "60px"
+            justifyContent: "space-between",
+            flexDirection: {xs:"column" , sm:"row"},
+            alignItems:"center"
           }}
         >
-          <Link to="/blog/add">
-            <Button variant="contained" color="primary" sx={{ height: "100%" }}>
-              <FontAwesomeIcon icon={faAdd} size="lg" />
-            </Button>
-          </Link>
-
           <OutlinedInput
             sx={{
               width: {
-                sm: "auto",
+                xs: "100%",
+                sm: "50%"
               },
+              height: "fit-content",
+              p: "0",
+              
             }}
-            startAdornment={
-              <>
+            endAdornment={
+              <Button
+                onClick={Submit}
+                variant="contained"
+                sx={{
+                  height: "100%",
+                  boxShadow: "none",
+                  borderTopLeftRadius: 0,
+                  borderBottomLeftRadius: 0,
+                  p:{xs:"13px",lg:"15px"},
+                  "&:hover": {
+                    boxShadow: "none",
+                  },
+                }}
+              >
                 <FontAwesomeIcon icon={faSearch} />
-                <Divider
-                  sx={{
-                    margin: "5px 10px 0 10px",
-                  }}
-                  orientation="vertical"
-                  variant="middle"
-                  flexItem
-                />
-              </>
+              </Button>
             }
             id="search-bar"
             variant="outlined"
@@ -116,23 +134,65 @@ const GalleryTable = () => {
               setQuery(e.target.value);
             }}
           />
-          <Button onClick={Submit} variant="contained" color="primary">
-            Search
-          </Button>
+
+          <Stack direction="row" sx={{marginTop : "0 !important"}} gap="10px">
+            <Link to="/gallery" className={Style.Link}>
+              <Button
+                variant="contained"
+                color="primary"
+                sx={{ height: "100%" }}
+              >
+                <FontAwesomeIcon
+                  icon={faRefresh}
+                  size="lg"
+                  className={Style.refresh}
+                />
+                <Typography
+                  sx={{
+                    display: { xs: "none", sm: "block" },
+                    fontSize: { sm: "14px", md: "16px" },
+                  }}
+                >
+                  Refresh List
+                </Typography>
+              </Button>
+            </Link>
+            <Link to="/gallery/add" className={Style.Link}>
+              <Button
+                variant="contained"
+                color="primary"
+                sx={{ height: "100%" }}
+              >
+                <FontAwesomeIcon
+                  icon={faAdd}
+                  size="lg"
+                  className={Style.plus}
+                />
+                <Typography
+                  sx={{
+                    display: { xs: "none", sm: "block" },
+                    fontSize: { sm: "14px", md: "16px" },
+                  }}
+                >
+                  Add new Gallery
+                </Typography>
+              </Button>
+            </Link>
+          </Stack>
         </Stack>
       </Grid>
       <GalleryTables posts={posts} loadPosts={loadPosts} />
       <Grid container sx={{ gap: { xs: "1rem", sm: "0" } }}>
         <Grid item xs={12} sm={6}>
-          <Stack>
+          <Stack sx={{ alignItems: { xs: "center", sm: "flex-start" } }}>
             <Typography>
-              Showing {offSet + 1} to {data < offSet + 4 ? data : offSet + 4} of{" "}
+              Showing {offSet + 1} to {data < offSet + 5 ? data : offSet + 5} of{" "}
               {data} entries
             </Typography>
           </Stack>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Stack spacing={2} sx={{ alignItems: "end" }}>
+          <Stack spacing={2} sx={{ alignItems: { xs: "center", sm: "end" } }}>
             <Pagination
               count={count}
               page={currentPage}

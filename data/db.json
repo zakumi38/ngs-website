@@ -160,13 +160,6 @@
   ],
   "blogs": [
     {
-      "title": "Frontend Development",
-      "img": "https://tinyurl.com/3pxydama",
-      "description": "desc desc desc desc desc desc desc desc desc desc desc desc desc desc",
-      "date": "5/5/2001",
-      "id": 1
-    },
-    {
       "title": "Html Update",
       "img": "https://tinyurl.com/3pxydama",
       "description": "Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post ",
@@ -186,13 +179,6 @@
       "description": "desc desc desc desc desc desc desc desc desc desc desc desc desc desc",
       "date": "5/5/2001",
       "id": 4
-    },
-    {
-      "title": "Html Update",
-      "img": "https://tinyurl.com/3pxydama",
-      "description": "Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post ",
-      "date": "4/8/2021",
-      "id": 5
     },
     {
       "title": "React ",
@@ -242,25 +228,18 @@
       "description": "Nothing Just Testing",
       "date": "tody",
       "id": 14
+    },
+    {
+      "title": "ggg",
+      "img": "",
+      "description": "",
+      "date": "",
+      "id": 15
     }
   ],
   "gallerys": [
     {
-      "title": "defgh",
-      "img": "https://res-3.cloudinary.com/fieldfisher/image/upload/f_jpg,q_auto/v1/sectors/technology/tech_neoncircuitboard_857021704_medium_lc5h05",
-      "category": "Voi4",
-      "date": "3/4/2015",
-      "id": 2
-    },
-    {
-      "title": "fgh",
-      "img": "https://cdn.talkesport.com/wp-content/uploads/technology-esports.jpg",
-      "category": "Technologies",
-      "date": "3/4/2018",
-      "id": 3
-    },
-    {
-      "title": "hij",
+      "title": "Html",
       "img": "https://apicms.thestar.com.my/uploads/images/2022/04/06/1540822.jpg",
       "category": "Technologies",
       "date": "3/4/2019",
@@ -274,18 +253,11 @@
       "id": 6
     },
     {
-      "title": "fgh",
+      "title": "techno",
       "img": "https://cdn.talkesport.com/wp-content/uploads/technology-esports.jpg",
       "category": "Technologies",
       "date": "3/4/2018",
       "id": 7
-    },
-    {
-      "title": "hij",
-      "img": "https://apicms.thestar.com.my/uploads/images/2022/04/06/1540822.jpg",
-      "category": "Technologies",
-      "date": "3/4/2019",
-      "id": 8
     },
     {
       "title": "abc",
@@ -307,6 +279,13 @@
       "category": "Technologies",
       "date": "3/4/2018",
       "id": 11
+    },
+    {
+      "title": "react",
+      "img": "",
+      "category": "Frontend",
+      "date": "12/3/4",
+      "id": 12
     }
   ],
   "developer-teams": [

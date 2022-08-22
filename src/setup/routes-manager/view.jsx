@@ -25,6 +25,7 @@ import Home from "../../core/components/home/home";
 import GalleryList from "../../app/pages/gallery/gallery-list/gallerylist";
 import AddGallery from "../../app/pages/gallery/add-new-gallery/add-new-gallery";
 import EditGallery from "../../app/pages/gallery/edit-gallery/edit-gallery";
+import GalleryView from "../../app/pages/gallery/view-gallery/gallery-view"
 
 // Event
 import EventsList from "../../app/pages/events/event-list/event-list";
@@ -101,6 +102,8 @@ function View() {
         <Route index element={<GalleryList />}></Route>
         <Route path="add" element={<AddGallery />}></Route>
         <Route path="edit/:id" element={<EditGallery />}></Route>
+        <Route path="view/:id" element={<GalleryView />} />
+
       </Route>
     </Routes>
   );
