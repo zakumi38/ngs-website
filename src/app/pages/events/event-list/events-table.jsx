@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight, faEye } from "@fortawesome/free-solid-svg-icons";
 import {
   Grid,
   Pagination,
@@ -139,6 +139,9 @@ const EventsTable = ({ data, setData, events, loading }) => {
                     </TableCell>
                     <TableCell>
                       <Stack direction="row" spacing={2}>
+                        <Link to={`/events/view/${row.id}`}>
+                          <ActionIcon color="#0d97af" icon={faEye} />
+                        </Link>
                         <Link href={`events/edit/${row.id}`}>
                           <ActionIcon color="#2e7d32" icon={faPenToSquare} />
                         </Link>

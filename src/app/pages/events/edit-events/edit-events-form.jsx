@@ -1,7 +1,6 @@
-import {Grid, TextField, Typography} from "@mui/material";
+import {Grid, TextField, Typography, Button} from "@mui/material";
 import {styled} from "@mui/system";
 import React, {useEffect, useState} from "react";
-import StyledButton from "../../component/StyledButton";
 import {useNavigate, useParams} from "react-router-dom";
 import api from "../../../../mockdatabase/database";
 import useAxiosFetch from "../../user/user-list/useAxiosFetch";
@@ -209,19 +208,32 @@ const EditEventsForm = () => {
           item
           xs={12}
           sm={11}
-          sx={{ display: "flex", justifyContent: "end" }}
+          sx={{ display: "flex", justifyContent: "end", gap: "20px" }}
         >
-          <StyledButton
+          <Button
+            color="error"
             variant="contained"
-            color="primary"
-            onClick={handleUpdate}
             sx={{
-              width: { xs: "100%", md: "25%" },
-              maxWidth: "200px",
+              width: { xs: "100%", sm: "25%", md: "18%", lg: "15%" },
+              minHeight: "50px",
+              minWidth: "100px",
             }}
+            onClick={() => navigate("/blog")}
           >
-            Update Event
-          </StyledButton>
+            Cancle
+          </Button>
+          <Button
+            color="primary"
+            variant="contained"
+            sx={{
+              width: { xs: "100%", sm: "25%", md: "18%", lg: "15%" },
+              minHeight: "50px",
+              minWidth: "100px",
+            }}
+            onClick={handleUpdate}
+          >
+            Update
+          </Button>
         </Grid>
       </Grid>
     </Grid>

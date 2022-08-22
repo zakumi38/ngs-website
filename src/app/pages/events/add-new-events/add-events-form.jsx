@@ -1,7 +1,6 @@
-import {Grid, TextField, Typography} from "@mui/material";
+import {Grid, TextField, Typography, Button} from "@mui/material";
 import {styled} from "@mui/system";
 import React, {useState} from "react";
-import StyledButton from "../../component/StyledButton";
 import {useNavigate} from "react-router-dom";
 import api from "../../../../mockdatabase/database";
 
@@ -195,19 +194,32 @@ const AddEventsForm = () => {
           item
           xs={12}
           sm={11}
-          sx={{ display: "flex", justifyContent: "end" }}
+          sx={{ display: "flex", justifyContent: "end", gap: "20px" }}
         >
-          <StyledButton
+          <Button
+            color="error"
             variant="contained"
-            color="primary"
-            onClick={handleSubmit}
             sx={{
-              width: { xs: "100%", md: "25%" },
-              maxWidth: "200px",
+              width: { xs: "100%", sm: "25%", md: "18%", lg: "15%" },
+              minHeight: "50px",
+              minWidth: "100px",
             }}
+            onClick={() => navigate("/blog")}
           >
-            Add Event
-          </StyledButton>
+            Cancle
+          </Button>
+          <Button
+            color="primary"
+            variant="contained"
+            sx={{
+              width: { xs: "100%", sm: "25%", md: "18%", lg: "15%" },
+              minHeight: "50px",
+              minWidth: "100px",
+            }}
+            onClick={handleSubmit}
+          >
+            Update
+          </Button>
         </Grid>
       </Grid>
     </Grid>
