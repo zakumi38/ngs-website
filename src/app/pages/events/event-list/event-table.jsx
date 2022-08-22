@@ -18,7 +18,7 @@ import {
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import api from "../../../../mockdatabase/database";
-import Style from "./event-list.module.sass";
+import eventStyle from "./event-list.module.sass";
 import useAxiosFetch from "../../user/user-list/useAxiosFetch";
 import EventsTable from "./events-table";
 
@@ -122,7 +122,7 @@ const EventTable = () => {
             }}
             gap="10px"
           >
-            <Link to="/events" className={Style.Link}>
+            <Link to="/events" className={eventStyle.eLink}>
               <Button
                 variant="contained"
                 color="primary"
@@ -131,7 +131,7 @@ const EventTable = () => {
                 <FontAwesomeIcon
                   icon={faRefresh}
                   size="lg"
-                  className={Style.refresh}
+                  className={eventStyle.erefresh}
                 />
                 <Typography
                   sx={{
@@ -143,7 +143,7 @@ const EventTable = () => {
                 </Typography>
               </Button>
             </Link>
-            <Link to="/events/add" className={Style.Link}>
+            <Link to="/events/add" className={eventStyle.eLink}>
               <Button
                 variant="contained"
                 color="primary"
@@ -152,7 +152,7 @@ const EventTable = () => {
                 <FontAwesomeIcon
                   icon={faAdd}
                   size="lg"
-                  className={Style.plus}
+                  className={eventStyle.eplus}
                 />
                 <Typography
                   sx={{
