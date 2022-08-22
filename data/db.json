@@ -472,17 +472,6 @@
       "phone": "012-985-624",
       "email": "deanwhales@MaxiCom.com",
       "personalExp": "Pellentesque lorem mauris, vehicul"
-    },
-    {
-      "image": "./logo512.png",
-      "name": "Moon Seng",
-      "occupation": "Front-end Team Leader",
-      "team": "Website",
-      "experience": "2 years",
-      "phone": "09259585359",
-      "email": "moonseng.dev@gmail.com",
-      "personalExp": "prefer to say it in interview",
-      "id": 17
     }
   ],
   "events": [

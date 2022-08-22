@@ -94,19 +94,18 @@ const GalleryTable = () => {
           spacing={3}
           sx={{
             justifyContent: "space-between",
-            flexDirection: {xs:"column" , sm:"row"},
-            alignItems:"center"
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: "center",
           }}
         >
           <OutlinedInput
             sx={{
               width: {
                 xs: "100%",
-                sm: "50%"
+                sm: "70%",
               },
               height: "fit-content",
               p: "0",
-              
             }}
             endAdornment={
               <Button
@@ -117,7 +116,7 @@ const GalleryTable = () => {
                   boxShadow: "none",
                   borderTopLeftRadius: 0,
                   borderBottomLeftRadius: 0,
-                  p:{xs:"13px",lg:"15px"},
+                  p: { xs: "13px", lg: "15px" },
                   "&:hover": {
                     boxShadow: "none",
                   },
@@ -135,7 +134,15 @@ const GalleryTable = () => {
             }}
           />
 
-          <Stack direction="row" sx={{marginTop : "0 !important"}} gap="10px">
+          <Stack
+            direction="row"
+            sx={{
+              marginTop: "0 !important",
+              width: "100%",
+              justifyContent: { xs: "start", sm: "end" },
+            }}
+            gap="10px"
+          >
             <Link to="/gallery" className={Style.Link}>
               <Button
                 variant="contained"
