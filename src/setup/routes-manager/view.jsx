@@ -33,6 +33,7 @@ import EditEvents from "../../app/pages/events/edit-events/edit-events";
 import ProtectedRoutes from "./protected-routes";
 import api from "../../mockdatabase/database";
 import UserView from "../../app/pages/user/view-user/user-view";
+import BlogView from "../../app/pages/blog/view-blog/blog-view"
 
 function View() {
   const [adminData, setAdminData] = useState({});
@@ -64,6 +65,7 @@ function View() {
         <Route index element={<BlogList />}></Route>
         <Route path="add" element={<AddBlog />}></Route>
         <Route path="edit/:id" element={<EditBlog />}></Route>
+        <Route path="view/:id" element={<BlogView />} />
       </Route>
 
       {/* Teams */}
