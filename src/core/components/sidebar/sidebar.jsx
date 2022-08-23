@@ -10,7 +10,14 @@ import { setting } from "../../utilities/setting";
 import { Box, Link, List, ListItem, Stack, Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faCaretUp, faXmark, } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCaretDown,
+  faCaretUp,
+  faXmark,
+  faChartSimple,
+  faEarthAsia,
+  faScrewdriverWrench
+} from "@fortawesome/free-solid-svg-icons";
 
 // Images
 import Logosn from "../../../assets/images/logosn.png";
@@ -39,24 +46,24 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
 
     window.addEventListener('click', showHideNav)
 
-    
+
   }
 
   const showHideNav = (event) => {
 
-    if (openEntities === !true && event.target.id === 'ent_btn') {
+    if (openEntities === !true && event.target.id === 'ent_btn' || event.target.parentElement.id === 'ent_btn' || event.target.parentElement.parentElement.id === 'ent_btn') {
 
       setOpenEntities(true);
       setOpenWebContent(false);
       setOpenSetting(false);
 
-    } else if (openWebContent === !true && event.target.id === 'web_btn') {
+    } else if (openWebContent === !true && event.target.id === 'web_btn' || event.target.parentElement.id === 'web_btn' || event.target.parentElement.parentElement.id === 'web_btn') {
 
       setOpenWebContent(true);
       setOpenEntities(false);
       setOpenSetting(false);
 
-    } else if (openSetting === !true && event.target.id === 'set_btn') {
+    } else if (openSetting === !true && event.target.id === 'set_btn' || event.target.parentElement.id === 'set_btn' || event.target.parentElement.parentElement.id === 'set_btn') {
 
       setOpenSetting(true);
       setOpenEntities(false);
@@ -83,9 +90,9 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
     }
   };
   const toggleWebContent = (event) => {
-    console.log(event.target.id)
+    console.log(event.target)
 
-    if (openWebContent === true && event.target.id === 'web_btn') {
+    if (openWebContent === true && event.target.id === 'web_btn' || event.target.parentElement.parentElement.id === 'web_btn' || event.target.parentElement.id === 'web_btn') {
       setOpenWebContent(false);
     } else {
       setOpenWebContent(true);
@@ -156,15 +163,16 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                 onClick={toggleSlider}
                 className={sidebar.listItemsHeader}
               >
-                Entities
-                {openWebContent ? (
+                {wide ? <FontAwesomeIcon icon={faChartSimple} /> : "Entities"}
+
+                {!wide && (openEntities ? (
                   <FontAwesomeIcon className={sidebar.icon} icon={faCaretUp} />
                 ) : (
                   <FontAwesomeIcon
                     className={sidebar.icon}
                     icon={faCaretDown}
                   />
-                )}
+                ))}
               </h3>
               <div>
                 {
@@ -213,15 +221,16 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                 onClick={toggleSlider}
                 className={sidebar.listItemsHeader}
               >
-                Web Content
-                {openWebContent ? (
+                {wide ? <FontAwesomeIcon icon={faEarthAsia} /> : "Web Content"}
+
+                {!wide && (openWebContent ? (
                   <FontAwesomeIcon className={sidebar.icon} icon={faCaretUp} />
                 ) : (
                   <FontAwesomeIcon
                     className={sidebar.icon}
                     icon={faCaretDown}
                   />
-                )}
+                ))}
               </h3>
               <div id="webContentMenu" className={sidebar.dropDownMenu}>
                 {openWebContent
@@ -272,15 +281,16 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                 onClick={toggleSlider}
                 className={sidebar.listItemsHeader}
               >
-                Setting
-                {openSetting ? (
+                {wide ? <FontAwesomeIcon icon={faScrewdriverWrench} /> : "Settings"}
+
+                {!wide && (openSetting ? (
                   <FontAwesomeIcon className={sidebar.icon} icon={faCaretUp} />
                 ) : (
                   <FontAwesomeIcon
                     className={sidebar.icon}
                     icon={faCaretDown}
                   />
-                )}
+                ))}
               </h3>
               <div>
                 {openSetting
