@@ -1,0 +1,515 @@
+{
+  "users": [
+    {
+      "userName": "zawlinn.designer@gmail.com",
+      "firstName": "Zaw",
+      "mobile": "+959788820004",
+      "lastName": "Koehler",
+      "emailAddress": "zawlinn.entrepreneur@gmail.com",
+      "password": "s*L)kZu^geb@M)t)C3V%",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 10
+    },
+    {
+      "userName": "Moon Seng",
+      "firstName": "Moon",
+      "mobile": "09259585359",
+      "lastName": "Seng",
+      "emailAddress": "moonseng.dev@gmail.com",
+      "password": "Moon Seng",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 13
+    },
+    {
+      "userName": "Moon Seng",
+      "firstName": "Moon",
+      "mobile": "09259585359",
+      "lastName": "Seng",
+      "emailAddress": "moonseng.dev@gmail.com",
+      "password": "Moon Seng",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 14
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 4
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 5
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 6
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 7
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 8
+    },
+    {
+      "userName": "Moon Seng",
+      "firstName": "Moon",
+      "mobile": "09259585359",
+      "lastName": "Seng",
+      "emailAddress": "moonseng.dev@gmail.com",
+      "password": "Moon Seng",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 15
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 7
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 8
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 7
+    },
+    {
+      "userName": "111",
+      "firstName": "11",
+      "mobile": "1",
+      "lastName": "1",
+      "emailAddress": "1",
+      "password": "1",
+      "roles": "Admin",
+      "status": "Active",
+      "id": 8
+    }
+  ],
+  "admin": [
+    {
+      "username": "mockuser",
+      "email": "mockemail@gmail.com",
+      "roles": "admin",
+      "password": "newMockPassword"
+    },
+    {
+      "username": "Moon Seng",
+      "email": "moonseng.dev@gmail.com",
+      "roles": "admin",
+      "password": "Moon Seng"
+    }
+  ],
+  "blogs": [
+    {
+      "title": "Html Update",
+      "img": "https://tinyurl.com/3pxydama",
+      "description": "Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post ",
+      "date": "4/8/2021",
+      "id": 2
+    },
+    {
+      "title": "React ",
+      "img": "https://tinyurl.com/yycz7cfv",
+      "description": "React React React React React React React React React React React React React React React React React React React React React React gg",
+      "date": "3/9/2012",
+      "id": 3
+    },
+    {
+      "title": "Frontend Development",
+      "img": "https://tinyurl.com/yuabhvna",
+      "description": "desc desc desc desc desc desc desc desc desc desc desc desc desc desc",
+      "date": "5/5/2001",
+      "id": 4
+    },
+    {
+      "title": "React ",
+      "img": "https://tinyurl.com/yycz7cfv",
+      "description": "React React React React React React React React React React React React React React React React React React React React React React gg",
+      "date": "3/9/2012",
+      "id": 6
+    },
+    {
+      "title": "Frontend Development",
+      "img": "https://tinyurl.com/yuabhvna",
+      "description": "desc desc desc desc desc desc desc desc desc desc desc desc desc desc",
+      "date": "5/5/2001",
+      "id": 7
+    },
+    {
+      "title": "Html Update",
+      "img": "https://tinyurl.com/3pxydama",
+      "description": "Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post ",
+      "date": "4/8/2021",
+      "id": 8
+    },
+    {
+      "title": "React ",
+      "img": "https://tinyurl.com/yycz7cfv",
+      "description": "React React React React React React React React React React React React React React React React React React React React React React gg",
+      "date": "3/9/2012",
+      "id": 9
+    },
+    {
+      "title": "Frontend Development",
+      "img": "https://tinyurl.com/yuabhvna",
+      "description": "desc desc desc desc desc desc desc desc desc desc desc desc desc desc",
+      "date": "5/5/2001",
+      "id": 10
+    },
+    {
+      "title": "React ",
+      "img": "https://tinyurl.com/yycz7cfv",
+      "description": "React React React React React React React React React React React React React React React React React React React React React React gg",
+      "date": "3/9/2012",
+      "id": 12
+    },
+    {
+      "title": "html",
+      "img": "",
+      "description": "Nothing Just Testing",
+      "date": "tody",
+      "id": 14
+    },
+    {
+      "title": "ggg",
+      "img": "",
+      "description": "",
+      "date": "",
+      "id": 15
+    }
+  ],
+  "gallerys": [
+    {
+      "title": "Html",
+      "img": "https://apicms.thestar.com.my/uploads/images/2022/04/06/1540822.jpg",
+      "category": "Technologies",
+      "date": "3/4/2019",
+      "id": 4
+    },
+    {
+      "title": "def",
+      "img": "https://res-3.cloudinary.com/fieldfisher/image/upload/f_jpg,q_auto/v1/sectors/technology/tech_neoncircuitboard_857021704_medium_lc5h05",
+      "category": "Voip",
+      "date": "3/4/2015",
+      "id": 6
+    },
+    {
+      "title": "techno",
+      "img": "https://cdn.talkesport.com/wp-content/uploads/technology-esports.jpg",
+      "category": "Technologies",
+      "date": "3/4/2018",
+      "id": 7
+    },
+    {
+      "title": "abc",
+      "img": "https://www.investopedia.com/thmb/ooWnJKzULBikIcMgNqZdiRvHHBY=/2121x1414/filters:fill(auto,1)/GettyImages-964033964-ca3290057ccc4024b57e755423572264.jpg",
+      "category": "Voip",
+      "date": "4/8/2021",
+      "id": 9
+    },
+    {
+      "title": "def",
+      "img": "https://res-3.cloudinary.com/fieldfisher/image/upload/f_jpg,q_auto/v1/sectors/technology/tech_neoncircuitboard_857021704_medium_lc5h05",
+      "category": "Voip",
+      "date": "3/4/2015",
+      "id": 10
+    },
+    {
+      "title": "fgh",
+      "img": "https://cdn.talkesport.com/wp-content/uploads/technology-esports.jpg",
+      "category": "Technologies",
+      "date": "3/4/2018",
+      "id": 11
+    }
+  ],
+  "developer-teams": [
+    {
+      "id": 0,
+      "teamname": "All"
+    },
+    {
+      "id": 1,
+      "teamname": "Mobile"
+    },
+    {
+      "id": 2,
+      "teamname": "Backend"
+    },
+    {
+      "id": 3,
+      "teamname": "Database"
+    },
+    {
+      "id": 4,
+      "teamname": "Website"
+    },
+    {
+      "id": 5,
+      "teamname": "Dashboard Team"
+    }
+  ],
+  "developer-team-members": [
+    {
+      "image": "./logo512.png",
+      "name": "Dean Whales",
+      "occupation": "Senior Executive",
+      "team": "Mobile",
+      "experience": "8",
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Doloremque quam. Exercitation totam or cupidatat culpa but autem. In labore so nostrud asper natur officia magna, so quasi. Sit nequeporro dolor Iure. Pellentesque lorem mauris, vehicula vel nulla nec. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ab ad dolor repudiandae consequatur voluptates neque, soluta atque sit sapiente dolores numquam, quos corrupti illum facilis tempora ducimus ratione nostrum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro maxime atque reprehenderit provident velit non voluptatem eum delectus, minus eos voluptas quia? Iste sit accusantium similique quos, omnis harum nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quas vel, dolores animi, asperiores fugiat quis ipsa sequi quos, obcaecati optio similique temporibus modi labore. Eaque illum nisi modi consequatur!",
+      "id": 1
+    },
+    {
+      "image": "./logo512.png",
+      "name": "Dean Whales",
+      "occupation": "Senior Executive",
+      "team": "Mobile",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Doloremque quam. Exercitation totam or cupidatat culpa but autem. In labore so nostrud asper natur officia magna, so quasi. Sit nequeporro dolor Iure. Pellentesque lorem mauris, vehicula vel nulla nec. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ab ad dolor repudiandae consequatur voluptates neque, soluta atque sit sapiente dolores numquam, quos corrupti illum facilis tempora ducimus ratione nostrum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro maxime atque reprehenderit provident velit non voluptatem eum delectus, minus eos voluptas quia? Iste sit accusantium similique quos, omnis harum nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quas vel, dolores animi, asperiores fugiat quis ipsa sequi quos, obcaecati optio similique temporibus modi labore. Eaque illum nisi modi consequatur!",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "occupation": "Senior Executive",
+      "team": "Backend",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 4,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "occupation": "Senior Executive",
+      "team": "Backend",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 5,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "Database",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 6,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "occupation": "Senior Executive",
+      "team": "Database",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 7,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "occupation": "Senior Executive",
+      "team": "Website",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 8,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "occupation": "Senior Executive",
+      "team": "Website",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 9,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "Website",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 10,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "Website",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 11,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "Website",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 12,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "Website",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 13,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "Website",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 14,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "Website",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    },
+    {
+      "id": 15,
+      "image": "./04.jpg",
+      "name": "Dean Whales",
+      "team": "Website",
+      "occupation": "Senior Executive",
+      "experience": 9,
+      "phone": "012-985-624",
+      "email": "deanwhales@MaxiCom.com",
+      "personalExp": "Pellentesque lorem mauris, vehicul"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "Event1",
+      "description": "React React React React React React",
+      "date": "7/21/2022",
+      "time": "5:14 PM",
+      "src": "",
+      "location": "Yangon"
+    },
+    {
+      "title": "123",
+      "location": "Mandalay",
+      "date": "07/30/2022",
+      "time": "5:11 PM",
+      "scr": "",
+      "description": "aaaaa",
+      "id": 3
+    },
+    {
+      "title": "123123",
+      "location": "Yangon",
+      "date": "07/14/2022",
+      "time": "6:25 PM",
+      "scr": "",
+      "description": "12312312",
+      "id": 4
+    },
+    {
+      "title": "123123",
+      "location": "123123",
+      "src": "",
+      "date": "07/25/2022",
+      "time": "6:34 PM",
+      "description": "12312312",
+      "id": 5
+    }
+  ]
+}
