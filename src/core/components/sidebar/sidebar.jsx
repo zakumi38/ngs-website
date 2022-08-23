@@ -339,7 +339,7 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
           </Box>
         </Box>
         <Box>
-          <Typography className={sidebar.versionNo}>{gitInfo.commit.shortHash}</Typography>
+          <Typography className={sidebar.versionNo}>ver : {gitInfo.commit.shortHash}</Typography>
         </Box>
       </Box>
     </>
