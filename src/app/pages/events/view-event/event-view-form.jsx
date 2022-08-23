@@ -10,7 +10,7 @@ const CustomTextField = styled(TextField)({
   borderColor: "#000",
 });
 
-const EditEventsForm = () => {
+const EventViewForm = () => {
   const [newValue, setNewValue] = useState({
     title: "",
     location: "",
@@ -21,6 +21,7 @@ const EditEventsForm = () => {
   });
 
   const { title, location, src, date, time, description } = newValue;
+  const navigate = useNavigate();
 
   const [cusInput, setCusInput] = useState({
     dates: "",
@@ -68,49 +69,6 @@ const EditEventsForm = () => {
     }
   }, [events]);
 
-  const handleDate = (e) => {
-    const value = e.target.value;
-    setCusInput({ ...cusInput, dates: value });
-    const x = value.split("-");
-    const y = x.shift();
-    const z = [...x, y].join("/");
-    setNewValue({
-      ...newValue,
-      date: z,
-    });
-  };
-  const handleTime = (e) => {
-    const value = e.target.value;
-    setCusInput({ ...cusInput, times: value });
-    const prefix = value.slice(0, 2);
-    const rest = value.slice(2);
-    const pm = prefix % 12;
-    const zone =
-      prefix >= 0 && prefix < 12
-        ? `${prefix == 0 ? "12" : prefix}${rest} AM`
-        : `${pm === 0 ? "12" : pm}${rest} PM`;
-
-    setNewValue({
-      ...newValue,
-      time: zone,
-    });
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setNewValue({ ...newValue, [name]: value });
-  };
-
-  console.log(newValue);
-  const navigate = useNavigate();
-  const handleUpdate = async (e) => {
-    // e.preventDefault()
-
-    // alert(JSON.stringify(newValue))
-
-    await api.put(`/events/${id}`, newValue);
-    navigate("/events");
-  };
   return (
     <Grid
       container
@@ -124,7 +82,7 @@ const EditEventsForm = () => {
       }}
     >
       <Grid item xs={12} sx={{ m: 2 }}>
-        <Typography variant="h5">Update Event</Typography>
+        <Typography variant="h5">View Event</Typography>
       </Grid>
       <Grid
         container
@@ -136,12 +94,14 @@ const EditEventsForm = () => {
       >
         <Grid item xs={12} sm={5}>
           <CustomTextField
+           InputProps={{
+            readOnly: true,
+          }}
             id="outlined-basic"
             label="Event Title"
             variant="outlined"
             name="title"
             value={title}
-            onChange={handleChange}
           />
         </Grid>
         <Grid item xs={12} sm={5}>
@@ -151,30 +111,24 @@ const EditEventsForm = () => {
             variant="outlined"
             name="location"
             value={location}
-            onChange={handleChange}
+            InputProps={{
+                readOnly: true,
+            }}
           />
         </Grid>
         <Grid item xs={12} sm={11}>
-          <CustomTextField
-            // onChange={handleImgChange}
-            type="file"
-            accept="image/png, image/jpeg"
-          />
-          <span></span>
+          
         </Grid>
         <Grid item xs={12} sm={5}>
           <CustomTextField
-            sx={{
-              "& label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input":
-                {
-                  color: "transparent",
-                },
-            }}
-            value={cusInput.dates}
-            type="date"
-            label="MM/DD/YYYY"
-            // name="date"
-            onChange={handleDate}
+             id="outlined-basic"
+             label="Date"
+             variant="outlined"
+             name="date"
+             value={date}
+             InputProps={{
+                 readOnly: true,
+             }}
           />
         </Grid>
         <Grid item xs={12} sm={5}>
@@ -189,7 +143,9 @@ const EditEventsForm = () => {
                   color: "transparent",
                 },
             }}
-            onChange={handleTime}
+            InputProps={{
+              readOnly: true,
+            }}
           />
         </Grid>
 
@@ -200,7 +156,9 @@ const EditEventsForm = () => {
             variant="outlined"
             name="description"
             value={description}
-            onChange={handleChange}
+            InputProps={{
+              readOnly: true,
+            }}
           />
         </Grid>
 
@@ -220,19 +178,7 @@ const EditEventsForm = () => {
             }}
             onClick={() => navigate("/events")}
           >
-            Cancle
-          </Button>
-          <Button
-            color="primary"
-            variant="contained"
-            sx={{
-              width: { xs: "100%", sm: "25%", md: "18%", lg: "15%" },
-              minHeight: "50px",
-              minWidth: "100px",
-            }}
-            onClick={handleUpdate}
-          >
-            Update
+            Back
           </Button>
         </Grid>
       </Grid>
@@ -240,4 +186,4 @@ const EditEventsForm = () => {
   );
 };
 
-export default EditEventsForm;
+export default EventViewForm;

@@ -9,7 +9,6 @@ import {
   TableBody,
   TableCell,
   Table,
-  Link,
   Typography,
   TableContainer,
   CircularProgress,
@@ -21,6 +20,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import styled from "@emotion/styled";
 import api from "../../../../mockdatabase/database";
+import { Link } from 'react-router-dom'
+
 
 
 const ActionIcon = styled(FontAwesomeIcon)(
@@ -37,6 +38,7 @@ const ActionIcon = styled(FontAwesomeIcon)(
     color: props.color,
   })
 );
+
 const rightArrow = () => {
   return <FontAwesomeIcon icon={faArrowRight} />;
 };
@@ -139,16 +141,15 @@ const EventsTable = ({ data, setData, events, loading }) => {
                     </TableCell>
                     <TableCell>
                       <Stack direction="row" spacing={2}>
-                        <Link to={`/events/view/${row.id}`}>
+                        <Link to={`view/${row.id}`}>
                           <ActionIcon color="#0d97af" icon={faEye} />
                         </Link>
-                        <Link href={`events/edit/${row.id}`}>
+                        <Link to={`edit/${row.id}`}>
                           <ActionIcon color="#2e7d32" icon={faPenToSquare} />
                         </Link>
-
-                        <Link onClick={() => handleDelete(row.id)}>
+                        <div onClick={() => handleDelete(row.id)}>
                           <ActionIcon color="#d32f2f" icon={faTrash} />
-                        </Link>
+                        </div>
                       </Stack>
                     </TableCell>
                   </TableRow>

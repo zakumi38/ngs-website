@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BlogList from "../../app/pages/blog/blog-list/blog-list";
 import AddBlog from "../../app/pages/blog/add-new-blog/add-new-blog";
 import EditBlog from "../../app/pages/blog/edit-blog/edit-blog";
+import BlogView from "../../app/pages/blog/view-blog/blog-view";
 
 // User
 import UserList from "../../app/pages/user/user-list/user-list";
@@ -15,6 +16,7 @@ import EditUser from "../../app/pages/user/edit-user/edit-user";
 import Teams from "../../app/pages/team/teams";
 import AddTeam from "../../app/pages/team/add-team-member";
 import EditTeamMember from "../../app/pages/team/edit-team-member";
+import UserView from "../../app/pages/user/view-user/user-view";
 
 //Profile
 import UserProfile from "../../app/pages/user-profile/EditProfile";
@@ -31,10 +33,10 @@ import GalleryView from "../../app/pages/gallery/view-gallery/gallery-view"
 import EventsList from "../../app/pages/events/event-list/event-list";
 import AddNewEvents from "../../app/pages/events/add-new-events/add-new-events";
 import EditEvents from "../../app/pages/events/edit-events/edit-events";
+import EventView from "../../app/pages/events/view-event/event-view";
+
 import ProtectedRoutes from "./protected-routes";
 import api from "../../mockdatabase/database";
-import UserView from "../../app/pages/user/view-user/user-view";
-import BlogView from "../../app/pages/blog/view-blog/blog-view"
 
 function View() {
   const [adminData, setAdminData] = useState({});
@@ -91,6 +93,7 @@ function View() {
         <Route index element={<EventsList />} />
         <Route path="add" element={<AddNewEvents />} />
         <Route path="edit/:id" element={<EditEvents />} />
+        <Route path="view/:id" element={<EventView />} />
       </Route>
 
       {/* Porfile */}
