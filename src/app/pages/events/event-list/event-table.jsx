@@ -160,7 +160,7 @@ const EventTable = () => {
                     fontSize: { sm: "14px", md: "16px" },
                   }}
                 >
-                  Add new Blog
+                  Add new Event
                 </Typography>
               </Button>
             </Link>

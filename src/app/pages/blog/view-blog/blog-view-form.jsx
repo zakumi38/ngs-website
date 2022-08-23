@@ -39,7 +39,7 @@ const UserViewForm = () => {
       }}
     >
       <Grid item xs={12} textAlign="center">
-        <Typography variant="h5">User</Typography>
+        <Typography variant="h5">Blog</Typography>
       </Grid>
 
       <Grid
@@ -115,7 +115,7 @@ const UserViewForm = () => {
           sx={{ minWidth: "120px" }}
           onClick={() => navigate(`/blog/edit/${id}`)}
         >
-          Edit User
+          Edit Blog
         </Button>
       </Grid>
     </Grid>

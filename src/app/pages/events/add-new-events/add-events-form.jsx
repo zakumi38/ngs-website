@@ -204,7 +204,7 @@ const AddEventsForm = () => {
               minHeight: "50px",
               minWidth: "100px",
             }}
-            onClick={() => navigate("/blog")}
+            onClick={() => navigate("/events")}
           >
             Cancle
           </Button>

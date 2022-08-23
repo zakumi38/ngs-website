@@ -1,7 +1,7 @@
-import {Grid, TextField, Typography, Button} from "@mui/material";
-import {styled} from "@mui/system";
-import React, {useEffect, useState} from "react";
-import {useNavigate, useParams} from "react-router-dom";
+import { Grid, TextField, Typography, Button } from "@mui/material";
+import { styled } from "@mui/system";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import api from "../../../../mockdatabase/database";
 import useAxiosFetch from "../../user/user-list/useAxiosFetch";
 
@@ -94,9 +94,9 @@ const EventViewForm = () => {
       >
         <Grid item xs={12} sm={5}>
           <CustomTextField
-           InputProps={{
-            readOnly: true,
-          }}
+            InputProps={{
+              readOnly: true,
+            }}
             id="outlined-basic"
             label="Event Title"
             variant="outlined"
@@ -112,23 +112,21 @@ const EventViewForm = () => {
             name="location"
             value={location}
             InputProps={{
-                readOnly: true,
+              readOnly: true,
             }}
           />
         </Grid>
-        <Grid item xs={12} sm={11}>
-          
-        </Grid>
+        <Grid item xs={12} sm={11}></Grid>
         <Grid item xs={12} sm={5}>
           <CustomTextField
-             id="outlined-basic"
-             label="Date"
-             variant="outlined"
-             name="date"
-             value={date}
-             InputProps={{
-                 readOnly: true,
-             }}
+            id="outlined-basic"
+            label="Date"
+            variant="outlined"
+            name="date"
+            value={date}
+            InputProps={{
+              readOnly: true,
+            }}
           />
         </Grid>
         <Grid item xs={12} sm={5}>
@@ -171,15 +169,23 @@ const EventViewForm = () => {
           <Button
             color="error"
             variant="contained"
-            sx={{
-              width: { xs: "100%", sm: "25%", md: "18%", lg: "15%" },
-              minHeight: "50px",
-              minWidth: "100px",
-            }}
+            // sx={{
+            //   width: { xs: "100%", sm: "25%", md: "18%", lg: "15%" },
+            //   minHeight: "50px",
+            //   minWidth: "100px",
+            // }}
             onClick={() => navigate("/events")}
           >
             Back
           </Button>
+
+          <Button
+          variant="contained"
+          sx={{ minWidth: "120px" }}
+          onClick={() => navigate(`/events/edit/${id}`)}
+        >
+          Edit Event
+        </Button>
         </Grid>
       </Grid>
     </Grid>
