@@ -24,7 +24,6 @@ import EventsTable from "./events-table";
 
 const EventTable = () => {
   const [data, setData] = useState([]);
-  const [query, setQuery] = useState("");
 
   const [events, loading, error] = useAxiosFetch({
     axiosInstance: api,
@@ -33,7 +32,7 @@ const EventTable = () => {
   });
 
   const [searchValue, setSearchValue] = useState("");
-  const handleChange = (e) => {
+  const handleSearchValue = (e) => {
     setSearchValue(e.target.value);
   };
   const handleClear = () => {
@@ -50,6 +49,7 @@ const EventTable = () => {
         post.description.toLowerCase().includes(search) ||
         post.location.toLowerCase().includes(search)
     );
+    console.log(searchFilter,search)
     setData(searchValue.length === 0 ? events : searchFilter);
   };
 
@@ -109,8 +109,9 @@ const EventTable = () => {
             placeholder="Search here..."
             size="small"
             onChange={(e) => {
-              setQuery(e.target.value);
+              setSearchValue(e.target.value);
             }}
+            value={searchValue}
           />
 
           <Stack
@@ -124,6 +125,7 @@ const EventTable = () => {
           >
             <Link to="/events" className={eventStyle.eLink}>
               <Button
+                onClick={handleClear}
                 variant="contained"
                 color="primary"
                 sx={{ height: "100%" }}
@@ -174,6 +176,7 @@ const EventTable = () => {
         events={events}
       />
     </Grid>
+    
   );
 };
 

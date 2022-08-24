@@ -15,14 +15,18 @@ import {
   TableHead,
   TableRow,
   Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
 } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import styled from "@emotion/styled";
 import api from "../../../../mockdatabase/database";
 import { Link } from 'react-router-dom'
-
-
 
 const ActionIcon = styled(FontAwesomeIcon)(
   {
@@ -71,11 +75,22 @@ const EventsTable = ({ data, setData, events, loading }) => {
     setCurrentPage(value);
   };
 
-  const handleDelete = async (id) => {
-    await api.delete(`/events/${id}`);
-    const items = data.filter((events) => events.id !== id);
+  const handleDelete = async () => {
+    await api.delete(`/events/${deleteId}`);
+    const items = data.filter((events) => events.id !== deleteId);
     setData(items);
+    handleMClose();
   };
+
+  //Modal
+  const [deleteId, setDeleteId] = useState();
+  const [openModal, setOpenModal] = useState(false);
+  const handleMOpen = (id) => {
+    setOpenModal(true)
+    setDeleteId(id)
+    console.log(deleteId)
+  }
+  const handleMClose = () => setOpenModal(false);
 
   return (
     <>
@@ -147,7 +162,7 @@ const EventsTable = ({ data, setData, events, loading }) => {
                         <Link to={`edit/${row.id}`}>
                           <ActionIcon color="#2e7d32" icon={faPenToSquare} />
                         </Link>
-                        <div onClick={() => handleDelete(row.id)}>
+                        <div onClick={() => handleMOpen(row.id)}>
                           <ActionIcon color="#d32f2f" icon={faTrash} />
                         </div>
                       </Stack>
@@ -194,6 +209,42 @@ const EventsTable = ({ data, setData, events, loading }) => {
               />
             </Stack>
           </Grid>
+
+          <Box>
+          <Dialog
+        open={openModal}
+        onClose={handleMClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">Are you sure?</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Do you really want to delete this record?This process cannot be
+            undone
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions
+          sx={{
+            margin: "15px",
+            gap: "10px",
+            justifyContent: "space-between",
+          }}
+        >
+          <Button variant="contained" color="error" onClick={handleMClose}>
+            Disagree
+          </Button>
+          <Button
+            variant="contained"
+            color="success"
+            onClick={handleDelete}
+            autoFocus
+          >
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </Box>
         </Grid>
       )}
     </>

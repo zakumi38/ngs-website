@@ -253,13 +253,6 @@
       "id": 6
     },
     {
-      "title": "techno",
-      "img": "https://cdn.talkesport.com/wp-content/uploads/technology-esports.jpg",
-      "category": "Technologies",
-      "date": "3/4/2018",
-      "id": 7
-    },
-    {
       "title": "abc",
       "img": "https://www.investopedia.com/thmb/ooWnJKzULBikIcMgNqZdiRvHHBY=/2121x1414/filters:fill(auto,1)/GettyImages-964033964-ca3290057ccc4024b57e755423572264.jpg",
       "category": "Voip",
@@ -503,12 +496,12 @@
       "id": 4
     },
     {
-      "title": "123123",
-      "location": "123123",
+      "title": "1231",
+      "location": "2312",
       "src": "",
-      "date": "07/25/2022",
-      "time": "6:34 PM",
-      "description": "12312312",
+      "date": "08/28/2022",
+      "time": "1:02 PM",
+      "description": "123123",
       "id": 5
     }
   ]
