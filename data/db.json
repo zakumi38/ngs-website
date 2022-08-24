@@ -279,6 +279,13 @@
       "category": "Technologies",
       "date": "3/4/2018",
       "id": 11
+    },
+    {
+      "title": ";;;",
+      "img": "1_yG6sdo2-MFmZQUgjrgtzXA.png",
+      "category": ".l",
+      "date": ";';'6515851",
+      "id": 12
     }
   ],
   "developer-teams": [
@@ -308,72 +315,6 @@
     }
   ],
   "developer-team-members": [
-    {
-      "image": "./logo512.png",
-      "name": "Dean Whales",
-      "occupation": "Senior Executive",
-      "team": "Mobile",
-      "experience": "8",
-      "phone": "012-985-624",
-      "email": "deanwhales@MaxiCom.com",
-      "personalExp": "Doloremque quam. Exercitation totam or cupidatat culpa but autem. In labore so nostrud asper natur officia magna, so quasi. Sit nequeporro dolor Iure. Pellentesque lorem mauris, vehicula vel nulla nec. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ab ad dolor repudiandae consequatur voluptates neque, soluta atque sit sapiente dolores numquam, quos corrupti illum facilis tempora ducimus ratione nostrum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro maxime atque reprehenderit provident velit non voluptatem eum delectus, minus eos voluptas quia? Iste sit accusantium similique quos, omnis harum nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quas vel, dolores animi, asperiores fugiat quis ipsa sequi quos, obcaecati optio similique temporibus modi labore. Eaque illum nisi modi consequatur!",
-      "id": 1
-    },
-    {
-      "image": "./logo512.png",
-      "name": "Dean Whales",
-      "occupation": "Senior Executive",
-      "team": "Mobile",
-      "experience": 9,
-      "phone": "012-985-624",
-      "email": "deanwhales@MaxiCom.com",
-      "personalExp": "Doloremque quam. Exercitation totam or cupidatat culpa but autem. In labore so nostrud asper natur officia magna, so quasi. Sit nequeporro dolor Iure. Pellentesque lorem mauris, vehicula vel nulla nec. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ab ad dolor repudiandae consequatur voluptates neque, soluta atque sit sapiente dolores numquam, quos corrupti illum facilis tempora ducimus ratione nostrum! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro maxime atque reprehenderit provident velit non voluptatem eum delectus, minus eos voluptas quia? Iste sit accusantium similique quos, omnis harum nulla! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quas vel, dolores animi, asperiores fugiat quis ipsa sequi quos, obcaecati optio similique temporibus modi labore. Eaque illum nisi modi consequatur!",
-      "id": 2
-    },
-    {
-      "id": 3,
-      "image": "./04.jpg",
-      "name": "Dean Whales",
-      "occupation": "Senior Executive",
-      "team": "Backend",
-      "experience": 9,
-      "phone": "012-985-624",
-      "email": "deanwhales@MaxiCom.com",
-      "personalExp": "Pellentesque lorem mauris, vehicul"
-    },
-    {
-      "id": 4,
-      "image": "./04.jpg",
-      "name": "Dean Whales",
-      "occupation": "Senior Executive",
-      "team": "Backend",
-      "experience": 9,
-      "phone": "012-985-624",
-      "email": "deanwhales@MaxiCom.com",
-      "personalExp": "Pellentesque lorem mauris, vehicul"
-    },
-    {
-      "id": 5,
-      "image": "./04.jpg",
-      "name": "Dean Whales",
-      "team": "Database",
-      "occupation": "Senior Executive",
-      "experience": 9,
-      "phone": "012-985-624",
-      "email": "deanwhales@MaxiCom.com",
-      "personalExp": "Pellentesque lorem mauris, vehicul"
-    },
-    {
-      "id": 6,
-      "image": "./04.jpg",
-      "name": "Dean Whales",
-      "occupation": "Senior Executive",
-      "team": "Database",
-      "experience": 9,
-      "phone": "012-985-624",
-      "email": "deanwhales@MaxiCom.com",
-      "personalExp": "Pellentesque lorem mauris, vehicul"
-    },
     {
       "id": 7,
       "image": "./04.jpg",
