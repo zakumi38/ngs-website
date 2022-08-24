@@ -49,7 +49,8 @@ const GalleryTable = () => {
       res.data.filter(
         (post) =>
           post.title.toLowerCase().includes(query) ||
-          post.description.toLowerCase().includes(query)
+          post.category.toLowerCase().includes(query) ||
+          post.date.toLowerCase().includes(query)
       ).length
     );
     setPosts(
@@ -57,7 +58,8 @@ const GalleryTable = () => {
         .filter(
           (post) =>
             post.title.toLowerCase().includes(query) ||
-            post.description.toLowerCase().includes(query)
+            post.category.toLowerCase().includes(query) ||
+            post.date.toLowerCase().includes(query)
         )
         .splice(offSet, postPerPage)
     );
@@ -70,6 +72,7 @@ const GalleryTable = () => {
 
   function Submit(value) {
     SetCurrentPage(1);
+    console.log(query, currentPage, offSet);
     loadPosts();
   }
 
@@ -102,7 +105,7 @@ const GalleryTable = () => {
             sx={{
               width: {
                 xs: "100%",
-                sm: "70%",
+                sm: "50%",
               },
               height: "fit-content",
               p: "0",
@@ -134,15 +137,7 @@ const GalleryTable = () => {
             }}
           />
 
-          <Stack
-            direction="row"
-            sx={{
-              marginTop: "0 !important",
-              width: "100%",
-              justifyContent: { xs: "start", sm: "end" },
-            }}
-            gap="10px"
-          >
+          <Stack direction="row" sx={{ marginTop: "0 !important" }} gap="10px">
             <Link to="/gallery" className={Style.Link}>
               <Button
                 variant="contained"
@@ -156,7 +151,7 @@ const GalleryTable = () => {
                 />
                 <Typography
                   sx={{
-                    display: { xs: "none", sm: "block" },
+                    display: { xs: "none", md: "block" },
                     fontSize: { sm: "14px", md: "16px" },
                   }}
                 >
@@ -177,7 +172,7 @@ const GalleryTable = () => {
                 />
                 <Typography
                   sx={{
-                    display: { xs: "none", sm: "block" },
+                    display: { xs: "none", md: "block" },
                     fontSize: { sm: "14px", md: "16px" },
                   }}
                 >

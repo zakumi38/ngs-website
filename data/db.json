@@ -239,13 +239,6 @@
   ],
   "gallerys": [
     {
-      "title": "Html",
-      "img": "https://apicms.thestar.com.my/uploads/images/2022/04/06/1540822.jpg",
-      "category": "Technologies",
-      "date": "3/4/2019",
-      "id": 4
-    },
-    {
       "title": "def",
       "img": "https://res-3.cloudinary.com/fieldfisher/image/upload/f_jpg,q_auto/v1/sectors/technology/tech_neoncircuitboard_857021704_medium_lc5h05",
       "category": "Voip",
