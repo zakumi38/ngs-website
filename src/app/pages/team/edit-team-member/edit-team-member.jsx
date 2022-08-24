@@ -60,14 +60,10 @@ export default function EditTeamMember({ disabled = false }) {
                         xs={12}
                         alignItems="center"
                         justifyContent="center"
+                        marginBottom={"2rem"}
                     >
                         <div>
                             <img src="/04.jpg" alt="Team" />
-                            <div>
-                                <IconButton aria-label="View Image">
-                                    <FontAwesomeIcon icon={faEye} />
-                                </IconButton>
-                            </div>
                         </div>
                     </Grid>
                 </Grid>

@@ -1,4 +1,4 @@
-import { Grid, TextField, Typography } from "@mui/material"
+import { Button, Grid, TextField, Typography } from "@mui/material"
 import { styled } from "@mui/system"
 import React, { useEffect, useState } from "react"
 import StyledButton from "../../component/StyledButton"
@@ -211,7 +211,43 @@ const EditEventsForm = () => {
                     sm={11}
                     sx={{ display: "flex", justifyContent: "end" }}
                 >
-                    <StyledButton
+                    <Button
+                        color="error"
+                        variant="contained"
+                        sx={{
+                            width: {
+                                xs: "100%",
+                                sm: "25%",
+                                md: "18%",
+                                lg: "15%",
+                            },
+                            minHeight: "50px",
+                            minWidth: "100px",
+                            marginRight:{ xs: "0" , sm: "1rem"},
+                            marginBottom:{ xs: "1rem" , sm: "0"}
+                        }}
+                        onClick={() => navigate("/events")}
+                    >
+                        Cancle
+                    </Button>
+                    <Button
+                        color="primary"
+                        variant="contained"
+                        sx={{
+                            width: {
+                                xs: "100%",
+                                sm: "25%",
+                                md: "18%",
+                                lg: "15%",
+                            },
+                            minHeight: "50px",
+                            minWidth: "100px",
+                        }}
+                        onClick={handleUpdate}
+                    >
+                        Update
+                    </Button>
+                    {/* <StyledButton
                         variant="contained"
                         color="primary"
                         onClick={handleUpdate}
@@ -221,7 +257,7 @@ const EditEventsForm = () => {
                         }}
                     >
                         Update Event
-                    </StyledButton>
+                    </StyledButton> */}
                 </Grid>
             </Grid>
         </Grid>

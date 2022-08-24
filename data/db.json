@@ -228,13 +228,6 @@
       "description": "Nothing Just Testing",
       "date": "tody",
       "id": 14
-    },
-    {
-      "title": "ggg",
-      "img": "",
-      "description": "",
-      "date": "",
-      "id": 15
     }
   ],
   "gallery": [
@@ -452,13 +445,13 @@
       "location": "Yangon"
     },
     {
-      "id": 4,
       "title": "Event3",
-      "description": "Suck",
+      "location": "Yangon",
       "date": "08/24/2022",
       "time": "2:24 AM",
-      "src": "",
-      "location": "Yangon"
+      "scr": "",
+      "description": "Suck Need More Content",
+      "id": 4
     },
     {
       "title": "123",

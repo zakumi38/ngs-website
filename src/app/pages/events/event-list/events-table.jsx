@@ -59,28 +59,28 @@ const EventsTable = ({ events, action, setAction }) => {
                         <TableHead>
                             <TableRow>
                                 <TableCell>
-                                    <Typography>"ID"</Typography>
+                                    <Typography>ID</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>"Title"</Typography>
+                                    <Typography>Title</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>"Photo"</Typography>
+                                    <Typography>Photo</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>"Description"</Typography>
+                                    <Typography>Description</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>"Date"</Typography>
+                                    <Typography>Date</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>"Time"</Typography>
+                                    <Typography>Time</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>"Location"</Typography>
+                                    <Typography>Location</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>"Actions"</Typography>
+                                    <Typography>Actions</Typography>
                                 </TableCell>
                             </TableRow>
                         </TableHead>
@@ -130,7 +130,7 @@ const EventsTable = ({ events, action, setAction }) => {
                                             justifyContent="space-between"
                                             gap="10px"
                                         >
-                                            <Link to={`/blog/view/${event.id}`}>
+                                            <Link href={`/events/view/${event.id}`}>
                                                 <ActionIcon
                                                     color="#0d97af"
                                                     icon={faEye}
