@@ -40,11 +40,11 @@ const ActionIcon = styled(FontAwesomeIcon)(
         color: props.color,
     })
 )
-const EventsTable = ({ events, action, setAction }) => {
+const TeamsTable = ({ teamMembers, action, setAction }) => {
     const [openModal, setOpenModal] = useState(false)
     const [modalId, setModalId] = useState("")
     const Delete = () => {
-        api.delete(`/events/${modalId}`).then(() => {
+        api.delete(`/developer-team-members/${modalId}`).then(() => {
             let ticket = Math.random()
             while (ticket === action) ticket = Math.random()
             setAction(ticket)
@@ -59,35 +59,29 @@ const EventsTable = ({ events, action, setAction }) => {
                         <TableHead>
                             <TableRow>
                                 <TableCell>
-                                    <Typography>"ID"</Typography>
+                                    <Typography>Id</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>"Title"</Typography>
+                                    <Typography>Name</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>"Photo"</Typography>
+                                    <Typography>Email</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>"Description"</Typography>
+                                    <Typography>Occupation</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography>"Date"</Typography>
+                                    <Typography>Team</Typography>
                                 </TableCell>
-                                <TableCell>
-                                    <Typography>"Time"</Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography>"Location"</Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography>"Actions"</Typography>
+                                <TableCell sx={{ textAlign: "center" }}>
+                                    <Typography>Actions</Typography>
                                 </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {events?.map((event) => (
+                            {teamMembers?.map((member) => (
                                 <TableRow
-                                    key={event.id}
+                                    key={member.id}
                                     sx={{
                                         "&:last-child td, &:last-child th": {
                                             border: 0,
@@ -95,33 +89,21 @@ const EventsTable = ({ events, action, setAction }) => {
                                     }}
                                 >
                                     <TableCell>
-                                        <Typography>{event.id}</Typography>
+                                        <Typography>{member.id}</Typography>
                                     </TableCell>
                                     <TableCell component="th" scope="row">
-                                        <Typography> {event.title}</Typography>
+                                        <Typography> {member.name}</Typography>
                                     </TableCell>
                                     <TableCell>
-                                        <Box
-                                            component="img"
-                                            src={event.src}
-                                        ></Box>
-                                    </TableCell>
-                                    <TableCell>
-                                        <Typography>{`${event.description?.slice(
-                                            0,
-                                            25
-                                        )}...`}</Typography>
-                                    </TableCell>
-                                    <TableCell>
-                                        <Typography>{event.date}</Typography>
-                                    </TableCell>
-                                    <TableCell>
-                                        <Typography>{event.time}</Typography>
+                                        <Typography>{member.email}</Typography>
                                     </TableCell>
                                     <TableCell>
                                         <Typography>
-                                            {event.location}
+                                            {member.occupation}
                                         </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Typography>{member.team}</Typography>
                                     </TableCell>
                                     <TableCell>
                                         <Stack
@@ -130,14 +112,16 @@ const EventsTable = ({ events, action, setAction }) => {
                                             justifyContent="space-between"
                                             gap="10px"
                                         >
-                                            <Link to={`/blog/view/${event.id}`}>
+                                            <Link
+                                                href={`team/view/${member.id}`}
+                                            >
                                                 <ActionIcon
                                                     color="#0d97af"
                                                     icon={faEye}
                                                 />
                                             </Link>
                                             <Link
-                                                href={`events/edit/${event.id}`}
+                                                href={`team/edit/${member.id}`}
                                             >
                                                 <ActionIcon
                                                     color="#2e7d32"
@@ -147,7 +131,7 @@ const EventsTable = ({ events, action, setAction }) => {
                                             <div
                                                 onClick={() => {
                                                     setOpenModal(true)
-                                                    setModalId(event.id)
+                                                    setModalId(member.id)
                                                 }}
                                             >
                                                 <ActionIcon
@@ -204,4 +188,4 @@ const EventsTable = ({ events, action, setAction }) => {
     )
 }
 
-export default EventsTable
+export default TeamsTable

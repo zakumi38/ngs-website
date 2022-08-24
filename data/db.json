@@ -162,7 +162,7 @@
     {
       "title": "Html Update",
       "img": "https://tinyurl.com/3pxydama",
-      "description": "Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post ",
+      "description": "Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post Post",
       "date": "4/8/2021",
       "id": 2
     },
@@ -237,7 +237,7 @@
       "id": 15
     }
   ],
-  "gallerys": [
+  "gallery": [
     {
       "title": "def",
       "img": "https://res-3.cloudinary.com/fieldfisher/image/upload/f_jpg,q_auto/v1/sectors/technology/tech_neoncircuitboard_857021704_medium_lc5h05",
@@ -265,32 +265,6 @@
       "category": "Technologies",
       "date": "3/4/2018",
       "id": 11
-    }
-  ],
-  "developer-teams": [
-    {
-      "id": 0,
-      "teamname": "All"
-    },
-    {
-      "id": 1,
-      "teamname": "Mobile"
-    },
-    {
-      "id": 2,
-      "teamname": "Backend"
-    },
-    {
-      "id": 3,
-      "teamname": "Database"
-    },
-    {
-      "id": 4,
-      "teamname": "Website"
-    },
-    {
-      "id": 5,
-      "teamname": "Dashboard Team"
     }
   ],
   "developer-team-members": [
@@ -447,17 +421,6 @@
       "phone": "012-985-624",
       "email": "deanwhales@MaxiCom.com",
       "personalExp": "Pellentesque lorem mauris, vehicul"
-    },
-    {
-      "id": 15,
-      "image": "./04.jpg",
-      "name": "Dean Whales",
-      "team": "Website",
-      "occupation": "Senior Executive",
-      "experience": 9,
-      "phone": "012-985-624",
-      "email": "deanwhales@MaxiCom.com",
-      "personalExp": "Pellentesque lorem mauris, vehicul"
     }
   ],
   "events": [
@@ -465,8 +428,35 @@
       "id": 1,
       "title": "Event1",
       "description": "React React React React React React",
-      "date": "7/21/2022",
+      "date": "07/21/2022",
       "time": "5:14 PM",
+      "src": "",
+      "location": "Yangon"
+    },
+    {
+      "id": 2,
+      "title": "Event1",
+      "description": "Jest",
+      "date": "08/23/2022",
+      "time": "11:14 PM",
+      "src": "",
+      "location": "Yangon"
+    },
+    {
+      "id": 3,
+      "title": "Event2",
+      "description": "Is",
+      "date": "08/24/2022",
+      "time": "2:14 AM",
+      "src": "",
+      "location": "Yangon"
+    },
+    {
+      "id": 4,
+      "title": "Event3",
+      "description": "Suck",
+      "date": "08/24/2022",
+      "time": "2:24 AM",
       "src": "",
       "location": "Yangon"
     },
@@ -477,7 +467,7 @@
       "time": "5:11 PM",
       "scr": "",
       "description": "aaaaa",
-      "id": 3
+      "id": 5
     },
     {
       "title": "123123",
@@ -486,16 +476,16 @@
       "time": "6:25 PM",
       "scr": "",
       "description": "12312312",
-      "id": 4
+      "id": 6
     },
     {
       "title": "1231",
       "location": "2312",
       "src": "",
-      "date": "08/28/2022",
-      "time": "1:02 PM",
-      "description": "123123",
-      "id": 5
+      "date": "07/25/2022",
+      "time": "6:34 PM",
+      "description": "12312312",
+      "id": 7
     }
   ]
 }

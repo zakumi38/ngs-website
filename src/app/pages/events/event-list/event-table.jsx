@@ -1,183 +1,234 @@
 import {
-  faAdd,
-  faArrowLeft,
-  faArrowRight,
-  faRefresh,
-  faSearch,
-} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+    faAdd,
+    faSearch,
+    faXmark,
+    faArrowLeft,
+    faArrowRight,
+    faRefresh,
+} from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
-  Button,
-  Grid,
-  OutlinedInput,
-  Pagination,
-  PaginationItem,
-  Stack,
-  Typography,
-} from "@mui/material";
-import React, {useState} from "react";
-import { Link } from "react-router-dom";
-import api from "../../../../mockdatabase/database";
-import eventStyle from "./event-list.module.sass";
-import useAxiosFetch from "../../user/user-list/useAxiosFetch";
-import EventsTable from "./events-table";
+    Button,
+    Grid,
+    OutlinedInput,
+    Stack,
+    Typography,
+    Pagination,
+    PaginationItem,
+    IconButton,
+} from "@mui/material"
+import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
+import usePaginate from "../../axios-server-side/server-side-pagination"
+import EventsTable from "./events-table"
 
+const rightArrow = () => {
+    return <FontAwesomeIcon icon={faArrowRight} />
+}
+const leftArrow = () => {
+    return <FontAwesomeIcon icon={faArrowLeft} />
+}
 const EventTable = () => {
-  const [data, setData] = useState([]);
+    const [events, setEvents] = useState([])
+    const [click, setClicked] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [query, setQuery] = useState("")
+    const [entriesCount, setEntriesCount] = useState({
+        start: 1,
+        end: 5,
+        totalPostsCount: 0,
+        totalPagesCount: 0,
+    })
+    const eventsPerPage = 5
+    const [totalItems, currentPageItems, loading, error, action, setAction] =
+        usePaginate("events", currentPage, eventsPerPage, query, click)
 
-  const [events, loading, error] = useAxiosFetch({
-    axiosInstance: api,
-    method: "get",
-    url: "/events",
-  });
-
-  const [searchValue, setSearchValue] = useState("");
-  const handleSearchValue = (e) => {
-    setSearchValue(e.target.value);
-  };
-  const handleClear = () => {
-    setData(events);
-    setSearchValue("");
-  };
-
-  const handleSearch = () => {
-    const search = searchValue.toLowerCase();
-    const searchFilter = data?.filter(
-      (post) =>
-        post.title.toLowerCase().includes(search) ||
-        post.id === Number(searchValue) ||
-        post.description.toLowerCase().includes(search) ||
-        post.location.toLowerCase().includes(search)
-    );
-    console.log(searchFilter,search)
-    setData(searchValue.length === 0 ? events : searchFilter);
-  };
-
-  return (
-    <Grid
-      container
-      sx={{
-        backgroundColor: "white",
-        padding: "20px",
-        alignItems: "center",
-        borderRadius: "10px",
-        margin: "5rem 0 0 0",
-      }}
-    >
-      <Grid item xs={12} sx={{ marginBottom: { xs: "20px" } }}>
-        <Typography variant="h5">Events List</Typography>
-      </Grid>
-      <Grid item xs={12} sx={{ margin: { xs: "20px 0", md: "0" } }}>
-        <Stack
-          gap="15px"
-          spacing={3}
-          sx={{
-            justifyContent: "space-between",
-            flexDirection: { xs: "column", sm: "row" },
-            alignItems: "center",
-          }}
+    function actionTicket() {
+        let ticket = Math.random()
+        while (ticket === click) ticket = Math.random()
+        setClicked(ticket)
+        setCurrentPage(1)
+    }
+    useEffect(() => {
+        if (!loading && !error) {
+            setEvents(currentPageItems)
+            setEntriesCount({
+                start: totalItems.length
+                    ? (currentPage - 1) * eventsPerPage + 1
+                    : 0,
+                end:
+                    currentPage * eventsPerPage -
+                    (eventsPerPage - currentPageItems.length),
+                totalPostsCount: totalItems.length,
+                totalPagesCount: Math.ceil(totalItems.length / eventsPerPage),
+            })
+        }
+    }, [totalItems, currentPageItems, loading, error, click])
+    useEffect(() => {
+        !query && actionTicket()
+    }, [query])
+    return (
+        <Grid
+            container
+            sx={{
+                backgroundColor: "white",
+                padding: "20px",
+                alignItems: "center",
+                borderRadius: "10px",
+                margin: "5rem 0 0 0",
+            }}
         >
-          <OutlinedInput
-            sx={{
-              width: {
-                xs: "100%",
-                sm: "70%",
-              },
-              height: "fit-content",
-              p: "0",
-            }}
-            endAdornment={
-              <Button
-                onClick={handleSearch}
-                variant="contained"
-                sx={{
-                  height: "100%",
-                  boxShadow: "none",
-                  borderTopLeftRadius: 0,
-                  borderBottomLeftRadius: 0,
-                  p: { xs: "13px", lg: "15px" },
-                  "&:hover": {
-                    boxShadow: "none",
-                  },
-                }}
-              >
-                <FontAwesomeIcon icon={faSearch} />
-              </Button>
-            }
-            id="search-bar"
-            variant="outlined"
-            placeholder="Search here..."
-            size="small"
-            onChange={(e) => {
-              setSearchValue(e.target.value);
-            }}
-            value={searchValue}
-          />
-
-          <Stack
-            direction="row"
-            sx={{
-              marginTop: "0 !important",
-              width: "100%",
-              justifyContent: { xs: "start", sm: "end" },
-            }}
-            gap="10px"
-          >
-            <Link to="/events" className={eventStyle.eLink}>
-              <Button
-                onClick={handleClear}
-                variant="contained"
-                color="primary"
-                sx={{ height: "100%" }}
-              >
-                <FontAwesomeIcon
-                  icon={faRefresh}
-                  size="lg"
-                  className={eventStyle.erefresh}
-                />
-                <Typography
-                  sx={{
-                    display: { xs: "none", sm: "block" },
-                    fontSize: { sm: "14px", md: "16px" },
-                  }}
+            <Grid item xs={12} sx={{ marginBottom: "20px" }}>
+                <Typography variant="h5">Events List</Typography>
+            </Grid>
+            <Grid item xs={12} sx={{ margin: { xs: "20px 0", md: "0" } }}>
+                <Stack
+                    spacing={3}
+                    sx={{
+                        justifyContent: "space-between",
+                        flexDirection: { xs: "column", sm: "row" },
+                        alignItems: "center",
+                    }}
+                    gap="15px"
                 >
-                  Refresh List
-                </Typography>
-              </Button>
-            </Link>
-            <Link to="/events/add" className={eventStyle.eLink}>
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{ height: "100%" }}
-              >
-                <FontAwesomeIcon
-                  icon={faAdd}
-                  size="lg"
-                  className={eventStyle.eplus}
-                />
-                <Typography
-                  sx={{
-                    display: { xs: "none", sm: "block" },
-                    fontSize: { sm: "14px", md: "16px" },
-                  }}
-                >
-                  Add new Event
-                </Typography>
-              </Button>
-            </Link>
-          </Stack>
-        </Stack>
-      </Grid>
-      <EventsTable
-        data={data}
-        loading={loading}
-        setData={setData}
-        events={events}
-      />
-    </Grid>
-    
-  );
-};
+                    <OutlinedInput
+                        onKeyUp={(e) => e.key === "Enter" && actionTicket()}
+                        sx={{
+                            width: {
+                                xs: "100%",
+                                sm: "70%",
+                            },
+                            height: "fit-content",
+                            p: "0",
+                        }}
+                        endAdornment={
+                            <>
+                                {query && (
+                                    <IconButton
+                                        onClick={() => {
+                                            setQuery("")
+                                            setClicked(0)
+                                        }}
+                                    >
+                                        <FontAwesomeIcon icon={faXmark} />
+                                    </IconButton>
+                                )}
+                                <Button
+                                    onClick={actionTicket}
+                                    variant="contained"
+                                    sx={{
+                                        height: "100%",
+                                        boxShadow: "none",
+                                        borderTopLeftRadius: 0,
+                                        borderBottomLeftRadius: 0,
+                                        p: { xs: "13px", lg: "15px" },
+                                        "&:hover": {
+                                            boxShadow: "none",
+                                        },
+                                    }}
+                                >
+                                    <FontAwesomeIcon icon={faSearch} />
+                                </Button>
+                            </>
+                        }
+                        value={query}
+                        id="search-bar"
+                        variant="outlined"
+                        placeholder="Search here..."
+                        size="small"
+                        onChange={(e) => {
+                            setQuery(e.target.value)
+                        }}
+                    />
 
-export default EventTable;
+                    <Stack
+                        direction="row"
+                        sx={{
+                            marginTop: "0 !important",
+                            width: "100%",
+                            justifyContent: { xs: "start", sm: "end" },
+                        }}
+                        gap="10px"
+                    >
+                        <Link to="/events" style={{ textDecoration: "none" }}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                sx={{ height: "100%" }}
+                                onClick={actionTicket}
+                            >
+                                <FontAwesomeIcon icon={faRefresh} size="lg" />
+                                <Typography
+                                    sx={{
+                                        display: { xs: "none", sm: "block" },
+                                        fontSize: { sm: "14px", md: "16px" },
+                                        marginLeft: "5px",
+                                    }}
+                                >
+                                    Refresh List
+                                </Typography>
+                            </Button>
+                        </Link>
+                        <Link
+                            to="/events/add"
+                            style={{ textDecoration: "none" }}
+                        >
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                sx={{ height: "100%" }}
+                            >
+                                <FontAwesomeIcon icon={faAdd} size="lg" />
+                                <Typography
+                                    sx={{
+                                        display: { xs: "none", sm: "block" },
+                                        fontSize: { sm: "14px", md: "16px" },
+                                        marginLeft: "5px",
+                                    }}
+                                >
+                                    Add new Event
+                                </Typography>
+                            </Button>
+                        </Link>
+                    </Stack>
+                </Stack>
+            </Grid>
+            <EventsTable
+                events={events}
+                action={action}
+                setAction={setAction}
+            />
+            <Grid container sx={{ gap: { xs: "1rem", sm: "0" } }}>
+                <Grid item xs={12} sm={6}>
+                    <Stack>
+                        <Typography>
+                            Showing {entriesCount.start} to {entriesCount.end}{" "}
+                            of {entriesCount.totalPostsCount} entries
+                        </Typography>
+                    </Stack>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <Stack spacing={2} sx={{ alignItems: "end" }}>
+                        <Pagination
+                            count={entriesCount.totalPagesCount}
+                            color="primary"
+                            page={currentPage}
+                            onChange={(_, val) => setCurrentPage(val)}
+                            renderItem={(item) => (
+                                <PaginationItem
+                                    components={{
+                                        previous: leftArrow,
+                                        next: rightArrow,
+                                    }}
+                                    {...item}
+                                />
+                            )}
+                        />
+                    </Stack>
+                </Grid>
+            </Grid>
+        </Grid>
+    )
+}
+
+export default EventTable
