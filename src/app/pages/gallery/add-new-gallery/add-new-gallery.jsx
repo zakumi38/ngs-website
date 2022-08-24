@@ -49,7 +49,7 @@ export default function EditGallery() {
 
   let Submit = () => {
     axios
-      .post(`http://localhost:3500/gallerys`, data)
+      .post(`http://localhost:3500/gallery`, data)
       .then(navigate("/gallery"));
   };
 
