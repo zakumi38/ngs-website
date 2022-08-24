@@ -2,7 +2,7 @@ import React from "react";
 import {useNavigate} from "react-router-dom";
 
 // Files
-import {Button, Menu, MenuItem, styled} from "@mui/material";
+import {Button, Divider, Menu, MenuItem, styled, Typography} from "@mui/material";
 
 const ProfileImg = styled("img")((theme) => ({
   width: "40px",
@@ -43,7 +43,17 @@ const UserproComp = () => {
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
+        sx={{justifyContent:"center"}}
       >
+        <Typography sx={{
+            color: "rgba(100,116,139)",
+            textAlign:"center",
+            padding : "6px 16px" ,
+            ":hover":{
+                color: "#1e293b"
+            }
+        }} >Kaung Myat San</Typography>
+        <Divider />
         <MenuItem onClick={() => profile()} sx={{
             color: "rgba(100,116,139)",
             textDecoration : "none",

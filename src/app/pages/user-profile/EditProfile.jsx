@@ -42,7 +42,7 @@ export default function UserProfile() {
     }
     return (
             <Container className={editProfileStyle.form}>
-                <Grid container  spacing={2} sx={{alignItems: {xs: "center"}}} className={editProfileStyle.formGrid} component="form">
+                <Grid container  spacing={2} sx={{alignItems: {xs: "center"} , marginTop:"20px"}} className={editProfileStyle.formGrid} component="form">
                     <Grid item xs={12} sx={{display: "flex", padding: 0}}>
                         <FontAwesomeIcon icon={faArrowLeft} className={editProfileStyle.iconLeftArrow} onClick={() => navigate('/', {replace:true})}/>
                         <Typography variant="h4" className={editProfileStyle.title}>Edit Profile</Typography>
