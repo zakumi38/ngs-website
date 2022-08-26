@@ -119,7 +119,6 @@ const UsersTable = ({ posts, action, setAction }) => {
                                 <TableCell>
                                     <Stack
                                         direction="row"
-                                        spacing={2}
                                         justifyContent="space-between"
                                         gap="10px"
                                         sx={{ "& a": { margin: 0 } }}

@@ -102,8 +102,9 @@ const EventsTable = ({ events, action, setAction }) => {
                                     </TableCell>
                                     <TableCell>
                                         <Box
+                                            sx={{width:"150px" , height :"auto"}}
                                             component="img"
-                                            src={event.src}
+                                            src={event.image}
                                         ></Box>
                                     </TableCell>
                                     <TableCell>
@@ -126,7 +127,6 @@ const EventsTable = ({ events, action, setAction }) => {
                                     <TableCell>
                                         <Stack
                                             direction="row"
-                                            spacing={2}
                                             justifyContent="space-between"
                                             gap="10px"
                                         >

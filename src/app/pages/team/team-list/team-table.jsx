@@ -108,9 +108,7 @@ const TeamsTable = ({ teamMembers, action, setAction }) => {
                                     <TableCell>
                                         <Stack
                                             direction="row"
-                                            spacing={2}
                                             justifyContent="space-between"
-                                            gap="10px"
                                         >
                                             <Link
                                                 href={`team/view/${member.id}`}

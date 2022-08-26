@@ -225,6 +225,7 @@ const GalleryTable = () => {
                     >
                         <Pagination
                             count={entriesCount.totalPagesCount}
+                            color="primary"
                             page={currentPage}
                             onChange={(_, val) => setCurrentPage(val)}
                             renderItem={(item) => (

@@ -207,6 +207,7 @@ const UserTable = () => {
           <Stack spacing={2} sx={{ alignItems: { xs: "center", sm: "end" } }}>
             <Pagination
               count={entriesCount.totalPagesCount}
+              color="primary"
               page={currentPage}
               onChange={(_, val) => setCurrentPage(val)}
               renderItem={(item) => (

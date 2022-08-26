@@ -71,7 +71,7 @@ const TeamTable = () => {
             }}
         >
             <Grid item xs={12} sx={{ marginBottom: "20px" }}>
-                <Typography variant="h5">Events List</Typography>
+                <Typography variant="h5">Team List</Typography>
             </Grid>
             <Grid item xs={12} sx={{ margin: { xs: "20px 0", md: "0" } }}>
                 <Stack
