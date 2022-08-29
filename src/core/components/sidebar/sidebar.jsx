@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import GitInfo from "react-git-info/macro";
 
 // Files
@@ -76,34 +76,42 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
     }
   };
   const toggleEntities = (event) => {
-    console.log(event.target.id);
-    if (openEntities === true && event.target.id === "ent_btn") {
-      setOpenEntities(false);
-    } else {
+    if (
+      (openEntities === !true && event.target.id === "ent_btn") ||
+      event.target.parentElement.id === "ent_btn" ||
+      event.target.parentElement.parentElement.id === "ent_btn"
+    ) {
       setOpenEntities(true);
+      setOpenWebContent(false);
+      setOpenSetting(false);
     }
   };
+
   const toggleWebContent = (event) => {
     console.log(event.target);
 
     if (
-      (openWebContent === true && event.target.id === "web_btn") ||
-      event.target.parentElement.parentElement.id === "web_btn" ||
-      event.target.parentElement.id === "web_btn"
+      (openWebContent === !true && event.target.id === "web_btn") ||
+      event.target.parentElement.id === "web_btn" ||
+      event.target.parentElement.parentElement.id === "web_btn"
     ) {
-      setOpenWebContent(false);
-    } else {
       setOpenWebContent(true);
+      setOpenEntities(false);
+      setOpenSetting(false);
     }
   };
 
   const toggleSetting = (event) => {
     console.log(event.target.id);
 
-    if (openSetting === true && event.target.id === "set_btn") {
-      setOpenSetting(false);
-    } else {
+    if (
+      (openSetting === !true && event.target.id === "set_btn") ||
+      event.target.parentElement.id === "set_btn" ||
+      event.target.parentElement.parentElement.id === "set_btn"
+    ) {
       setOpenSetting(true);
+      setOpenEntities(false);
+      setOpenWebContent(false);
     }
   };
 
@@ -162,8 +170,9 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                 aria-controls={open ? "basic-menu" : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
-                onClick={toggleSlider}
+                onClick={toggleEntities}
                 className={sidebar.listItemsHeader}
+                style={{ margin: 0 }}
               >
                 {wide ? <FontAwesomeIcon icon={faChartSimple} /> : "Entities"}
 
@@ -191,8 +200,9 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                             : { px: 0, py: "3px" }
                         }
                       >
-                        <a
-                          href={item.path}
+                        <NavLink
+                          to={item.path}
+                          // href={item.path}
                           className={`${sidebar.listItems} ${
                             wide && sidebar.newItems
                           } ${
@@ -200,6 +210,7 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                               ? sidebar.active
                               : ""
                           }`}
+                          style={{ margin: 0 }}
                         >
                           <FontAwesomeIcon
                             icon={item.icon}
@@ -218,7 +229,7 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                             {" "}
                             {item.title}{" "}
                           </Box>
-                        </a>
+                        </NavLink>
                       </ListItem>
                     ))
                   : null}
@@ -231,8 +242,9 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                 aria-controls={open ? "basic-menu" : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
-                onClick={toggleSlider}
+                onClick={toggleWebContent}
                 className={sidebar.listItemsHeader}
+                style={{ margin: 0 }}
               >
                 {wide ? <FontAwesomeIcon icon={faEarthAsia} /> : "Web Content"}
 
@@ -260,8 +272,8 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                             : { px: 0, py: "3px" }
                         }
                       >
-                        <a
-                          href={item.path}
+                        <NavLink
+                          to={item.path}
                           className={`${sidebar.listItems} ${
                             wide && sidebar.newItems
                           } ${
@@ -269,6 +281,7 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                               ? sidebar.active
                               : ""
                           }`}
+                          style={{ margin: 0 }}
                         >
                           <FontAwesomeIcon
                             icon={item.icon}
@@ -287,7 +300,7 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                             {" "}
                             {item.title}{" "}
                           </Box>
-                        </a>
+                        </NavLink>
                       </ListItem>
                     ))
                   : ""}
@@ -300,8 +313,9 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                 aria-controls={open ? "basic-menu" : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
-                onClick={toggleSlider}
+                onClick={toggleSetting}
                 className={sidebar.listItemsHeader}
+                style={{ margin: 0 }}
               >
                 {wide ? (
                   <FontAwesomeIcon icon={faScrewdriverWrench} />
@@ -333,8 +347,8 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                             : { px: 0, py: "3px" }
                         }
                       >
-                        <a
-                          href={item.path}
+                        <NavLink
+                          to={item.path}
                           className={`${sidebar.listItems} ${
                             wide && sidebar.newItems
                           } ${
@@ -342,6 +356,7 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                               ? sidebar.active
                               : ""
                           }`}
+                          style={{ margin: 0 }}
                         >
                           <FontAwesomeIcon
                             icon={item.icon}
@@ -366,7 +381,7 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                               wide && sidebar.d_none
                             }`}
                           />
-                        </a>
+                        </NavLink>
                       </ListItem>
                     ))
                   : ""}
@@ -375,9 +390,11 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
           </Box>
         </Box>
         <Box>
-          <Typography className={sidebar.versionNo}>
-            ver : {gitInfo.commit.shortHash}
-          </Typography>
+          {!wide && (
+            <Typography className={sidebar.versionNo}>
+              ver : {gitInfo.commit.shortHash}
+            </Typography>
+          )}
         </Box>
       </Box>
     </>
