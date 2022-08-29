@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useLocation } from 'react-router-dom'
-import GitInfo from 'react-git-info/macro';
+import { NavLink, useLocation } from "react-router-dom";
+import GitInfo from "react-git-info/macro";
 
 // Files
 import sidebar from "./sidebar.module.sass";
@@ -16,7 +16,7 @@ import {
   faXmark,
   faChartSimple,
   faEarthAsia,
-  faScrewdriverWrench
+  faScrewdriverWrench,
 } from "@fortawesome/free-solid-svg-icons";
 
 // Images
@@ -26,87 +26,92 @@ import Logo from "../../../assets/images/logo.png";
 export const BrandLogo = styled("div")(({ theme }) => ({
   // fontSize: '23px'
   // width: '50px',
-  height: '52px',
-  width: '90%',
-  margin: '5px auto'
+  height: "52px",
+  width: "90%",
+  margin: "5px auto",
 }));
-
-
 
 const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [openEntities, setOpenEntities] = useState(false);
   const [openWebContent, setOpenWebContent] = useState(false);
   const [openSetting, setOpenSetting] = useState(false);
-  const location = useLocation()
+  const location = useLocation();
 
   const open = Boolean(anchorEl);
 
-  const toggleSlider = _ => {
-
-    window.addEventListener('click', showHideNav)
-
-
-  }
+  const toggleSlider = (_) => {
+    window.addEventListener("click", showHideNav);
+  };
 
   const showHideNav = (event) => {
-
-    if (openEntities === !true && event.target.id === 'ent_btn' || event.target.parentElement.id === 'ent_btn' || event.target.parentElement.parentElement.id === 'ent_btn') {
-
+    if (
+      (openEntities === !true && event.target.id === "ent_btn") ||
+      event.target.parentElement.id === "ent_btn" ||
+      event.target.parentElement.parentElement.id === "ent_btn"
+    ) {
       setOpenEntities(true);
       setOpenWebContent(false);
       setOpenSetting(false);
-
-    } else if (openWebContent === !true && event.target.id === 'web_btn' || event.target.parentElement.id === 'web_btn' || event.target.parentElement.parentElement.id === 'web_btn') {
-
+    } else if (
+      (openWebContent === !true && event.target.id === "web_btn") ||
+      event.target.parentElement.id === "web_btn" ||
+      event.target.parentElement.parentElement.id === "web_btn"
+    ) {
       setOpenWebContent(true);
       setOpenEntities(false);
       setOpenSetting(false);
-
-    } else if (openSetting === !true && event.target.id === 'set_btn' || event.target.parentElement.id === 'set_btn' || event.target.parentElement.parentElement.id === 'set_btn') {
-
+    } else if (
+      (openSetting === !true && event.target.id === "set_btn") ||
+      event.target.parentElement.id === "set_btn" ||
+      event.target.parentElement.parentElement.id === "set_btn"
+    ) {
       setOpenSetting(true);
       setOpenEntities(false);
       setOpenWebContent(false);
-
-    }
-
-    else {
-
+    } else {
       setOpenEntities(false);
       setOpenWebContent(false);
       setOpenSetting(false);
-
-
     }
-
-  }
+  };
   const toggleEntities = (event) => {
-    console.log(event.target.id)
-    if (openEntities === true && event.target.id === 'ent_btn') {
-      setOpenEntities(false);
-    } else {
+    if (
+      (openEntities === !true && event.target.id === "ent_btn") ||
+      event.target.parentElement.id === "ent_btn" ||
+      event.target.parentElement.parentElement.id === "ent_btn"
+    ) {
       setOpenEntities(true);
+      setOpenWebContent(false);
+      setOpenSetting(false);
     }
   };
   const toggleWebContent = (event) => {
-    console.log(event.target)
+    console.log(event.target);
 
-    if (openWebContent === true && event.target.id === 'web_btn' || event.target.parentElement.parentElement.id === 'web_btn' || event.target.parentElement.id === 'web_btn') {
-      setOpenWebContent(false);
-    } else {
+    if (
+      (openWebContent === !true && event.target.id === "web_btn") ||
+      event.target.parentElement.id === "web_btn" ||
+      event.target.parentElement.parentElement.id === "web_btn"
+    ) {
       setOpenWebContent(true);
-    }
+      setOpenEntities(false);
+      setOpenSetting(false);
+    } 
   };
 
   const toggleSetting = (event) => {
-    console.log(event.target.id)
+    console.log(event.target.id);
 
-    if (openSetting === true && event.target.id === 'set_btn') {
-      setOpenSetting(false);
-    } else {
+    if (
+      (openSetting === !true && event.target.id === "set_btn") ||
+      event.target.parentElement.id === "set_btn" ||
+      event.target.parentElement.parentElement.id === "set_btn"
+    ) {
       setOpenSetting(true);
-    }
+      setOpenEntities(false);
+      setOpenWebContent(false);
+    } 
   };
 
   const gitInfo = GitInfo();
@@ -114,9 +119,9 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
     <>
       <Box
         component="aside"
-        className={`${sidebar.sidebar} ${wide && sidebar.newSidebar} ${isMatch && sidebar.slide_remove
-          } ${slide && sidebar.slide_in}`}
-
+        className={`${sidebar.sidebar} ${wide && sidebar.newSidebar} ${
+          isMatch && sidebar.slide_remove
+        } ${slide && sidebar.slide_in}`}
       >
         {/* LOGO Session Start */}
 
@@ -130,9 +135,13 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
           >
             {/* LOGO Session */}
 
-            <BrandLogo >
+            <BrandLogo>
               <Link href="/" className={sidebar.logo}>
-                <img src={wide ? Logosn : Logo} alt="" className={sidebar.logoImg} />
+                <img
+                  src={wide ? Logosn : Logo}
+                  alt=""
+                  className={sidebar.logoImg}
+                />
               </Link>
             </BrandLogo>
 
@@ -160,32 +169,46 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                 aria-controls={open ? "basic-menu" : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
-                onClick={toggleSlider}
+                onClick={toggleEntities}
                 className={sidebar.listItemsHeader}
+                style={{margin: 0}}
               >
                 {wide ? <FontAwesomeIcon icon={faChartSimple} /> : "Entities"}
 
-                {!wide && (openEntities ? (
-                  <FontAwesomeIcon className={sidebar.icon} icon={faCaretUp} />
-                ) : (
-                  <FontAwesomeIcon
-                    className={sidebar.icon}
-                    icon={faCaretDown}
-                  />
-                ))}
+                {!wide &&
+                  (openEntities ? (
+                    <FontAwesomeIcon
+                      className={sidebar.icon}
+                      icon={faCaretUp}
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      className={sidebar.icon}
+                      icon={faCaretDown}
+                    />
+                  ))}
               </h3>
               <div>
-                {
-                  openEntities ?
-                    Entities.map((item) => (
+                {openEntities
+                  ? Entities.map((item) => (
                       <ListItem
                         key={item.id}
-                        sx={!wide ? { px: "5px", py: "3px" } : { px: 0, py: "3px" }}
+                        sx={
+                          !wide
+                            ? { px: "5px", py: "3px" }
+                            : { px: 0, py: "3px" }
+                        }
                       >
-                        <a
-                          href={item.path}
-                          className={`${sidebar.listItems} ${wide && sidebar.newItems
-                            } ${location.pathname === item.path ? sidebar.active : ''}`}
+                        <NavLink
+                        to={item.path}
+                          // href={item.path}
+                          className={`${sidebar.listItems} ${
+                            wide && sidebar.newItems
+                          } ${
+                            location.pathname === item.path
+                              ? sidebar.active
+                              : ""
+                          }`} style={{margin: 0}}
                         >
                           <FontAwesomeIcon
                             icon={item.icon}
@@ -204,11 +227,10 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                             {" "}
                             {item.title}{" "}
                           </Box>
-                        </a>
+                        </NavLink>
                       </ListItem>
                     ))
-                    : null
-                }
+                  : null}
               </div>
             </List>
 
@@ -218,56 +240,66 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                 aria-controls={open ? "basic-menu" : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
-                onClick={toggleSlider}
+                onClick={toggleWebContent}
                 className={sidebar.listItemsHeader}
+                style={{margin: 0}}
               >
                 {wide ? <FontAwesomeIcon icon={faEarthAsia} /> : "Web Content"}
 
-                {!wide && (openWebContent ? (
-                  <FontAwesomeIcon className={sidebar.icon} icon={faCaretUp} />
-                ) : (
-                  <FontAwesomeIcon
-                    className={sidebar.icon}
-                    icon={faCaretDown}
-                  />
-                ))}
+                {!wide &&
+                  (openWebContent ? (
+                    <FontAwesomeIcon
+                      className={sidebar.icon}
+                      icon={faCaretUp}
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      className={sidebar.icon}
+                      icon={faCaretDown}
+                    />
+                  ))}
               </h3>
               <div id="webContentMenu" className={sidebar.dropDownMenu}>
                 {openWebContent
                   ? webContent.map((item) => (
-                    <ListItem
-                      key={item.id}
-                      sx={
-                        !wide
-                          ? { px: "5px", py: "3px" }
-                          : { px: 0, py: "3px" }
-                      }
-                    >
-                      <a
-                        href={item.path}
-                        className={`${sidebar.listItems} ${wide && sidebar.newItems
-                          } ${location.pathname === item.path ? sidebar.active : ''}`}
+                      <ListItem
+                        key={item.id}
+                        sx={
+                          !wide
+                            ? { px: "5px", py: "3px" }
+                            : { px: 0, py: "3px" }
+                        }
                       >
-                        <FontAwesomeIcon
-                          icon={item.icon}
-                          className={sidebar.icons}
-                        />
-                        <Box
-                          component="span"
-                          sx={{
-                            ml: "5px",
-                            fontSize: "15px",
-                            fontFamily: "Poppins",
-                            textTransform: "none",
-                          }}
-                          className={wide && sidebar.d_none}
+                        <NavLink
+                          to={item.path}
+                          className={`${sidebar.listItems} ${
+                            wide && sidebar.newItems
+                          } ${
+                            location.pathname === item.path
+                              ? sidebar.active
+                              : ""
+                          }`} style={{margin: 0}}
                         >
-                          {" "}
-                          {item.title}{" "}
-                        </Box>
-                      </a>
-                    </ListItem>
-                  ))
+                          <FontAwesomeIcon
+                            icon={item.icon}
+                            className={sidebar.icons}
+                          />
+                          <Box
+                            component="span"
+                            sx={{
+                              ml: "5px",
+                              fontSize: "15px",
+                              fontFamily: "Poppins",
+                              textTransform: "none",
+                            }}
+                            className={wide && sidebar.d_none}
+                          >
+                            {" "}
+                            {item.title}{" "}
+                          </Box>
+                        </NavLink>
+                      </ListItem>
+                    ))
                   : ""}
               </div>
             </List>
@@ -278,68 +310,87 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                 aria-controls={open ? "basic-menu" : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
-                onClick={toggleSlider}
+                onClick={toggleSetting}
                 className={sidebar.listItemsHeader}
+                style={{margin: 0}}
               >
-                {wide ? <FontAwesomeIcon icon={faScrewdriverWrench} /> : "Settings"}
-
-                {!wide && (openSetting ? (
-                  <FontAwesomeIcon className={sidebar.icon} icon={faCaretUp} />
+                {wide ? (
+                  <FontAwesomeIcon icon={faScrewdriverWrench} />
                 ) : (
-                  <FontAwesomeIcon
-                    className={sidebar.icon}
-                    icon={faCaretDown}
-                  />
-                ))}
+                  "Settings"
+                )}
+
+                {!wide &&
+                  (openSetting ? (
+                    <FontAwesomeIcon
+                      className={sidebar.icon}
+                      icon={faCaretUp}
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      className={sidebar.icon}
+                      icon={faCaretDown}
+                    />
+                  ))}
               </h3>
               <div>
                 {openSetting
                   ? setting.map((item) => (
-                    <ListItem
-                      key={item.id}
-                      sx={
-                        !wide
-                          ? { px: "5px", py: "3px" }
-                          : { px: 0, py: "3px" }
-                      }
-                    >
-                      <a
-                        href={item.path}
-                        className={`${sidebar.listItems} ${wide && sidebar.newItems
-                          } ${location.pathname === item.path ? sidebar.active : ''}`}
+                      <ListItem
+                        key={item.id}
+                        sx={
+                          !wide
+                            ? { px: "5px", py: "3px" }
+                            : { px: 0, py: "3px" }
+                        }
                       >
-                        <FontAwesomeIcon
-                          icon={item.icon}
-                          className={sidebar.icons}
-                        />
-                        <Box
-                          component="span"
-                          sx={{
-                            ml: "5px",
-                            fontSize: "15px",
-                            fontFamily: "Poppins",
-                            textTransform: "capitalize",
-                          }}
-                          className={wide && sidebar.d_none}
+                        <NavLink
+                          to={item.path}
+                          className={`${sidebar.listItems} ${
+                            wide && sidebar.newItems
+                          } ${
+                            location.pathname === item.path
+                              ? sidebar.active
+                              : ""
+                          }`} style={{margin: 0}}
                         >
-                          {" "}
-                          {item.title}{" "}
-                        </Box>
-                        <FontAwesomeIcon
-                          icon={item.down}
-                          className={`${sidebar.endIcon} ${wide && sidebar.d_none
+                          <FontAwesomeIcon
+                            icon={item.icon}
+                            className={sidebar.icons}
+                          />
+                          <Box
+                            component="span"
+                            sx={{
+                              ml: "5px",
+                              fontSize: "15px",
+                              fontFamily: "Poppins",
+                              textTransform: "capitalize",
+                            }}
+                            className={wide && sidebar.d_none}
+                          >
+                            {" "}
+                            {item.title}{" "}
+                          </Box>
+                          <FontAwesomeIcon
+                            icon={item.down}
+                            className={`${sidebar.endIcon} ${
+                              wide && sidebar.d_none
                             }`}
-                        />
-                      </a>
-                    </ListItem>
-                  ))
+                          />
+                        </NavLink>
+                      </ListItem>
+                    ))
                   : ""}
               </div>
             </List>
           </Box>
         </Box>
         <Box>
-          <Typography className={sidebar.versionNo}>{gitInfo.commit.shortHash}</Typography>
+          {
+            !wide && <Typography className={sidebar.versionNo}>
+            ver : {gitInfo.commit.shortHash}
+          </Typography>
+          }
         </Box>
       </Box>
     </>
