@@ -84,6 +84,9 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
       setOpenEntities(true);
       setOpenWebContent(false);
       setOpenSetting(false);
+    }else{
+
+      setOpenEntities(false)
     }
   };
 
@@ -98,6 +101,8 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
       setOpenWebContent(true);
       setOpenEntities(false);
       setOpenSetting(false);
+    }else{
+      setOpenWebContent(false)
     }
   };
 
@@ -112,6 +117,8 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
       setOpenSetting(true);
       setOpenEntities(false);
       setOpenWebContent(false);
+    }else{
+      setOpenSetting(false)
     }
   };
 
@@ -230,6 +237,8 @@ const SidebarComp = ({ wide, isMatch, slide, slideOut }) => {
                             {item.title}{" "}
                           </Box>
                         </NavLink>
+
+                       
                       </ListItem>
                     ))
                   : null}
