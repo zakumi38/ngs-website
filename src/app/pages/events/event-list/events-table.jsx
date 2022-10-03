@@ -127,8 +127,8 @@ const EventsTable = ({ events, action, setAction }) => {
                                     <TableCell>
                                         <Stack
                                             direction="row"
-                                            justifyContent="space-between"
-                                            gap="10px"
+                                            justifyContent="space-around"
+                                            gap="5px"
                                         >
                                             <Link href={`/events/view/${event.id}`}>
                                                 <ActionIcon
@@ -179,8 +179,7 @@ const EventsTable = ({ events, action, setAction }) => {
                 <DialogActions
                     sx={{
                         margin: "15px",
-                        gap: "10px",
-                        justifyContent: "space-between",
+                        gap: "10px"
                     }}
                 >
                     <Button

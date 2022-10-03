@@ -108,7 +108,10 @@ const TeamsTable = ({ teamMembers, action, setAction }) => {
                                     <TableCell>
                                         <Stack
                                             direction="row"
-                                            justifyContent="space-between"
+                                            justifyContent="space-around"
+                                            gap="10px"
+                                            width="120px"
+                                            margin="auto"
                                         >
                                             <Link
                                                 href={`team/view/${member.id}`}
@@ -161,8 +164,7 @@ const TeamsTable = ({ teamMembers, action, setAction }) => {
                 <DialogActions
                     sx={{
                         margin: "15px",
-                        gap: "10px",
-                        justifyContent: "space-between",
+                        gap: "10px"
                     }}
                 >
                     <Button
